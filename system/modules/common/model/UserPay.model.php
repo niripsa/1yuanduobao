@@ -147,6 +147,21 @@ class UserPay_model extends model
         return $this->Getone($sql);
     }
 
+    public function get_recharge_order($oid, $status = 1){
+        $sql = "select * from `@#_orders` where `oid`='" . $oid . "' and `ostatus`='" . $status . "'";
+        return $this->Getone($sql);
+    }
+
+    public function get_recharge_order_by_code($ocode, $status = 1){
+        if(!empty($status)){
+            $sql = "select * from `@#_orders` where `ocode`='" . $ocode . "' and `ostatus`='" . $status . "'";
+        }else{
+            $sql = "select * from `@#_orders` where `ocode`='" . $ocode . "'";
+        }
+        
+        return $this->Getone($sql);
+    }
+
     public function get_money_record($ocode)
     {
         $sql = "select * from `@#_user_money_record` where `code`='" . $ocode . "'";

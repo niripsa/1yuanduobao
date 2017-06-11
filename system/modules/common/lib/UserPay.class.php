@@ -14,6 +14,8 @@ class UserPay
     public $fufen_to_money = 0;
     public $oid;
 
+    public $callback_info = array();
+
     public function init( $uid = NULL, $pay_type = NULL, $fukuan_type = "", $addmoney = "" )
     {
         $this->db      = System::load_sys_class( "model" );
@@ -338,6 +340,88 @@ class UserPay
         exit();
     }
 
+    /**
+     * 手动设置支付成功后的后续操作 由后台手动设置为充值完毕后调用
+     */
+    public function pay_success_recharge_order( $oid, $pay_id = 0, $payclass = '' )
+    {
+        $userpaydb    = System::load_app_model("UserPay", "common");
+        $this->db     = System::load_sys_class("model");
+        $userdb       = System::load_app_model("user", "common");
+        $member_model = System::load_app_model("member", "common");
+        $order_model  = System::load_app_model("order", "common");
+        
+        $dingdaninfo = $userpaydb->get_recharge_order( $oid );
+        if(empty($dingdaninfo)){
+            $dingdaninfo = $userpaydb->get_recharge_order_by_code( $oid );
+        }
+        $time = time();
+        if ( ! $dingdaninfo ) {
+            exit('no order info');
+        }else {
+            //判断回调money跟订单money是否一致
+            if(!empty($this->callback_info)){      
+                $callback_money = $this->callback_info['total_fee']/100;
+                
+                if(abs($callback_money - $dingdaninfo['omoney']) > 1e-4){
+                    $up_q10 = "update `@#_orders` SET `ostatus` = '5', `ocallback_money` = ${callback_money}  where `oid` = '" . $dingdaninfo["oid"] . "'";
+                    $this->db->Query( $up_q10 );
+
+                    file_put_contents("/home/dev/pay_notify_" . date('Ymd') . ".log", json_encode($this->callback_info).PHP_EOL, FILE_APPEND);
+                    exit('success');
+                }
+
+                $callback_info_str = json_encode($this->callback_info, JSON_UNESCAPED_UNICODE);
+            }else{
+                $callback_info_str = '';
+                $callback_money = 0;
+            }
+            
+            $this->db->sql_begin();
+            $uid = $dingdaninfo["ouid"];
+            $up_q11 = "update `@#_orders` SET `ostatus` = '2',`ocallback_money` = ${callback_money},`ocallback_info` = '${callback_info_str}'  where `oid` = '" . $dingdaninfo["oid"] . "'";
+            $up_q22 = "update `@#_user` SET `money` = `money` + " . $dingdaninfo["omoney"] . "  where `uid` = '" . $uid . "'";
+            $up_q33 = "insert into `@#_user_account` (`uid`, `type`, `pay`, `content`, `money`, `time`) VALUES ('" . $uid . "', '1', '账户', '充值', '" . $dingdaninfo["omoney"] . "', '" . $time . "')";
+            $up_q1 = $this->db->Query( $up_q11 );
+            $up_q2 = $this->db->Query( $up_q22 );
+            $up_q3 = $this->db->Query( $up_q33 );
+            /* 充值按比例返现 */
+            $rebate = _app_cfg( 'money', 'rebate' );
+            /* 光100的整数才算 */
+            $back_money = intval($dingdaninfo["omoney"] / 100) * 100;
+            if ( $rebate > 0 && $back_money > 0 )
+            {
+                $back_money = $back_money / 100 * $rebate;
+                $acc_arr["uid"]     = $uid;
+                $acc_arr["type"]    = 1;
+                $acc_arr["pay"]     = "账户";
+                $acc_arr["content"] = "充值返现";
+                $acc_arr["money"]   = $back_money;
+                $acc_arr["time"]    = time();
+                $text = "充值返现:" . $back_money;
+                $order_model->user_add_chongzhi( $uid, $back_money, $text );
+                $member_model->user_account_add( $acc_arr );
+                $where = "`uid` = '{$uid}'";
+                $user_data = "`money` = `money` + {$back_money}";
+                $userdb->UpdateUser( $user_data, $where );
+            }
+            if ( $up_q1 && $up_q2 && $up_q3 )
+            {
+                $this->db->sql_commit();
+                $wxstatus = 'success';
+                /* 开始分佣 */
+                distribute_money( $uid, $dingdaninfo['omoney'], $payclass );
+                return true;
+            }
+            else
+            {
+                $this->db->sql_rollback();
+                $wxstatus = 'fail';
+            }
+        }
+        return false;
+    }
+
     private function go_record()
     {
         $userpay_clouddb = System::load_app_model("UserPay_cloud", "common");
@@ -509,7 +593,8 @@ class UserPay
             }
             else
             {
-                $InsertOrders_html = "('1','$uid','$dingdancode','$money','1','$pay_type','充值','$time'),";
+                $sRemark = $this->pay_type['pay_name'] . '充值';
+                $InsertOrders_html = "('1','$uid','$dingdancode','$money','1','$pay_type','$sRemark','$time'),";
                 $query = $userpaydb->InsertOrders( $InsertOrders_html );
             }
 
@@ -534,11 +619,48 @@ class UserPay
             $config["pay_code"]      = $dingdancode;
             $config['pay_ReturnUrl'] = G_WEB_PATH.'/index.php/plugin-Pay-return-Recharge-alipayReturnUrl?';
             $config['pay_NotifyUrl'] = G_WEB_PATH.'/index.php/plugin-Pay-return-Recharge-alipayNotifyUrl?';
+
+            switch ($pay_type['pay_class']) {
+                case 'wxpay':
+                    $pay_title = "微信支付";
+                    $pay_pic = "wxlogo_pay.png";
+                    $pay_name = "微信";
+                    $_POST['pay_method'] = "pay.weixin.native";
+                    $_POST['notify_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/?/member/pay_notify/wxpay_notify&id=" . time();
+                    break;
+                case 'alipay':
+                    $pay_title = "支付宝支付";
+                    $pay_pic = "alipay.gif";
+                    $pay_name = "支付宝";
+                    $_POST['pay_method'] = "pay.alipay.native";
+                    $_POST['notify_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/?/member/pay_notify/alipay_notify&id=" . time();
+                    break;
+                default:
+                    exit;
+            }
+        
+            //导入统一支付接口 第三方做的集成阿里支付、微信支付的工具
+            include G_PLUGIN . "Pay/unipay/request.php";
+            $_POST['out_trade_no'] = $dingdancode;
+            $_POST['body'] = '夺宝币充值';
+            $_POST['total_fee'] = $money*100;
+            $_POST['mch_create_ip'] = $_SERVER['SERVER_ADDR'];
+            $pay_class = new Request();
+            $aPayInfo = $pay_class->submitOrderInfo();
+            
+            include G_PLUGIN."Pay/unipay/pay_display.php";
+            return true;
+
+/*            if(!in_array(intval($money), array(10,20,50,100,200,))){
+                $pay_subfix = 'any';
+            }else{
+                $pay_subfix = $money;
+            }
+            $config['jump_url'] = '/system/static/images/' . $config["pay_class"] . '_' . $pay_subfix . '.jpg';
             include G_PLUGIN . "Pay/" . $config["pay_class"] . "/lib/" . $config["pay_class"] . ".class.php";
             $apiclass = new $config["pay_class"]();
             $apiclass->config( $config );
-            $apiclass->send_pay();
-            return true;
+            $apiclass->send_pay();*/
         }
     }
 

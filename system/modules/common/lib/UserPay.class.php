@@ -625,7 +625,14 @@ class UserPay
                     $pay_title = "微信支付";
                     $pay_pic = "wxlogo_pay.png";
                     $pay_name = "微信";
-                    $_POST['pay_method'] = "pay.weixin.native";
+                    if(is_weixin()){
+                        //如果是微信 则走公众号支付
+                        $_POST['pay_method'] = "pay.weixin.jspay";
+                    }else{
+                        //否则走正常的pc网页支付
+                        $_POST['pay_method'] = "pay.weixin.native";
+                    }
+
                     $_POST['notify_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/?/member/pay_notify/wxpay_notify&id=" . time();
                     break;
                 case 'alipay':
@@ -647,6 +654,13 @@ class UserPay
             $_POST['mch_create_ip'] = $_SERVER['SERVER_ADDR'];
             $pay_class = new Request();
             $aPayInfo = $pay_class->submitOrderInfo();
+
+            if(isset($aPayInfo['token_id'])){
+                $sTokenId = $aPayInfo['token_id'];
+                $pay_url = "https://pay.swiftpass.cn/pay/jspay?token_id=${sTokenId}&showwxtitle=1";
+                header("Location:$pay_url");
+                exit;
+            }
             
             include G_PLUGIN."Pay/unipay/pay_display.php";
             return true;

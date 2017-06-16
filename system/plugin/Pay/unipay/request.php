@@ -32,6 +32,20 @@ Class Request{
         $this->reqHandler->setReqParams($_POST,array('method'));
         //$this->reqHandler->setParameter('service','pay.weixin.native');//接口类型：pay.weixin.native  表示微信扫码
         $this->reqHandler->setParameter('service', $_POST['pay_method']);//接口类型：pay.alipay.native  表示支付宝扫码
+        //如果是公众号支付 还需要设置app_id和用户的open_id
+        if(trim($_POST['pay_method']) == "pay.weixin.jspay"){
+            $this->reqHandler->setParameter('sub_appid', $this->cfg->C('appid'));
+
+            //获取支付用户的open_id
+            include G_PLUGIN . "Pay/wxpay/lib/WxPay.JsApiPay.php";
+            $tools = new JsApiPay();
+            $openId = $tools->GetOpenid($this->cfg->C('appid'), $this->cfg->C('appsecret'));
+            
+            $this->reqHandler->setParameter('sub_openid', $openId);
+            file_put_contents("/home/dev/test.log", 'get_open_id:' . json_encode($openId).PHP_EOL, FILE_APPEND);
+        }
+        
+
         $this->reqHandler->setParameter('mch_id',$this->cfg->C('mchId'));//必填项，商户号，由威富通分配
         $this->reqHandler->setParameter('version',$this->cfg->C('version'));
         
@@ -51,6 +65,11 @@ Class Request{
             if($this->resHandler->isTenpaySign()){
                 //当返回状态与业务结果都为0时才返回支付二维码，其它结果请查看接口文档
                 if($this->resHandler->getParameter('status') == 0 && $this->resHandler->getParameter('result_code') == 0){
+                    if(trim($_POST['pay_method']) == "pay.weixin.jspay"){
+                        //如果是微信公众号支付 则返回一个tokenid 可以用来调起微信支付
+                        return array('token_id' => $this->resHandler->getParameter('token_id'));
+                    }
+
                     return array('code_img_url'=>$this->resHandler->getParameter('code_img_url'),
                                            'code_url'=>$this->resHandler->getParameter('code_url'),
                                            'code_status'=>$this->resHandler->getParameter('code_status'),

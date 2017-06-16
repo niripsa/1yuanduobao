@@ -1,5 +1,6 @@
 <?php
 #微信授权回调url
+
 $sBaseUrl = $_REQUEST['real_url'];
 if(!preg_match("#^http#", $sBaseUrl)){
 	exit();

@@ -259,9 +259,13 @@ class cart extends SystemAction
      */
     public function addmoney()
     {
+        if(isset($_GET['code'])){
+            $_POST = $_REQUEST;
+        }
+
         if ( ! isset( $_POST["submit"] ) )
         {
-            _message( L("addmoney.html.go"), WEB_PATH . "/member/home/userrecharge" );
+            _message( L("addmoney.html.go"), WEB_PATH . "/?/member/home/userrecharge" );
         }
         $user = System::load_app_class("UserCheck", "common");
         if ( ! $user )

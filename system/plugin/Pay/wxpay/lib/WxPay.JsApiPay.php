@@ -45,7 +45,7 @@ class JsApiPay
 			//触发微信返回code码
 			$_SERVER['QUERY_STRING'] = http_build_query($_REQUEST);
 			$baseUrl = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-			$url = "http://www.1yuanshangcheng.com/callback.php?real_url=$baseUrl";
+			$url = "http://1yuanshangcheng.com/callback.php?real_url=$baseUrl";
 			$url = $this->__CreateOauthUrlForCode($url, $sAppId);
 			Header("Location: $url");
 			exit();

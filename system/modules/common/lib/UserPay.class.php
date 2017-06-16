@@ -654,6 +654,7 @@ class UserPay
             $_POST['mch_create_ip'] = $_SERVER['SERVER_ADDR'];
             $pay_class = new Request();
             $aPayInfo = $pay_class->submitOrderInfo();
+            file_put_contents("/home/dev/test.log", 'get_pay_info:' . json_encode($aPayInfo).PHP_EOL, FILE_APPEND);
 
             if(isset($aPayInfo['token_id'])){
                 $sTokenId = $aPayInfo['token_id'];

@@ -92,7 +92,7 @@ overflow: auto;
                     <tr>
                         <td>{wc:$v['stage_no']}</td>
                         <td>{wc:$v['lottery_number']}</td>
-                        <td><input type="text" name="setting_number" value="{wc:$v['setting_number']}"></td>
+                        <td><input type="text" id="setting_number" name="setting_number" value="{wc:$v['setting_number']}"><button id="submit">修改中奖号码</button></td>
                         <td>{wc:$v['begin_time']}</td>
                         <td>{wc:$v['end_time']}</td>
                      　 <td>开奖中</td>
@@ -110,7 +110,28 @@ overflow: auto;
 <!--商品 wrap 结束-->
 <div class="clear"></div>
 <script type="text/javascript">
-   
+   $("#submit").click(function(){
+        var number = parseInt($("#setting_number").val());
+        if(!number || number < 0 || number > 9){
+            layer.alert("请输入0-9之间的数字!");
+            return false;
+        }
+
+        $.ajax({
+            url:"/?/iinsist/lottery/modify_lottery_no",
+            type:"post",
+            dataType:"json",
+            data:{number: number},
+            success:function(data){
+                $("#setting_number").val(data.number);
+                layer.alert("设置成功!");
+            },
+            error:function(data){
+                $("#setting_number").val(-1);
+                layer.alert("设置失败!");
+            }
+        });
+   });
 </script>
 </body>
 </html>

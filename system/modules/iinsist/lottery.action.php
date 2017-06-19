@@ -12,6 +12,28 @@ class lottery extends admin{
         $this->view->show("user.lottery_kj_record_admin");
     }
 
+    public function modify_lottery_no(){
+        $iNumber = intval($_POST['number']);
+        if($iNumber < 0 || $iNumber > 9){
+            exit;
+        }
+
+        $sql =  "select * from `@#_lottery_stage` where `status` in (1) order by `end_time` desc limit 1";
+        $mysql_model = System::load_sys_class("model");
+        $aLotteryInfo = $mysql_model->GetOne($sql);
+        if(empty($aLotteryInfo) || time() >= strtotime($aLotteryInfo['end_time'] + 3)){
+            exit();
+        }
+
+        $sNow = date("Y-m-d H:i:s");
+        $sql = "update `@#_lottery_stage` set setting_number = $iNumber, setting_time = '$sNow'";
+        $mysql_model->Query($sql);
+
+        $aRet = [];
+        $aRet['errno'] = 0;
+        exit(json_encode($aRet));
+    }
+
     public function buy_record(){
 
     }

@@ -21,8 +21,10 @@ use think\Verify;
 use think\Db;
 class Index extends Base {
     
-    public function index(){      
-
+    public function index(){    
+        $url = "/tpshop/index.php?m=Home&c=Goods&a=integralMall";  
+        header("Location:$url");
+        exit;
         // 如果是手机跳转到 手机模块
         if(true == isMobile()){
             header("Location: ".U('Mobile/Index/index'));

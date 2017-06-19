@@ -1,16 +1,16 @@
 <?php
 //crontab定时任务 每10分钟跑一次 判断是否应该开奖 同时生成下一期开奖号码
-/*if(php_sapi_name() != 'cli'){
+if(php_sapi_name() != 'cli'){
 	exit("could not be called by api!");
-}*/
+}
 set_time_limit(0);
 $sNow = date('Y-m-d H:i:s');
 
 $sIp = "127.0.0.1";
 $sPort = 3306;
-$sUserName = "root";
-$sUserPass = "123";
-$sDatabase = "yydb";
+$sUserName = "duobao";
+$sUserPass = "lkjoe990kldskfj";
+$sDatabase = "duobao";
 $iTime = 10; //10分钟开一轮
 
 $con = mysqli_connect($sIp, $sUserName, $sUserPass, $sDatabase, $sPort);

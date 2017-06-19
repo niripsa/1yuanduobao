@@ -246,9 +246,11 @@
             }
             S=false;
             KS=true;
-            if(KT) clearTimeout(KT);
-            $('.lottery_history_issue span').text($('#current_issue').text());
-            setKJWaiting(kjTime);
+
+            window.location.reload(true);
+            //if(KT) clearTimeout(KT);
+            //$('.lottery_history_issue span').text($('#current_issue').text());
+            //setKJWaiting(kjTime);
         }else{
             if(actionNo){
                $('#current_issue').html(actionNo);
@@ -342,7 +344,7 @@
                     setTimeout(loadKjData, 10000);//动画时间
                 }else{
                     try{
-                        window.location.reload();
+                        window.location.reload(true);
                     }catch(err){
                         setTimeout(loadKjData, 5000);
                     }

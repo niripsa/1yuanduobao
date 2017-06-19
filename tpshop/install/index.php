@@ -121,13 +121,13 @@ switch ($step) {
         }
         
         $folder = array(
-            'install',
-            'public/upload',
-            'application/admin/conf',            
-            'runtime',
-            'runtime/cache',
-	    	'runtime/temp',
-	    	'runtime/log',        	
+            'tpshop/install',
+            'tpshop/public/upload',
+            'tpshop/application/admin/conf',            
+            'tpshop/runtime',
+            'tpshop/runtime/cache',
+	    	'tpshop/runtime/temp',
+	    	'tpshop/runtime/log',        	
         );
         include_once ("./templates/step2.php");
         exit();

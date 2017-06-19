@@ -21,7 +21,7 @@ class lottery extends admin{
         $sql =  "select * from `@#_lottery_stage` where `status` in (1) order by `end_time` desc limit 1";
         $mysql_model = System::load_sys_class("model");
         $aLotteryInfo = $mysql_model->GetOne($sql);
-        if(empty($aLotteryInfo) || time() >= strtotime($aLotteryInfo['end_time'] + 3)){
+        if(empty($aLotteryInfo) || time() >= strtotime($aLotteryInfo['end_time']) + 3){
             exit();
         }
 

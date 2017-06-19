@@ -312,7 +312,7 @@
                 $('#m2x').html(mx['1']);
             }
             if(S && h==0 && ((m==30 && s==0) || (m==0 && s==4))){
-                //getcorrtime();
+                getcorrtime();
             }
            
             if(h==0 && m==0 && s==0){
@@ -327,6 +327,10 @@
                 }
             }
         }
+    }
+
+    function getcorrtime(){
+        window.location.reload(true);
     }
 
     function loadKjData(){

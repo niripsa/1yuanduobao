@@ -1,0 +1,145 @@
+.fourtp-adv{
+    background: #fff5f5;
+    ul{
+        overflow: hidden;
+        padding: 20px 0;
+        li{
+            float: left;
+            margin-left: 34px;
+            img{
+                width: 280px;
+                height: 122px;
+            }
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+    }
+}
+$brand_width:168px;
+.floormain_brand{
+    margin-top: 28px;
+    .mabrand_le{
+        width: $brand_width;
+        float: left;
+        ul{
+            li{
+                height: 35px;
+                height: 35px;
+                line-height: 35px;
+                padding-left: 15px;
+                overflow: hidden;
+                background: #2b2b2b;
+                border-bottom: 1px solid #4c4c4c;
+                font-family: "microsoft yahei";
+                cursor: pointer;
+                a{
+                    color: #fff;
+                    font-size: 14px;
+                }
+            }
+            .checkonli{
+                background: #e23435;
+                border-color: #e23435;
+            }
+        }
+    }
+    .posijsadd{
+        ul{
+            position: fixed;
+            top: 0;
+            width: 168px;
+            z-index: 6;
+        }
+    }
+    .mabrand_ri{
+        width: 1224 - $brand_width - 18px;
+        float: right;
+        .street-floor-title{
+            height: 35px;
+            border-bottom: 1px solid #a0a0a0;
+            margin-bottom: 8px;
+            float: left;
+            width: 100%;
+            h1{
+                font-size: 18px;
+                color: #e23435;
+                font-weight: normal;
+                float: left;
+                padding: 8px 20px 9px 10px;
+            }
+            ul{
+                float: left;
+                li{
+                    float: left;
+                    padding: 8px 0px;
+                    padding-top: 7px\0;
+                    cursor: pointer;
+                    a{
+                        display: inline-block;
+                        padding: 0 18px;
+                        font-size: 14px;
+                        font-family: "microsoft yahei";
+                        border-right: 1px solid #b1b1b1;
+                    }
+                }
+                .on{
+                    height: 20px;
+                    border: 1px solid #a0a0a0;
+                    border-bottom: 0;
+                    background: #fff;
+                    margin-left: -1px;
+                    margin-top: -1px;
+                    margin-top: 0px\9;
+                    a{
+                        border: 0;
+                        color: #e23435;
+                    }
+                }
+                .last{
+                    a{
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+        .street-floor-main{
+            .adveritem{
+                li{
+                    float: left;
+                    margin-left: 21px;
+                    img{
+                        width: 332px;
+                        height: 100px;
+                    }
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                }
+            }
+            .adveritem2{
+                overflow: hidden;
+                margin-top: 10px;
+                padding-bottom: 1px;
+                padding-top: 1px;
+                height: 99px;
+                li{
+                    float: left;
+                    width: 114px;
+                    height: 49px;
+                    text-align: center;
+                    border: 1px solid #dcdcdc;
+                    margin-top: -1px;
+                    margin-right: -1px;
+                    img{
+                        width: 114px;
+                        height: 49px;
+                    }
+                }
+            }
+        }
+    }
+}
+.streetfloorsum{
+    margin-bottom: 20px;
+}

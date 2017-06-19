@@ -1,0 +1,19 @@
+.settingnews{
+    .myorder{
+        height: 100px/$ppr;
+        line-height: 100px/$ppr;
+    }
+    .myorder .order .fr .turnoff{
+        @include background-image(turnsq);
+        width: 116px/$ppr;
+        height: 55px/$ppr;
+        margin-top: 20px/$ppr;
+        background-position-x: 0;
+    }
+    .myorder .order .fr .xmove{
+        background-position-x: -116px/$ppr;
+    }
+    .myorder .order .fl span{
+        margin-left: 0;
+    }
+}

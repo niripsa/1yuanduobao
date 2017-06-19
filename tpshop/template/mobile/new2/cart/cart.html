@@ -1,0 +1,147 @@
+<include file="public/header" title="购物车" body=""/>
+<include file="public/header_nav" title="购物车" href="javascript:history.back(-1);"/>
+<if condition="empty($user['user_id'])">
+<!--###用户未登录###-->
+    <div class="loginlater">
+        <img src="__STATIC__/images/small_car.png"/>
+        <span>登录后可同步电脑和手机购物车</span>
+        <a href="{:U('Mobile/User/loagin')}">登录</a>
+    </div>
+    <!--购物车有商品-s-->
+    <div class="cart_list">
+        <form id="cart_form" name="formCart" action="{:U('Mobile/Cart/ajaxCartList')}" method="post">
+            {:token()}
+        </form>
+    </div>
+    <!--购物车有商品-e-->
+
+    <!--看看热卖-start-->
+    <div class="hotshop seehotsho">
+        <div class="thirdlogin">
+            <h4>看看热卖</h4>
+        </div>
+    </div>
+    <div class="floor guesslike">
+        <div class="likeshop">
+            <ul>
+                <foreach name="hot_goods" item="good">
+                    <li>
+                        <a href="{:U('Mobile/goods/goodsInfo',array('id'=>$good[goods_id]))}">
+                            <div class="similer-product">
+                                <img src="/tpshop/{$good[goods_id]|goods_thum_images=200,200}"/>
+                                <span class="similar-product-text">{$good[goods_name]|getsubstr=0,20}</span>
+                                <span class="similar-product-price">
+                                    ¥<span class="big-price">{$good[shop_price]}</span>
+                                    <!--<span class="small-price">.00</span>-->
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+        <div class="add">热卖商品实时更新，常回来看看哟~</div>
+    </div>
+    <!--看看热卖-end-->
+
+<else/>
+<!--###用户已登录###-->
+    <!--购物车有商品-s-->
+    <div class="cart_list">
+        <form id="cart_form" name="formCart" action="{:U('Mobile/Cart/ajaxCartList')}" method="post">
+            {:token()}
+        </form>
+    </div>
+    <!--购物车有商品-e-->
+</if>
+<script type="text/javascript">
+    $(document).ready(function(){
+        ajax_cart_list(); // ajax 请求获取购物车列表
+    });
+
+    /**加载购物车商品列表*/
+    var before_request = 1; // 上一次请求是否已经有返回来, 有才可以进行下一次请求
+    function ajax_cart_list(){
+        if(before_request == 0) // 上一次请求没回来 不进行下一次请求
+            return false;
+        before_request = 0;
+        $.ajax({
+            type : "POST",
+            url:"{:U('Mobile/Cart/ajaxCartList')}",//+tab,
+            data : $('#cart_form').serialize(),// 你的formid
+            success: function(data){
+                $("#cart_form").html('');
+                $("#cart_form").append(data);
+                before_request = 1;
+            }
+        });
+    }
+
+    /**
+     * 购买商品数量加加减减
+     * 购买数量 , 购物车id , 库存数量
+     */
+    function switch_num(num,cart_id,store_count){
+        var num2 = parseInt($("input[name='goods_num["+cart_id+"]']").val());
+        //加减数量
+        num2 += num;
+        if(num2 < 1) num2 = 1;  // 保证购买数量不能少于 1
+        if(num2 > store_count) { //保证 不超过库存
+            layer.open({content:"库存只有 "+store_count+" 件, 你只能买 "+store_count+" 件",time:2})
+            num2 = store_count; // 保证购买数量不能多余库存数量
+        }
+        $("input[name='goods_num["+cart_id+"]']").val(num2);
+        ajax_cart_list();
+    }
+
+    //删除商品
+    function del_cart_goods(goods_id)
+    {
+        if(!confirm('确定要删除吗?'))
+            return false;
+        var chk_value = [];
+        chk_value.push(goods_id);
+        // ajax调用删除
+        if(chk_value.length > 0)
+            ajax_del_cart(chk_value.join(','));
+    }
+
+    // ajax 删除购物车的商品
+    function ajax_del_cart(ids)
+    {
+        $.ajax({
+            type : "POST",
+            url:"{:U('Mobile/Cart/ajaxDelCart')}",
+            data:{ids:ids},
+            dataType:'json',
+            success: function(data){
+                if(data.status == 1)
+                {
+                    ajax_cart_list(); //ajax 请求获取购物车列表
+                }
+            }
+        });
+    }
+
+    // 批量删除购物车的商品
+//    function del_cart_more()
+//    {
+//        if(!confirm('确定要删除吗?'))
+//            return false;
+//        // 循环获取复选框选中的值
+//        var chk_value = [];
+//        $('input[name^="cart_select"]:checked').each(function(){
+//            var s_name = $(this).attr('name');
+//            var id = s_name.replace('cart_select[','').replace(']','');
+//            chk_value.push(id);
+//        });
+//        // ajax调用删除
+//        if(chk_value.length > 0)
+//            ajax_del_cart(chk_value.join(','));
+//    }
+</script>
+</body>
+</html>
+
+
+

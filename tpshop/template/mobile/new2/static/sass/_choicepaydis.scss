@@ -1,0 +1,53 @@
+.p_zyft{
+    padding: 30px/$ppr 0;
+    .ka{
+        background: url(../images/ka.png) no-repeat;
+        width: 40px/$ppr;
+        height: 26px/$ppr;
+        display: inline-block;
+        vertical-align: top;
+        background-size: 40px/$ppr;
+        margin-right: 6px/$ppr;
+    }
+    .yg{
+       background-position-x: -44px/$ppr;
+       vertical-align: text-top;
+    }
+    p{
+        font-size: 30px/$ppr;
+    }
+}
+.in_chio{
+    color: #5b5b5b;
+    font-size: 24px/$ppr;
+}
+.p_zyfm{
+    img{
+        border: 1px solid #dddddd;
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+        margin-right:43px/$ppr;
+        &:nth-child(5n){
+            margin-right: 0;
+        }
+    }
+}
+.p_zyfb{
+    padding: 30px/$ppr 0;
+    a{
+        padding: 18px/$ppr;
+        border: 1px solid #b0b0b0;
+        font-size: 26px/$ppr;
+        border-radius:6px/$ppr;
+        margin-right: 20px/$ppr;
+        display: inline-block;
+    }
+    .red{
+        color: #f23030;
+        border-color: #f23030;
+    }
+}
+.pay_mind{
+    border-bottom: 1px solid #dadde0;
+    background: white;
+}

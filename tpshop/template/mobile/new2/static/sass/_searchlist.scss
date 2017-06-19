@@ -1,0 +1,245 @@
+.search_list_dump{
+    ul{
+        li{
+            width: 20%;
+            .pr{
+                @include background-image(sxjt);
+                background-size: 48px/$ppr;
+                height: 22px/$ppr;
+                top: 35px/$ppr;
+                background-position-x: 0;
+            }
+            .bpr1{
+                background-position-x: -16px/$ppr;
+            }
+            .bpr2{
+                background-position-x: -32px/$ppr;
+            }
+            .fitter{
+                @include background-image(xx);
+                width: 24px/$ppr;
+                height: 26px/$ppr;
+                top: 34px/$ppr;
+            }
+            .listorimg{
+                @include background-image(listo);
+                background-size: 80px/$ppr;
+                width: 40px/$ppr;
+                height: 40px/$ppr;
+                top: 26px/$ppr;
+                &.orimg{
+                    background-position-x: -40px/$ppr;
+                }
+            }
+        }
+    }
+}
+.addimgchan{
+    .orderlistshpop{
+        width: 50%;
+        float: left;
+    }
+    .maleri30{
+        margin: 0 10px/$ppr;
+    }
+    .se_sclist{
+        .shopimg{
+            float: none;
+            text-align: center;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .deleshow{
+            width: 100%;
+            .deletes{
+                .similar-product-text{
+                    width: 100%;
+                }
+            }
+            .prices{
+                float: left;
+                .sc_pri{
+                    span{
+                        
+                    }
+                }
+            }
+            .weight{
+                float: right;
+                span{
+                    
+                }
+            }
+        }
+    }
+}
+.fil_all_comm{
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    position: absolute;
+    top: 88px/$ppr;
+    z-index: 99;
+    width: 100%;
+    ul{
+        li{
+            font-size: 32px/$ppr;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            position: relative;
+            cursor: pointer;
+            a{
+                display: block;
+            }
+        }
+        .red{
+            color: #f23030;
+            &:after{
+                content: "";
+                @include background-image(dgr);
+                width: 24px/$ppr;
+                height: 16px/$ppr;
+                position: absolute;
+                right: 0;
+                top: 32px/$ppr;
+            }
+            a{
+                color: #f23030;
+            }
+        }
+    }
+}
+.pore{
+   position: relative;
+   z-index: 99; 
+}
+.screen_wi{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+//  width: 675px/$ppr;
+    width: 0;
+    background-color: $grey4;
+    .classreturn{
+        width: 675px/$ppr;
+    }
+    .content .search{
+        width: 500px/$ppr;
+        margin-left: 70px/$ppr;
+    }
+    .menu{
+        font-size: $num28;
+        margin-top: 10px/$ppr;
+    }
+}
+.whiback{
+    background-color: white;
+}
+.popcover{
+    overflow: hidden;
+    background-color: white;
+    padding-bottom: 20px/$ppr;
+    ul{
+        li{
+            float: left;
+            width: 100/3*1%;
+            height: 60px/$ppr;
+            margin-top: 20px/$ppr;
+            padding: 0 30px/$ppr;
+            span{
+                display: block;
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                line-height: 60px/$ppr;
+                border: 1px solid $grey4;
+                border-radius: 6px/$ppr;
+                position: relative;
+                color: #888888;
+                cursor: pointer;
+            }
+            .ch_dg{
+                padding-left: 24px/$ppr;
+                color: rgb(242,48,48);
+                border-color: rgb(242,48,48);
+                &:before{
+                    content: "";
+                    @include background-image(dgr);
+                    width: 24px/$ppr;
+                    height: 16px/$ppr;
+                    position: absolute;   
+                    left: 0.268rem;
+                    top: 20px/$ppr;
+                }
+            }
+        }
+    }
+}
+.list-se-all{
+    .myorder .order .fl span{
+        margin-left: 0;
+    }
+}
+.two-related{
+    .myorder .order .fr{
+        margin-top: 10px/$ppr;
+    }
+    .Mright{
+        background-image: url(../images/dgr.png);
+        width: 24px/$ppr;
+        height: 16px/$ppr;
+    }
+}
+.two-related{
+    display: none;
+}
+.screen_wi .suce_ok{
+    font-size: 0.59733rem;
+}
+.classreturn .content .suce_ok a{
+    display: block;
+}
+.se_sclist{
+    .deleshow{
+        width: 493px/$ppr;
+        position: relative;
+    }
+    .deleshow .deletes .similar-product-text{
+        width: 493px/$ppr;
+    }
+    .deleshow .prices{
+        margin-top: 0;
+        margin-bottom: 20px/$ppr;
+    }
+    .deleshow .prices .sc_pri{
+        margin-top: 0;
+    }
+}
+.se_sclist .deleshow .prices .sc_pri .cobl{color: #999999;}
+.wiconfine{
+    width: 300px/$ppr;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    p{
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+.buttondde{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    a{
+        font-size: 26px/$ppr;
+        color: #999999;
+    }
+}
+.inherflo{
+    position: inherit;
+    float: right;
+}

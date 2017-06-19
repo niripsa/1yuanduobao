@@ -1,0 +1,50 @@
+.heses{
+    width: 100%;
+    height: 420px/$ppr;
+    background-color: #f1f8ee;
+}
+.completionpay{
+    .llog{
+        padding: 50px/$ppr 0;
+        img{
+            width: 132px/$ppr;
+            height: 39px/$ppr;
+        }
+    }
+    .heses{
+        border-top: 2px solid #009323;
+        .zbzim{
+            text-align: center;
+            padding-top: 30px/$ppr;
+            padding-bottom: 30px/$ppr;
+            img{
+                width: 78px/$ppr;
+                height: 60px/$ppr;
+            }
+        }
+        p{
+            font-size: 28px/$ppr;
+            line-height: 2;
+        }
+        .success{
+            color: #7cb364;
+            text-align: center;
+        }
+        .ddnum{
+            margin-left: 172px/$ppr;
+            .red{
+                color: #f23030;
+            }
+        }
+    }
+    .ddxq-succ{
+        text-align: center;
+        margin-top: 20px/$ppr;
+        a{
+            padding: 10px/$ppr 40px/$ppr;
+            border: 1px solid $grey3;
+            border-radius: 4px/$ppr;
+            color: #7cb364;
+        }
+    }
+}

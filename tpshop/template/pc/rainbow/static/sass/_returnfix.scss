@@ -1,0 +1,152 @@
+.return-top{
+    ul{
+        li{
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 74px;
+            a{
+                color: #222222;
+            }
+        }
+        .red{
+            color: #e23435;
+            border-bottom: 2px solid #e23435;
+            padding-bottom: 10px;
+            a{
+                color: #e23435;
+            }
+        }
+    }
+}
+.greatco-se{
+    font-size: 14px;
+    text-align: right;
+}
+.greatco{
+    overflow: hidden;
+    a{
+        color: white;
+        display: block;
+        width: 105px;
+        height: 26px;
+        background: #e23435;
+        line-height: 26px;
+        text-align: center;
+        float: right;
+        i{
+            background: url(../images/goodc.png) no-repeat;
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+    }
+}
+.chx-se{
+    margin-top: 10px;
+    input{
+        width: 280px;
+        height: 40px;
+        font-size: 14px;
+        color: #666666;
+        border: 1px solid #dadada;
+        outline: none;
+        padding: 6px;
+        @include box-sizing(border-box);
+    }
+    a{
+        border: 1px solid #dadada;
+        color: #666666;
+        padding: 11px 10px;
+        background: #F9F9F9;
+    }
+}
+.r_1{
+    width: 18%;
+}
+.r_2{
+    width: 32%;
+}
+    
+.ttoda{
+    background: #f5f5f5;
+    td{
+        padding: 14.5px 0;
+        border: 0;
+    }
+}
+.lig6{
+    color: #999999;
+}
+.shop-app-trac{
+    text-align: center;
+    float: left;
+    margin: 0 10px;
+    padding: 12px 0;
+    .jt-shp{
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .jt-butan{
+        padding-top: 6px;
+        a{
+            padding: 6px 16px;
+            border: 1px solid #bfd6af;
+            background: #edf7e5;
+            margin: 0 5px;
+        }
+        .grey{
+            background: #e3e3e3;
+            border-color: #e3e3e3;
+        }
+    }
+}
+.sheetbd{
+    margin-top: 30px;
+    table{
+        border: 1px solid #e3e3e3;
+        text-align: center;
+        font-size: 14px;
+    }
+}
+.app-con{
+    padding: 20px 0;
+    p{
+        color: #444444;
+        font-size: 14px;
+    }
+}
+.sele_t{
+    outline: none;
+    width: 90px;
+    height: 20px;
+    border: 1px solid #e3e3e3;
+}
+.rt_1{
+    width: 15%;
+}
+.rt_2{
+    width: 25%;
+}
+.padjus{
+    padding: 10px 0;
+}
+.spitysheet{
+    table{
+        .testrac td{
+            padding: 10px;
+        }
+        .te-al-le{
+            text-align: left;
+        }
+    }
+}
+.xindw{
+    text-align: left;
+}
+.rc_1{
+    width: 20%;
+}

@@ -1,0 +1,191 @@
+.loginlater{
+    height: 100px/$ppr;
+    line-height: 100px/$ppr;
+    text-align: center;
+    img{
+        width: 48px/$ppr;
+        height: 36px/$ppr;
+    }
+    span{
+        color: #bfbfbf;
+        font-size: 24px/$ppr;
+    }
+    a{
+        font-size: 24px/$ppr;
+        color: white;
+        background-color: #f23030;
+        padding: 8px/$ppr 14px/$ppr;
+        border-radius: 4px/$ppr;
+        margin-left: $num20;
+    }
+}
+.hotshop{
+    height: 80px/$ppr;
+    overflow: hidden;
+    background-color: #f0f2f5;
+    padding-bottom: 100px/$ppr;
+    .thirdlogin{
+        h4{
+            color: #666666;
+            background-color: #f0f2f5;
+        }
+    }
+}
+.seehotsho{
+    margin-top: -100px/$ppr;
+}
+.allshoporder{
+    border-bottom: 1px solid $grey4;
+    height: 90px/$ppr;
+    line-height: 90px/$ppr;
+    .radio{
+        width: inherit;
+        padding-top: 32px/$ppr;
+        margin-right: $num20;
+        
+    }
+    .logoshopcar{
+        img{
+            width: 51px/$ppr;
+            height: 39px/$ppr;
+        }
+        span{
+            margin-left: $num10;
+            font-size: 34px/$ppr;
+        }
+    }
+    .fr{
+        span{
+            font-size: 28px/$ppr;
+        }
+    }
+}
+.sc_list{
+    padding: $num10 0;
+    overflow: hidden;
+    border-bottom: 1px solid $grey4;
+    .radio{
+        width: inherit;
+        padding-top: 70px/$ppr;
+        margin-right: 20px/$ppr;
+    }
+    .shopimg{
+        img{
+            width: 180px/$ppr;
+            height: 180px/$ppr;
+        }
+    }
+    .deleshow{
+        width: 430px/$ppr;
+        .deletes{
+            overflow: hidden;
+            clear: both;
+            .similar-product-text{
+                width: 370px/$ppr;
+                padding: 0;
+            }
+            a.delescj{
+                float: right;
+                img{
+                    margin-top: 12px/$ppr;
+                    width: 34px/$ppr;
+                    height: 34px/$ppr;
+                }
+            }
+        }
+        .weight{
+            font-size: 26px/$ppr;
+            color: #999999;
+        }
+        .prices{
+            overflow: hidden;
+            margin-top: $num10;
+            .sc_pri{
+                color: #f23030;
+                font-size: 28px/$ppr;
+                margin-top: $num10;
+            }
+        }
+    }
+}
+.plus{
+    span{
+        width: 50px/$ppr;
+        height: 50px/$ppr;
+        line-height: 50px/$ppr;
+        font-size: 28px/$ppr;
+        display: block;
+        float: left;
+        border: 1px solid $grey4;
+        margin-left: -1px;
+        text-align: center;
+        color: #686868;
+        cursor: pointer;
+        input{
+            font-size: 28px/$ppr;
+            outline: none;
+            border: 0;
+            padding: 0 4px/$ppr;
+            color: #686868;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+.payallb{
+    position: fixed;
+    z-index: 99;
+    width: 750px/$ppr;
+    bottom: 0;
+    background-color: #f3f5f7;
+    .alllef{
+        .radio{
+            width: inherit;
+            padding-top: 38px/$ppr;
+            margin-right: 20px/$ppr;
+            .all{
+                font-size: 26px/$ppr;
+                position: relative;
+                top: -11px/$ppr;
+                margin-left: $num10;
+            }
+        }
+    }
+    .youbia{
+        float: right;
+        width: 403px/$ppr;
+        p{
+            text-align: right;
+        }
+    }
+}
+.guesslike{
+    margin-bottom: $num100;
+}
+.nonenothing{
+    width: 400px/$ppr;
+    height: 410px/$ppr;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    margin-top: -205px/$ppr;
+    left: 50%;
+    right: 50%;
+    margin-left: -200px/$ppr;
+    text-align: center;
+    img{
+        width: 169px/$ppr;
+        height: 215px/$ppr;
+    }
+    p{
+        font-size: 32px/$ppr;
+        color: #9b9b9b;
+        padding: 50px/$ppr 0;
+    }
+    a{
+        font-size: 34px/$ppr;
+        padding: 20px/$ppr 60px/$ppr;
+        background: white;
+        margin-top: 30px/$ppr;
+    }
+}

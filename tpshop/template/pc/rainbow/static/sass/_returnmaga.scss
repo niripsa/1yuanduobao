@@ -1,0 +1,84 @@
+.returnmagament{
+    min-height: 500px;
+    .search-ss-lit{
+        margin-right: 0;
+    }
+    .book-tit{
+        ul{
+            li{
+                position: relative;
+            }
+        }
+    }
+    .sx2,.sx3,.sx4,.sx5,.sx6,.sx7{
+        width: (1004 - $sx1 + 180)/6;
+    }
+    .sx1{
+        width: $sx1 - 180;
+    }
+    .sx2{
+        
+    }
+    .sx3{
+        
+    }
+    .sx4{
+        cursor: pointer;
+        i{
+            right: 18px;
+            top: 16px;
+        }
+    }
+    .sx5{
+        cursor: inherit;
+    }
+    .sx6{
+        cursor: pointer;
+        i{
+            right: 32px;
+            top: 16px;
+        }
+        
+    }
+    .sxbb{
+        width: (1004 - $sx1 + 180)/6 - 2;
+    }
+    .hid-derei{
+        right: 131px;
+        width: (1004 - $sx1 + 180)/6 - 2;
+        z-index: 9;
+        ul li a {
+            padding: 6px 0px 6px 10px;
+        }
+    }
+    .sq_der{
+        right: 392px;
+    }
+    .book_content{
+        background: inherit;
+        margin-top: 0;
+        height: inherit;
+        ul{
+            overflow: hidden;
+            border-bottom: 1px dashed #DADADA;
+            li{
+                padding: 20px 0;
+            }
+        }
+    }
+    .shop_name{
+        margin:0 auto;
+        text-align: left;
+    }
+    .co_blue{
+        margin: 0 10px;
+    }
+}
+.wipj{
+    li{
+        width:100/3*1%;
+    }
+    .shop_name{
+        width:260px;
+    }
+}

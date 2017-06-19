@@ -1,0 +1,133 @@
+@import "normalize";
+@import "compass/css3";
+
+a {text-decoration: none;color: #666;}
+ul, ol {list-style: none;}
+em, i, u {font-style: normal;}
+*{margin: 0;padding: 0;}
+body, button, input, select, textarea {font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;color: #333333;}
+h1{margin: 0;}
+.fl{float: left;}
+.fr{float: right;}
+.ov-hi{overflow: hidden;}
+.show{display: block !important;}
+.hidden{display: none !important;}
+.w1224{width: 1224px;min-width:1224px;margin: 0 auto;}
+.w1430{width: 1430px;min-width: 1430px;margin: 0 auto;}
+.w1000{width: 983px;min-width: 983px;margin: 0 auto;}
+.ma-to-20{margin-top: 20px;}
+.pr{position: relative;}
+.pa{position: absolute;}
+.p:before,.p:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.red{
+    color: #e23435;
+}
+.bgw{
+    background-color:white;
+}
+.bgg{
+    background-color: #F8F8F8;
+}
+
+$f1:#c35292;
+$f2:#c1703d;
+$f3:#3bc297;
+$f4:#419cea;
+$f5:#926fa3;
+$f6:#e6757f;
+$f7:#d48038;
+$f8:#73939e;
+$f9:#6664b9;
+
+$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+$carousel-control-width:                      15% !default;
+$carousel-control-color:                      #fff !default;
+$carousel-control-opacity:                    .5 !default;
+$carousel-control-font-size:                  20px !default;
+$carousel-indicator-active-bg:                #fff !default;
+$carousel-indicator-border-color:             #fff !default;
+$carousel-caption-color:                      #fff !default;
+$close-text-shadow:           0 1px 0 #fff !default;
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+
+//$share-spacing: 10px;//设置间距
+//$share-sprite-dimensions: true;//自动计算宽高
+//$share-layout: vertical/horizontal/diagonal/smart;        // 默认布局方式为vertical
+//@import "compass/utilities/sprites";    // 加载compass sprites模块
+//@import "share/*.png";                    // 导入share目录下所有png图片
+//@include all-share-sprites;                // 输出所有的雪碧图css
+//@include transition-property(all);
+//@include transition-duration(0.5s);
+
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+};
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+};
+
+@mixin floorcolor($n,$color){
+    .menu-box{
+        background-position-y: $n;
+    }
+    .ft{
+        a{
+            background-color: $color;
+            color: white;
+        }
+    }
+    .answ-top-tab {
+        border-bottom: 1px solid $color;
+    }
+};
+@mixin img-hover{
+    @include transition-property(all);
+    @include transition-duration(0.5s);
+    &:hover{
+        box-shadow: 0px 0px 16px #bfbebe;
+        z-index: 1;
+    }
+}
+@mixin keyframes($animationName,$time:18s,$speed:linear,$count:infinite,$return:alternate) {
+    animation:$animationName $time $speed $count $return;
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@import "headerFooter";
+@import "carousel";
+@import "index";
+@import "shoplist";
+@import "details";
+@import "presell";
+@import "groupbuy";
+@import "integralmall";
+@import "shopstreet";
+@import "brandzone";
+@import "alltype";
+@import "getcouponcenter";
+@import "myshopcarlist";
+@import "shopcarsettlement";
+@import "shopcarpaymentcompleted";
+@import "skip";

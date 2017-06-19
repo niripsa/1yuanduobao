@@ -1,0 +1,113 @@
+.detailremark{
+    padding-right: 0;
+}
+.detailcomment{
+    .assess-content{
+        margin-right: 0;
+    }
+    .product-imgs-li{
+        float: none;
+        width: 100%;
+        height: auto;
+        img{
+            width: auto;
+            height: auto;
+            margin-bottom: 30px/$ppr;
+        }       
+    }
+}
+.desupp{
+    .fr{
+        float: none;
+        margin: 0 auto;
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+        border: 1px solid #dedede;
+        border-radius: 50%;
+        @include box-shadow(0 1px 1px black);
+        i{
+            margin-top: 15px/$ppr;
+        }
+        span{
+            margin: 0 auto;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-top: 5px/$ppr;
+        }
+    }
+}
+.replaylist{
+    background: white;
+    .assess-top{
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-top: -1px;
+    }
+}
+.he108{
+    height: 108px/$ppr;
+}
+.replay_tit{
+    font-size: 27px/$ppr;
+    height: 90px/$ppr;
+    line-height: 90px/$ppr;
+    position: relative;
+    border-bottom: 1px solid rgb(233,233,233);
+    &:after{
+        content: '';
+        
+        position: absolute;
+        left: 0;
+    }
+    em{
+        color: #c1c1c1;
+    }
+}
+.replay_text{
+    color: #666666;
+    font-size: 26px/$ppr;
+    line-height: 1.2;
+    margin-top: 10px/$ppr;
+    padding-left: 64px/$ppr;
+    word-wrap:break-word;
+}
+.limitbox{
+    .assess-date{
+        color: #c1c1c1;
+    }
+}
+.restrict{
+    border-top: 1px solid rgb(233,233,233);
+    padding: 30px/$ppr 0;
+}
+.answersubmit{
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    background: white;
+    font-size: 28px/$ppr;
+    border-top: 1px solid rgb(233,233,233);
+    background: rgb(234,238,241);
+    padding: 20px/$ppr 0;
+    .vautxt{
+        display: inline-block;
+        width: 576px/$ppr;
+        height: 66px/$ppr;
+        background: white;
+        padding: 0 10px/$ppr;
+        border: 1px solid rgb(233,233,233);
+        outline: none;
+    }
+    .send{
+        display: inline-block;
+        background: #f23030;
+        color: white;
+        height: 66px/$ppr;
+        line-height: 66px/$ppr;
+        padding: 0 20px/$ppr;
+        border-radius: 4px/$ppr;
+        margin-top: -1px;
+        margin-left: 10px/$ppr;
+    }
+}

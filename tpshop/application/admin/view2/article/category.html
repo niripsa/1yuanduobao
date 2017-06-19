@@ -1,0 +1,103 @@
+<include file="public/layout" />
+<body style="background-color: #FFF; overflow: auto;"> 
+<div class="page">
+  <div class="fixed-bar">
+    <div class="item-title"><a class="back" href="javascript:history.back();" title="返回列表"><i class="fa fa-arrow-circle-o-left"></i></a>
+      <div class="subject">
+        <h3>文章分类</h3>
+        <h5>网站文章分类添加与管理</h5>
+      </div>
+    </div>
+  </div>
+	<form action="{:U('Article/categoryHandle')}" method="post" class="form-horizontal">
+    <div class="ncap-form-default">
+      <dl class="row">
+        <dt class="tit">
+          <label for="ac_name"><em>*</em>分类名称</label>
+        </dt>
+        <dd class="opt">
+          <input type="text" placeholder="名称" class="input-txt" name="cat_name" value="{$cat_info.cat_name}">           
+          <span class="err"></span>
+          <p class="notic"></p>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label for="parent_id">上级分类</label>
+        </dt>
+        <dd class="opt">
+            <select class="small form-control"  style="width:200px"  tabindex="1" name="parent_id" id="parent_id">
+                <option value="0">顶级分类</option>
+                {$cat_select}                                 
+            </select>        
+          <span class="err"></span>
+          <p class="notic">如果选择上级分类，那么新增的分类则为被选择上级分类的子分类</p>
+        </dd>
+      </dl>      
+		<dl class="row">
+        <dt class="tit">
+          <label>导航显示</label>
+        </dt>
+        <dd class="opt">
+          <div class="onoff">
+            <label for="article_show1" class="cb-enable <if condition="$cat_info[show_in_nav] eq 1">selected</if>">是</label>
+            <label for="article_show0" class="cb-disable <if condition="$cat_info[show_in_nav] eq 0">selected</if>">否</label>
+            <input id="article_show1" name="show_in_nav" value="1" type="radio" <if condition="$cat_info[show_in_nav] eq 1"> checked="checked"</if>>
+            <input id="article_show0" name="show_in_nav" value="0" type="radio" <if condition="$cat_info[show_in_nav] eq 0"> checked="checked"</if>>
+          </div>
+          <p class="notic"></p>
+        </dd>
+      </dl>		       
+      <dl class="row">
+        <dt class="tit">
+          <label for="ac_sort">排序</label>
+        </dt>
+        <dd class="opt">
+          <input type="text" placeholder="排序" name="sort_order" value="{$cat_info.sort_order}" class="input-txt">
+          <span class="err"></span>
+          <p class="notic"></p>
+        </dd>
+      </dl>
+	  <dl class="row">
+        <dt class="tit">
+          <label for="ac_sort">搜索关键字</label>
+        </dt>
+        <dd class="opt">
+          <input type="text" placeholder="关键字" name="keywords" value="{$cat_info.keywords}" class="input-txt">
+          <span class="err"></span>
+          <p class="notic"></p>
+        </dd>
+      </dl>
+	    <dl class="row">
+        <dt class="tit">
+          <label for="ac_sort">搜索描述</label>
+        </dt>
+        <dd class="opt">
+          <input type="text" placeholder="搜索描述" name="cat_desc" value="{$cat_info.cat_desc}" class="input-txt">
+          <span class="err"></span>
+          <p class="notic"></p>
+        </dd>
+      </dl>            
+      <div class="bot"><a href="JavaScript:void(0);" onClick="$('.form-horizontal').submit();" class="ncap-btn-big ncap-btn-green" id="submitBtn">确认提交</a></div>
+    </div>
+            <input type="hidden" name="act" value="{$act}">
+            <input type="hidden" name="cat_id" value="{$cat_info.cat_id}">    
+  </form>
+</div>
+<script>
+
+    <!-- 系统保留分类 start-->
+    var article_top_system_id = <?php echo json_encode($article_top_system_id); ?>;
+    $("#parent_id").change(function(){
+        var v = parseInt($(this).val());
+        if(jQuery.inArray(v, article_top_system_id) != -1){
+            layer.alert("系统保留分类，不允许在该分类添加新分类！",{icon:2});
+            $(this).val(0);
+        }
+
+    });
+    <!-- 系统保留分类 end -->
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.successsystem{
+    text-align: center;
+    padding: 100px/$ppr 0;
+    img{
+        width: 150px/$ppr;
+        height: 150px/$ppr;
+    }
+}
+.prompt_s{
+    font-size: 26px/$ppr;
+    color: #999999;
+    text-align: center;
+}
+.systemprompt{
+    text-align: center;
+    margin-top: 50px/$ppr;
+    a{
+        display: inline-block;
+        width: 40%;
+        height: 50px/$ppr;
+        background: #f23030;
+        line-height: 50px/$ppr;
+        text-align: center;
+        color: white;
+        border-radius: 6px/$ppr;
+        margin: 0 20px/$ppr;
+        font-size: 28px/$ppr;
+    }
+}

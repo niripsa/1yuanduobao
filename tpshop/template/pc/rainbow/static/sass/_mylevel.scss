@@ -1,0 +1,180 @@
+$level-spacing: 10px;//设置间距
+$level-sprite-dimensions: true;//自动计算宽高
+@import "compass/utilities/sprites";    // 加载compass sprites模块
+@import "level/*.png";                    // 导入level目录下所有png图片
+@include all-level-sprites;                // 输出所有的雪碧图css
+
+.mylevel_top{
+    position: relative;
+    .mu-midd{
+        font-size: 14px;
+        margin-top: 10px;
+        width: 418px;
+        height: 139px;
+        .mu-m-phone{
+            font-size: 14px;
+        }
+        .vip_nomal{
+            color: #e23435;
+        }
+    }
+    .grouupat{
+        font-size: 14px;
+        position: absolute;
+        bottom: 10px;
+        .imfo_grou{
+            float: left;
+            text-align: center;
+            margin-right: 50px;
+            i{
+                display: block;
+                width: 48px;
+                height: 48px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+            .level-level1{
+                background-position-y:10px;
+            }
+            .level-level2{
+                background-position-x:8px;
+            }
+            .level-level3{
+                background-position:3px -95px;
+            }
+            span{
+                margin: 0 auto;
+                em{
+                    color: #e23435;
+                }
+            }
+        }
+    }
+    .bot_level{
+        .imfo_grou{
+            margin-right: 38px;
+            i{
+                display: block;
+                width: 42px;
+                height: 48px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+            .level-level4{
+                background-position-y:-145px;
+            }
+            .level-level5{
+                background-position-x:4px;
+            }
+            .level-level6{
+                background-position-x:6px;
+            }
+        }
+    }
+}
+.thoma{
+    font-family: SimSun;
+    margin-left: 2px;
+}
+.group_speed{
+    .no_vip{
+        float: left;
+        width: 28px;
+        margin-top: 72px;
+        color: #e23435;
+        font-size: 14px;
+        text-align: right;
+        margin-right: 20px;
+    }
+    .bar_colu{
+        float: left;
+        position: relative;
+        .piece_n{
+            float: left;
+            width: 300px;
+            height: 180px;
+            position: relative;
+            i{
+                display: block;
+            }
+            .b_co{
+                position: absolute;
+                bottom: 40px;
+            }
+            .cardcar{
+                position: absolute;
+                top: 36px;
+                left: 50%;
+                right: 50%;
+                margin-left: -31.5px;
+                width: 100%;
+                i{
+                    margin-bottom: 26px;
+                }
+            }
+        }
+    }
+}
+.columner1,.columner2,.columner3{
+    height: 32px;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    bottom: 50%;
+    margin-top: -16px;
+}
+.columner1{
+    background: #dddddd;
+    border-top-left-radius:16px;
+    border-bottom-left-radius:16px;
+}
+.columner2{
+    background: #d5d5d5;
+}
+.columner3{
+    background: #c2c2c2;
+}
+.ad_col{
+    &:after{
+        content: "";
+        background: url(../images/level-s0b74de8d7d.png) no-repeat;
+        background-position: 0 -485px;
+        width: 63px;
+        height: 56px;
+        position: absolute;
+        right: -63px;
+        top: -12px;
+    }
+}
+.gp_num{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.nea_mar{
+    span{
+        margin-right: 50px;
+    }
+}
+
+.grou_num_list{
+    ul{
+        overflow: hidden;
+        border-bottom: 1px solid #DADADA;
+        border-left: 1px solid #DADADA;
+        border-right: 1px solid #DADADA;
+        li{
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    }
+    .grou_tite{
+        background: #dddddd;
+    }
+}
+.tece_none{
+    text-align: center;
+    padding: 40px 0;
+}

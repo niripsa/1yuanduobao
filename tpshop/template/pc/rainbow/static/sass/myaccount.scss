@@ -1,0 +1,47 @@
+@import "compass/css3";
+@import "myaccount_index";
+@import "myorder";
+@import "mypresell";
+@import "mycoupon";
+@import "myshopcard";
+@import "accountbalance";
+@import "myintegral";
+@import "integralexchange";
+@import "mycollection";
+@import "everbuy";
+@import "myfootprint";
+@import "personerinfor";
+@import "mylevel";
+@import "address_manage";
+@import "securitysetting";
+@import "returnmaga";
+@import "mycomment";
+@import "verifyidentity";
+@import "orderdetail-cancelorder";
+@import "beencomplate";
+@import "progresstracking";
+@import "applyafterserve";
+@import "returnfix";
+@import "login";
+@import "servicetrade";
+@import "applyflowpath";
+@import "service-checkdisputedetails";
+@import "jfxq";
+
+//body, button, input, select, textarea {
+//  font: 12px/1.5 "微软雅黑",arial,tahoma,\5b8b\4f53;
+//  color: #333333;
+//}
+.footer{
+    background:white;
+}
+.rgbla{
+    float: left;
+    padding: 0 10px 0 5px;
+    font-size: 14px;
+    display: block;
+    line-height: 38px;
+    em{
+        color: #e23435;
+    }
+}

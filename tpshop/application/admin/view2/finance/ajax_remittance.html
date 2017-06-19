@@ -1,0 +1,73 @@
+<div id="flexigrid" cellpadding="0" cellspacing="0" border="0">
+    <table>
+        <tbody>
+        <volist name="list" id="v">
+            <tr data-id="{$list['user_id']}">
+                <td class="sign">
+                    <div style="width: 24px;"><i class="ico-check"></i></div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 40px;">
+                        <a class="open" href="{:U('editWithdrawals',array('id'=>$v[withdrawals_id]))}" target="blank">
+                            {$v.id}<i class="fa fa-external-link " title="新窗口打开"></i>
+                        </a>
+                    </div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 150px;">{$v.user_id}</div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 50px;">
+                        <a class="open" href="{:U('Admin/user/detail',array('id'=>$v[user_id]))}" target="blank">
+                            {$v.nickname}<i class="fa fa-external-link " title="新窗口打开"></i>
+                        </a>
+                    </div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 80px;">{$v.bank_name}</div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 180px;">
+                        {$v.account_bank}
+                    </div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 60px;">{$v.account_name}</div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 60px;">{$v.money}</div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 60px;">已处理</div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 130px;">
+                        {$v.create_time|date="Y-m-d H:i",###}
+                    </div>
+                </td>
+                <td align="left" class="">
+                    <div style="text-align: center; width: 80px;">{$v.remark}</div>
+                </td>
+                <td align="" class="" style="width: 100%;">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+</div>
+<!--分页位置-->
+{$show}
+<script>
+    $(".pagination  a").click(function(){
+        var page = $(this).data('p');
+        ajax_get_table('search-form2',page);
+    });
+    $(document).ready(function(){
+        // 表格行点击选中切换
+        $('#flexigrid >table>tbody>tr').click(function(){
+            $(this).toggleClass('trSelected');
+        });
+        $('#total').empty().html("{$pager->totalRows}");
+    });
+</script>

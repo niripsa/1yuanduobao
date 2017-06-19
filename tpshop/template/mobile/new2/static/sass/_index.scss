@@ -1,0 +1,468 @@
+.banner{
+    img{
+        width: 100%;
+    }
+}
+.dh{
+    nav{
+        margin-top: $num20;
+        margin-bottom: $num20;
+        overflow: hidden;
+        a{
+            display: block;
+            float: left;
+            width: 25%;
+            text-align: center;
+            margin: $num20 0;
+            span{
+                span{
+                    vertical-align: sub;
+                    font-size: $num28;
+                    @include position($pr,6px);
+                }
+                img{
+                    width: $num80;
+                    height: $num80;
+                }
+            }
+        }
+    }
+}
+.secondkill{
+    .content{
+        margin-top: $num20;
+    }
+    .time{
+        font-size: $num22;
+        .lightning{
+            padding-left: $num16;
+            &:before{
+                content: "";
+                @include background-image(s);
+                width: 28px/$ppr;
+                height: 28px/$ppr;
+                @include position($pr,1px);
+                display: block;
+                float: left;
+                margin-right: 2px/$ppr;
+            }
+            .add{
+                font-size: $num34;
+                font-weight: 600;
+            }
+            .hms{
+                @include background-color($black1);
+                color: $white;
+                padding: 2px/$ppr;
+                @include border-radius(4px/$ppr);
+            }
+        }
+        .xsxl{
+            font-weight: 600;
+            a{
+                color: #666666;
+                span{
+                    vertical-align: middle;
+                    color: #666666;
+                    font-weight: normal;
+                    img{
+                        width: 8px/$ppr;
+                        height: 14px/$ppr;
+                        margin-left: 10px/$ppr;
+                        vertical-align: initial;
+                    }
+                }
+            }
+        }
+    }
+    .shop{
+        margin-top: $num10;
+        a{
+            float: left;
+            width: (100/3)*1%;
+            text-align: center;
+            overflow: hidden;
+            .shopnum{
+                position: relative;
+                img{
+                    width: 175px/$ppr;
+                    height: 175px/$ppr;
+                }
+                .time_sn{
+                    color: white;
+                    position: absolute;
+                    background:  rgba(35,39,51,0.5);
+                    margin: 0;
+                    bottom: 36px/$ppr;
+                    left: 35px/$ppr;
+                    width: 175px/$ppr;
+                    height: 30px/$ppr;
+                    line-height: 30px/$ppr;
+                    font-size: 14px;
+                }
+                p{
+                    font-size: $num24;
+                    color: $red1;
+                    margin: $num10;
+                }
+            }
+        }
+    }
+    
+}
+.advertisement{
+    .content{
+        margin: 0;
+    }
+    border-top: 1px solid $grey1;
+    border-bottom: 1px solid $grey1;
+    a{
+        display: block;
+    }
+    .fl{
+        img{
+            float: right;
+        }
+        @include padding(right);
+    } 
+    .fr{
+        border-left: 1px solid $grey1;
+        @include padding(left)
+    }
+    .le{
+        width: 50%;
+        .td{
+            overflow: hidden;
+            img{
+                width: $num320;
+            }   
+        }
+    }
+    .lefhe{
+        img{
+            height: $num203;
+        }
+        a:first-child{
+            border-bottom: 1px solid $grey1;
+        }
+    }
+    .re{
+       img{
+           height:$num203*2 ;
+       }
+    }
+}
+div.index_hot{
+    background-color: white;
+    height: inherit;
+    padding-bottom: inherit;
+}
+.newshop{
+    .advertisement img{
+        padding: $num10;
+        @include border-radius($num20);
+    }
+    .lefhe{
+        img{
+            height: $num145;
+        }
+        a:first-child{
+            border-bottom: 1px solid $grey1;
+        }
+    }
+    .re{
+       img{
+           height:$num145*2 ;
+       }
+    }
+}
+.hotshop .hotsome{
+    border-bottom: 1px solid $grey1;
+    border-top: 1px solid $grey1;
+    overflow: hidden;
+   .hottop{
+       border-bottom: 1px solid $grey1;
+       overflow: hidden;
+       .le{
+           width: 50%;
+           img{
+               width: $num320;
+               height: 224px/$ppr;
+           }
+       }
+       .fl{
+           img{
+               float: right;
+           }
+           border-right:1px solid $grey1;
+           @include padding(right);
+       }
+       .fr{
+           @include padding(left)
+       }
+   }
+   a{
+       display: block;
+   }
+   .bloc{
+       .foura{
+           a{
+               float: left;
+               width: 100/4*1%;
+               margin: 0 auto;
+               border-right: 1px solid $grey1;
+               &:last-child{
+                   border-right: 0;
+               }
+               img{
+                   width: 100%;
+                   max-height: 238px/$ppr;
+                   padding: 10px/$ppr;
+               }
+//             &:first-child img,&:nth-child(2) img{
+//                     float: right;
+//             }
+           }
+       }
+   }
+}
+.guesslike{
+    .likeshop{
+        background-color: $grey2;
+        overflow: hidden;
+    }
+    ul{
+        li{
+            float: left;
+            width: 50%;
+            padding-bottom:4px/$ppr;
+            position:$pr;  
+            
+            &:nth-child(2n+1){
+                @include padding(right);
+            }
+            &:nth-child(2n){
+                @include padding(left);
+            }
+            &:nth-child(2n+1){
+                .similer-product{
+                    float: right;
+                }
+            }
+            &:nth-child(2n){
+                .similer-product{
+                    float: left;
+                }
+            }
+            .similer-product{
+                .simidibl{
+                    display: block;
+                }
+                background-color: $white;
+                clear: both;
+                overflow: hidden;
+                display: block;
+                padding-bottom: $num20;
+                img{
+                    width: 373px/$ppr;
+                    height: 373px/$ppr;
+                }
+            }
+        }
+    }
+    .add{
+        text-align: center;
+        font-size: $num26;
+        background: $grey2;
+        border-top: 1px solid $grey3;
+        height: $num58;
+        line-height: $num58;
+        cursor: pointer;
+    }
+}
+footer{
+    background: $grey4;
+    font-size: $num26;
+    .flool1{
+        height: $num58;
+        border-top: 1px solid $grey3;
+        ul{
+            display: table;
+            margin: 0 auto;
+            li{
+                float: left;
+                border-right: 2px solid $grey3;
+                padding:0 $num50; 
+                margin-top:$num14; 
+                &:last-child{
+                    border-right: 0;
+                }
+                a{
+                    color:#999999; 
+                }
+            }
+            .comebackTop{
+                cursor: pointer;
+                color:#999999;
+            }
+        }
+    }
+    .flool2{
+        height: 150px/$ppr;
+        border-top: 1px solid $grey3;
+        ul{
+            display: table;
+            margin: 0 auto;
+            li{
+                float: left;
+                padding: 0 64px/$ppr;
+                text-align: center;
+                margin-top: 30px/$ppr;
+                a p{
+                    color: #999999;
+                    margin-top: $num10;
+                }
+                .black p{
+                    color: #444444;
+                }
+                img{
+                    width: 40px/$ppr;
+                    height: 40px/$ppr;
+                }
+            }
+        }
+    }
+    .flool3{
+        height: $num46;
+        border-top: 1px solid $grey3;
+        p{
+            color: #999999;
+            font-size: $num20;
+            text-align: center;
+            line-height: $num46;
+        }
+    }
+}
+.mslide{
+    position: $pr;
+    overflow: hidden;
+}
+.mslide:after{
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 40%;
+}
+.mslide ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.mslide li{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/* 解决js阻塞页面显示首屏 */
+.mslide li:first-child{
+    z-index: 1;
+}
+.mslide li img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 750px/$ppr;
+    height: 300px/$ppr;
+    border: none;
+}
+.mslide .dot{
+    position: absolute;
+    right: $num10;
+    bottom: 10px/$ppr;
+    z-index: 5;
+    font-size: 0;
+}
+.mslide .dot span{
+    display: inline-block;
+    width: $num10;
+    height: $num10;
+    margin-left: $num10;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.mslide .dot .cur{
+    background-color: #fff;
+}
+
+.similar-product-text {
+    height: 62px/$ppr;
+    font-size: $num28;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    color: #232326;
+    margin-top: $num16;
+    line-height: $num30;
+    margin-bottom: $num16;
+    padding: 0 $num10;
+}
+.similar-product-price {
+    color: #f23030;
+    font-size: $num20;
+    display: block;
+    padding: 0 $num10;
+    position: relative;
+    top: 1px/$ppr;
+    height: $num26;
+    line-height: $num26;
+    .big-price {
+        font-size: $num28;
+    }
+    .small-price{
+        vertical-align: text-top;
+    }
+    .guess-button {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: $num10;
+        text-align: center;
+        color: #686868;
+        font-size: $num26;
+        width: 100px/$ppr;
+        height: $num28;
+        line-height: 0.75867rem;
+        &:after {
+            content: '';
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #bfbfbf;
+            border-radius: 4px/$ppr;
+            -webkit-transform: scale(0.5,0.5);
+            transform: scale(0.5,0.5);
+            -webkit-transform-origin: top left;
+        }
+    }
+    .dele-button{
+        right: 125px/$ppr;
+    }
+}
+.after_login{
+    width: 48px/$ppr;
+    height: 48px/$ppr;
+    @media screen and (min-width: 1300px) {
+        width: 24px/$ppr;   
+        height: 24px/$ppr;
+    }
+}

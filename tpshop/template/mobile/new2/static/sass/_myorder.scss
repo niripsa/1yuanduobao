@@ -1,0 +1,97 @@
+.mytit_flash{
+    background-color: white;
+    ul{
+        li{
+            color: #222222;
+            width: 25%;
+        }
+        .red{
+            color: #f23030;
+        }
+    }
+    .addset{
+        li{
+            width: 20%;
+        }
+    }
+}
+.mypackeg{
+    overflow: hidden;
+    background-color: white;
+    .packeg{
+        .fl{
+            h1{
+                width: 500px/$ppr;
+                span.bg{
+                    background-image: url(../images/ty.png);
+                }
+                span.zy{
+                    background-image: url(../images/zy.png);
+                    background-size: 38px/$ppr;
+                }
+            }
+            p{
+                width: 500px/$ppr;
+            }
+        }
+        .fr{
+            span{
+                //line-height: 52px/$ppr;
+            }
+        }
+    }
+}
+.shop-mfive{
+    
+    ul{
+        li{
+            float: left;
+            width: 25%;
+            text-align: center;
+            margin: 0 auto;
+            a{
+                display: block;
+                border: 1px solid $grey4;
+                width:122px/$ppr;
+                height: 122px/$ppr;
+                margin: 0 auto;
+                text-align: center;
+                img{
+                    width: 120px/$ppr;
+                    height: 120px/$ppr;
+                }
+            }
+        }
+    }
+}
+.shop-rebuy-price{
+    margin: 50px/$ppr 0;
+    overflow: hidden;
+}
+.price-alln{
+    font-size: 26px/$ppr;
+    float: left;
+    margin-top: 18px/$ppr;
+    .red{
+        color: #f23030;
+    }        
+    .threel{
+        margin-left: 10px/$ppr;
+        font-size: 24px/$ppr;
+    }
+}
+.shop-rebuy{
+    float: right;
+    padding: 17px/$ppr 25px/$ppr;
+    border: 1px solid $grey4;
+    font-size: 26px/$ppr;
+    border-radius: 10px/$ppr;
+}
+.paysoon{
+    color: white;
+    background-color: #f23030;
+    border:0;
+}
+.deorder{
+    margin-right: 30px/$ppr;
+}

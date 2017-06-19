@@ -1,0 +1,52 @@
+<include file="public/header" title="提现申请记录" body=""/>
+<include file="public/header_nav" title="提现申请记录" href="javascript:history.back(-1)"/>
+<div class="application-record">
+    <div class="maleri30">
+        <ul class="re_tit">
+            <li class="li1"><span>编号</span></li>
+            <li class="li2"><span>申请日期</span></li>
+            <li class="li3"><span>金额</span></li>
+            <li class="li4"><span>状态</span></li>
+        </ul>
+        <foreach name="list" item="v">
+            <ul>
+                <li class="li1"><span>{$v[id]}</span></li>
+                <li class="li2"><span>{:date('Y-m-d', $v[create_time])}</span></li>
+                <li class="li3"><span>{$v[money]}</span></li>
+                <li class="li4"><span class="red">
+                    <if condition="$v[status] eq 0">申请中</if>
+                    <if condition="$v[status] eq 1">申请成功</if>
+                    <if condition="$v[status] eq 2">申请失败</if>
+                </span></li>
+            </ul>
+        </foreach>
+    </div>
+    <!--加载更多S-->
+    <!--<notempty name="list">-->
+        <!--<div id="getmore" style="font-size:.32rem;text-align: center;color:#888;padding:.25rem .24rem .4rem; clear:both">-->
+            <!--<a href="javascript:void(0)" onClick="ajax_sourch_submit()">点击加载更多</a>-->
+        <!--</div>-->
+    <!--</notempty>-->
+    <!--加载更多E-->
+</div>
+<script type="text/javascript" src="__STATIC__/js/sourch_submit.js"></script>
+<script>
+    var page = 1;
+    function ajax_sourch_submit(){
+        page++;
+        $.ajax({
+            type:'GET',
+            url:'/tpshop/index.php/Mobile/User/withdrawals_list/is_ajax/1/p/'+page,
+            success:function(data){
+                if($.trim(data)==''){
+                    $('#getmore').hide();
+                    return false;
+                }else{
+                    $('.maleri30').append(data);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

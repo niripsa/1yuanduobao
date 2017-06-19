@@ -1,0 +1,55 @@
+// Set the global compass vars.
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+$legacy-support-for-mozilla: false;
+// Import the normalize plugin
+
+//sprites模块
+$share-spacing: 10px;//设置间距
+$share-sprite-dimensions: true;//自动计算宽高
+$share-layout: vertical;
+//vertical/horizontal/diagonal/smart;
+@import "compass/utilities/sprites";    // 加载compass sprites模块
+@import "share/*.png";                    // 导入share目录下所有png图片
+@include all-share-sprites;                // 输出所有的雪碧图css
+
+//常用css
+a {text-decoration: none;color: #666;}
+ul, ol {list-style: none;}
+em, i, u {font-style: normal;}
+*{
+    margin: 0;padding: 0;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset;}
+body, button, input, select, textarea {font:14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;color: #333333;}
+h1{margin: 0;}
+
+.w1224{width: 1224px;margin: 0 auto;}
+.bgw{
+    background-color:white;
+}
+.red{
+    color: #e23435;
+}
+.fl{float: left;}
+.fr{float: right;}
+.ov-hi{overflow: hidden;}
+.ma-to-20{margin-top: 20px;}
+.pr{position: relative;}
+.pa{position: absolute;}
+.p:before,.p:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.gray_f5{background: #f5f5f5;}
+
+@import "normalize";
+@import "compass/css3";
+@import "headerFooter_alone";
+@import "carousel_alone";
+@import "index_alone";

@@ -1,0 +1,144 @@
+<include file="public/layout" />
+<script type="text/javascript">
+    window.UEDITOR_Admin_URL = "/tpshop/__ROOT__/public/plugins/Ueditor/";
+    var URL_upload = "{$URL_upload}";//图片上传提交地址
+    var URL_fileUp = "{$URL_fileUp}";//附件上传提交地址
+    var URL_scrawlUp = "{$URL_scrawlUp}";//涂鸦上传地址
+    var URL_getRemoteImage = "{$URL_getRemoteImage}";//处理远程图片抓取的地址
+    var URL_imageManager = "{$URL_imageManager}";
+    var URL_imageUp = "{$URL_imageUp}";
+    var URL_getMovie = "{$URL_getMovie}";
+    var URL_home = "{$URL_home}";
+
+    function call_back(fileurl_tmp)
+    {
+        //alert(fileurl_tmp);
+    }
+</script>
+
+<load href="/tpshop/__ROOT__/public/plugins/Ueditor/ueditor.config.js"/>
+<load href="/tpshop/__ROOT__/public/plugins/Ueditor/ueditor.all.js"/>
+
+<style type="text/css">
+    html, body {
+        overflow: visible;
+    }
+</style>
+<body style="background-color: #FFF; overflow: auto;">
+<div id="toolTipLayer" style="position: absolute; z-index: 9999; display: none; visibility: visible; left: 95px; top: 573px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title"><a class="back" href="javascript:history.back();" title="返回列表"><i class="fa fa-arrow-circle-o-left"></i></a>
+            <div class="subject">
+                <h3>专题管理 - 编辑专题</h3>
+                <h5>网站系统专题索引与管理</h5>
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal" id="handleposition" action="{:U('Admin/Topic/topicHandle')}" method="post">
+        <div class="ncap-form-default">
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>专题标题</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" name="topic_title" value="{$info.topic_title}"class="input-txt">
+                    <span class="err"></span>
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label for="topic_image">专题封面</label>
+                </dt>
+                <dd class="opt">
+                    <div class="input-file-show">
+                        <span class="show">
+                            <a id="img_a" class="nyroModal" rel="gal" href="{$info.topic_image}">
+                                <i id="img_i" class="fa fa-picture-o" onmouseover="layer.tips('<img src={$info.topic_image}>',this,{tips: [1, '#fff']})" onmouseout="layer.closeAll();"></i>
+                            </a>
+                        </span>
+           	            <span class="type-file-box">
+                            <input type="text" id="topic_image" name="topic_image" value="{$info.topic_image}" class="type-file-text">
+                            <input type="button" name="button" id="button1" value="选择上传..." class="type-file-button">
+                            <input class="type-file-file" onClick="GetUploadify(1,'','topic','img_call_back')" size="30" hidefocus="true" nc_type="change_site_logo" title="点击前方预览图可查看大图，点击按钮选择文件并提交表单后上传生效">
+                        </span>
+                    </div>
+                    <span class="err"></span>
+                    <p class="notic">请上传990像素x240像素的图片作为专题页面的封面图</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label>内容块距顶部：</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" name="topic_margin_top" value="{$info.topic_margin_top}" class="input-txt">px
+                    <span class="err"></span>
+                    <p class="notic">像素</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">专题内容</dt>
+                <dd class="opt">
+                    <textarea name="topic_content" style="height:500px; width:800px;">{$info.topic_content|htmlspecialchars_decode}</textarea>
+                    <span class="err"></span>
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+            <div class="bot">
+                <a href="JavaScript:void(0);" onClick="adsubmit(1)" class="ncap-btn-big ncap-btn-green">保存草稿</a>
+                <a href="JavaScript:void(0);" onClick="adsubmit(2)" class="ncap-btn-big ncap-btn-green">发布专题</a>
+            </div>
+        </div>
+        <input type="hidden" name="act" value="{$act}">
+        <input type="hidden" name="topic_id" value="{$info.topic_id}">
+        <input type="hidden" id="topic_state" name="topic_state" value="2">
+    </form>
+</div>
+<script type="text/javascript">
+    var editor;
+    $(function () {
+        //具体参数配置在  editor_config.js 中
+        var options = {
+            zIndex: 999,
+            initialFrameWidth: "95%", //初化宽度
+            initialFrameHeight: 400, //初化高度
+            focus: false, //初始化时，是否让编辑器获得焦点true或false
+            maximumWords: 99999, removeFormatAttributes: 'class,style,lang,width,height,align,hspace,valign',//允许的最大字符数 'fullscreen',
+            pasteplain: true, autoHeightEnabled: true,
+            autotypeset: {
+                mergeEmptyline: true,        //合并空行
+                removeClass: true,           //去掉冗余的class
+                removeEmptyline: false,      //去掉空行
+                textAlign: "left",           //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
+                imageBlockLine: 'center',    //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
+                pasteFilter: false,          //根据规则过滤没事粘贴进来的内容
+                clearFontSize: false,        //去掉所有的内嵌字号，使用编辑器默认的字号
+                clearFontFamily: false,      //去掉所有的内嵌字体，使用编辑器默认的字体
+                removeEmptyNode: false,      // 去掉空节点
+                                             //可以去掉的标签
+                removeTagNames: {"font": 1},
+                indent: false,               // 行首缩进
+                indentValue: '0em'           //行首缩进的大小
+            }
+        };
+        editor = new UE.ui.Editor(options);
+        editor.render("post_content");
+    });
+
+    function adsubmit(state){
+        $('#topic_state').val(state);
+        $('#handleposition').submit();
+    }
+    function img_call_back(fileurl_tmp)
+    {
+        $("#topic_image").val(fileurl_tmp);
+        $("#img_a").attr('href', fileurl_tmp);
+        $("#img_i").attr('onmouseover', "layer.tips('<img src="+fileurl_tmp+">',this,{tips: [1, '#fff']});");
+    }
+</script>
+</body>
+</html>

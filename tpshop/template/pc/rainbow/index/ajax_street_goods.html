@@ -1,0 +1,23 @@
+<volist name="favourite_goods" id="v">
+    <li class="<if condition='($i+1)%7 eq 0'>mar0</if>">
+    <div class="shde">
+        <a href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}"><img class="sjhe lazy" data-original="/tpshop/{$v.goods_id|goods_thum_images=210,210}"/></a>
+        <div class="box-hotshui">
+            <div class="price-tag">
+                <span class="now"><em class="li_xfo">￥</em><em>{$v.shop_price}</em></span>
+                <span class="old"><em>￥</em><em>{$v.market_price}</em></span>
+            </div>
+            <p class="shop_name"><a href="{:U('Home/Goods/goodsInfo',array('id'=>$v[goods_id]))}">{$v.goods_name}</a></p>
+            <div class="shop_name2">
+                <a class="co_hchh" href="{:U('Home/Store/index',array('id'=>$v[store_id]))}">
+                    {$v.store_name}
+                </a>
+            </div>
+            <div class="chejancns p">
+                <span class="fl">成交<em class="red">{$v.sales_sum}笔</em></span>
+                <span class="fr">评价<em class="co_blue">{$v.comment_count}</em></span>
+            </div>
+        </div>
+    </div>
+</li>
+</volist>

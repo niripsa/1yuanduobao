@@ -1,0 +1,49 @@
+/*城市弹层*/
+
+.container {
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    display: none;
+    overflow-x: hidden;
+    .city-list ,.province-list, .area-list, {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+.container .city {
+    overflow-x: hidden;
+    padding: 20px/$ppr;
+    background-color: #ffffff;
+    margin-top: 68px/$ppr;
+    p{
+        font-size: 26px/$ppr;
+        color: #afafaf;
+        width: 95%;
+        height: 100px/$ppr;
+        line-height: 100px/$ppr;
+        border-bottom: 1px solid #e8ecf1;
+        cursor: pointer;
+        &.co_current{
+            color: #f23030;
+        }
+    }
+}
+.screen_wi_loc{
+    display: block;
+    width: 14.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    .suce_ok {
+        font-size: 0.59733rem;
+    }
+    .content .search{
+        width: 499px/$ppr;
+        margin-left: -65px/$ppr;
+    }
+}
+

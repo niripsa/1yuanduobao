@@ -1,0 +1,107 @@
+.applyafter{
+    .paycloseto .deleshow .qxatten .weight{
+        p{
+            float: left;
+            width: 250px/$ppr;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .tuharecha .paycloseto .deleshow .qxatten .closeannten{
+        top: -8px/$ppr;
+    }
+    .tuharecha .paycloseto{
+        padding: 20px/$ppr 0;
+    }
+}
+.seravetype{
+    overflow: hidden;
+    font-family: "黑体";
+    background: white;
+    padding: 20px/$ppr 0;
+    p{
+        font-size: 32px/$ppr;
+        line-height: 40px/$ppr;
+    }
+    .fuwxbo{
+        font-size: 30px/$ppr;
+        line-height: 80px/$ppr;
+        a{
+            padding: 10px/$ppr 40px/$ppr;
+            border: 1px solid #c4c4c4;
+            border-radius: 6px/$ppr;
+            margin-right: 20px/$ppr;
+        }
+        .red{
+            border-color: #e23435;
+        }
+    }
+    .plus{
+        padding: 20px/$ppr 0;
+    }
+    .plus span{
+        border-color: #dadde0;   
+    }
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            width: 20%;
+            margin: 20px/$ppr 0;
+            .shcph{
+                width: 126px/$ppr;
+                height: 126px/$ppr;
+                border: 1px solid #dadde0;
+                text-align: center;
+//              line-height: 126px/$ppr;
+                cursor: pointer;
+                img{
+                    width: 126px/$ppr;
+                    height: 126px/$ppr;
+                }
+            }
+        }
+    }
+}
+.inspectrepot{
+    .radio{
+        margin-right: 50px/$ppr;
+        float: left;
+        width: inherit;
+        padding: 20px/$ppr 0;
+        .che span{
+            vertical-align: baseline;
+            font-size: 30px/$ppr;
+            color: #666666;
+        }
+    }
+}
+.seravetype .ifhaeu{
+    font-size: 28px/$ppr;
+    color: #999999;
+}
+.apply-afterserve{
+    textarea{
+        height: 170px/$ppr;
+        border-bottom: 0;
+        border-left: 0;
+        border-right: 0;
+        outline: none;
+    }
+}
+.nextbutt{
+    padding: 78px/$ppr 0;
+    a{
+        display: block;
+        width: 287px/$ppr;
+        height: 66px/$ppr;
+        text-align: center;
+        line-height: 66px/$ppr;
+        border-radius: 10px/$ppr;
+        font-size: 32px/$ppr;
+        color: white;
+        background: #f23030;
+        margin: 0 auto;
+    }
+}

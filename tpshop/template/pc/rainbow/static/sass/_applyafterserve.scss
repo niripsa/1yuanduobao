@@ -1,0 +1,232 @@
+.applyafsh{
+    border: 1px solid #e5e5e5;
+    .sh_top{
+        overflow: hidden;
+        background: #f5f5f5;
+        ul{
+            li{
+                float: left;
+                text-align: center;
+                font-size: 14px;
+                line-height: 50px;
+            }
+        }
+        .xishozhf{
+            width: 230px;
+            margin: 0 auto;
+            overflow: hidden;
+            .shop-difimg{
+                float: left;
+                width: 50px;
+                height: 50px;
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .shop_name{
+                float: left;
+                margin-top: 6px;
+                a{
+                    color: #005ea7;
+                }
+            }
+        }
+    }
+}
+.per30{
+    width: 30%;
+}
+.per20{
+    width: 20%;
+}
+.applyafsh .padbo{
+    background: white;
+    ul{
+        li{
+            float: left;
+            text-align: center;
+            font-size: 14px;
+            line-height: 50px;
+            border-right: 1px solid #dddddd;
+            padding: 30px 0;
+            @include box-sizing(border-box);
+        }
+        .bor0{
+            border-right: 0;
+        }
+    }
+}
+.tyserve{
+    p{
+        display: inline-block;
+        a{
+            display: block;
+            width: 112px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border: 1px solid #dadada
+        }
+        .bred{
+            border: 1px solid #e23435;
+        }
+    }
+}
+.tjsl{
+    margin-top: 38px;
+    .jajt{
+        display: inline-block;
+        .pinu{
+            padding: 3px 8px;
+            border: 1px solid #dadada;
+            vertical-align: middle;
+        }
+        .plup{
+            padding: 3px 7px;
+            border: 1px solid #dadada;
+            vertical-align: middle;
+        }
+        input{
+            width: 46px;
+            outline: none;
+            border: 1px solid #dadada;
+            height: 22px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+}
+.diin{
+    display: inline-block;
+    em{
+        color: #E23435;
+        vertical-align: sub;
+    }
+}
+.aratext{
+    margin-top: 38px;
+    .diin{
+        float: left;
+    }
+    .textareadis{
+        float: left;
+        margin-top: 0;
+    }
+}
+.lasupde{
+    margin-top: 38px;
+    .diin{
+        float: left;
+    }
+}
+.eunmess{
+    padding: 30px 66px;
+}
+.lastaaph{
+    border: 1px solid #DADADA;
+    padding: 30px 12px;
+}
+.goodpiece{
+    .co_blue{
+        font-weight: 100;
+    }
+}
+.eunmess{
+    font-size: 14px;
+    p{
+        float: left;
+    }
+    .exokshm{
+        color: #999999;
+        width: 350px;
+        margin-left: 20px;
+    }
+    .xdw{
+        width: 260px;
+    }
+}
+.tydtabshi{
+    margin-bottom: 60px;
+}
+.shenqans{
+    span>em{
+        vertical-align: sub;
+    }
+}
+.successaf{
+    padding: 15px;
+}
+.cgzuy{
+    border: 1px solid #edd28b;
+    background: #fffdee;
+    overflow: hidden;
+    padding: 30px 0;
+}
+.cg_l,.cg_r{
+    width: 50%;
+    @include box-sizing(border-box);
+    padding: 0 30px;
+}
+.cg_l{
+    .flll{
+        float: left;
+        img{
+            width: 46px;
+            height: 44px;
+            margin-right: 10px;
+        }
+    }
+    .tjfoeas{
+        font-size: 14px;
+        float: left;
+        width: 400px;
+        h2{
+            color: #7abd54;
+            margin-bottom: 22px;
+        }
+        p{
+            color: #666666;
+            a{
+                color: #000000;
+                &:hover{
+                    color: #e23435;
+                }
+            }
+        }
+    }
+}
+.cg_r{
+    border-left: 1px solid #edd28b;
+    .flll{
+        float: left;
+        img{
+            width: 95px;
+            height: 95px;
+            margin-right: 10px;
+        }
+    }
+    .tjfoeas{
+        margin-top: 28px;
+        width: 280px;
+        font-size: 14px;
+        float: left;
+        p{
+            color: #666666;
+        }
+    }
+}
+.eualif{
+    padding: 30px 0;
+    .subtj_af{
+        padding: 8px 15px;
+        border: 1px solid #dadada;
+        background: #eff8e8;
+        font-size: 16px;
+        margin-left:225px; 
+        &:hover{
+            color: #666;
+        }
+    }
+}

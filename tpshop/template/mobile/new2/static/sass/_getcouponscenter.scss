@@ -1,0 +1,212 @@
+.al_mosttype{
+    background: white;
+}
+.slide_list_row{
+    width: 620px/$ppr;
+    white-space: nowrap;
+    overflow: auto;
+    overflow-y:hidden; 
+    &::-webkit-scrollbar {//滚动条整体部分
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    &::-webkit-scrollbar-thumb{  //滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    &::-webkit-scrollbar-track{ //滚动条的轨道（里面装有Thumb）
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    } 
+    &::-webkit-scrollbar-button{ //滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    &::-webkit-scrollbar-track-piece{ //内层轨道，滚动条中间部分（除去）
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    &::-webkit-scrollbar-corner{ //边角，即两个滚动条的交汇处
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    &::-webkit-resizer{ //两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+        background-color: rgba(0,0,0,0);
+        height: 0;
+    }
+    a{
+        font-size: 28px/$ppr;
+        color: #333333;
+        display: inline-block;
+        padding: 27px/$ppr 0;
+        margin-right: 42px/$ppr;
+        white-space: nowrap;
+    }
+    .bobo2{
+        border-bottom: 2px solid #e23435;
+    }
+}
+.rilick{
+    width: 70px/$ppr;
+    border-left: 1px solid #e3e5e9;
+    text-align: right;
+    margin: 21px/$ppr 0;
+    img{
+        width: 46px/$ppr;
+        height: 40px/$ppr;
+    }
+}
+.goodsimgbo{
+    width: 149px/$ppr;
+    height: 141px/$ppr;
+    border: 1px solid #e3e5e9;
+    float: left;
+    position: relative;
+    z-index: 2;
+    margin: 0 12px/$ppr;
+    img{
+        width: 147px/$ppr;
+        height: 139px/$ppr;
+    }
+}
+.goods-limit-fo{
+    width: 358px/$ppr;
+    .name{
+        color: #333333;
+        font-size: 24px/$ppr;
+        line-height: 1.5;
+        display: block;
+        height: 72px/$ppr;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        margin-top: 8px/$ppr;
+    }
+    .condition{
+        color: #74d2d4;
+        font-size: 26px/$ppr;
+        margin-top: 8px/$ppr;
+        em{
+            font-size: 40px/$ppr;
+            color: #4cb6b8;
+            margin-right: 10px/$ppr;
+        }
+    }
+}
+.alcowlone{
+    background: white;
+    margin: 16px/$ppr 0;
+    position: relative;
+}
+.remind_tim{
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    color: white;
+    font-size: 20px/$ppr;
+    background: url(../images/get.png) no-repeat;
+    width: 117px/$ppr;
+    height: 36px/$ppr;
+    line-height: 38px/$ppr;
+    background-size: cover;
+    padding-left: 5px/$ppr;
+    z-index: 3;
+}
+.goods-limit{
+    width: 532px/$ppr;
+    padding: 30px/$ppr 0;
+    position:relative; 
+    &:before{
+        content: "";
+        background: url(../images/saw-l.png) no-repeat;
+        width: 10px/$ppr;
+        height: 197px/$ppr;
+        background-size: cover;
+        position: absolute;
+        left: -6px/$ppr;
+        top: 0;
+    }
+    &:after{
+        content: "";
+        background: url(../images/saw-r.png) no-repeat;
+        width: 14px/$ppr;
+        height: 204px/$ppr;
+        background-size: cover;
+        position: absolute;
+        right: -6px/$ppr;
+        top: -2px/$ppr;
+        z-index: 2;
+    }
+}
+.get-limit{
+    position: relative;
+    width: 158px/$ppr;
+    background: #74d2d4;
+    height: 141px/$ppr;
+    padding: 30px/$ppr 0;
+    text-align: center;
+    @include box-sizing(initial);
+    @include border-corner-radius(top, right, 10px/$ppr);
+    @include border-corner-radius(bottom, right, 10px/$ppr);
+    canvas{
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+    }
+    .data_num{
+        font-family: "黑体";
+        font-size: 24px/$ppr;
+        color: #FFFFFF;
+        width: 110px/$ppr;
+        text-align: center;
+        position: absolute;
+        top: 58px/$ppr;
+        left: 50%;
+        margin-left: -55px/$ppr;
+        line-height: 1.2;
+        .getcatch{
+            display: block;
+        }
+        .datanum{
+            display: block;
+        }
+    }
+    .clickgetcoupon{
+        display: block;
+        background: white;
+        color: #74d2d4;
+        font-size: 24px/$ppr;
+        width: 132px/$ppr;
+        border-radius: 18px/$ppr;
+        padding: 3px/$ppr;
+        border: 4px solid #48b3b5;
+        margin: 0 auto;
+        letter-spacing: 1px;
+    }
+}
+.begintimeSurplus{
+    color: white;
+    padding-bottom: 10px/$ppr;
+    .titt{
+        font-size: 24px/$ppr;
+        display: block;
+    }
+    .timeback{
+        font-size: 24px/$ppr;
+        display: block;
+        color: white;
+        padding: 12px/$ppr 0;
+        a{
+            color: #48b3b5;
+            border: 2px solid #48b3b5;
+            background: white;
+            padding: 3px/$ppr;
+        }
+    }
+    .peopleremind{
+        font-size: 20px/$ppr;
+        display: block;
+    }
+}

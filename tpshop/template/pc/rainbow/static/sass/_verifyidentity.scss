@@ -1,0 +1,191 @@
+.accouun{
+    height: 2px;
+    background: #e2e2e2;
+    width: 100%;
+    margin: 10px 0;
+}
+.thirset{
+    font-family: "微软雅黑";
+    overflow: hidden;
+    .wshef{
+        width: 100/3*1%;
+        height: 33px;
+        background: #eeeeee;
+        float: left;
+        font-size: 16px;
+        line-height: 33px;
+        color: #333333;
+        text-align: center;
+        position: relative;
+        .spassw{
+            background: url(../images/spassw.png) no-repeat;
+            height: 33px;
+            width: 19px;
+            position: absolute;
+            right: -9px;
+            z-index: 9;
+        }
+    }
+    .yellc{
+        background: #fff4d8;
+        color: #ff8401;
+    }
+}
+.verifyi{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .birth_jz{
+        line-height: 38px;
+        select{
+            width: 220px;
+            height: 38px;
+            padding: 2px 6px;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+    .checode .name_zjxs{
+        width: 100px;
+    }
+    .checode .teaeu{
+        a{
+            float: left;
+        }
+        .button_yzm{
+            height: 37px;
+            width: 100px;
+            background: #eeeeee;
+            border: 0;
+            outline: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+    }
+    .infor_wi_le{
+        width: 40%;
+    }
+    .save_s{
+        .save{
+            width: 120px;
+            height: 40px;
+            border-radius: 6px;
+        }
+    }
+    .hobby_jz{
+        margin-top: 18px;
+    }
+}
+.las_ver{
+    text-align: center;
+    margin-left: -52px;
+    line-height: 38px;
+    color: #666666;
+}
+.verifyi-next{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .infor_wi_le{
+        width: 40%;
+    }
+    .save_s{
+        .save{
+            width: 120px;
+            height: 40px;
+            border-radius: 6px;
+        }
+    }
+    .qrzf{
+        background: url(../images/srzq.png) no-repeat;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-left: 5px;
+    }
+    .safebil{
+        font-size: 12px;
+        .lowzg{
+            background: #d5d5d5;
+            padding: 2px 20px ;
+            color: white;
+        }
+        .red{
+            background: #e23435;
+            color: white;
+        }
+    }
+    .hobby_jz{
+        margin-top: 18px;
+    }
+}
+.las-nex{
+    font-size: 12px;
+    color: #666666;
+    margin-left: 401px - 120px;
+}
+.oversuccen{
+    margin:88px 0;
+    border: 1px solid #e8e8e8;
+    padding: 114px 0;
+    .zaiebox{
+        width: 310px;
+        margin: 0 auto;
+        .fljair{
+            float: left;
+            img{
+                width: 46px;
+                height: 44px;
+                margin-right: 10px;
+            }
+        }
+        .fljfon{
+            float: left;
+            p{
+                font-size: 14px;
+                color: #999999;
+                a{
+                    color: #0e6acb;
+                }
+            }
+        }
+        .diboback{
+            clear: both;
+            padding-top: 45px;
+            overflow: hidden;
+            a{
+                width: 108px;
+                height: 38px;
+                color: white;
+                display: block;
+                float: left;
+                background: #e23435;
+                font-size: 14px;
+                text-align: center;
+                line-height: 38px;
+                margin: 0 22px;
+            }
+        }
+    }
+}
+.forgetpaw{
+    padding: 15px;
+    .thirset .wshef{
+        width: 25%;    
+    }
+    .name_zjxs{
+        width: 220px;
+        height: 30px;
+        outline: none;
+        padding: 2px 6px;
+        font-size: 14px;
+    }
+    .ycks{
+        width: 72px;
+        height: 38px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    .yck{
+        width: 72px;
+        height: 38px;
+    }
+}

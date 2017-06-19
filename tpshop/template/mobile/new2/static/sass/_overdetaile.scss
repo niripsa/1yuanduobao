@@ -1,0 +1,105 @@
+.overdeta{
+    .wuliumess{
+        margin-top: 20px/$ppr;
+        .yg{
+            background-position-x: -44px/$ppr;
+            float: left;
+        }
+        .naem{
+            width: (750px - 60px - 38px - 6px - 20)/$ppr;
+            font-size: 32px/$ppr;
+            display: inline-block;
+            float: left;
+        }
+        .time{
+            font-size: 26px/$ppr;
+            color: #666666;
+            margin-left: (38px + 6px)/$ppr;
+            padding: 20px/$ppr 0;
+            clear: both;
+        }
+    }
+    .Mright{
+        float: right;
+        position: relative;
+        top: 50px/$ppr;
+    }
+    .edit_gtfix{
+        min-height: 138px/$ppr;
+    }
+}
+.oversetimh{
+    .shopprice{
+        position: relative;
+        overflow: hidden;
+    }
+    .maleri30{
+        margin-right: 30px/$ppr;
+    }
+    .shopprice .fon_or{
+        margin-top: 15px/$ppr;
+        width: (494px - 100px)/$ppr;
+    }
+    p{
+        padding: 0 10px/$ppr;
+        font-size: 24px/$ppr;
+        color: #999999;
+    }
+}
+.pricangec{
+    float: right;
+    margin-top: 32px;
+}
+.plad{
+    display: block;
+    border: 1px solid #dadada;
+    padding: 8px/$ppr;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.gwcw{
+    background: url(../images/gwcx.png) no-repeat;
+    width: 28px/$ppr;
+    height: 28px/$ppr;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 28px/$ppr;
+}
+.liaxkf{
+    background: white;
+    padding: 20px/$ppr 0;
+    .maleri30{
+        margin: 0 50px/$ppr;
+        a{
+            display: block;
+            font-size: 26px/$ppr;
+            color: #222222;
+            font-family: "黑体";
+            border: 1px solid #c2c2c2;
+            text-align: center;
+            padding: 10px/$ppr 0;
+            border-radius: 6px/$ppr;
+        }
+    }
+}
+.inftwic{
+    p{
+        border-bottom: 1px solid #f5f5f5;
+        padding: 20px/$ppr 0;
+        margin-top: 0;
+    }
+    .dark{
+        color: #333333;
+        font-family: "黑体";
+    }
+}
+.inftwic-b{
+    padding-top: 10px/$ppr;
+    p{
+        border-bottom: 0;
+    }
+}
+.backba{
+    background: #f3f5f7;
+}

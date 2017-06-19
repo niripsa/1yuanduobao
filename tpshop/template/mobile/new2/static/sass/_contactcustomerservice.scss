@@ -1,0 +1,201 @@
+.custer{
+    .content{
+        .menu{
+            a{
+                display: inline-block;
+                margin-left: 50px/$ppr;
+            }
+        }
+    }
+}
+.neibohoo{
+    position: relative;
+}
+.near_orbr{
+    right: 0;
+    position: absolute;
+    z-index: 999;
+    a{
+        display: block;
+        width: 250px/$ppr;
+        height: 80px/$ppr;
+        line-height: 80px/$ppr;
+        text-align: center;
+        color: white;
+        background: #808080;
+        font-size: 32px/$ppr;
+        border-bottom: 1px solid #9a9a9a;
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+}
+.maleri50{
+    margin: 0 50px/$ppr;
+}
+.order_datanoprice{
+    width: 388px/$ppr;
+    background: #aad2ff;
+    border-radius: 4px/$ppr;
+    font-size: 32px/$ppr;
+    padding: 30px/$ppr;
+    margin: 0 auto;
+    p{
+        line-height: 42px/$ppr;
+        .co_blue{
+            color: #0000ee;
+            text-decoration: underline;
+        }
+    }
+}
+.system_dialogue{
+    background: white;
+    padding: 30px/$ppr;
+    border: 1px solid #dadde0;
+    .systemmessage{
+        color: #929292;
+        font-size: 28px/$ppr;
+    }
+    .systemcontact{
+        margin-top: 30px/$ppr;
+        color: #4e4e4e;
+        font-size: 30px/$ppr;
+        line-height: 36px/$ppr;
+    }
+}
+.salesclerk_dialogue{
+    overflow: hidden;
+    .saleslogo{
+        img{
+            width: 80px/$ppr;
+            height: 80px/$ppr;
+            border: 1px solid #dadde0;
+        }
+    }
+    .salescontact{
+        padding: 30px/$ppr;
+        background: white;
+        width: 532px/$ppr;
+        font-size: 30px/$ppr;
+        color: #929292;
+        line-height: 36px/$ppr;
+        border-radius: 20px/$ppr;
+        position:relative; 
+        &:before{
+            content: "";
+            background: url(../images/1317.png) no-repeat;
+            width: 13px/$ppr;
+            height: 17px/$ppr;
+            background-size: 26px/$ppr;
+            position: absolute;
+            left: -13px/$ppr;
+            top: 36px/$ppr;
+        }
+    }
+}
+.customer_dialogue{
+    .salescontact{
+        &:before{
+            right: -13px/$ppr;
+            left: inherit;
+            background-position-x: -13px/$ppr;
+        }
+        img{
+            width: 66px/$ppr;
+            height: 66px/$ppr;
+        }
+    }
+}
+.order_datanoprice,.system_dialogue,.salesclerk_dialogue{
+    margin-top: 82px/$ppr;
+    margin-bottom: 82px/$ppr;
+}
+.hiddenbox{
+    height: 100px/$ppr;
+    overflow: hidden;
+}
+#he100{
+    height: 100px/$ppr;
+}
+.write_dialogue{
+    background: #f0f0f0;
+    text-align: center;
+    height: 100px/$ppr;
+    line-height: 112px/$ppr;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    width: 16rem;
+    a{
+        position: absolute;
+        cursor: pointer;
+        display: block;
+        height: 64px/$ppr;
+        width: 64px/$ppr;
+        top: 50%;
+        margin-top: -32px/$ppr;
+        .write{
+            background: url(../images/write.png) no-repeat;
+            background-size: 130px/$ppr;
+            height: 64.5px/$ppr;
+            width: 64.5px/$ppr;
+            display: inline-block;
+        }
+    }
+    .face{
+        left: 30px/$ppr;
+    }
+    .writemf{
+        width: 540px/$ppr;
+        height: 70px/$ppr;
+        border-radius: 4px/$ppr;
+        outline: none;
+        border: 0;
+        padding: 0 10px/$ppr;
+        font-size: 30px/$ppr;
+        color: #666666;
+    }
+    .send{
+        right: 30px/$ppr;
+        .write{
+            background-position-x: -66px/$ppr;
+        }
+    }
+}
+.write_replece{
+    position: relative;
+}
+.face-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    background-size: 16rem;
+    width: 750px/$ppr;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+.face-wrap-1{
+    background-image: url(../images/face-panel1.2fe5ad465032e7aadae0afca8ebf43f5.png);
+}
+.face-wrap-2{
+    background-image: url(../images/face-panel2.8e18d844ab6d8cb545234adb1530e621.png);
+}
+.face-wrap-3{
+    background-image: url(../images/face-panel3.6b545eb939f31bdfd2fbbdcd896d08fa.png);
+}
+.face-wrap-4{
+    background-image: url(../images/face-panel4.ffa662fda1d9509d6b1384e34e50eb1d.png);
+}
+.face-wrap-5{
+    background-image: url(../images/face-panel5.5a20055da498e5d4502211589668eb5a.png);
+}
+.face-img {
+    float: left;
+    box-sizing: border-box;
+    width: 107px/$ppr;
+    height: 95px/$ppr;
+    cursor: pointer;
+}

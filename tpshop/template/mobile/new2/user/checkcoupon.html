@@ -1,0 +1,39 @@
+<include file="public/header" title="使用优惠券" body="f3"/>
+<include file="public/header_nav" title="使用优惠券" href="javascript:history.back(-1)"/>
+<div class="two-bothshop">
+    <div class="maleri30">
+        <ul>
+            <li <if condition="I('type') eq ''"> class="red"</if>><a href="{:U('mobile/User/checkcoupon',array('lid'=>I('lid')))}"><span>可用优惠券</span></a></li>
+            <li <if condition="I('type') eq '1'"> class="red"</if>><a href="{:U('mobile/User/checkcoupon',array('type'=>1,'lid'=>I('lid')))}"><span>不可用优惠券</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="coupon_csswri">
+    <div class="maleri30">
+        <ul>
+            <foreach name="coupon_list" item="coupon">
+                <li>
+                    <div class="cp_alo">
+                        <div class="pon_top">
+                            <h1><em class="fosi">￥</em><em>{$coupon[money]}</em></h1>
+                            <p>{$coupon[name]}</p>
+                        </div>
+                        <div class="pon_dow">
+                            <p>{$tpshop_config['shop_info_store_name']}</p>
+                            <if condition="I('lid') eq $coupon['id'] and I('type') eq ''">
+                                <a class="usecoupon" href="{:U('Mobile/cart/cart2')}">取消使用</a>
+                            <elseif condition="I('type') eq ''">
+                                    <a class="usecoupon" href="{:U('Mobile/cart/cart2',array('cid'=>$coupon[cid],'lid'=>$coupon.id))}">立即使用</a>
+                            <elseif condition="I('type') eq '1'">
+                                <a class="usecoupon" href="javascript:void(0);">当前订单不可用</a>
+                            </if>
+                        </div>
+                        <p class="xd_time">限{:date('Y.m.d',$coupon[use_end_time])}前使用</p>
+                    </div>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

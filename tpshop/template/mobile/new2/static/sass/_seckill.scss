@@ -1,0 +1,235 @@
+.killtime{
+    margin: 0 0 $num30 0;
+    ul{
+        padding: $num30 0;
+        clear: both;
+        overflow: hidden;
+        li.red{
+            h3,p{
+                color: #f23030;
+            }
+        }
+        li{
+            width: 20%;
+            float: left;
+            text-align: center;
+            h3{
+                font-size: 32px/$ppr;
+            }
+            p{
+                margin-top: $num10;
+                font-size: 24px/$ppr;
+            }
+            h3,p{
+                color: #222222;
+            }
+        }
+    }
+    .nowkill{
+        clear: both;
+        margin: 0 $num30;
+        span{
+            font-size: 24px/$ppr;
+        }
+        .fl{
+            color: #f23030;
+        }
+        .fr{
+            
+        }
+    }
+}
+.shopkill{
+    margin: 0 $num30;
+    ul{
+        li{
+            padding: $num10 0;
+            clear: both;
+            overflow: hidden;
+            border-top: 1px solid $grey4;
+            .img{
+                float: left;
+                position: $pr;
+                width: 247px/$ppr;
+                height: 229px/$ppr;
+                img{
+                    width: 247px/$ppr;
+                    height: 229px/$ppr;
+                }
+            }
+            .fon{
+                float: left;
+                width: 440px/$ppr;
+                margin-top: $num10;
+                .similar-product-text{
+                    height: 60px/$ppr;
+                    font-size: 22px/$ppr;
+                }
+                .ms{
+                    padding-top: $num10;
+                    clear: both;
+                    .redmon{
+                        float: left;
+                        font-size: 26px/$ppr;
+                        color: #f23030;
+                    }
+                    .qums{
+                        float: right;
+                        position: $pr;
+                        top:4px/$ppr;
+                        a{
+                            font-size: 22px/$ppr;
+                            color: $white;
+                            background-color: #f02b2b;
+                            padding: 6px/$ppr 14px/$ppr;
+                            border-radius: 6px/$ppr;
+                        }
+                    }
+                }
+                .ce{
+                    padding-top: $num10;
+                    overflow: hidden;
+                    clear: both;
+                    .redmon{
+                        float: left;
+                        font-size: 26px/$ppr;
+                        text-decoration: line-through;
+                        color: #666666;
+                    }
+                    .jd{
+                        float: right;
+                        .ymper{
+                            float: left;
+                            font-size: 22px/$ppr;
+                            color: #666666;
+                            margin-right: $num10;
+                            margin-top: 3px;
+                            span{
+                                vertical-align: baseline;
+                            }
+                        }
+                        .jdtred{
+                            width: 94px/$ppr;
+                            float: left;
+                            height: 6px/$ppr;
+                            border: 1px solid #f23030;
+                            margin-top: 9px/$ppr;
+                            .percent{
+                                height: 4px/$ppr;
+                                background-color: #f23030;
+                                width: 0%;
+                                -webkit-transition: width 1.8s;
+                                transition: width 1.8s;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+.czg,.rmy,.tjb{
+    &:before{
+        content:"";
+        width: 54px/$ppr;
+        height: 68px/$ppr;
+        position: $pa;
+        top: 0;
+        left: 0;
+    }
+}
+.czg{
+    &:before{
+        @include background-image(czg);
+    }
+}
+.rmy{
+    &:before{
+        @include background-image(rmy);
+    }
+}
+.tjb{
+    &:before{
+        @include background-image(tjb);
+    }
+}
+.ppmsbg{
+    border-top: 1px solid $grey4;
+    padding-top: 6px/$ppr;
+    img{
+        width: 145px/$ppr;
+        height: 46px/$ppr;
+        position: relative;
+        top:12px/$ppr;
+        z-index: 9;
+    }
+}
+.killbg{
+    border-top: 1px solid $grey4;
+    background-image: url(../images/xx_57.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 283px/$ppr;
+    background-size: cover;
+    .content30{
+        margin: 0 $num30;
+    }
+    h2{
+        text-align: center;
+        font-size: 28px/$ppr;
+        color: white;
+        margin-top: 10px/$ppr;
+        span{
+            font-size: 22px/$ppr;
+        }
+    }
+    p{
+        text-align: right;
+        margin-top: -4px/$ppr;
+        a{
+            font-size: 22px/$ppr;
+            color: white;
+            img{
+                position: relative;
+                top: -2px;
+                margin-left: $num10;
+            }
+        }
+    }
+    .fladri{
+        margin-top: 4px/$ppr;
+        ul{
+            clear: both;
+            overflow: hidden;
+            display: table;
+            margin: 0 auto;
+            li{
+                float: left;
+                width: 222px/$ppr;
+                background-color: white;
+                text-align: center;
+                margin: 0 2px;
+                a{
+                    img{
+                        width: 220px/$ppr;
+                        height: 160px/$ppr;
+                    }
+                    p{
+                        color: #666666;
+                        text-align: left;
+                        padding:$num10;
+                        .red{
+                            color: #f23030;
+                            font-size: 22px/$ppr;
+                        }
+                        .inh{
+                            font-size: 20px/$ppr;
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

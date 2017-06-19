@@ -1,0 +1,319 @@
+// Set the global compass vars.
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie8: true;
+$legacy-support-for-mozilla: false;
+// Import the normalize plugin
+@import "normalize";
+@import "compass/css3";
+
+$ppr: 750px/16/1rem; // pixel per rem
+
+*{
+    margin: 0;
+    padding: 0;
+    @include box-sizing;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset;}
+
+html{
+    font-size: $ppr*1rem;
+}
+body {
+  width: 750px/$ppr;
+  max-width: 750px/$ppr;
+  margin: 0 auto;
+  font-family: Helvetica,PingFangSC-Regular,"Droid Sans",Arial,sans-serif;
+  font-size: 16px/$ppr;
+  line-height: 1;
+  color: #232326;
+  overflow-x: hidden;
+}
+ul,li{
+    list-style: none;
+}
+a{  
+    color: #232326;
+    text-decoration: none;
+    vertical-align: middle;
+}
+i,em{
+    font-style: normal;
+}
+span,img{
+    vertical-align: middle;
+}
+.floor{
+    overflow: hidden;
+}
+.p:before,.p:after{
+    content: "";
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+}
+.loadbefore{
+    text-align: center;
+    background: white;
+    display: none;
+}
+.ajaxloading{
+    width: 64px/$ppr;
+    height: 64px/$ppr;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+@mixin line($w:0){
+    max-width: $w;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@mixin position($p,$top:0px,$left:0px,$bottom:0px,$right:0px){
+    position:$p;
+    top:$top/$ppr;
+    left: $left/$ppr;
+    bottom:$bottom/$ppr;
+    right: $right/$ppr;
+};
+@mixin background-li-gr($c1,$c2){
+    background: -webkit-linear-gradient($c1,$c2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient($c1,$c2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient($c1,$c2); /* Firefox 3.6 - 15 */
+    background:linear-gradient($c1,$c2);
+};
+@mixin background-image($img){
+    background-image: url(".." + /images/$img + "." + png);
+    background-repeat: no-repeat;
+    background-size: cover;
+};
+@mixin background-color($colour){
+    background-color: $colour;
+};
+@mixin padding($fx,$be:2px){
+    padding-#{$fx}: $be/$ppr;
+};
+$num10:10px/$ppr;
+$num12:12px/$ppr;
+$num14:14px/$ppr;
+$num16:16px/$ppr;
+$num18:18px/$ppr;
+$num20:20px/$ppr;
+$num22:22px/$ppr;
+$num24:24px/$ppr;
+$num26:26px/$ppr;
+$num28:28px/$ppr;
+$num30:30px/$ppr;
+$num34:34px/$ppr;
+$num46:46px/$ppr;
+$num50:50px/$ppr;
+$num55:55px/$ppr;
+$num58:58px/$ppr;
+$num80:80px/$ppr;
+$num88:88px/$ppr;
+$num100:100px/$ppr;
+$num145:145px/$ppr;
+$num203:203px/$ppr;
+$num320:320px/$ppr;
+
+$ma-0-au:0 auto;
+$white:#ffffff;
+$black1:#3d3d3d;
+$red1:#ff0000;
+$yellow1:#ee5b03;
+$yellow2:#ff8400;
+$grey1:#e0e0e0;
+$grey2:#f0f2f5;
+$grey3:#dedede;
+$grey4:#f8f8f8;
+$grey5:#f3f5f7;
+.g5{background: $grey5;}
+$pr:relative;
+$pa:absolute;
+.ma-to-10{margin-top: $num10;}
+.ma-to-20{margin-top: $num20;}
+
+.ds-in-bl{
+    @include inline-block;
+}
+.content{
+    margin:0 $num10;
+    &:before,&:after{
+        content: "";
+        clear: both;
+        display: block;
+        font-size: 0;
+        height: 0;
+    }
+}
+.maleri30{margin: 0 $num30;}
+.action-sprite,
+.action-aa,
+.action-ab,
+.action-ac,
+.action-ad,
+.action-ae,
+.action-af,
+.action-ag,
+.action-ah,
+.action-ai,
+.action-aj,
+.action-ak,
+.action-al,
+.action-am,
+.action-an {
+    background-image: url('../images/action-s6077e892fb.png');
+    background-repeat: no-repeat
+}
+
+.action-aa {
+    background-position: 0 0;
+    height: 48px/$ppr;
+    width: 48px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ab {
+    background-position: -58px/$ppr 0;
+    height: 42px/$ppr;
+    width: 44px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ac {
+    background-position: -112px/$ppr 0;
+    height: 40px/$ppr;
+    width: 34px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ad {
+    background-position: -156px/$ppr 0;
+    height: 39px/$ppr;
+    width: 43px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ae {
+    background-position: -209px/$ppr 0;
+    height: 33px/$ppr;
+    width: 47px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-af {
+    background-position: -266px/$ppr 0;
+    height: 24px/$ppr;
+    width: 33px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ag {
+    background-position: -309px/$ppr 0;
+    height: 28px/$ppr;
+    width: 26px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ah {
+    background-position: -345px/$ppr 0;
+    height: 25px/$ppr;
+    width: 32px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ai {
+    background-position: -387px/$ppr 0;
+    height: 26px/$ppr;
+    width: 28px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-aj {
+    background-position: -425px/$ppr 0;
+    height: 20px/$ppr;
+    width: 10px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-ak {
+    background-position: -445px/$ppr 0;
+    height: 32px/$ppr;
+    width: 36px/$ppr;
+    background-size:619px/$ppr;
+}
+
+.action-al {
+    background-position: -491px/$ppr 0;
+    height: 16px/$ppr;
+    width: 28px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-am {
+    background-position: -529px/$ppr 0;
+    height: 16px/$ppr;
+    width: 28px/$ppr;
+    background-size: 619px/$ppr;
+}
+
+.action-an {
+    background-position: -567px/$ppr 0;
+    height: 40px/$ppr;
+    width: 42px/$ppr;
+    background-size: 619px/$ppr;
+}
+.famfh{
+    font-family: "\5b8b\4f53";
+}
+
+
+@import "headerAndfooter";
+@import "index";
+@import "class";
+@import "loginSignUp";
+@import "my";
+@import "store";
+@import "seckill";
+@import "groupbuy";
+@import "details";
+@import "orderdetails";
+@import "shopcar";
+@import "brandstreet";
+@import "editaddress";
+@import "address";
+@import "pay";
+@import "completionpay";
+@import "accountdetail";
+@import "newscenter";
+@import "settingnews";
+@import "applicationrecord";
+@import "search";
+@import "searchlist";
+@import "paycloseatto";
+@import "returnlist";
+@import "flashsales";
+@import "myorder";
+@import "preferential";
+@import "storedetails";
+@import "fillorderlist";
+@import "orderlistover";
+@import "common";
+@import "overdetaile";
+@import "ordertracking";
+@import "applyaftersales";
+@import "settinginvoice";
+@import "returnmode";
+@import "usecoupon";
+@import "choicepaydis";
+@import "commentgoods";
+@import "contactcustomerservice";
+@import "systemprompt";
+@import "getcouponscenter";
+@import "location";
+@import "browserecord";
+@import "detailcomment";

@@ -1,0 +1,35 @@
+.jaz{
+    font-family: "黑体";
+    background: white;
+}
+.chineinvoice{
+    font-family: "黑体";
+    background: white;
+    .lingtd{
+        color: #666666;
+        font-size: 26px/$ppr;
+        padding: 25px/$ppr 0;
+    }
+    .radio{
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 30px/$ppr;
+    }
+}
+.sabbao{
+    font-family: "黑体";
+    text-align: center;
+    width: 340px/$ppr;
+    height: 86px/$ppr;
+    line-height: 86px/$ppr;
+    color: white;
+    font-size: 36px/$ppr;
+    margin: 0 auto;
+    background: #f23030;
+    display: block;
+    position: absolute;
+    bottom: 300px/$ppr;
+    left: 50%;
+    right: 50%;
+    margin-left: -170px/$ppr;
+}

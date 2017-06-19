@@ -1,0 +1,331 @@
+<include file="public/layout" />
+<style>
+    dd.opt table{
+        width: 100%;
+    }
+    dd.opt tr{
+        border: 1px solid #f4f4f4;
+        padding: 8px;
+    }
+    dd.opt tr td{
+        border: 1px solid #f4f4f4;
+    }
+</style>
+<script type="text/javascript">
+    window.UEDITOR_Admin_URL = "/tpshop/__ROOT__/public/plugins/Ueditor/";
+    var URL_upload = "{$URL_upload}";
+    var URL_fileUp = "{$URL_fileUp}";
+    var URL_scrawlUp = "{$URL_scrawlUp}";
+    var URL_getRemoteImage = "{$URL_getRemoteImage}";
+    var URL_imageManager = "{$URL_imageManager}";
+    var URL_imageUp = "{$URL_imageUp}";
+    var URL_getMovie = "{$URL_getMovie}";
+    var URL_home = "{$URL_home}";
+</script>
+<load href="/tpshop/__ROOT__/public/plugins/Ueditor/ueditor.config.js"/>
+<load href="/tpshop/__ROOT__/public/plugins/Ueditor/ueditor.all.js"/>
+<script src="/tpshop/__ROOT__/public/static/js/layer/laydate/laydate.js"></script>
+<style type="text/css">
+    html, body {
+        overflow: visible;
+    }
+</style>
+
+<body style="background-color: #FFF; overflow: auto;">
+<div id="toolTipLayer" style="position: absolute; z-index: 9999; display: none; visibility: visible; left: 95px; top: 573px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title"><a class="back" href="javascript:history.back();" title="返回列表"><i class="fa fa-arrow-circle-o-left"></i></a>
+            <div class="subject">
+                <h3>优惠促销管理 - 添加与编辑商品促销活动</h3>
+                <h5>网站系统编辑商品促销活动</h5>
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal" id="promotion" action="{:U('Admin/Promotion/prom_goods_save')}" method="post">
+        <input type="hidden" name="id" value="{$info.id}">
+        <div class="ncap-form-default">
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>促销活动名称</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" name="name" id="name" value="{$info.name}" class="input-txt">
+                    <p class="notic">促销活动名称</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>促销活动类型</label>
+                </dt>
+                <dd class="opt">
+                    <select id="prom_type" name="type">
+                        <option value="0" <if condition="$info[type] eq 0">selected</if>>直接打折</option>
+                        <option value="1" <if condition="$info[type] eq 1">selected</if>>减价优惠</option>
+                        <option value="2" <if condition="$info[type] eq 2">selected</if>>固定金额出售</option>
+                        <option value="3" <if condition="$info[type] eq 3">selected</if>>买就赠代金券</option>
+                    </select>
+                    <p class="notic">促销活动类型</p>
+                </dd>
+            </dl>
+            <dl class="row" id="expression">
+                <dt class="tit">
+                    <label><em>*</em>折扣</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" name="expression"  value="{$info.expression}" class="input-txt">
+                    <p class="notic">% 折扣值(1-100 如果打9折，请输入90)</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>开始时间</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" id="start_time" name="start_time" value="{$info.start_time}"  class="input-txt">
+                    <p class="notic">优惠开始时间</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>结束时间</label>
+                </dt>
+                <dd class="opt">
+                    <input type="text" id="end_time" name="end_time" value="{$info.end_time}" class="input-txt">
+                    <p class="notic">优惠结束时间</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label>宣传图片</label>
+                </dt>
+                <dd class="opt">
+                    <div class="input-file-show">
+                        <span class="show">
+                            <a id="img_a" target="_blank" class="nyroModal" rel="gal" href="{$info.prom_img}">
+                                <i id="img_i" class="fa fa-picture-o" onmouseover="layer.tips('<img src={$info.prom_img}>',this,{tips: [1, '#fff']});" onmouseout="layer.closeAll();"></i>
+                            </a>
+                        </span>
+           	            <span class="type-file-box">
+                            <input type="text" id="prom_img" name="prom_img" value="{$info.prom_img}" class="type-file-text">
+                            <input type="button" name="button" id="button1" value="选择上传..." class="type-file-button">
+                            <input class="type-file-file" onClick="GetUploadify(1,'','activity','img_call_back')" size="30" hidefocus="true" nc_type="change_site_logo" title="点击前方预览图可查看大图，点击按钮选择文件并提交表单后上传生效">
+                        </span>
+                    </div>
+                    <span class="err"></span>
+                    <p class="notic">请上传图片格式文件</p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">适合用户范围</dt>
+                <dd class="opt">
+                    <ul class="nc-row ncap-waybill-list">
+                        <foreach name="level" item="vo">
+                            <li><label class="label">
+                                <input type="checkbox" <if condition="strripos($info['group'],$vo['level_id'].'') nheq false">checked</if> name="group[]" value="{$vo.level_id}">
+                                {$vo.level_name}</label>
+                            </li>
+                        </foreach>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label><em>*</em>选择优惠商品</label>
+                </dt>
+                <dd class="opt">
+                    <span class="err" id="err_goods" style="color:#F00; display:none;">请添加优惠商品</span>
+                    <p class="notic">
+                        <a onclick="selectGoods()" class="ncap-btn"><i class="fa fa-search"></i>选择商品</a>
+                    </p>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label>已选择的优惠商品</label>
+                </dt>
+                <dd class="opt">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th style="display:none">选择</th>
+                            <th class="text-left">商品名称</th>
+                            <th class="text-left">价格</th>
+                            <th class="text-left">库存</th>
+                            <th class="text-left">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="goods_list">
+                        <foreach name="prom_goods" item="vo">
+                            <tr>
+                                <td style="display:none"><input type="checkbox" name="goods_id[]" checked="checked" value="{$vo.goods_id}"/></td>
+                                <td class="text-left">{$vo.goods_name}</td>
+                                <td class="text-left">{$vo.shop_price}</td>
+                                <td class="text-left">{$vo.store_count}</td>
+                                <td class="text-left"><a href="javascript:void(0)" onclick="javascript:$(this).parent().parent().remove();">删除</a></td>
+                            </tr>
+                        </foreach>
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="tit">
+                    <label>活动描述</label>
+                </dt>
+                <dd class="opt">
+                    <textarea class="span12 ckeditor" placeholder="请输入活动介绍" id="post_content" name="description" rows="6">{$info.description}</textarea>
+                    <p class="notic">活动描述</p>
+                </dd>
+            </dl>
+            <div class="bot"><a onclick="adsubmit()" class="ncap-btn-big ncap-btn-green">确认提交</a></div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var editor;
+    $(function () {
+        //具体参数配置在  editor_config.js 中
+        var options = {
+            zIndex: 999,
+            initialFrameWidth: "100%", //初化宽度
+            initialFrameHeight: 350, //初化高度
+            focus: false, //初始化时，是否让编辑器获得焦点true或false
+            maximumWords: 99999, removeFormatAttributes: 'class,style,lang,width,height,align,hspace,valign',//允许的最大字符数 'fullscreen',
+            pasteplain: true, autoHeightEnabled: true,
+            autotypeset: {
+                mergeEmptyline: true,        //合并空行
+                removeClass: true,           //去掉冗余的class
+                removeEmptyline: false,      //去掉空行
+                textAlign: "left",           //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
+                imageBlockLine: 'center',    //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
+                pasteFilter: false,          //根据规则过滤没事粘贴进来的内容
+                clearFontSize: false,        //去掉所有的内嵌字号，使用编辑器默认的字号
+                clearFontFamily: false,      //去掉所有的内嵌字体，使用编辑器默认的字体
+                removeEmptyNode: false,      //去掉空节点
+                removeTagNames: {"font": 1},
+                indent: false,               // 行首缩进
+                indentValue: '0em'           //行首缩进的大小
+            },
+            toolbars: [
+                ['fullscreen', 'source', '|', 'undo', 'redo','|', 'bold', 'italic', 'underline', 'fontborder',
+                    'strikethrough', 'superscript', 'subscript','removeformat', 'formatmatch', 'autotypeset',
+                    'blockquote', 'pasteplain', '|', 'forecolor','backcolor', 'insertorderedlist',
+                    'insertunorderedlist', 'selectall', 'cleardoc', '|','rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                    'customstyle', 'paragraph', 'fontfamily', 'fontsize','|', 'directionalityltr', 'directionalityrtl',
+                    'indent', '|', 'justifyleft', 'justifycenter','justifyright', 'justifyjustify', '|', 'touppercase',
+                    'tolowercase', '|', 'link', 'unlink', 'anchor', '|','imagenone', 'imageleft', 'imageright', 'imagecenter',
+                    '|', 'insertimage', 'emotion', 'insertvideo','attachment', 'map', 'gmap', 'insertframe',
+                    'insertcode', 'webapp', 'pagebreak', 'template','background', '|', 'horizontal', 'date', 'time',
+                    'spechars', 'wordimage', '|','inserttable', 'deletetable','insertparagraphbeforetable', 'insertrow', 'deleterow',
+                    'insertcol', 'deletecol', 'mergecells', 'mergeright','mergedown', 'splittocells', 'splittorows',
+                    'splittocols', '|', 'print', 'preview', 'searchreplace']
+            ]
+        };
+        editor = new UE.ui.Editor(options);
+        editor.render("post_content");
+
+        $('#start_time').layDate();
+        $('#end_time').layDate();
+    });
+    function adsubmit(){
+        if($('#name').val() ==''){
+            layer.msg('活动名称不能为空',{icon:2});return false;
+        }
+        if($('input[name=expression]').val() ==''){
+            layer.msg('优惠不能为空',{icon:2});return false;
+        }
+        var pg = [];
+        //过滤选择重复商品
+        $('input[name*="goods_id"]').each(function(i,o){
+            pg.push($(o).val());
+        });
+        //检查活动开始，结束时间
+        var start_time=Date.parse($('#start_time').val());
+        var end_time=Date.parse($('#end_time').val());
+        if(start_time>=end_time){
+            layer.msg('开始时间不得大于结束时间',{icon:2});return false;
+        };
+        if(pg.length==0){
+            layer.msg('请选择商品',{icon:2});
+            return false;
+        }
+        $('#promotion').submit();
+    }
+    function selectGoods(){
+        var goods_id = [];
+        //过滤选择重复商品
+        $('input[name*="goods_id"]').each(function(i,o){
+            goods_id.push($(o).val());
+        });
+        var url = '/tpshop/index.php?m=Admin&c=Promotion&a=search_goods&goods_id='+goods_id+'&t='+Math.random();
+        layer.open({
+            type: 2,
+            title: '选择商品',
+            shadeClose: true,
+            shade: 0.3,
+            area: ['70%', '80%'],
+            content: url,
+        });
+    }
+
+    function call_back(table_html)
+    {
+        layer.closeAll('iframe');
+        $('#goods_list').append(table_html);
+    }
+    $("#prom_type").on("change",function(){
+        var type = parseInt($("#prom_type").val());
+        var expression = '';
+        switch(type){
+            case 0:{
+                expression = '<dt class="tit"><label><em>*</em>折扣</label></dt>'
+                            + '<dd class="opt"><input type="text" name="expression" value="" class="input-txt">'
+                            + '<p class="notic">% 折扣值(1-100 如果打9折，请输入90)</p></dd>';
+                break;
+            }
+            case 1:{
+                expression = '<dt class="tit"><label><em>*</em>立减金额</label></dt>'
+                        + '<dd class="opt"><input type="text" name="expression" pattern="float" value="" class="input-txt">'
+                        + '<p class="notic">立减金额（元）</p></dd>';
+                break;
+            }
+            case 2:{
+                expression = '<dt class="tit"><label><em>*</em>出售金额</label></dt>'
+                        + '<dd class="opt"><input type="text" name="expression" pattern="float" value="" class="input-txt">'
+                        + '<p class="notic">出售金额（元）</p></dd>';
+                break;
+            }
+            case 3:{
+                expression = '<dt class="tit"><label><em>*</em>代金券</label></dt><dd class="opt"><select name="expression">'
+                        + '<tpshop sql="select * from __PREFIX__coupon where type=0 AND use_end_time gt $template_now_time" item="v"><option value="{$v.id}" <if condition="$v[id] eq $info[expression]">selected</if>>{$v.name}</option></tpshop></select>'
+                        + '</dd>';
+                break;
+            }
+            case 4:{
+                expression = '<dt class="tit"><label><em>*</em>买M送N</label></dt>'
+                        + '<dd class="opt"><input type="text" name="expression" pattern="\\d+\/\\d+" value="" class="input-txt">'
+                        + '<p class="notic">买几件送几件（如买3件送1件: 3/1）</p></dd>';
+                break;
+            }
+        }
+        $("#expression").html(expression);
+    });
+    $(document).ready(function(){
+        $("#prom_type").trigger('change');
+        $('input[name=expression]').val("{$info.expression}");
+
+        $('#start_time').layDate();
+        $('#end_time').layDate();
+    })
+    function img_call_back(fileurl_tmp)
+    {
+        $("#prom_img").val(fileurl_tmp);
+        $("#img_a").attr('href', fileurl_tmp);
+        $("#img_i").attr('onmouseover', "layer.tips('<img src="+fileurl_tmp+">',this,{tips: [1, '#fff']});");
+    }
+</script>
+</body>
+</html>

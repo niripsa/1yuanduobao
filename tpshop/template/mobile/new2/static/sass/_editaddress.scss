@@ -1,0 +1,89 @@
+.edit{
+    .myorder{
+        .order{
+             .fl{
+                 span{
+                     margin-left: 0;
+                 }
+                 input{
+                     height: 89px/$ppr;
+                     outline: none;
+                     width: 460px/$ppr;
+                     padding: 0 $num10;
+                     font-size: 32px/$ppr;
+                     border: 0;
+                 }
+             }
+             .fr{
+                 .turnoff{
+                     @include background-image(turnoffuo);
+                     height: 50px/$ppr;
+                     width: 90px/$ppr;
+                     margin-top: 16px/$ppr;
+                     background-position-x: -94px/$ppr;
+                 }
+                 .turnup{
+                     background-position-x: 0;
+                 }
+             }
+        }   
+    }
+}
+.ed_shdele{
+    display: none;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    margin-top: -130px/$ppr;
+    left: 50%;
+    right: 50%;
+    margin-left: -300px/$ppr;
+    width: 600px/$ppr;
+    height: 260px/$ppr;
+    background-color: white;
+    border-radius: 10px/$ppr;
+    font-size: 36px/$ppr;
+    padding: 0 $num30;
+    .sfk{
+        text-align: center;
+        line-height: 130px/$ppr;
+        border-bottom: 1px solid $grey4;
+    }
+    .lineq{
+        text-align: center;
+        span{
+            padding: 18px/$ppr 80px/$ppr;
+            border: 1px solid $grey4;
+            line-height: 130px/$ppr;
+            cursor: pointer;
+        }
+        .clos{
+            margin-right: 28px/$ppr;
+        }
+        .sur{
+            margin-left: 28px/$ppr;
+            border: 1px solid #f23030;
+            background-color: #f23030;
+            color: white;
+        }
+    }
+}
+.edita{
+    width: 610px/$ppr;
+    position: absolute;
+    bottom: 120px/$ppr;
+    left: 50%;
+    right: 50%;
+    margin-left: -305px/$ppr;
+    input{
+        width: 610px/$ppr;
+        height: $num88;
+        color: $white;
+        background-color: #e30000;
+        margin-top: 66px/$ppr;
+        @include border-radius(6px/$ppr);
+        font-size: $num28;
+        border: 0;
+    }
+}

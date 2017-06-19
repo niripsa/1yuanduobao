@@ -1,0 +1,58 @@
+.ordercencel{
+    background: white;
+}
+.cancelorder{
+    overflow: hidden;
+    border: 1px solid #dddddd;
+    margin-top: 20px;
+    .shop_name{
+        width: 90%;
+        margin: 0 auto;
+        a{
+            color: #005ea7;
+        }
+    }
+    .book-tit{
+        margin: 0;
+    }
+    .conet-canc{
+        background: white;
+        padding: 20px 0;
+    }
+    .sx2, .sx3, .sx4, .sx5, .sx6 {
+        width: 120px;
+    }
+    .plusshcan{
+        padding: 6px 16px;
+        border: #dddddd;
+        background: #f3faec;
+        border: 1px solid #dddddd;
+    }
+}
+.ma-to-10{
+    margin-top: 10px;
+}
+.sheet{
+    font-family: "微软雅黑";
+    margin-top: 20px;
+    table{
+        border: 1px solid #e3e3e3;
+        tr{
+            height: 33px;
+            td{
+                padding-left: 76px;
+                font-size: 14px;
+                border: 1px solid #e3e3e3;
+                span{
+                    a.red{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+.manon{
+    margin-left: 76px;
+    font-size: 14px;
+}

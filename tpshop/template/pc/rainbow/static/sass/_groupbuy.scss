@@ -1,0 +1,132 @@
+.group-act{
+    ul{
+        float: left;
+    }
+    .actionname{
+        float: left;
+        border: 1px solid #dadada;
+        height: 40px;
+        padding: 0 20px;
+        line-height: 40px;
+        .text-act{
+            padding: 4px 10px;
+            border: 1px solid #dadada;
+            outline: none;
+        }
+        .sub-act{
+            padding: 4px 10px;
+            background: #f4f4f4;
+            border: 1px solid #dadada;
+            margin-left: -4px;
+            outline: none;
+        }
+    }
+}
+.groupcy{
+    ul{
+        li{
+            position: relative;
+            &:hover{
+                border: 1px solid #e23435;
+                z-index: 9;
+                .arrow-right{
+                    background: #ea9e31;
+                    &:after{
+                        border-left: 12px solid #ea9e31;
+                    }
+                }
+                .attendgorb-ocl{
+                    display: block;
+                }
+            }
+        }
+    }
+    .price-tag{
+        color: #666666;
+        font-size: 14px;
+        .pre-per{
+            float: left;
+            font-size: 12px;
+            em{
+                color: #666666;
+            }
+        }
+        .now{
+            float: right;
+            .li_xfo{
+                font-size: inherit;
+            }
+        }
+    }
+}
+.gb_nastr{
+    margin-top: 26px;
+    .squetrian{
+        float: left;
+    }
+    .old-new-prices{
+        float: left;
+        p{
+            float: left;
+            width: 93px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .old{
+            font-size: 14px;
+            color: #666666;
+            text-align: right;
+            margin-top: 4px;
+            text-decoration: line-through;
+        }
+        .new{
+            font-size: 18px;
+            color: #e23435;
+            text-align: right;
+        }
+    }
+}
+.arrow-right{
+    position:relative; 
+    height: 24px;
+    width: 64px;
+    background: #b5b5b5;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    em{
+        font-size: 16px;
+        margin-left: -4px;
+    }
+    span{
+        position: absolute;
+        top: 0;
+    }
+    &:after{
+        content: '';
+        width:0; 
+        height:0; 
+        border-top:12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 12px solid #b5b5b5;
+        position: absolute;
+        right: -12px;
+    }
+}
+.attendgorb-ocl{
+    display: none;
+    background: #e23435;
+    color: white;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    i{
+        font-family: "\5b8b\4f53";
+        margin-left: 5px;
+    }
+}

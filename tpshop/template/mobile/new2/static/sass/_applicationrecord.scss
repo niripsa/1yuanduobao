@@ -1,0 +1,46 @@
+.application-record{
+    ul{
+        clear: both;
+        border-bottom: 1px solid $grey4;
+        .li1{
+            width: 100px/$ppr;
+        }
+        .li2{
+            width: 200px/$ppr;
+        }
+        .li3{
+            width: 230px/$ppr;
+        }
+        .li4{
+            width: 160px/$ppr;
+            text-align: right;
+            padding-right: 20px/$ppr;
+        }
+        li{
+            float: left;
+            text-align: center;
+            font-size: 30px/$ppr;
+            height: 90px/$ppr;
+            line-height: 90px/$ppr;
+            span{
+                color: #666666;
+            }
+            .red{
+                color: #e01222;
+            }
+        }
+        
+    }
+    .re_tit{
+        li{
+            font-size: 32px/$ppr;
+            text-align: center;
+            span{
+                color: #222222;
+            }
+        }
+        .li4{
+            padding-right: 0;
+        }
+    }
+}

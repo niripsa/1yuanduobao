@@ -1,0 +1,97 @@
+.pjiscion{
+    padding-top: 20px/$ppr;
+    background: white;
+    ul{
+        li{
+            float: left;
+            width: 100/3*1%;
+            text-align: center;
+            font-size: 28px/$ppr;
+            font-family: "黑体";
+            line-height: 40px/$ppr;
+            cursor: pointer;
+        }
+        .red{
+            color: #f23030;
+            border-bottom: 1px solid #f23030;
+            padding-bottom: 20px/$ppr;
+        }
+    }
+}
+.after-set-li{
+    ul li{
+        width: 100/3*1%;
+    }
+}
+.said{
+    background:url(../images/co.png) no-repeat;
+    width: 24px/$ppr;
+    height: 21px/$ppr;
+    display: inline-block;
+    vertical-align: inherit;
+    background-size: cover;
+    margin-right: 6px/$ppr;
+}
+.co2{
+    background: url(../images/co2.png) no-repeat;
+    width: 28.2px/$ppr;
+    height: 24px/$ppr;
+    background-size: cover;
+}
+.c23{
+    background: url(../images/c23.png) no-repeat;
+    width: 24px/$ppr;
+    height: 24px/$ppr;
+    background-size: cover;
+}
+.c24{
+    background: url(../images/c24.png) no-repeat;
+    width: 18px/$ppr;
+    height: 17px/$ppr;
+    background-size: cover;
+}
+.dapco{
+    .compj{
+        border-color: #F23030;
+//      margin-top: 24px/$ppr;
+        margin-left: 15px/$ppr;
+        color: #f23030;
+    }
+    .nomar{
+        border-color: inherit;
+        color: inherit;
+    }
+}
+.dyeai{
+    clear: both;
+    overflow: hidden;
+    font-size: 24px/$ppr;
+    color: #b3b3b3;
+    span{
+        float: right;
+        margin-top: 15px/$ppr;
+        margin-right: 100px/$ppr;
+    }
+}
+.pall0{
+    padding: 0 10px/$ppr;
+    color: #b3b3b3;
+    font-size: 24px/$ppr;
+}
+.quedbox.bg_white{
+    .img_or{
+        img{
+            border: 0;
+        }
+    }
+}
+.bg_white .bg3g{
+    background: #f3f5f7;
+}
+.bg3g{
+    .dyeai{
+        background: white;
+        padding: 20px/$ppr 0;
+        margin-top: 25px/$ppr;
+    }
+}

@@ -1,0 +1,385 @@
+.getcoupon-he{
+    .ecsc-join{
+        margin-left: 0 !important;
+        span{
+            font: 400 20px/70px 'Microsoft YaHei';
+            color: #333;
+            cursor: default;
+        }
+    }
+    .ecsc-search-tabs{
+        width: 86px;
+    }
+    .ecsc-search-input{
+        width: 301px;
+    }
+    .u-g-cart .c-n{
+        width: 78px + 64px;
+        height: 34px;
+        line-height: 34px;
+        background-color:#efefef; 
+        &:before{
+            content: "";
+            background: url(../images/coo.png) no-repeat;
+            width: 16px;
+            height: 12px;
+            position: absolute;
+            background-position: 0 -191px;
+            left: 12px;
+            top: 12px;
+        }
+        &:after{
+            content: ">";
+            font: 400 16px/16px consolas;
+            position: absolute;
+            right: 12px;
+            top: 10px;
+            color: #3c3c3c;
+        }
+    }
+    .u-g-cart{
+        height: 36px;
+        &:hover{
+            .c-n{
+                background: white;
+                border: 0;
+                -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2);
+                -moz-box-shadow: 0 0 5px rgba(0,0,0,.2);
+                box-shadow: 0 0 5px rgba(0,0,0,.2);
+            }
+            .u-mn-cart{
+                border: 0;
+                right: 2px;
+                border-top:2px solid white;
+                -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2);
+                -moz-box-shadow: 0 0 5px rgba(0,0,0,.2);
+                box-shadow: 0 0 5px rgba(0,0,0,.2);
+                &:before{
+                    content: "";
+                    background-color: white;
+                    position: absolute;
+                    width: 144px;
+                    height: 4px;
+                    right: 0;
+                    top: -5px;
+                }
+            }
+        }
+    }
+    .u-mn-cart{
+        width: 210px;
+        top: 36px;
+    }
+    .shopingcar-index{
+        margin-top: 10px;
+    }
+}
+.quantarget{
+    text-align: left;
+    li{
+        position: relative;
+        &:hover{
+            background: #e23435;
+            a{
+                color: white;
+                .num{
+                    color: white;
+                }
+            }
+        }
+        a{
+            display: block;
+            padding: 0 10px 0 20px;
+            height: 26px;
+            line-height: 26px;
+            color: #9a9a9a;
+            overflow: hidden;
+        }
+    }
+    .num{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color: #656565;
+    }
+    .unread {
+        color: #e23435;
+        em{
+            display: inline-block;
+            height: 16px;
+            line-height: 16px;
+            padding: 0 5px;
+            margin-right: 5px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            background-color: #e23435;
+            color: #fff;
+        }
+    }
+}
+.grayrow{
+    margin-bottom: 30px;
+    padding: 30px 0 0;
+    background: url(../images/h-circle.png) repeat-x left bottom #f7f7f7;
+}
+.quan-cats{
+    display: block;
+    padding: 0 0 30px;
+    text-align: center;
+    .item{
+        display: inline-block;
+        width: 60px;
+        padding: 0 40px;
+        text-align: center;
+        a:hover,.addchr{
+            .aro1{
+                background-position: 6px -70px;
+            }
+            .aro2{
+                background-position: -141px -70px;
+            }
+            .aro3{
+                background-position: -292px -70px;
+            }
+            .aro4{
+                background-position: -437px -70px;
+            }
+            .aro5{
+                background-position: -586px -70px;
+            }
+            .aro6{
+                background-position: -735px -70px;
+            }
+            .aro7{
+                background-position: -882px -70px;
+            }
+            .aro8{
+                background-position: -1022px -70px;
+            }
+            h5{
+                color: #e23435;
+                font-weight: 700;
+            }
+        }
+        i{
+            background: url(../images/coo.png) no-repeat;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            display: block;
+            &.aro1{
+                background-position: 6px 0;
+            }
+            &.aro2{
+                background-position: -141px 0;
+            }
+            &.aro3{
+                background-position: -292px 0;
+            }
+            &.aro4{
+                background-position: -437px 0;
+            }
+            &.aro5{
+                background-position: -586px 0;
+            }
+            &.aro6{
+                background-position: -735px 0;
+            }
+            &.aro7{
+                background-position: -882px 0;
+            }
+            &.aro8{
+                background-position: -1022px 0;
+            }
+        }
+        h5{
+            font-size: 14px;
+            color: #999;
+            font-weight: 400;
+        }
+    }
+}
+.titl_chooi{
+    margin-bottom: 30px;
+    display: block;
+    line-height: 40px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    .f-sort,.f-types,.f-service{
+        float: left;
+        padding-right: 20px;
+        border-left: 1px solid #f1f1f1;
+    }
+    .f-sort{
+        border-left: none;
+    }
+    a{
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 20px;
+        color: #333;
+        i{
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            border: 1px solid #f1f1f1;
+            vertical-align: middle;
+        }
+    }
+    .selted,a:hover{
+        color: #e23435;
+        i{
+            border-color: #e23435;
+        }
+    }
+    .selted i{
+        display: inline-block;
+        background:url(../images/coo.png) no-repeat;
+        background-position: 2px -145px;
+        background-repeat: no-repeat;
+    }
+}
+
+.aldw-item{
+    width: 316px;
+    position: relative;
+    margin: 2px 28px 28px 2px;
+    height: 170px;
+    padding-right: 69px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    font-family: "Microsoft YaHei";
+    float: left;
+    &:hover{
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,.1);
+        box-shadow: 0 0 5px rgba(0,0,0,.1);
+    }
+    .q-type{
+        padding: 25px 0 20px 25px;
+    }
+    .q-price{
+        color: #74d2d4;
+        display: block;
+        margin-bottom: 10px;
+        em{
+            float: left;
+            margin: 5px 0 0;
+            font-family: verdana;
+            font-size: 24px;
+        }
+        .num{
+            float: left;
+            line-height: 50px;
+            margin: 0 10px 0 5px;
+            font-size: 60px;
+            font-family: arial;
+            _display: inline;
+        }
+        .tex{
+            float: left;
+            line-height: 22px;
+        }
+    }
+    .q-range{
+        line-height: 22px;
+        color: #999;
+        .range-item p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 200px;
+            cursor: default;
+        }
+    }
+    .q-opbtns {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 170px;
+        height: 133px;
+        padding: 37px 24px 0 36px;
+        line-height: 24px;
+        background: #74d2d4;
+        color: #fff;
+        font-size: 14px;
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            &:hover{
+                color: #197f81;
+            }
+        }
+        .semi-circle {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 170px;
+            background: url(../images/semi-circle.png) repeat-y;
+        }
+    }
+}
+.ftx-06, .ftx06 {
+    color: #666;
+}
+.aldw-useing{
+    .q-state{
+        .geten{
+            position: absolute;
+            background: url(../images/coo.png) no-repeat;
+            background-repeat: no-repeat;
+            width: 62px;
+            height: 62px;
+            line-height: 99em;
+            overflow: hidden;
+            bottom: 12px;
+            right: 90px;
+            background-position: -289px -151px;
+        }
+    }
+}
+.aldw-gray{
+    .q-price{
+        color: #c3c3c3;
+    }
+    .q-opbtns {
+        background: #c3c3c3;
+        a{
+            color: #868686;
+            cursor: default;
+            &:hover{
+                color: #868686;
+            }
+        }
+    }
+    .q-state{
+        .btn-state{
+            position: absolute;
+            background: url(../images/coo.png) no-repeat;
+            background-repeat: no-repeat;
+            width: 62px;
+            height: 62px;
+            line-height: 99em;
+            overflow: hidden;
+            bottom: 12px;
+            right: 90px;
+            background-position: -136px -151px;
+        }
+        .geten{
+            background-position: -289px -151px;
+        }
+    }
+}
+.coupon-ticket{
+    width: 1251px;
+}

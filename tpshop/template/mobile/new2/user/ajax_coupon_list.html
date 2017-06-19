@@ -1,0 +1,23 @@
+<volist name="coupon_list" id="coupon">
+    <li>
+        <div class="cp_alo">
+            <div class="pon_top">
+                <h1><em class="fosi">￥</em><em>{$coupon.money|intval}</em></h1>
+                <p>{$coupon.name}</p>
+            </div>
+            <div class="pon_dow">
+                <p>{$tpshop_config['shop_info_store_name']}</p>
+                <if condition="$Request.param.type eq null">
+                    <a class="usecoupon" href="/">立即使用</a>
+                </if>
+                <if condition="$Request.param.type eq 1">
+                    <a class="usecoupon" >已使用</a>
+                </if>
+                <if condition="$Request.param.type eq 2">
+                    <a class="usecoupon" >已过期</a>
+                </if>
+            </div>
+            <p class="xd_time">限{$coupon.use_end_time|date='Y-m-d',###}前使用</p>
+        </div>
+    </li>
+</volist>

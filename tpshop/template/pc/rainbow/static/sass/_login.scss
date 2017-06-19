@@ -1,0 +1,217 @@
+.loginsum_cm{
+    height: 120px;
+    line-height: 120px;
+    .login-dl{
+        float: left;
+        img{
+            width: 183px;
+            height: 57px;
+            vertical-align: middle;
+        }
+    }
+    .login-welcome{
+        float: left;
+        margin-left: 30px;
+        span{
+            font-size: 28px;
+            color: #666666;
+            font-family: "微软雅黑";
+        }
+    }
+}
+.loginsum_main{
+    font-family:"微软雅黑";
+    position: relative;
+    min-height: 486px;
+    max-height: 486px;
+    .advertisement{
+        float: left;
+        img{
+            width: 621px;
+            height: 475px;
+        }
+    }
+    .login_form{
+        float: right;
+        .lo_intext{
+            width: 346px;
+            background: white;
+            margin-top: 8px;
+            .layel1{
+                color: #e23435;
+                font-size: 18px;
+                font-weight: bold;
+                height: 54px;
+                line-height: 54px;
+                text-align: center;
+            }
+            .layel2{
+                padding: 30px 0;
+                border-top: 1px solid #f4f4f4;
+                border-bottom: 1px solid #f4f4f4;
+                overflow: hidden;
+                .text_uspa{
+                    width: 304px;
+                    height: 37px;
+                    border: 1px solid #bbbbbb;
+                    margin: 0 auto;
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    @include box-sizing(border-box);
+                    label{
+                        width: 37px;
+                        height: 37px;
+                        @include box-sizing(border-box);
+                        float: left;
+                        border-right: 1px solid #bbbbbb;
+                    }
+                    .uspa_user{
+                        background-position: 6px 6px;
+                    }
+                    .uspa_pwd{
+                        background-position: 10px -26px;
+                    }
+                    .text_cmu{
+                        float: left;
+                        width: 304px - 37px - 2px;
+                        height: 37px;
+                        border: 0;
+                        padding: 0 10px;
+                        font-size: 14px;
+                        outline: none;
+                        @include box-sizing(border-box);
+                    }
+                }
+                .check_cum{
+                    width: (304px/2);
+                    float: left;
+                    margin-left: 21px;
+                    .text_cmu{
+                        width: 100%;
+                    }
+                }
+                .check_cum_img{
+                    float: left;
+                    width: (304px/2);
+                    img{
+                        height: 37px;
+                        width: 100px;
+                        margin-left: 21px;
+                    }
+                }
+                .text_uspa_focus{
+                    border-color: #08c;
+                    box-shadow: 0 0 4px #8bd6fb;
+                    @include transform(all .2s easc-out 0s);
+                }
+                .login_bnt{
+                    margin-top: 20px;
+                    a{
+                        color: white;
+                        font-size: 20px;
+                        font-weight: 600;
+                        display: block;
+                        width: 304px;
+                        height: 37px;
+                        line-height: 37px;
+                        background: #e23435;
+                        text-align: center;
+                        margin: 0 auto;
+                        &:hover{
+                            background: rgba(226,52,53,0.92);
+                        }
+                    }
+                }
+            }
+            .layel3{
+                overflow: hidden;
+            }
+        }
+    }
+}
+//*{
+//  transition:all .2s ease-in 0s;
+//  -webkit-transition:all .2s ease-in 0s;
+//  -moz-transition:all .2s ease-in 0s;
+//}
+.judgp{
+    background: url(../images/loginchat.png) no-repeat;
+    display: inline-block;
+}
+.sum_reme_for{
+    color: #666666;
+    padding: 0 21px;
+    .autplog{
+        float: left;
+        label,input{
+            vertical-align: middle;
+            cursor: pointer;
+        }
+    }
+    .foget_pwt{
+        float: right;
+        a{
+            cursor: pointer;
+        }
+    }
+}
+.contactsty{
+    padding: 14px 0;
+    overflow: hidden;
+    .tecant_c{
+        float: left;
+        margin-left: 21px;
+        ul{
+            li{
+                float: left;
+                .justclix{
+                    display: block;
+                    cursor: pointer;
+                    i{
+                        width: 27px;
+                        height: 27px;
+                        vertical-align: middle;
+                    }
+                    span{
+                        vertical-align: middle;
+                        display: inline-block;
+                        font-size: 16px;
+                    }
+                }
+                .co_qq{
+                    background-position: -31px 2px;
+                }
+                .co_wechat{
+                    background-position: -33px -30px;
+                }
+                .co_alipay{
+                    background-position: -66px 2px;
+                }
+            }
+            .spacer{
+                 margin:9px 25px 0 26px;
+            }
+        }
+    }
+    .register_c{
+        float: right;
+        margin-right: 21px;
+        margin-top: 10px;
+        .justclix{
+            display: block;
+            cursor: pointer;
+            .co_register{
+                width: 27px;
+                height: 27px;
+                background-position: -30px -60px;
+                vertical-align: middle;
+            }
+            span{
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 16px;
+                color:#bf1919;
+            }
+        }
+    }
+}

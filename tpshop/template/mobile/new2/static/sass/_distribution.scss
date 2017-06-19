@@ -1,0 +1,234 @@
+.fx_header{
+    background: url(../images/fx_01.jpg) no-repeat;
+    width: 100%;
+    height: 292px/$ppr;
+    background-size: cover;
+    .person{
+        margin-top: -116px/$ppr;
+    }
+    .scgz{
+        bottom: 20px/$ppr;
+        ul{
+            li{
+                width: 100/3 *1%;
+                border-left:1px solid #b52b20;
+                &:first-child{
+                    border-left: 0;
+                }
+            }
+        }        
+    } 
+}
+.fx_reward{
+    .content{
+        .tjxtop{
+            ul{
+                li{
+                    width: 50%;
+                    a{
+                        padding: 25px/$ppr 0;
+                    }
+                    &:first-child{
+                        &:after{
+                            content: '';
+                            background: url(../images/tans.png) no-repeat;
+                            width: 11px/$ppr;
+                            height: 150px/$ppr;
+                            background-size: cover;
+                            position: absolute;
+                            right: -11px/$ppr;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.fxmyori{
+    .myorder{
+        position: relative;
+        border-bottom: 0;
+        line-height: 89px/$ppr;
+        .content30{
+            border-bottom: 1px solid #e3e5e9;
+        }
+        .fr{
+            .fx_peo{
+                background: #e01222;
+                padding: 0px 10px/$ppr;
+                float: left;
+                height: 30px/$ppr;
+                line-height: 30px/$ppr;
+                color: white;
+                border-radius: 6px/$ppr;
+                margin-top: 27px/$ppr;
+                font-size: 20px/$ppr;
+            }
+            .frcoloful{
+                background: #f3f3f3;
+                color: #999999;
+            }
+        }
+        &:last-child{
+            .content30{
+                border-bottom: 0;
+            }
+        }
+    }
+    .order{ 
+        .fl{ 
+            .fxw1{
+                width: 40px/$ppr;
+                height: 40px/$ppr;
+            }
+            .fxw2{
+                width: 32px/$ppr;
+                height: 30px/$ppr;
+            }
+            .fxw3{
+                width: 47px/$ppr;
+                height: 39px/$ppr;
+            }
+            .fxw4{
+                width: 34px/$ppr;
+                height: 34px/$ppr;
+            }
+            span{
+                position: absolute;
+                top: 0;
+                left: 82px/$ppr;
+            }
+        }
+    }
+}
+.fx_window{
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    background: white;
+    width: 590px/$ppr;
+    height: 500px/$ppr;
+    margin-left: -(590px/$ppr/2);
+    margin-top: -(600px/$ppr/2);
+    border-radius: 10px/$ppr;
+    padding: 64px/$ppr 0;
+    .gb-close{
+        right: 20px/$ppr;
+    }
+    .layer3{
+        display: block;
+        width: 460px/$ppr;
+        height: 60px/$ppr;
+        line-height: 60px/$ppr;
+        padding: 0 20px/$ppr;
+        border-radius: 6px/$ppr;
+        @include box-shadow(-2px/$ppr 5px/$ppr 13px/$ppr #9c9c99);
+        color: white;
+        text-align: center;
+        background: #e01222;
+        margin: 0 auto;
+        margin-bottom: 80px/$ppr;
+        .fx-first{
+            font-size: 28px/$ppr;
+            float: left;
+        }
+        .fx-people{
+            float: right;
+            font-size: 20px/$ppr;
+        }
+    }
+}
+.my .content .mywealth{
+    display: none;
+    ul{
+        li{
+            float: none;
+            width: 100%;
+            a{
+                margin-left: 92px/$ppr;
+                margin-right: 30px/$ppr;
+                border-bottom: 1px solid #e3e5e9;
+                overflow: hidden;
+                padding: 30px/$ppr 0;
+            }
+            .fl{
+                em{
+                    font-size: 28px/$ppr;
+                }
+            }
+            .fr{
+                .pridnor{
+                    float: left;
+                    font-size: 20px/$ppr;
+                    color: #999999;
+                    line-height: 28px/$ppr;
+                }
+                .Mright{
+                    margin-left: 10px/$ppr;
+                }
+            }
+            &:last-child{
+                a{
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.extension-qrcode{
+    text-align: center;
+    border-bottom: 1px solid #e3e5e9;
+    background: white;
+    span{
+        font-size: 30px/$ppr;
+        line-height: 80px/$ppr;
+        height: 80px/$ppr;
+    }
+}
+.qrcodeimg-alo{
+    border-top: 1px solid #e3e5e9;
+    text-align: center;
+    background: white;
+    padding: 100px/$ppr 0;
+    img{
+        width: 258px/$ppr;
+        height: 258px/$ppr;
+    }
+}
+.distridetail{
+    background: white;
+    margin-top: 50px/$ppr;
+}
+.detail_fxinfo{
+    .maleri30{
+        overflow: hidden;
+        border-bottom: 1px solid #e3e5e9;
+        padding: 12px/$ppr 0;
+    }
+    img{
+        float: left;
+        width: 123px/$ppr;
+        height: 126px/$ppr;
+    }
+    .coni_frxx{
+        float: left;
+        font-size: 24px/$ppr;
+        line-height: 29px/$ppr;
+        margin-left: 20px/$ppr;
+        width: 547px/$ppr;
+        p{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #999999;
+        }
+    }
+}
+.fxdisadd{
+    .add{
+        background: white;
+        border-top: 0;
+    }
+}

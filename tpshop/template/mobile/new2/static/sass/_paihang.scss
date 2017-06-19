@@ -1,0 +1,112 @@
+.paihang-nv{
+    border-bottom: 1px solid #e7e8ef;
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            width: 100 / 3 *1%;
+            text-align: center;
+            padding: 33px/$ppr 0;
+            @include box-sizing(border-box);
+            a{
+                display: block;
+                font-size: 34px/$ppr;
+                height: 34px/$ppr;
+                border-right: 1px solid #e7e8ef;
+            }
+            .bor0{
+                border-right: 0;
+            }
+        }
+        .ph{
+            a{
+                color: #e23435;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.ph-info-img{
+    float: left;
+    img{
+        width: 188px/$ppr;
+        height: 188px/$ppr;
+    }
+}
+.box-phinf{
+    padding: 30px/$ppr;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e8ef;
+}
+.ph-info-word{
+    float: left;
+    padding-left: 20px/$ppr;
+}
+.ph-namefoes{
+    font-size: 32px/$ppr;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 482px/$ppr;
+    a{
+        color: #333333;
+    }
+    
+}
+.people-att{
+    font-size: 30px/$ppr;
+    color: #666666;
+    padding: 30px/$ppr 0;
+}
+.peopleatt{
+    overflow: hidden;
+    margin-top: 10px/$ppr;
+}
+.ph-price{
+    float: left;
+    color: #e23435;
+    font-size: 34px/$ppr;  
+    line-height: 56px/$ppr;
+    width: 224px/$ppr;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.attgrp{
+    float: right;
+    width: 258px/$ppr;
+    height: 56px/$ppr;
+    border: 1px solid #e23435;
+    display: block;
+    font-size: 30px/$ppr;
+    border-radius: 6px/$ppr;
+    overflow: hidden;
+    .peop{
+        overflow: hidden;
+        display: block;
+        span{
+            float: left;
+            width: 50%;
+            display: block;
+            height: 54px/$ppr;
+            text-align: center;
+            line-height: 54px/$ppr;
+        }
+        .no-backph{
+            color: #e23435;
+            background: white;
+        }
+        .hs-backph{
+            color: white;
+            background: #e23435;
+        }
+    }
+}
+.ph-footer{
+    ul{
+        li{
+            width: 20%;
+        }
+    }
+}

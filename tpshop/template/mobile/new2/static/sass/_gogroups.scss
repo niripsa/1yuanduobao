@@ -1,0 +1,186 @@
+.loginsignup .content .menu img.shareimg{
+    width: 34px/$ppr;
+    height: 34px/$ppr;
+}
+.peoit{
+    .f26{
+        font-size: 26px/$ppr;
+    }
+    .f36{
+        font-size: 36px/$ppr;
+        color: #e23435;
+    }
+}
+.lensass{
+    .shopimg a{
+        display: block;
+    }
+    .sc_list .deleshow .deletes a{
+        float: none;
+    }
+    .sc_list .deleshow .deletes .similar-product-text{
+        height: 85px/$ppr;
+        line-height: 45px/$ppr;
+    }
+    .sc_list{
+        position: relative;
+        padding: 30px/$ppr 0;
+    }
+    .fail{
+        position: absolute;
+        right: 0;
+        top: 11px/$ppr;
+        img{
+            width: 275px/$ppr;
+            height: 206px/$ppr;
+        }
+    }
+    .explain{
+        float: right;
+        font-size: 28px/$ppr;
+        a{
+            color: #c3c3c3;
+        }
+    }
+}
+.attendpeo{
+    background: #e7e8ef;
+    overflow: hidden;
+    ul{
+        li{
+            float: left;
+            padding: 20px/$ppr 0;
+            width: (750px - 60px)/$ppr/8;
+            text-align: center;
+            a{
+                display: block;
+                position: relative;
+                img{
+                    width: 65px/$ppr;
+                    height: 65px/$ppr;
+                    border-radius: 50%;
+                }
+                i{
+                    display: block;
+                    width: 32px/$ppr;
+                    height: 32px/$ppr;
+                    line-height: 32px/$ppr;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: -10px/$ppr;
+                    right: 0;
+                    font-size: 20px/$ppr;
+                    text-align: center;
+                    em{
+                        color: white;
+                    }
+                }
+                .tz{
+                    background: #e23435;
+                }
+                .sf{
+                    background: #e4c22d;
+                }
+            }
+        }
+    }
+}
+.perharpslike{
+    padding: 20px/$ppr 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+.phehe{
+    font-size: 28px/$ppr;
+}
+.parphers{
+    ul{
+        li{
+            margin-right: 63px/$ppr;
+            width: 188px/$ppr;
+            &:nth-child(2n+1){
+                padding: 0;
+            }
+            &:nth-child(2n){
+                padding: 0;
+            }
+            &:nth-child(3n){
+                padding: 0;
+                margin-right: 0;
+            }
+        }
+    }
+    ul li .similer-product img{
+        width: 188px/$ppr;
+        height: 188px/$ppr;
+    }
+    .similar-product-text{
+        a{
+            display: block;
+        }
+    }
+    .similar-product-price{
+        float: left;
+        display: block;
+        width: 146px/$ppr;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .cheje{
+        float: right;
+    }
+}
+.xxh{
+    background: url(../images/xxx.png) no-repeat;
+    width: 35px/$ppr;
+    height: 35px/$ppr;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: -6px;
+    background-size: 70px/$ppr;
+}
+.xxh-r{
+    background-position-x: -38px/$ppr;
+}
+.h120{
+    height: 120px/$ppr;
+}
+.footer-groupzr{
+    position: fixed;
+    bottom: 0;
+    width: 750px/$ppr;
+    height: 120px/$ppr;
+    overflow: hidden;
+    background: rgba(34,34,34,0.4);
+    a{
+        color: white;
+        font-size: 32px/$ppr;
+        height: 85px/$ppr;
+        display: block;
+        text-align: center;
+        line-height: 85px/$ppr;
+        border-radius: 6px/$ppr;
+        margin-top: 20px/$ppr;
+    }
+    .more-pt{
+        float: left;
+        background: #777777;
+        width: 250px/$ppr;
+        i{
+            background: url(../images/w39.png) no-repeat;
+            width: 39px/$ppr;
+            height: 36px/$ppr;
+            display: inline-block;
+            vertical-align: text-bottom;
+            position: relative;
+            top: -2px/$ppr;
+            margin-right: 5px/$ppr;
+            background-size: cover;
+        }
+    }
+    .star-ot{
+        float: right;
+        background: #e23435;
+        width: 400px/$ppr;
+    }
+}

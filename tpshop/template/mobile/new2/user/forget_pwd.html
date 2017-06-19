@@ -1,0 +1,42 @@
+<include file="public/header" title="找回密码" body=""/>
+<include file="public/header_nav" title="找回密码" href="javascript:history.back(-1)"/>
+    <div class="loginsingup-input singupphone findpassword">
+        <form action="{:U('User/forget_pwd')}" method="post" id="fpForm">
+            <div class="content30">
+                <div class="lsu bk">
+                    <span>账号</span>
+                    <input type="text" name="username" id="username" value="" placeholder="用户名 / 邮箱 / 手机号"/>
+                </div>
+                <div class="lsu bk ma">
+                    <input type="text" name="verify_code" id="verify_code" value="" placeholder="请输入验证码"/>
+                    <span><img src="/tpshop/index.php?m=Mobile&c=User&a=verify&type=forget" id="verify_code_img" onclick="verify()"></span>
+                </div>
+                <div class="lsu submit">
+                    <input type="button" id="btn_submit"  value="下一步" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    //加载验证码
+    function verify(){
+        $('#verify_code_img').attr('src','/tpshop/index.php?m=Mobile&c=User&a=verify&type=forget&r='+Math.random());
+    }
+
+    $("#btn_submit").click(function(){
+        var username = $.trim($('#username').val());
+        var verify_code = $.trim($('#verify_code').val());
+        if(username == ' '){
+            showErrorMsg('账号不能为空');
+            return false;
+        }
+       if(verify_code == ''){
+           showErrorMsg('验证码不能为空');
+           return false;
+       }
+        $("#fpForm").submit();
+    });
+
+</script>
+</html>

@@ -1,0 +1,280 @@
+.classreturn .content .mess img{
+    width: 44px/$ppr;
+    height: 44px/$ppr;
+}
+.f3{
+    background: #f3f5f7;
+}
+.shpmi{
+    background: white;
+}
+.dinaot{
+    font-family: "黑体";
+    line-height: 60px/$ppr;
+    .naem{
+        font-size: 32px/$ppr;
+        display: inline-block;
+        @include line(500px/$ppr)
+    }
+    .Mright{
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 6px/$ppr;
+    }
+    .red{
+        float: right;
+        font-size: 26px/$ppr;
+    }
+}
+.yg{
+    background: url(../images/yg.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 83px/$ppr;
+    margin-right: 6px/$ppr;
+    width: 38px/$ppr;
+    height: 35px/$ppr;
+}
+.wuliumess{
+    margin-top: 20px/$ppr;
+    .yg{
+        background-position-x: -44px/$ppr;
+        float: left;
+    }
+    .naem{
+        width: (750px - 60px - 38px - 6px)/$ppr;
+        font-size: 32px/$ppr;
+        display: inline-block;
+        float: left;
+    }
+    .time{
+        font-size: 26px/$ppr;
+        color: #666666;
+        margin-left: (38px + 6px)/$ppr;
+        padding: 20px/$ppr 0;
+        clear: both;
+    }
+}
+.fukcuid{
+    position: relative;
+    .maleri30{
+        margin: 0 68px/$ppr;
+    }
+    .shopprice .fon_or{
+        margin-top: 14px/$ppr;
+        color: #333333;
+        font-family: "黑体";
+        width: 494px/$ppr;
+        a{
+            vertical-align: inherit;
+        }
+    }
+}
+.shijefu{
+    font-family: "黑体";
+    background: white;
+    line-height: 50px/$ppr;
+    p{
+        font-size: 28px/$ppr;
+        color: #333333;
+        text-align: right;
+        .fs24{
+            font-size: 24px/$ppr;
+        }
+    }
+    .butna{
+        padding: 20px/$ppr 0;
+        a{
+            padding: 8px/$ppr 12px/$ppr;
+            font-size: 30px/$ppr;
+            border: 1px solid #c2c2c2;
+            border-radius: 4px/$ppr;
+            margin-left: 5px/$ppr;
+        }
+        .red{
+            border-color: #e23435;
+        }
+    }
+}
+.quedbox{
+    margin: 20px/$ppr 0;
+}
+.bg_white{
+    .fukcuid{
+        .fon_or{
+            margin-top: 20px/$ppr;
+            h2{
+                height: 88px/$ppr;
+                line-height: 44px/$ppr;
+            }
+        }
+    }
+}
+.fukcuid{
+    background: #f8f8f8;
+    overflow: hidden;
+    padding-bottom: 30px/$ppr;
+}
+.euresucess{
+    background: white;
+    text-align: center;
+    padding: 60px/$ppr 0;
+    img{
+        width: 245px/$ppr;
+        height: 157px/$ppr;
+    }
+    p{
+        font-family: "黑体";
+        font-size: 30px/$ppr;
+        padding-top:30px/$ppr ;
+    }
+}
+.sonfbst{
+    background: white;
+    padding: 30px/$ppr 0;
+    span{
+        font-size: 30px/$ppr;
+        color: #666666;
+        font-family: "黑体";
+    }
+}
+.fbs{
+    background: url(../images/fbs.png) no-repeat;
+    width: 34px/$ppr;
+    height: 34px/$ppr;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 30px/$ppr;
+}
+.mae{
+    .maleri30{
+        margin: 0 30px/$ppr;
+    }
+    .shopprice .fon_or{
+        width: (750px - 60px - 100px - 20px)/$ppr;
+        margin-top: 20px/$ppr;    
+    }
+}
+.compj{
+    padding: 10px/$ppr 20px/$ppr;
+    border: 1px solid #c2c2c2;
+    border-radius: 4px/$ppr;
+    font-size: 30px/$ppr;
+    float: right;
+}
+.bg_white{
+    .fukcuid{
+        background: white;
+        padding-bottom: 20px/$ppr;
+    }
+}
+.surshko{
+    z-index: 999;
+    display: none;
+    width: 590px/$ppr;
+    font-family: "黑体";
+    border-radius: 10px/$ppr;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    overflow: hidden;
+    height: (208px + 85px)/$ppr;
+    margin-top: -(208px + 85px)/2/$ppr;;
+    margin-left: -590px/2/$ppr;
+    p{
+        background: white;
+        font-size: 36px/$ppr;
+        color: #333333;
+        padding: 86px/$ppr 0;
+        text-align: center;
+        border-bottom: 1px solid #ebebeb;
+        height: 208px/$ppr;
+    }
+}
+.weiyi{
+    a{
+        display: block;
+        float: left;
+        text-align: center;
+        height: 85px/$ppr;
+        line-height: 85px/$ppr;
+        background: white;
+        width: 50%;
+        font-size: 32px/$ppr;
+    }
+    .eno{
+        background: #f23030;
+        color: white;
+    }
+}
+.cuidd{
+    z-index: 999;
+    display: none;
+    width: 590px/$ppr;
+    font-family: "黑体";
+    border-radius: 10px/$ppr;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    overflow: hidden;
+    height: (208px + 85px)/$ppr;
+    margin-top: -(208px + 85px)/2/$ppr;;
+    margin-left: -590px/2/$ppr;
+    p{
+        background: white;
+        padding: 30px/$ppr 100px/$ppr;
+        line-height: 50px/$ppr;
+        font-size: 36px/$ppr;
+        color: #333333;
+        text-align: center;
+        border-bottom: 1px solid #ebebeb;
+        margin: 0 auto;
+        text-align: left;
+        height: 208px/$ppr;
+    }
+}
+.applytime{
+    background: white;
+    p{
+        font-size: 28px/$ppr;
+        color: #222222;
+        font-family: "黑体";
+        width: 300px/$ppr;
+        margin: 0 auto;
+        line-height: 40px/$ppr;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+    }
+}
+.bgwappl{
+    background: white;
+}
+.applyover{
+    width: 494px/$ppr;
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: "黑体";
+    padding-top: 60px/$ppr;
+    a{
+        width: 210px/$ppr;
+        height: 63px/$ppr;
+        text-align: center;
+        line-height: 63px/$ppr;
+        border: 1px solid #cbcbcb;
+        color: #666666;
+        font-size:26px/$ppr; 
+        &:first-child{
+            float: left;
+        }
+        &:last-child{
+            float: right;
+        }
+    }
+}

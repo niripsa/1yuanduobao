@@ -1,0 +1,110 @@
+.myjfhg{
+    .cuschan{
+        width: 100/3 * 1%;
+        .co{
+            margin-left: 0;
+        }
+    }
+}
+.jfhg{
+    display: block;
+    background: #e23435;
+    color: white;
+    height: 36px;
+    width: 120px;
+    line-height: 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin:0 auto;
+    &:before{
+        content: "";
+        margin-top: 20px;
+        display: block;
+    } 
+    &:hover{
+        background: #ec5151;
+        color: white;
+    }
+}
+.kyjf{
+    background: url(../images/jfhg.png) no-repeat;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+.dsxjf{
+    @extend .kyjf;
+    background-position-x: -37px;
+}
+.gqjf{
+    @extend .kyjf;
+    background-position-x: -79px;
+}
+.timsearch{
+    ul{
+        float: left;
+    }
+    .search-ss-lit{
+        height: 34px;
+        width: 160px;
+        float: right;
+        margin-right: 20px;
+        margin-top: 10px;
+        input{
+            height: 34px;
+            width: 117px;
+        }
+        .litt-sexx{
+            margin-top: 9px;
+        }
+    }
+    .time-qjc{
+        float: right;
+        input{
+            width:107px;padding:7px 10px;border:1px solid #ccc;
+            outline: none;
+        }
+        .cx_subb{
+            width: 50px;
+            background: #f9f9f9;
+        }
+    }
+}
+.searc_sx{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    span,a{
+        color: #666666;
+        font-size: 14px;
+    }
+    a{
+        padding: 4px 10px;
+        border: 1px solid #dadada;
+        margin-right: 10px;
+        white-space: nowrap;
+        position:relative; 
+        &:before{
+            content: "";
+            display: block;
+            margin-top: 30px;
+            display: inline-block;
+        }
+    }
+    .red{
+        background: #ffd8d9;
+        color: #e23435;
+    }
+}
+//.send_jf:after{
+//  content: "";
+//  background: url(../images/jfhg.png) -118px 0 no-repeat;
+//  width: 20px;
+//  height: 22px;
+//  position: absolute;
+//  border: 1px solid red;
+//}
+.bor-acc{
+    border: 1px solid #DADADA;
+}

@@ -1,0 +1,52 @@
+.adress_manage{
+    .birth_jz select{
+        padding: 6px 30px;
+    }
+    .infor_wi_le{
+        em{
+            color: #e23435;
+            margin-left: 70px;
+        }
+    }
+    .wibc .name_zjxs{
+        width: 394px;
+    }
+    .name_jz{
+        .zjxs_change{
+            width: 60px;
+        }
+        .zjxs_pl_change{
+            width: 220px - 60px - 10px;
+            margin-left: 10px;
+        }
+    }
+}
+.address_list_jl{
+    ul{
+        li{
+            font-size: 14px;
+        }
+    }
+    .grou_tite{
+        background: #f1f1f1;
+        border: 1px solid #DADADA;
+    }
+    .add_conta{
+        li{
+            padding: 30px 0;
+        }
+    }
+    .sx1{
+        width: $sx1;
+        span{
+            margin: 0 5px;
+        }
+    }
+    .sx2,.sx3,.sx4,.sx5{
+        width: (1004px - $sx1 - 2)/4;
+    }
+}
+.gp_num2{
+    margin: 20px 0;
+    font-size: 12px;
+}

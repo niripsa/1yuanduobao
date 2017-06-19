@@ -1,0 +1,75 @@
+.goods_infom{
+    overflow: hidden;
+    background: rgb(243,251,254);
+    padding: 12px;
+    .fi_imgli{
+        float: left;
+        img{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f5f5f5;
+        }
+    }
+    .fi_fonri{
+        float: left;
+        width: 866px;
+        margin-left: 12px;
+        p{
+            color: #888888;
+            line-height: 1.8;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+.unfios{
+    
+}
+.mistake_afr{
+    border-bottom: 1px solid rgb(230,230,230);
+    padding: 20px 0;
+}
+.gsinfo_xx{
+    color: #999999;
+}
+.smallimg_t{
+    img{
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        margin-left: 10px;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+}
+.bigimg_t{
+    margin-top: 10px;
+    img{
+        width: 300px;
+        height: 300px;
+    }
+}
+.tips_jub{
+    padding: 20px 0;
+    a{
+        color: #e23435;
+    }
+}
+.boxbutn_re{
+    text-align: center;
+    padding: 20px;
+}
+.cback{
+    padding: 4px 20px;
+    background: #e23435;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    margin:0 10px; 
+    &:hover{
+        background: rgba(226,52,53,0.8);
+        color: white;
+    }
+}

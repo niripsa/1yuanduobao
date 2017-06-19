@@ -1,0 +1,90 @@
+.navitems{
+    height: inherit;
+    h1{
+        font-size: 16px;
+    }
+}
+.menu_pres{
+    margin-top: 20px;
+    margin-left: 100px;
+    position: relative;
+    .xz{
+        float: left;
+        margin-top: 7px;
+    }
+    .all_ztyy{
+        float: left;
+        position: relative;
+        width: 250px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 6px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    i{
+        display: inline-block;
+        right: 10px;
+    }
+    .xuanz_jt{
+        display: none;
+        width: 250px + 12;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        position: absolute;
+        right: 0;
+        z-index: 2;
+        background-color: white;
+        top: 30px;
+        p{
+            cursor: pointer;
+            &:hover{
+                background: #f7f7f7;
+                a{
+                    color: inherit;
+                }
+            }
+            a{
+                color: #9c9c9c;
+            }
+        }
+        
+    }
+}
+
+
+.presell{
+    margin-top: 50px;
+    .sx1{
+        width: $sx1 - 200;
+    }
+    .sx2{
+        width: $sx1 - 100;
+    }
+    .sx3,.sx4,.sx5{
+        width: (1004px - $sx1 - 100) / 3;
+    }
+}
+.presell-con{
+    .sx1{
+        width: $sx1 - 200;
+        text-align: center;
+    }
+    .sx2{
+        width: $sx1 - 100;
+        text-align: center;
+        .shop_name{
+            margin: 0 auto;
+            text-align: left;
+        }
+    }
+    .sx3,.sx4,.sx5{
+        width: (1004px - $sx1 - 100) / 3;
+    }
+    .sx4{
+        text-align: center;
+        color: #e23435;
+    }
+}

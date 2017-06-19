@@ -1,0 +1,387 @@
+.shhear{
+    padding: 6px 20px;
+    background: #f23030;
+    color: white;
+    font-size: 16px;
+    margin-left: 30px;
+    &:hover{
+        color: white;
+        background: #ea2a2a;
+    }
+}
+.twibtn_r{
+    float: right;
+}
+.earp{
+    background: url(../images/earp.png) no-repeat;
+    width: 24px;
+    height: 26px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+.progse{
+    .goodpiece{
+        overflow: inherit;
+    }
+}
+.fu_serdetail{
+    font-size: 14px;
+    overflow: hidden;
+    border: 1px solid #edd28b;
+    padding: 42px 0;
+    .serft_fl{
+        float: left;
+        width: 35%;
+        padding: 0 60px;
+        line-height: 25px;
+        @include box-sizing(border-box);
+    }
+    .serft_fr{
+        width: 64.9%;
+        float: left;
+        border-left: 1px solid #edd28b;
+        padding: 0 60px;
+        @include box-sizing(border-box);
+        .shop-if-dif{
+            .shop-difimg{
+                width: 50px;
+                height: 50px;
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .cebigeze{
+                height: 50px;
+                margin-left: 60px;
+                .may_zco{
+                    overflow: hidden;
+                    font-size: 14px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
+.shencharsub{
+    padding: 30px 0;
+    margin-left: 70px;
+    ul{
+        li{
+            float: left;
+        }
+        .guccent{
+            width: 210px;
+            position: relative;
+            margin-left: -4px;
+        }
+    }
+}
+.sumapply{
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    font-size: 14px;
+    .tjsq{
+        width:72px;
+        height:72px;
+    }
+    p{
+        color: #666666;
+        font-size: 14px;
+    }
+}
+.checkuoz{
+    .barchar{
+        width: 190px;
+        height: 12px;
+        border-radius: 10px;
+        background: #e8e7e5;
+        overflow: hidden;
+        position: absolute;
+        top: 31px;
+        i{
+            height: 12px;
+            background: #76bb4e;
+            display: block;
+            border-radius: 10px;
+        }
+    }
+    .shwa{
+        padding: 6px 5px;
+        background: #76bb4e;
+        color: white;
+        font-size: 14px;
+        border-radius: 4px;
+        position: relative;
+        left: 50px;
+        top:-10px;
+        overflow:hidden;  
+        &:after{
+            content: "";
+            background: url(../images/zygroup.png) no-repeat;
+            width: 12px;
+            height: 9px;
+            position: absolute;
+            background-position: -104px -117px;
+            bottom: -8px;
+            left: 50%;
+            right: 50%;
+            margin-left: -6px;
+        }
+    }
+}
+.thirdchackup{
+    margin-top: 18px;
+    text-align: center;
+    position: absolute;
+    font-size: 14px;
+    z-index: 9;
+    margin-left: -55px;
+    .tjsq{
+        width:38px;
+        height:38px;
+        background-position: 0 -74px;
+    }
+    p{
+        margin-top: 16px;
+        color: #666666;
+    }
+}
+.tjsq{
+    background: url(../images/zygroup.png) no-repeat;
+    display: inline-block;
+}
+.conduct{
+    .tjsq{
+        background-position-x: -74px;
+    }
+    p{
+        color: #76bb4e;
+    }
+}
+.firshe{
+    .jindudoc{
+        h2{
+            padding-top: 0;
+        }
+    }
+    &:before{
+        content: "";
+        background: url(../images/zygroup.png) no-repeat;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-position: -74px -113px;
+        position: absolute;
+        left: -8px;
+        top: 0;
+    }
+}
+.kediorse{
+    position: absolute;
+    left: -75px;
+    color: #76bb4e;
+    font-size: 14px;
+}
+.liaduebox{
+    .sheefshjk{
+//      padding-left: 100px;
+//      border-left: 1px solid #76bb4e;
+//      padding-bottom: 20px;
+    }
+}
+.sheefshjk{
+    position: relative;
+    margin-left: 70px;
+    font-size: 14px;
+    .jindudoc{
+        h2{
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-top: 20px;
+        }
+    }
+    .cancellserv{
+        padding: 10px 20px;
+        background: #f23030;
+        color: white;
+        border-radius: 6px;
+        position: relative;
+        top: 30px;
+    }
+}
+.liaduebox{
+    border: 1px solid #dadde0;
+    padding: 50px;
+    margin-top: 80px;
+    overflow: hidden;
+    height: 160px;
+    .sheefshjk{
+        .jindudoc{
+            padding-left: 100px;
+            border-left: 1px solid #76bb4e;
+            .caozpero{
+                margin-top: 30px;
+                border-bottom: 1px dashed #dadde0;
+                padding-bottom: 20px;
+                .boldjh{
+                    font-weight: bold;
+                }
+            }
+        }
+        .cilckmor{
+            font-size: 14px;
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-bottom: 50px;
+            a{
+                color: #005ea7;
+            }
+        }
+    }
+}
+.firshe{
+    .jindudoc{
+        h2{
+            padding-top: 0;
+        }
+    }
+}
+.Important-reminder{
+    color: #f23030;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 50px;
+    em{
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+.quesask{
+    padding: 30px 66px;
+    border: 1px solid #e23435;
+}
+.duwentdis{
+    font-size: 14px;
+}
+.sezsadf{
+    p{
+        line-height: 40px;
+    }
+}
+.que1{
+    color: #666666;
+}
+.textareadis{
+    width: 606px;
+    height: 185px;
+    margin-top: 20px;
+    textarea{
+        width: 100%;
+        height: 185px;
+        resize: none;
+        outline: none;
+        border: 1px solid #dadada;
+        color: #666666;
+        font-size: 14px;
+        padding: 10px;
+        @include box-sizing(border-box);
+    }
+    p{
+        color: #666666;
+        text-align: right;
+    }
+}
+.uploadpt{
+    margin-top: 50px;
+    .imgmes{
+        float: left;
+    }
+    .rigdetaque{
+        float: left;
+        margin-top: -4px;
+        .pintzdy{
+            margin-bottom: 10px;
+        }
+        .saveimgbox{
+            padding: 10px 0;
+            a{
+                display: block;
+                border: 1px solid #DADADA;
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                margin-right: 2px;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .fileset{
+            display: none;
+        }
+        p{
+            line-height: 40px;
+        }
+        .clickonlid{
+            height: 30px;
+            width: 96px;
+            background: #f7f7f7;
+            display: block;
+            text-align: center;
+            line-height: 45px;
+        }
+        .ptm{
+            background: url(../images/zygroup.png) no-repeat;
+            width: 32px;
+            height: 24px;
+            display: inline-block;
+            background-position: -121px -102px;
+        }
+    }
+    .stjaoheqx{
+        clear: both;
+        text-align: center;
+        line-height: 38px;
+        padding-top: 20px;
+        a{
+            padding: 10px 26px;
+            border: 1px solid #bfd6af;
+            background: #edf7e5;
+            border-radius: 6px;
+            color: #333333;
+            margin: 0 10px;
+        }
+    }
+}
+.manone{
+    margin-top:0;
+    table tr{
+        height: 40px;
+        td{
+            padding-left: 66px;
+            .tuodate{
+                width: 85px;
+                height: 35px;
+                text-align: center;
+                line-height: 35px;
+                border: 1px solid #bfd6af;
+                background: #edf7e5;
+                display: block;
+                position: absolute;
+                right: 10px;
+                top: 1px;
+                color: #333333;
+            }
+        }
+        .lastd{
+            padding-right: 150px;
+            position: relative;
+        }
+    }
+}

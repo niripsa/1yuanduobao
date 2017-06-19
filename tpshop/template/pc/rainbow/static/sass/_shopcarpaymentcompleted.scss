@@ -1,0 +1,103 @@
+.success_well_shopcartit{
+    font-family: "微软雅黑";
+    h2{
+        font-size: 20px;
+        color: #333333;
+        font-weight: 400;
+    }
+    p{
+        font-size: 12px;
+        color: #666666;
+    }
+}
+.success_payment_tips{
+    font-family: "微软雅黑";
+    padding: 30px 0 100px 0;
+}
+.both_t_box{
+    background: #f7fbf5;
+    border-top: 1px solid #e3e5e9;
+    padding: 45px 0;
+    .bo_center{
+        width: 560px;
+        margin: 0 auto;
+    }
+}
+.scchtit{
+    font-size: 24px;
+    .success-w{
+        color: #09bb07;
+    }
+    i{
+        background: url(../images/tr.png) no-repeat;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    span{
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+.failtit{
+    .success-w{
+        color: #e23435;
+    }
+    i{
+        background-position: 0 -37px;
+    }
+}
+.fonri_sr{
+    margin-left: 20px;
+    .tips-su{
+        font-size: 16px;
+        color: #333333;
+        margin-top: 10px;
+        margin-left: 50px;
+        em{
+            font-size: 20px;
+            color: #e23435;
+        }
+    }
+    .nom_carsu{
+        color: #333333;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+    .btn-rab{
+        margin-top: 16px;
+        margin-left: 50px;
+        a{
+            color: white;
+            display: inline-block;
+            font-size: 12px;
+            vertical-align: middle;
+            padding: 7px 16px;
+            cursor: pointer;
+            &:hover{
+                @include opacity(0.9);
+            }
+            i{
+                background: url(../images/carbtn.png) no-repeat;
+                display: inline-block;
+                vertical-align: middle;
+                width: 22px;
+                height: 20px;
+                margin-right: 5px;
+            }
+        }
+        .continueshoping{
+            background: #e23435;
+        }
+        .checkorder{
+            margin-left: 37px;
+            background: #41a5c4;
+            i{
+                background-position: 0 -24px;
+            }
+        }
+    }
+}

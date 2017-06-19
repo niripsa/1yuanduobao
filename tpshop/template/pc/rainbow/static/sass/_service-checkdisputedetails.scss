@@ -1,0 +1,296 @@
+.contacts_report{
+    width: 100%;
+    padding: 0 25px;
+    margin-top: 14px;
+    @include box-sizing(border-box);
+}
+.contact_left{
+    width: 58%;
+    float: left;
+    .tit_top{
+        height: 40px;
+        line-height: 40px;
+        background: #eeeeee;
+        padding: 0 12px;
+        i{
+            padding: 4px 6px;
+            color: #e23435;
+            font-size: 12px;
+            background: #ffdbdb;
+            margin-right: 10px;
+        }
+        span{
+            color: #666666;
+        }
+    }
+}
+.maincontact{
+    background: #fbfbfb;
+    padding: 0 12px;
+}
+.report_right{
+    width: 41%;
+    float: right;
+}
+.date_time_alone{
+    text-align: center;
+    padding-top: 20px;
+    span{
+        color: #666666;
+        background: #eeeeee;
+        padding: 4px 16px;
+        border-radius: 10px;
+    }
+}
+.sales_head_logo{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        width: 40px;
+        height: 40px;
+    }
+}
+.explay_sales_head{
+    float: left;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    i{
+        background: url(../images/conversition.png) no-repeat;
+        width: 21px;
+        height: 21px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .sales_manage{
+        display: inline-block;
+        background: #dddddd;
+        color: #999999;
+        padding: 2px 6px;
+        position: relative;
+        margin-left: -4px;
+        @include border-corner-radius(top, right, 12px);
+        @include border-corner-radius(bottom, right, 12px);
+        &:before{
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-left: 4px solid white;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+    }
+    .store_name{
+        margin-left: 6px;
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: sub;
+    }
+}
+.myself_head{
+    width: 53%;
+    background: #eeeeee;
+    color: #333333;
+    padding: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+    @include border-radius(10px);
+    img{
+        margin-top: 10px;
+        max-width: 100%;
+    }
+    &:before{
+        content: "";
+        background: url(../images/sig.png) no-repeat;
+        width: 14px;
+        height: 33px;
+        position: absolute;
+        left: -13px;
+        top: 50%;
+        margin-top: -(33px / 2);
+    }
+}
+//.opposite_left{
+//  padding-top: 50px;
+//  padding-bottom: 50px;
+//}
+.myself_right{
+    .sales_head_logo{
+        float: right;
+    }
+    .explay_sales_head{
+        float: right;
+        i{
+            background-position: 0 -27px;
+            position: relative;
+            left: 8px;
+            z-index: 9;
+        }
+        .sales_manage{
+            &:before{
+                border: 0;
+            }
+        }
+    }
+    .myself_head{
+        float: right;
+        background:#fde7d9; 
+        img{
+            float: right;
+        }
+        &:before{
+            left: inherit;
+            right: -13px;
+            background-position: -14px 0;
+        }
+    }
+}
+.textarea_c_le{
+    border: 1px solid #eeeeee;
+    padding: 10px;
+    padding-bottom: 30px;
+    textarea{
+        width: 100%;
+        height: 326px;
+        border: 0;
+        outline: none;
+        @include box-sizing(border-box);
+    }
+    p{
+        text-align: right;
+    }
+}
+.add_bor{border:1px solid #ffb65c}
+.uploadimg_tx{
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            margin-left: 10px;
+            img{
+                width: 60px;
+                height: 60px;
+            }
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+    }
+    p{
+        text-align: left;
+    }
+}
+.hilldown{
+    .replysales{
+        margin-top: 30px;
+        a{
+            padding: 6px 10px;
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+        }
+        .repl1{
+            background: #f6f6f6;
+            &:hover{
+                color: #666666;
+                background: #EEEEEE;
+            }
+        }
+        .repl2{
+            background: white;
+            margin-left: 40px;
+            &:hover{
+                color: #666666;
+                background: #f9f9f9;
+            }
+        }
+        .repl3{
+            background: #e23435;
+            border-color: #e23435;
+            margin-left: 25px;
+            color: white;
+            &:hover{
+                color: white;
+                background: rgba(226,52,53,.9);
+            }
+        }
+    }
+    .endtime_re{
+        margin-top: 80px;
+        span{
+            color: #e23435;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+    }
+}
+.main_page_last{
+    clear: both;
+    text-align: center;
+    padding: 20px 25px;
+}
+.timeline_ch{
+    padding: 0 50px;
+    .near{
+        &:before{
+            content: "";
+            background: url(../images/lc.png) no-repeat;
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 7px;
+            height: 7px;
+            z-index: 9;
+        }
+        &:after{
+            content: "";
+            width: 1px;
+            background: #85c363;
+            height: 25px;
+            position: absolute;
+            left: -19px;
+            top: 7px;
+        }
+        margin-top:6px; 
+        color: #e23435;
+        position: relative;
+        &:last-child{
+            &:after{
+                width: 0px;
+                height: 0px;
+            }
+        }
+    }
+    .bigrar{
+        &:before{
+            left: -26px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-position: -10px 0;
+        }
+    }
+}
+.createline{
+    padding: 24px 0;
+}
+.vevwell{
+    .contact_left{
+        width: 100%;
+    }
+    .myself_head{
+        width: 30%;
+    }
+    .main_page_last{
+        text-align: right;
+    }
+}

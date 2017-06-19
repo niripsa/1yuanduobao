@@ -1,0 +1,49 @@
+.head_acc{
+    ul{
+        overflow: hidden;
+        border: 1px solid $grey4;
+        border-radius: 10px/$ppr;
+        li{
+            float: left;
+            width: 100/3*1%;
+            text-align: center;
+            border-right: 1px solid $grey4;
+            height:88px/$ppr;
+            line-height:88px/$ppr;
+            font-size:32px/$ppr;
+            cursor: pointer;    
+            &:last-child{
+                border-right: 0;
+            }
+        }
+        .red{
+            color: white;
+            background-color: #e01222;
+        }
+    }
+}
+.fll_acc{
+    border-bottom: 1px solid $grey4;
+    overflow: hidden;
+    ul{
+        li{
+            float: left;
+            width: 100/3*1%;
+            padding: 20px/$ppr 10px/$ppr;
+            font-size: 28px/$ppr;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            .red{
+                color: #e01222;
+            }
+            p{
+                
+            }
+            .coligh{
+                color: #999999;
+                margin-top: 10px/$ppr;
+            }
+        }
+    }
+}

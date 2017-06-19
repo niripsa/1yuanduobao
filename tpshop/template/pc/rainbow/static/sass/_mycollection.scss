@@ -1,0 +1,130 @@
+.ma-to-20{
+    margin-top: 20px;
+}
+.collec_list{
+    border-left: 1px solid #DADADA;
+    border-right: 1px solid #DADADA;
+    ul{
+        overflow: hidden;
+        border-bottom: 1px solid #dadada;
+        li{
+            float: left;
+            width: 115px;
+            font-size: 14px;
+            text-align: center;
+            padding: 12px 0;
+            a{
+                color: #666666;
+                &:hover{
+                    color: #e23435;
+                }
+            }
+        }
+        .bg-dar{
+            background: #f7f7f7;
+            a:hover{
+                color: #666666;
+            }
+        }
+    }
+}
+.sc_collect{
+    .sx1{
+        width: $sx1;
+    }
+    .sx2{
+        width: 100px;
+    }
+    .sx3,.sx4,.sx5{
+        width: (1004px - $sx1 - 100) / 3;
+    }
+}
+.all_pluscar{
+    margin: 20px 0;
+    overflow: hidden;
+    line-height: 38px;
+    .sx2{
+        float: left;
+        font-size: 14px;
+        text-align: center;
+        label{
+            cursor: pointer;
+            vertical-align: middle;
+        }
+    }
+    .addcar_plus{
+        float: left;
+        .dele_p_shop{
+            color: #0066bb;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+    }
+    
+}
+.add_p_shop{
+    color: white;
+    background: #e23435;
+    display: inline-block;
+    width: 150px;
+    height: 36px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 36px;
+    &:hover{
+        color: white;
+    }
+}
+.checkall_annt{
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.usercenter{
+    line-height: 38px;
+    float: right;
+    .fr{
+        margin-top: 0;
+    }
+}
+
+.shop-listanadd{
+    background: white;
+    height: inherit;
+    .sx2,.sx3,.sx4{
+        line-height: 100px;
+    }
+    .sx3{
+        font-size: 18px;
+    }
+    .sx4{
+        span{
+            background: #e23435;
+            padding: 4px 6px;
+            color: white;
+        }
+    }
+    .sx5{
+        line-height: 64px;
+    }
+    ul{
+        padding: 20px 0;
+        overflow: hidden;
+        border-bottom: 1px solid #DADADA;
+        background: #f1f1f1;
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+    .shop_name{
+        font-size: 14px;
+    }
+    .add_p_shop{
+        display: block;
+        margin: 0 auto;
+    }
+}
+.texle{
+    .shop_name{
+        text-align: left;
+    }
+}

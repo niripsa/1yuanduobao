@@ -1,0 +1,96 @@
+<div class="admincp-map ui-widget-content" tptype="map_nav" style="display:none;" id="draggable" >
+  <div class="title ui-widget-header" >
+    <h3>管理中心全部菜单</h3>
+    <h5>切换显示全部管理菜单，通过点击勾选可添加菜单为管理常用操作项，最多添加10个</h5>
+    <span><a tptype="map_off" href="JavaScript:void(0);">X</a></span> </div>
+  <div class="content"> 
+	  <ul class="admincp-map-nav">
+	  <li><a href="javascript:void(0);" data-param="map-system">平台</a></li>
+	  <li><a href="javascript:void(0);" data-param="map-shop">商城</a></li>
+	  <li><a href="javascript:void(0);" data-param="map-mobile">手机端</a></li>
+	  <li><a href="javascript:void(0);" data-param="map-resource">资源</a></li>
+	  </ul>
+	  <foreach name="menu" item="vo" key="mk">
+	  <div class="admincp-map-div" data-param="map-{$mk}">
+		  <foreach name="vo[child]" item="v2">
+		  <dl><dt>{$v2.name}</dt>
+		  	<foreach name="v2[child]" item="v3">
+		  	<dd class=""><a href="javascript:void(0);" data-param="{$v3.act}|{$v3.op}">{$v3.name}</a><i class="fa fa-check-square-o"></i></dd>
+		  	</foreach>
+		  </dl>
+		  </foreach>
+	  </div>
+	  </foreach> 
+  </div>
+  <script>
+//固定层移动
+$(function(){
+	//管理显示与隐藏
+            $("#admin-manager-btn").click(function () {
+                if ($(".manager-menu").css("display") == "none") {
+                    $(".manager-menu").css('display', 'block'); 
+					$("#admin-manager-btn").attr("title","关闭快捷管理"); 
+					$("#admin-manager-btn").removeClass().addClass("arrow-close");
+                }
+                else {
+                    $(".manager-menu").css('display', 'none');
+					$("#admin-manager-btn").attr("title","显示快捷管理");
+					$("#admin-manager-btn").removeClass().addClass("arrow");
+                }           
+            });
+	
+	$("#draggable").draggable({
+		handle: "div.title"
+	});
+	$("div.title").disableSelection()
+
+	$('#_pic').change(uploadChange);
+	function uploadChange(){
+		var filepath=$(this).val();
+		var extStart=filepath.lastIndexOf(".");
+		var ext=filepath.substring(extStart,filepath.length).toUpperCase();
+		if(ext!=".PNG"&&ext!=".GIF"&&ext!=".JPG"&&ext!=".JPEG"){
+			alert("file type error");
+			$(this).attr('value','');
+			return false;
+		}
+		if ($(this).val() == '') return false;
+		ajaxFileUpload();
+	}
+	function ajaxFileUpload()
+	{
+		$.ajaxFileUpload
+		(
+			{
+				url:'http://www.tpshop.cn/admin/index.php?act=common&op=pic_upload&type=admin_avatar&form_submit=ok&uploadpath=admin/avatar',
+				secureuri:false,
+				fileElementId:'_pic',
+				dataType: 'json',
+				success: function (data, status)
+				{
+					if (data.status == 1){
+						ajax_form('cutpic','裁剪','http://www.tpshop.cn/admin/index.php?act=common&op=pic_cut&type=admin_avatar&x=100&y=100&resize=1&ratio=1&url='+data.url,690);
+					}else{
+						alert(data.msg);
+					}
+					$('#_pic').bind('change',uploadChange);
+				},
+				error: function (data, status, e)
+				{
+					alert('上传失败');
+					$('#_pic').bind('change',uploadChange);
+				}
+			}
+		)
+	};
+});
+//裁剪图片后返回接收函数
+function call_back(picname){
+    $.getJSON('index.php?act=index&op=save_avatar&avatar=' + picname, function(data){
+        if (data) {
+            $('img[tptype="admin_avatar"]').attr('src', 'http://www.tpshop.cn/data/upload/admin/avatar/' + picname);
+        }
+    });
+}
+</script> 
+</div>

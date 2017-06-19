@@ -1,0 +1,99 @@
+.brandbanner{
+    margin-top: 50px/$ppr;
+    margin-bottom: 50px/$ppr;
+    .mslide{
+        ul{
+            li{
+                a{
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                    overflow: hidden;
+                    display: block;
+                    float: left;
+                    text-align: center;
+                    margin-left: 3px/$ppr;
+                    img{
+                        width: 228px/$ppr;
+                        height: 228px/$ppr;
+                        position: inherit;
+                    }
+                    p{
+                        font-size: 24px/$ppr;
+                        margin-top: 2px/$ppr;
+                    }
+                    .red{
+                        color: #f23030;
+                    }
+                    .lineu{
+                        color: #888888;
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+    }
+}
+.signte{
+    position: $pr;
+    overflow: hidden;
+    height: 28px/$ppr;
+    top: -130px/$ppr;
+    margin-top: -28px/$ppr;
+    i{
+        @include background-image(zylr);
+        width: 19px/$ppr;
+        height: 28px/$ppr;
+        position: $pa;
+    }
+    .l{
+        background-position-x: -20px/$ppr;
+        left: 4px/$ppr;
+    }
+    .r{
+        background-position-x:0;
+        right: 4px/$ppr;
+    }
+}
+.titb{
+    font-size: 32px/$ppr;
+    font-weight: normal;
+    border-bottom: 1px solid $grey4;
+    padding: $num20 0 $num20 $num30;
+    background-color: white;
+}
+.tuijbrand{
+    background-color: $grey4;
+    overflow: hidden;
+}
+.brandlistall{
+    background-color: white;
+    overflow: hidden;
+    ul{
+        li{
+            width: 25%;
+            height: 120px/$ppr;
+            line-height: 100px/$ppr;
+            float: left;
+            text-align: center;
+            border-right: 1px solid $grey4;
+            border-bottom: 1px solid $grey4;
+            padding: 6px/$ppr;
+            overflow:hidden;
+            &:nth-child(4n){
+                border-right: 0;
+            }
+            img{
+                width: 150px/$ppr;
+                vertical-align: middle;
+            }
+        }
+    }
+    .more{
+        background-color: #ec5151;
+        font-size: 32px/$ppr;
+        a{
+            color: white;
+        }
+    }
+}

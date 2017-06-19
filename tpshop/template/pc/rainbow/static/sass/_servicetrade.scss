@@ -1,0 +1,222 @@
+.trade{
+    background: url(../images/trade.png);
+    width: 12px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.tradejf{
+    .coup-tit{
+        padding: 0;
+    }
+    .tu{
+        span a{
+            color: #005ea7;
+        }
+    }
+    .sclq:hover{
+        .introducetrade{
+            display: block;
+        }
+    }
+}
+.introducetrade{
+    display: none;
+    width: 325px;
+    position: absolute;
+    border: 1px solid #ddd;
+    background: #fff;
+    -webkit-box-shadow: 0 0 2px 2px #eee;
+    -moz-box-shadow: 0 0 2px 2px #eee;
+    box-shadow: 0 0 2px 2px #eee;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    font-family: "Microsoft YaHei";
+    line-height: 30px;
+    z-index: 99;
+    .pc{
+        background: #fff;
+        padding: 10px;
+        color: #333;
+        text-align: left;
+        overflow: hidden;
+        font-size: 12px;
+    }
+}
+.cn-apply{
+    padding: 0 15px;
+    a{
+        font-size: 16px;
+        font-family: "微软雅黑";
+        color: #333333;
+        margin-right: 30px;
+    }
+    .curp{
+        color: #e23435;
+        border-bottom: 2px solid #e23435;
+        padding-bottom: 3px;
+    }
+}
+$las-spacing: 10px;//设置间距
+$las-sprite-dimensions: true;//自动计算宽高
+$las-layout: vertical/horizontal/diagonal/smart;        // 默认布局方式为vertical
+@import "compass/utilities/sprites";    // 加载compass sprites模块
+@import "las/*.png";                    // 导入las目录下所有png图片
+@include all-las-sprites;                // 输出所有的雪碧图css
+
+
+.warning{
+    padding: 0 15px;
+    background: #fffdee;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+    i{
+        display: inline-block;
+        vertical-align: middle;
+    }    
+    span{
+        vertical-align: middle;
+        font-family: "微软雅黑";
+        font-size: 12px;
+        color: #ff4f11;
+    }
+}
+.applyaum{
+    background: white;
+    padding: 15px 0;
+}
+.orderlist-servecenter{
+    padding: 0 60px;
+}
+.orderlist-servecenter{
+    .sx4{
+        width: 272px;
+    }
+    .order-alone-li .time_or td .time{
+        margin-right: 50px;
+    }
+    .order-alone-li table{
+        border: 1px solid #e5e5e5;
+    }
+    .order-alone-li .conten_or td{
+        border-top: 0;
+    }
+    .conten_or{
+        td{
+            padding: 0;
+        }
+        .sx1{
+            border-right: 1px solid #e5e5e5;
+        }
+        .duoal{
+            padding: 16px 20px;
+            overflow: hidden;
+            border-top: 1px solid #e5e5e5;
+            &:first-child{
+                border-top: 0;
+            }
+            img{
+                width: 60px;
+                height: 60px;
+                border: 1px solid #e5e5e5;
+                float: left;
+            }
+            .shop_name{
+                width: 200px;
+                float: left;
+                height: 44px;
+                line-height: 22px;
+                margin-top: 8px;
+                font-size: 14px;
+            }
+            .iu{
+                float: left;
+                margin-top: 22px;
+                margin-left: 26px;
+                color: #999999;
+            }
+        }
+        .sx4{
+            text-align: center;
+            a{
+                padding: 6px 10px;
+                background: #e5e5e5;
+                font-size: 12px;
+                border-radius: 4px;
+                display: block;
+                width: 104px;
+                margin: 0 auto;
+                margin-bottom: 10px;
+                &:hover{
+                    color: #FFFFFF;
+                    background: #e23435;
+                }
+                &.nomarba{
+                    padding: 0;
+                    background: inherit;
+                    border-radius: inherit;
+                    &:hover{
+                        color: #e23435;
+                        background: inherit;
+                    }
+                }
+            }
+        }
+    }
+    .las-pp,.xuname{
+        display: inline-block;
+        vertical-align: middle;
+        color: #999999;
+    }
+    .page .fr{
+        margin-top: 0;
+    }
+}
+.applyrecord{
+    .returnmagament{
+        min-height: inherit;
+        .sx1{
+            width: 150px;
+            cursor: pointer;
+        }
+        .sx5{
+            width: 239.8px;
+        }
+        .sx3{
+            width: 120.8px;
+            cursor: pointer;
+        }
+        .shorl{
+            right: 14px;
+            top: 16px;
+        }
+        .shorw{
+            right: 8px;
+            top: 16px;
+        }
+        .returngoods{
+            position: relative;
+        }
+        .hid-derei{
+            right: 273px;
+            width: 119px;
+        }
+        .sq_der{
+            right: inherit;
+            left: 0;
+            width: 148px;
+        }
+        .sxbb{
+            @include box-sizing(border-box);
+        }
+        .hid-derei ul li a {
+            padding: 6px 0px 6px 31px;
+        }
+        .sq_der ul li a {
+            padding: 6px 0px 6px 25px;
+        }
+    }
+}

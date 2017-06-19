@@ -1,0 +1,130 @@
+.stakwind{
+    background: white;
+    padding: 10px/$ppr 0;
+}
+.kaj-i{
+    float: left;
+    a{
+        display: block;
+        width: 316px/$ppr;
+        height: 316px/$ppr;
+        border: 1px solid #e7e8ef;
+        overflow: hidden;
+    }
+    img{
+        width: 314px/$ppr;
+        height: 314px/$ppr;
+    }
+}
+.kaj-n{
+    float: left;
+    width: (750px - 60px - 316px)/$ppr;
+    padding-left: 20px/$ppr;
+    .similar-product-text{
+        font-size: 30px/$ppr;
+        height: 86px/$ppr;
+        line-height: 42px/$ppr;
+    }
+}
+.kaj-pri{
+    overflow: hidden;
+    line-height: 40px/$ppr;
+    p{
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .new{
+        font-size: 34px/$ppr;
+        color: #e23435;
+        float: left;
+    }
+    .old{
+        font-size: 24px/$ppr;
+        color: #999999;
+        float: right;
+    }
+}
+.kaj-kj{
+    margin-top: 20px/$ppr;
+    a{
+        width: 250px/$ppr;
+        height: 85px/$ppr;
+        display: block;
+        text-align: center;
+        line-height: 85px/$ppr;
+        background: #a9a19e;
+        font-size: 34px/$ppr;
+        color: white;
+        border-radius: 6px/$ppr;
+        margin: 0 auto;
+    }
+}
+.wincup{
+    background: white;
+    line-height: 68px/$ppr;
+}
+.w_t{
+    overflow: hidden;
+    img{
+        float: left;
+        width: 36px/$ppr;
+        height: 40px/$ppr;
+        margin: 15px/$ppr 0 0 30px/$ppr;
+    }
+    span{
+        font-size: 26px/$ppr;
+        float: left;
+        display: block;
+        color: #333333;
+        width: (750px - 272px - 36px - 30px)/$ppr;
+        border-bottom: 1px solid #e6e6e6;
+        padding-left: 14px/$ppr;
+    }
+    a{
+        display: block;
+        font-size: 30px/$ppr;
+        background: #e7a119;
+        float: right;
+        width: 272px/$ppr;
+        color: white;
+        text-align: center;
+    }
+}
+.w_b{
+    background: white;
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            width: 100/3*1%;
+            height: 90px/$ppr;
+            line-height: 90px/$ppr;
+            text-align: center;
+            color: #666666;
+            font-size: 32px/$ppr;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
+.wb-list{
+    position: relative;
+    margin-top: 40px/$ppr;
+    ul{
+        li{
+            font-size: 26px/$ppr;
+            color: #666666;
+        }
+    }
+    .rhew{
+        width: 65px/$ppr;
+        height: 65px/$ppr;
+        border-radius: 50%;
+        position: absolute;
+        top: -30px/$ppr;
+        left: 30px/$ppr;
+    }
+}

@@ -1,0 +1,88 @@
+.submit_com{
+    color: #f23030;
+    font-size: 28px/$ppr;
+}
+.sp_idear{
+    overflow: hidden;
+    padding: 40px/$ppr;
+    background-color: white;
+    img{
+        float: left;
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+        display: block;
+    }
+}
+.com_igy{
+    margin-left: 30px/$ppr;
+    float: left;
+    p{
+        font-size: 32px/$ppr;
+    }
+}
+.star_click{
+    margin-top: 22px/$ppr;
+    position: relative;
+    .comment-item-star_wr{
+        height: 35px/$ppr;
+        width: 45px/$ppr;
+        background: url(../images/comment-star_wr.png) repeat-x 0 0;
+        background-size: 45px/$ppr;
+        display: inline-block;
+        background-position-y: -40px/$ppr;
+        cursor: pointer;
+    }
+}
+.real-star_wr{
+    height: 35px/$ppr;
+    background: url(../images/comment-star_wr.png) repeat-x 0 0;
+    background-size: 45px/$ppr;
+    display: inline-block;
+    background-position-y: -1px/$ppr;
+}
+.comm_text_goods{
+    background: #f3f5f7;
+    padding: 50px/$ppr 0;
+    .tapassa{
+        height: 180px/$ppr;
+        background: inherit;
+        outline: none;
+        border: 0;
+        line-height: 40px/$ppr;
+    }
+}
+.wlcomenser{
+    background: white;
+    border-bottom: 1px solid #ebebeb;
+    .lifi{
+        color: #666666;
+        font-size: 28px/$ppr;
+        margin-top: 4px/$ppr;
+    }
+}
+.thirs_commen{
+    background: white;
+    padding-bottom: 50px/$ppr;
+}
+.al_comentaid{
+    padding-top: 50px/$ppr;
+    .taidh{
+        float: left;
+        font-size: 32px/$ppr;
+        margin-top: 2px/$ppr;
+        padding-left: 66px/$ppr;
+    }
+    .star_click{
+        float: right;
+        margin-top: 0;
+    }
+}
+.confine-wsp{
+    width: 476px/$ppr;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.shuxg{
+    margin-top: 28px/$ppr;
+}

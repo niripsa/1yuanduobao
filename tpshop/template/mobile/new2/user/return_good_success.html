@@ -1,0 +1,19 @@
+<include file="public/header" title="提交成功"  body="f3"/>
+<include file="public/header_nav" title="提交成功" href="{:U('Mobile/User/index')}"/>
+<div class="euresucess">
+    <img src="__STATIC__/images/sch.png"/>
+    <p>售后服务单申请成功</p>
+</div>
+<div class="applytime">
+    <p><span>申请时间：</span><span class="red">{:date('Y-m-d')}</span></p>
+    <p><span>申请类型：</span><span class="red"><if condition="$data.type eq 0">退货<else/>换货</if></span></p>
+</div>
+<div class="bgwappl">
+    <div class="applyover">
+        <a href="{:U('Mobile/User/return_goods_info',array('id'=>$data.return_id))}">进度查询</a>
+        <a href="{:U('Mobile/User/return_goods_list',array('new2'=>1))}">售后首页</a>
+    </div>
+</div>
+<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

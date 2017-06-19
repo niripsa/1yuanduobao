@@ -1,0 +1,99 @@
+.coupon_csswri{
+    ul{
+        li{
+            margin-top: 50px/$ppr;
+            float:left;
+            width: (750px - 60px - 70px)/2/$ppr;
+            &:nth-child(2n){
+                float: right;
+            }
+            .xd_time{
+                font-size: 28px/$ppr;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                color: #999999;
+                padding: 28px/$ppr 0;
+            }
+        }
+    }
+}
+.coupon_he{
+    ul{
+        li{
+            width: 100 / 3 * 1%;
+        }
+    }
+}
+.cp_alo{
+    .pon_top{
+        color: white;
+        background: #fd9064;
+        height: 120px/$ppr;
+        padding-left: 30px/$ppr;
+        position:relative; 
+        &:after{
+            content: "";
+            background: url(../images/coupon_a.png);
+            background-size: 12px/$ppr;
+            background-repeat: repeat-x;
+            width: 100%;
+            height: 4px/$ppr;
+            position: absolute;
+            bottom: -1px/$ppr;
+            left: 0;
+        }
+        h1{
+            font-size: 36px/$ppr;
+            margin: 0;
+            padding: 20px/$ppr 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            .fosi{
+                font-size: 24px/$ppr;
+            }
+        }
+        p{
+            font-size: 16px/$ppr;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        
+    }
+    .pon_dow{
+        height: 170px/$ppr;
+        background: white;
+        p{
+            color: #999999;
+            font-size: 14px/$ppr;
+            padding: 30px/$ppr 0 30px/$ppr 30px/$ppr;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .usecoupon{
+            display: block;
+            width: 156px/$ppr;
+            height: 42px/$ppr;
+            color: #fd9064;
+            font-size: 20px/$ppr;
+            border: 1px solid #fd9064;
+            line-height: 42px/$ppr;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 20px/$ppr;
+        }
+    }
+}
+.passtime{
+    .pon_top{
+        background: #999999;
+    }
+    .pon_dow .usecoupon{
+        border-color:#999999;
+        color:#999999;
+        cursor: no-drop;
+    }
+}

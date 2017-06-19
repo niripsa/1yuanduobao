@@ -1,0 +1,167 @@
+<div class="admincp-container-left">
+    <div class="top-border"><span class="nav-side"></span><span class="sub-side"></span></div>
+    <div id="admincpNavTabs_index" class="nav-tabs">
+    	<dl>
+		    <dt><a href="javascript:void(0);"><span class="ico-microshop-1"></span><h3>概览</h3></a></dt>
+		    <dd class="sub-menu">
+			    <ul>
+				    <li><a href="javascript:void(0);" data-param="welcome|Index">系统后台</a></li>
+			    </ul>
+		    </dd>
+	    </dl>
+    </div>
+    <foreach name="menu" item="vo" key="mk">
+    <div id="admincpNavTabs_{$mk}" class="nav-tabs">
+    	<foreach name="vo[child]" item="v2">
+	    <dl>
+		    <dt><a href="javascript:void(0);"><span class="ico-{$mk}-{$key}"></span><h3>{$v2.name}</h3></a></dt>
+		    <dd class="sub-menu">
+			    <ul>
+			    	<foreach name="v2[child]" item="v3">
+				    	<li><a href="javascript:void(0);" data-param="{$v3.act}|{$v3.op}">{$v3.name}</a></li>
+				    </foreach>
+			    </ul>
+		    </dd>
+	    </dl>
+    	</foreach>
+    </div>
+    </foreach> 
+    <div class="about" title="关于系统" onclick="ajax_form('about', '', 'http://www.tpshop.cn/admin/index.php?act=aboutus&op=index', 640);"><i class="fa fa-copyright"></i><span>tpshop.cn</span></div>
+</div>
+
+  <!--  
+  <div class="admincp-container-left">
+    <div class="top-border"><span class="nav-side"></span><span class="sub-side"></span></div>
+    
+    <div id="admincpNavTabs_system" class="nav-tabs">
+    <dl><dt><a href="javascript:void(0);"><span class="ico-system-0"></span><h3>设置</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="system|setting">站点设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|upload">上传设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|message">邮件设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|taobao_api">淘宝接口</a></li>
+    <li><a href="javascript:void(0);" data-param="system|admin">权限设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|admin_log">操作日志</a></li>
+    <li><a href="javascript:void(0);" data-param="system|area">地区设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|cache">清理缓存</a></li></ul></dd>
+    </dl>
+    
+    <dl><dt><a href="javascript:void(0);"><span class="ico-system-1"></span><h3>会员</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="system|member">会员管理</a></li>
+    <li><a href="javascript:void(0);" data-param="system|account">账号同步</a></li></ul></dd>
+    </dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-system-2"></span><h3>网站</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="system|article_class">文章分类</a></li>
+    <li><a href="javascript:void(0);" data-param="system|article">文章管理</a></li>
+    <li><a href="javascript:void(0);" data-param="system|document">会员协议</a></li>
+    <li><a href="javascript:void(0);" data-param="system|navigation">页面导航</a></li>
+    <li><a href="javascript:void(0);" data-param="system|adv">广告管理</a></li>
+    <li><a href="javascript:void(0);" data-param="system|rec_position">推荐位</a></li></ul></dd>
+    </dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-system-3"></span><h3>应用</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="system|link">友情连接</a></li>
+    <li><a href="javascript:void(0);" data-param="system|hao">基本设置</a></li>
+    <li><a href="javascript:void(0);" data-param="system|goods">商品管理</a></li>
+    <li><a href="javascript:void(0);" data-param="system|db">数据库管理</a></li>
+    <li><a href="javascript:void(0);" data-param="system|member">会员管理</a></li></ul></dd>
+    </dl>
+    </div>
+    
+    <div id="admincpNavTabs_shop" class="nav-tabs"><dl>
+    <dt><a href="javascript:void(0);"><span class="ico-shop-0"></span><h3>设置</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|setting">商城设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|upload">图片设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|search">搜索设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|seo">SEO设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|message">消息通知</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|payment">支付方式</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|express">快递公司</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|waybill">运单模板</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|web_config">首页管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|web_channel">频道管理</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-1"></span><h3>商品</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|goods">商品管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|goods_class">分类管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|brand">品牌管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|type">类型管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|spec">规格管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|goods_album">图片空间</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|goods_recommend">商品推荐</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-2"></span><h3>店铺</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|store">店铺管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|store_grade">店铺等级</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|store_class">店铺分类</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|domain">二级域名</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|sns_strace">店铺动态</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|help_store">店铺帮助</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|store_joinin">商家入驻</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|ownshop">自营店铺</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-3"></span><h3>会员</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|member">会员管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|member_exp">等级经验值</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|points">积分管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|sns_sharesetting">分享绑定</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|sns_malbum">会员相册</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|snstrace">会员动态</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|sns_member">会员标签</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|predeposit">预存款</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|chat_log">聊天记录</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-4"></span><h3>交易</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|order">商品订单</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|vr_order">虚拟订单</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|refund">退款管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|return">退货管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|vr_refund">虚拟订单退款</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|consulting">咨询管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|inform">举报管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|evaluate">评价管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|complain">投诉管理</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-5"></span><h3>运营</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|operating">运营设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|bill">结算管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|vr_bill">虚拟订单结算</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|mall_consult">平台客服</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|rechargecard">平台充值卡</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|delivery">物流自提服务站</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|contract">消费者保障服务</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-6"></span><h3>促销</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|operation">促销设定</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|groupbuy">抢购管理</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|vr_groupbuy">虚拟抢购设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_cou">加价购</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_xianshi">限时折扣</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_mansong">店铺满即送</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_bundling">优惠套装</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_booth">推荐展位</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_book">预售商品</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_fcode">Ｆ码商品</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_combo">推荐组合</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|promotion_sole">手机专享</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|pointprod">积分兑换</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|voucher">店铺代金券</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|redpacket">平台红包</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|activity">活动管理</a></li></ul></dd></dl>
+    <dl><dt><a href="javascript:void(0);"><span class="ico-shop-7"></span><h3>统计</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="shop|stat_general">概述及设置</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_industry">行业分析</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_member">会员统计</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_store">店铺统计</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_trade">销量分析</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_goods">商品分析</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_marketing">营销分析</a></li>
+    <li><a href="javascript:void(0);" data-param="shop|stat_aftersale">售后分析</a></li></ul></dd></dl>
+    </div>
+
+    <div id="admincpNavTabs_mobile" class="nav-tabs">
+    <dl><dt><a href="javascript:void(0);"><span class="ico-mobile-0"></span><h3>设置</h3></a></dt>
+    <dd class="sub-menu"><ul><li><a href="javascript:void(0);" data-param="mobile|mb_setting">手机端设置</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_special">模板设置</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_category">分类图片</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_app">应用安装</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_feedback">意见反馈</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_payment">手机支付</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_wx">微信二维码</a></li>
+    <li><a href="javascript:void(0);" data-param="mobile|mb_connect">第三方登录</a></li></ul></dd></dl>
+    </div>  
+    <div class="about" title="关于系统" onclick="ajax_form('about', '', 'http://www.tpshop.cn/admin/index.php?act=aboutus&op=index', 640);"><i class="fa fa-copyright"></i><span>tpshop.cn</span></div>
+  </div>
+  -->

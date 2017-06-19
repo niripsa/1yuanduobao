@@ -1,0 +1,168 @@
+<script type="text/javascript">
+$(document).ready( function() {
+/* 我的夺宝 指向 移除 效果 */
+  $("#li_my_duobao").mouseover( function() {
+    $(this).addClass( "m-toolbar-myDuobao-hover" );
+  });
+  $("#li_my_duobao").mouseout( function() {
+    $(this).removeClass( "m-toolbar-myDuobao-hover" );
+  });
+});
+</script>
+<div class="g-header">
+    <div class="m-toolbar" module="toolbar/Toolbar">
+        <div class="g-wrap f-clear">
+            <div class="m-toolbar-l">
+                <ul id="list1" style="width:620px;">
+                    <li id="summary-stock">
+                        <div class="dt" id='show_area_name'></div>
+                        
+                        <div class="dd">
+                            <div id="store-selector">
+                                <div class="text"><div></div><b></b></div>
+                                <div onclick="$('#store-selector').removeClass('hover')" class="close"></div>
+                            </div>
+                            <div id="store-prompt"><strong></strong></div>
+                        </div>
+                    </li>
+                </ul>
+          
+                <script src="/statics/templates/newtemplates/js_163/location.js"></script>
+            </div>
+            <ul class="m-toolbar-r">
+                <li class="m-toolbar-login">
+                <div id="pro-view-5">
+                <if condition="$user_is_login.name">
+                    欢迎您:　<a class="m-toolbar-nickname" href="/?/member/home/userindex" title="{$user_is_login.name}">
+                    {$user_is_login.name}
+                    </a>
+                    <a class="m-toolbar-logout-btn" href="/?/member/user/logout">[ 退出 ]</a>
+                <else/>
+                    <a class="m-toolbar-login-btn" href="/?/member/user/login">请登录</a>
+                    <a href="/?/member/user/register" target="_blank">免费注册</a>
+                </if>
+                </div>
+                </li>
+                <li id="li_my_duobao" class="m-toolbar-myDuobao">
+                    <a class="m-toolbar-myDuobao-btn" href="/">我的购买 <i class="ico ico-arrow-gray-s ico-arrow-gray-s-down"></i></a>
+                    <ul class="m-toolbar-myDuobao-menu">
+                        <li><a href="/tpshop/index.php/home/User/order_list.html">购买记录</a></li>
+                        <li><a href="/?/member/account/userrecharg">账户充值</a></li>
+                    </ul>
+                </li>             
+            </ul>
+        </div>
+    </div>
+    <if condition="$not_display neq 1">
+    <div class="m-header">
+        <div class="g-wrap f-clear">
+            <div class="m-header-logo">
+                <h1><a class="m-header-logo-link" href="/">一元夺宝</a></h1>
+          <!--       <div class="m-header-slogan">
+                    <a class="m-header-slogan-link" href="/" target="_blank">
+                    <img src="{G_TEMPLATES_STYLE}/images/logo_banner_v3.png">
+                    </a>
+                </div> -->
+                    <div class="nav-middan-z p">
+        <div class="header [w]">
+            <div class="ecsc-search">
+                <form id="sourch_form" name="sourch_form" method="post" action="{:U('Home/Goods/search')}" class="ecsc-search-form">
+                    <div class="ecsc-search-tabs">
+                        <i class="sc-icon-right"></i>
+                        <ul class="shop_search" id="shop_search">
+                            <li rev="0"><span id="sp">商品</span></li>
+                        </ul>
+                    </div>
+                    <input autocomplete="off" name="q" id="q" type="text" value="{$Request.param.q}" placeholder="搜索关键字" class="ecsc-search-input">
+                    <button type="submit" class="ecsc-search-button" onclick="if($.trim($('#q').val()) != '') $('#sourch_form').submit();"><i></i></button>
+                    <div class="candidate p">
+                        <ul id="search_list"></ul>
+                    </div>
+                    <script type="text/javascript">
+                        ;(function($){
+                            $.fn.extend({
+                                donetyping: function(callback,timeout){
+                                    timeout = timeout || 1e3;
+                                    var timeoutReference,
+                                            doneTyping = function(el){
+                                                if (!timeoutReference) return;
+                                                timeoutReference = null;
+                                                callback.call(el);
+                                            };
+                                    return this.each(function(i,el){
+                                        var $el = $(el);
+                                        $el.is(':input') && $el.on('keyup keypress',function(e){
+                                            if (e.type=='keyup' && e.keyCode!=8) return;
+                                            if (timeoutReference) clearTimeout(timeoutReference);
+                                            timeoutReference = setTimeout(function(){
+                                                doneTyping(el);
+                                            }, timeout);
+                                        }).on('blur',function(){
+                                            doneTyping(el);
+                                        });
+                                    });
+                                }
+                            });
+                        })(jQuery);
+
+                        $('.ecsc-search-input').donetyping(function(){
+                            search_key();
+                        },500).focus(function(){
+                            var search_key = $.trim($('#q').val());
+                            if(search_key != ''){
+                                $('.candidate').show();
+                            }
+                        });
+                        $('.candidate').mouseleave(function(){
+                            $(this).hide();
+                        });
+
+                        function searchWord(words){
+                            $('#q').val(words);
+                            $('#sourch_form').submit();
+                        }
+                        function search_key(){
+                            var search_key = $.trim($('#q').val());
+                            if(search_key != ''){
+                                $.ajax({
+                                    type:'post',
+                                    dataType:'json',
+                                    data: {key: search_key},
+                                    url:"{:U('Home/Api/searchKey')}",
+                                    success:function(data){
+                                        if(data.status == 1){
+                                            var html = '';
+                                            $.each(data.result, function (n, value) {
+                                                html += '<li onclick="searchWord(\''+value.keywords+'\');"><div class="search-item">'+value.keywords+'</div><div class="search-count">约'+value.goods_num+'个商品</div></li>';
+                                            });
+                                            html += '<li class="close"><div class="search-count">关闭</div></li>';
+                                            $('#search_list').empty().append(html);
+                                            $('.candidate').show();
+                                        }else{
+                                            $('#search_list').empty();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    </script>
+                </form>
+                <div class="keyword">
+                    <ul>
+                        <foreach name="tpshop_config.hot_keywords" item="wd" key="k">
+                            <li>
+                                <a href="{:U('Home/Goods/search',array('q'=>$wd))}" target="_blank">{$wd}</a>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="shopingcar-index fr">
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+
+</div>
+</if>

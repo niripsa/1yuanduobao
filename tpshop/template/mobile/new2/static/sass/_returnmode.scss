@@ -1,0 +1,78 @@
+.shprutba{
+    background: white;
+}
+.tutif{
+    font-size: 32px/$ppr;
+    padding: 20px/$ppr 0;
+}
+.kzthuic{
+    line-height: 85px/$ppr;
+    padding-bottom: 42px/$ppr;
+    .kaid{
+        padding: 20px/$ppr;
+        border: 1px solid #f23030;
+        color: #f23030;
+        font-size: 28px/$ppr;
+    }
+}
+.intrudjs{
+    padding: 20px/$ppr 0;
+    p{
+        font-size: 26px/$ppr;
+        color: #666666;
+        line-height: 50px/$ppr;
+    }
+}
+.zblikbo{
+    background: white;
+    .qhsxix{
+        margin-left: 30px/$ppr;
+        .myorder{
+            padding-left: 0;
+            .order .fl span{
+                margin-left: 0;
+            }
+        }
+        .cl-ordhi{
+            height: inherit;
+            .order{
+                overflow: inherit;
+            }
+        }
+    }
+}
+.li9{
+    color: #999999;
+    font-size: 24px/$ppr;
+}
+.addretu{
+    font-size: 32px/$ppr;
+    width: 510px/$ppr;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.addretu2{
+    font-size: 32px/$ppr;
+    width: 510px/$ppr;
+    resize: none;
+    border: 0;
+    outline: none;
+    min-height: 69px/$ppr;
+    max-height: 167px/$ppr;
+}
+.sunhj{
+    padding: 50px/$ppr 0;
+    a{
+        width: 286px/$ppr;
+        height: 66px/$ppr;
+        display: block;
+        text-align: center;
+        color: white;
+        line-height: 66px/$ppr;
+        background: #f23030;
+        font-size: 32px/$ppr;
+        margin: 0 auto;
+        border-radius: 6px/$ppr;
+    }
+}

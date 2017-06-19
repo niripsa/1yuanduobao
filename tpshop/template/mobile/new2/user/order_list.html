@@ -1,0 +1,110 @@
+<include file="public/header" title="我的订单" body="g4"/>
+<include file="public/header_nav" title="我的订单" href="{:U('/Mobile/User/index')}"/>
+<div class="tit-flash-sale p mytit_flash">
+    <div class="maleri30">
+        <ul class="">
+            <li <if condition="$Request.param.type eq ''">class="red"</if>>
+                <a href="{:U('/Mobile/User/order_list')}" class="tab_head">全部订单</a>
+            </li>
+            <li id="WAITPAY" <if condition="$Request.param.type eq 'WAITPAY'">class="red"</if>">
+                <a href="{:U('/Mobile/User/order_list',array('type'=>'WAITPAY'))}" class="tab_head" >待付款</a>
+            </li>
+            <li id="WAITSEND" <if condition="$Request.param.type eq 'WAITSEND'">class="red"</if>>
+                <a href="{:U('/Mobile/User/order_list',array('type'=>'WAITSEND'))}"  class="tab_head">待发货</a>
+            </li>
+            <!--<li id="WAITRECEIVE"><a href="{:U('/Mobile/User/order_list',array('type'=>'WAITRECEIVE'))}"  class="tab_head <if condition="$Request.param.type eq 'WAITRECEIVE'">on</if>">待收货</a></li>-->
+            <li id="WAITCCOMMENT"  <if condition="$Request.param.type eq 'WAITCCOMMENT'">class="red"</if>>
+                <a href="{:U('/Mobile/User/order_list',array('type'=>'WAITCCOMMENT'))}" class="tab_head">已完成</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <!--订单列表-s-->
+    <div class="ajax_return">
+        <if condition="count($lists) eq 0">
+            <!--没有内容时-s--->
+            <div class="comment_con p">
+                <div class="none">
+                    <img src="__STATIC__/images/none2.png">
+                    <br><br>
+                    抱歉未查到数据！
+                    <div class="paiton">
+                        <div class="maleri30">
+                            <a class="soon" href="/"><span>去逛逛</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--没有内容时-e--->
+        </if>
+    </div>
+    <!--订单列表-e-->
+<script type="text/javascript" src="__STATIC__/js/sourch_submit.js"></script>
+<script type="text/javascript">
+    /**
+     * 加载订单*/
+    ajax_sourch_submit();
+
+    /**
+     * 取消订单
+     */
+    function cancel_order(id){
+        if(!confirm("确定取消订单?"))
+            return false;
+        $.ajax({
+            type: 'GET',
+            dataType:'JSON',
+            url:"/tpshop/index.php?m=Mobile&c=User&a=cancel_order&id="+id,
+            success:function(data){
+                if(data.code == 1){
+                    layer.open({content:data.msg,time:2});
+                    location.href = "/tpshop/index.php?m=Mobile&c=User&a=order_list";
+                }else{
+                    layer.open({content:data.msg,time:2});
+                    location.href = "/tpshop/index.php?m=Mobile&c=User&a=order_list";
+                    return false;
+                }
+            },
+            error:function(){
+                layer.open({content:'网络失败，请刷新页面后重试',time:3});
+            },
+        });
+    }
+
+    /**
+     * 确定收货
+     */
+    function orderConfirm(id){
+        if(!confirm("确定收到该订单商品吗?"))
+            return false;
+        location.href = "/tpshop/index.php?m=Mobile&c=User&a=order_confirm&id="+id;
+    }
+
+    var  page = 1;
+    /**
+     *加载更多
+     */
+    function ajax_sourch_submit()
+    {
+        page += 1;
+        $.ajax({
+            type : "GET",
+            url:"/tpshop/index.php?m=Mobile&c=User&a=order_list&type={$Request.param.type}&is_ajax=1&p="+page,//+tab,
+//			url:"{:U('Mobile/User/order_list',array('type'=>$_GET['type']),'')}/is_ajax/1/p/"+page,//+tab,
+            //data : $('#filter_form').serialize(),
+            success: function(data)
+            {
+                if(data == '')
+                    $('#getmore').hide();
+                else
+                {
+                    $(".ajax_return").append(data);
+                    $(".m_loading").hide();
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

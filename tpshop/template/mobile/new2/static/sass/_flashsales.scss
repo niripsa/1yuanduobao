@@ -1,0 +1,157 @@
+.tit-flash-sale{
+    background-color: #333333;
+    overflow: hidden;
+    ul{
+        li{
+            float: left;
+            width: 20%;
+            text-align: center;
+            color: white;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            cursor: pointer;
+            font-size: 28px/$ppr;
+        }
+        .red{
+            border-bottom: 2px solid #ed5657;
+        }
+    }
+}
+.tit2-flash-sale{
+    background-color: white;
+    overflow: hidden;
+    ul{
+        li{
+            float: left;
+            width: 100/6*1%;
+            text-align: center;
+            color: #666666;
+            height: 80px/$ppr;
+            line-height: 80px/$ppr;
+            font-size: 28px/$ppr;
+            cursor: inherit;
+            span{
+                background-color: #ececec;
+                padding: 10px/$ppr 20px/$ppr;
+                border-radius: 10px/$ppr;
+                cursor: pointer;
+            }
+        }
+        .red{
+            border-bottom: 0;
+            span{
+                color: white;
+                background-color: #eb3133;
+            }
+        }
+    }
+}
+.shop-flsa{
+    overflow: hidden;
+    padding: 20px/$ppr 0;
+    .list3-onle{
+        float: left;
+        width: 100/3*1%;
+        text-align: center;
+        img{
+            width: 227px/$ppr;
+            height: 169px/$ppr;
+        }
+        p{
+            padding: 0 10px/$ppr;  
+            text-align: left;
+            line-height: 1.5;
+            overflow: hidden;
+        }
+    }
+}
+p.tit-nike{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 26px/$ppr;
+}
+p.nike-price{
+    font-size: 30px/$ppr;
+    .red{
+        color: #eb3133;
+        float: left;
+    }
+    .throughli{
+        text-decoration: line-through;
+        color: #999999;
+        font-size: 24px/$ppr;
+        float: right;
+        margin-top: 6px/$ppr;
+    }
+}
+.omgbag{
+    position: relative;
+    height: 188px/$ppr;
+    .gimg-diffcult{
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+    }
+    .wh152{
+        width: 152px/$ppr;
+        height: 152px/$ppr;
+        top: -63px/$ppr;
+        z-index: 9;
+        img{
+            width: 152px/$ppr;
+            height: 152px/$ppr;
+        }
+    }
+    .wh276{
+        width: 276px/$ppr;
+        height: 276px/$ppr;
+        top: -158px/$ppr;
+        left: 212px/$ppr;
+        z-index: 9;
+        img{
+            width: 276px/$ppr;
+            height: 276px/$ppr;
+        }
+    }
+    .wh173{
+        width: 173px/$ppr;
+        height: 173px/$ppr;
+        top: -100px/$ppr;
+        left: 472px/$ppr;
+        z-index: 10;
+        img{
+            width: 173px/$ppr;
+            height: 173px/$ppr;
+        }
+    }
+    .wh125{
+        width: 125px/$ppr;
+        height: 125px/$ppr;
+        top: -135px/$ppr;
+        right: 30px/$ppr;
+        z-index: 9;
+        img{
+            width: 125px/$ppr;
+            height: 125px/$ppr;
+        }
+    }
+    .fon{
+        position: absolute;
+        width: 200px/$ppr;
+    }
+    .whfon1{
+        top: 100px/$ppr;
+    }
+    .whfon2{
+        top: 100px/$ppr;
+        margin-left: 50px/$ppr;
+        .red{
+            color: #eb3133;
+        }
+    }
+    .whfon3{
+        top: 100px/$ppr;
+        margin-left: 50px/$ppr;
+    }
+}

@@ -1,0 +1,130 @@
+.foot-print{
+    ul{
+        width: 90%;
+        overflow: hidden;
+        float: left;
+        li{
+            float: left;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        .red{
+            a{
+                color: #e23435;
+            }
+        }
+    }
+}
+.moanmo_b{
+    display: block;
+    width: 10%;
+    float: right;
+    line-height: 41px;
+    a{
+        float: right;
+        color: #0364ca;
+    }
+}
+.mm_b{
+    background: url(../images/b_xd.png) no-repeat;
+    width: 12px;
+    height: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+.perinc_pri{
+    margin-top: 20px;
+    font-family: "宋体";
+    background: #f5f5f5;
+    padding: 15px 22px;
+    border: 1px solid #DADADA;
+    .near_threet{
+        font-size: 14px;
+        float: left;
+        color: #666666;
+    }
+    .dxchoi{
+        float: right;
+        input,label{
+            vertical-align: middle;
+            color: #666666;
+            font-size: 14px;
+        }
+        label{
+            margin-right: 26px;
+            margin-left: 6px;
+            cursor: pointer;
+        }
+    }
+}
+.feetprin{
+    ul{
+        overflow: hidden;
+        padding-left: 5px;
+        li{
+            position: relative;
+            border: 1px solid #DADADA;
+            margin-left: 10px;
+            width: 237px;
+            margin-bottom: 10px;
+            .xs_img{
+                width: 227px;
+                height: 227px;
+                img{
+                    width: 227px;
+                    height: 227px;
+                }
+            }
+            &:hover{
+                border: 1px solid #e23435;
+                .dele{
+                    display: block;
+                }
+            }
+            .dele{
+                right: 0;
+                top: 0;
+                background-color: #f5f5f5;
+                display: none;
+            }
+        }
+    }
+    .u-title{
+        position: relative;
+        height: 28px;
+        line-height: 28px;
+        padding-left: 5px;
+        i{
+                background: url(../images/ryh.png) no-repeat;
+                position: absolute;
+                width: 25px;
+                height: 27px;
+                top: 0;
+                left: -13px;
+                background-position-x:0; 
+        }
+        .gray_ryh{
+            background-position-x:-26px; 
+        }
+        span{
+            margin-left: 15px;
+        }
+        .z-date {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+    }
+}
+.m-prod-list{
+    border-left: 2px solid #DADADA;
+    float: left;
+}
+.end_cord{
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    padding: 20px 0;
+}
+

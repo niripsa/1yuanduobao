@@ -1,0 +1,352 @@
+.ddmoney{
+    height: 96px/$ppr;
+    overflow: hidden;
+    border-bottom: 1px solid $grey4;
+    span{
+        font-size: 32px/$ppr;
+        line-height: 96px/$ppr;
+    }
+    .fl{
+        
+    }
+    .fr{
+        color: #f23030;
+    }
+}
+.quickpayment{
+    height: 120px/$ppr;
+    overflow: hidden;
+    border-bottom: 1px solid $grey4;
+    .quicks{
+        line-height: 120px/$ppr;
+        img{
+            width: 74px/$ppr;
+            height: 74px/$ppr;
+        }
+    }
+    .paym{
+        p{
+            line-height: 34px/$ppr;
+            margin-left: 30px/$ppr;
+        }
+        .titp{
+            font-size: 32px/$ppr;
+            color: #222222;
+            margin-top: 28px/$ppr;
+        }
+        .spi{
+            font-size: 28px/$ppr;
+            color: #666666;
+        }
+    }
+}
+.debit{
+    height: 120px/$ppr;
+    &.myorder{
+        border-bottom: 0;
+    }
+    .order{
+        margin-top: 24px/$ppr;
+    }
+    .order .fl span{
+        margin: 0;
+    }
+    .order .fr i{
+        margin-top: 23px/$ppr;
+    }
+}
+.xjt{
+    @include background-image(xjt);
+    width: 28px/$ppr;
+    height: 16px/$ppr;
+}
+.paiton{
+    border-top: 1px solid $grey4;
+    padding-top: 60px/$ppr;
+    overflow: hidden;
+    .soon{
+        height: 88px/$ppr;
+        width: 100%;
+        display: block;
+        text-align: center;
+        line-height: 88px/$ppr;
+        background-color: #f23030;
+        font-size: 32px/$ppr;
+        color: white;
+        border-radius: 10px/$ppr;
+    }
+    p{
+        font-size: 24px/$ppr;
+        margin-top: 20px/$ppr;
+        padding-bottom: 60px/$ppr;
+    }
+}
+.otherpay{
+    height: 1.49333rem;
+    .order{
+        margin-top: 0;
+    }
+    .order .fl span{
+        margin: 0;
+    }
+    .order .fr i{
+        margin-top: 23px/$ppr;
+    }
+}
+.paylist{
+    border-top: 20px/$ppr solid $grey4;
+}
+.pay-list-4{
+    overflow: hidden;
+    border-top: 1px solid $grey4;
+    padding: 30px/$ppr 0;
+    ul{
+        li{
+            overflow: hidden;
+            cursor: pointer;
+            margin: 0 auto;
+            padding: 20px/$ppr 0;
+            border-bottom: 1px solid #e7e7e7;
+            &:first-child{
+                padding-top: 0;
+            }
+            .radio{
+                width: 29px/$ppr;
+                padding-top: 28px/$ppr;
+            }
+            .pay-list-img{
+                img{
+                    width: 80px/$ppr;
+                    height: 80px/$ppr;
+                }
+            }
+            .pay-list-font{
+                margin-top: 34px/$ppr;
+                margin-left: 20px/$ppr;
+                font-size: 28px/$ppr;
+            }
+        }
+    }
+}
+.chooseebitcard{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    max-width: 750px/$ppr;
+}
+.choose-titr{
+    text-align: center;
+    position: relative;
+    padding: 20px/$ppr;
+    span{
+        font-size: 32px/$ppr;
+    }
+}
+.gb-close{
+    @include background-image(gb);
+    width: 20px/$ppr;
+    height: 20px/$ppr;
+    position: absolute;
+    right: 0;
+    top: 24px/$ppr;
+    cursor: pointer;
+}
+.card{
+    clear: both;
+    padding: $num20 0;
+    overflow: hidden;
+}
+.card-list{
+    .radio{
+        width: 29px/$ppr;
+        padding-top: 0px/$ppr;
+        position: relative;
+        top: 4px/$ppr;
+    } 
+     p{
+        font-size: 32px/$ppr;
+        color: #222222;
+    }
+}
+.teuse{
+    cursor: pointer;
+    padding: 40px/$ppr 0;
+    text-align: center;
+    clear: both;
+    font-size: 32px/$ppr;
+    .red{
+        color: #f23030;
+    }
+}
+.losepay{
+    display: none;
+    z-index: 999;
+    width: 750px/$ppr;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    .red{
+        font-size: 36px/$ppr;
+        color: #f23030;
+        text-align: center;
+        padding: 30px/$ppr 0;
+    }
+    .lo-tit{
+        font-size: 32px/$ppr;
+        color: #222222;
+        padding-bottom: 20px/$ppr;
+    }
+    .con-lo{
+        font-size: 28px/$ppr;
+        color: #666666;
+        padding: 20px/$ppr;
+    }
+    .qx-rebd{
+        border-top: 1px solid $grey4;
+        padding-top: 30px/$ppr;
+        margin-top: 10px/$ppr;
+        a{
+            font-size: 30px/$ppr;
+            border-radius: 6px/$ppr;
+            width: 186px/$ppr;
+            height: 74px/$ppr;
+            text-align: center;
+            line-height: 74px/$ppr;
+            display: block;
+            cursor: pointer;
+        }
+        .ax{
+            border:1px solid $grey4;
+            float: left;
+        }
+        .are{
+            background-color: #f23030;
+            color: white;
+            float: right;
+        }
+    }
+}
+.checkcodes{
+    font-size: 30px/$ppr;
+    padding-top: 50px/$ppr;
+    .zc_se{
+        border: 0;
+    }
+}
+.wcx{
+    background: url(../images/tcw.png) no-repeat;
+    background-size: 145px/$ppr;
+}
+.payment-s{
+    border-bottom: 1px solid #e5e5e5;
+    .tcwe{
+        position: relative;
+        text-align: center;
+        padding: 20px/$ppr 0;
+        img{
+            width: 312px/$ppr;
+            height: 92px/$ppr;
+        }
+        i{
+            width: 43px/$ppr;
+            height: 43px/$ppr;
+            display: block;
+            position: absolute;
+        }
+        a{
+            position: absolute;
+            top: 50%;
+            margin-top: -43px/2/$ppr;
+            width: 43px/$ppr;
+            height: 43px/$ppr;
+            display: block;
+        }
+        .le-x{
+            left: 0;
+            .wcx{
+                background-position-x: -1px/$ppr;
+            }
+        }
+        .ri-q{
+            right: 0;
+            .wcx{
+                background-position-x: -51px/$ppr;
+            }
+        }
+    }
+}
+.pay_way_mi{
+    padding: 40px/$ppr 0;
+    h2{
+        font-size: 32px/$ppr;
+        text-align: center;
+    }
+    h1{
+        font-size: 48px/$ppr;
+        text-align: center;
+        margin: 10px/$ppr 0;
+    }
+    p{
+        font-size: 32px/$ppr;
+        overflow: hidden;
+        padding-top: 30px/$ppr;
+        .p_linco{
+            color: #999999;
+            display: block;
+        }
+        .bank-cho{
+            display: block;
+            width: 500px/$ppr;
+            text-align: right;
+            overflow: hidden;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            em{
+                color: #f23030;
+            }
+        }
+    }
+}
+.fixedreyurn{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    background: white;
+    width: 16rem;
+}
+.carder-hav{
+    .pay_way_mi{
+        p{
+            padding-top: 0;
+        }
+    }
+}
+.immediately-pay{
+    padding: 78px/$ppr 0 62px/$ppr 0;
+    a{
+        display: block;
+        background: #f23030;
+        width: 100%;
+        height: 86px/$ppr;
+        color: white;
+        font-size: 36px/$ppr;
+        line-height: 86px/$ppr;
+        text-align: center;
+        border-radius: 6px/$ppr;
+        margin: 0 auto;
+        .wcx{
+            background-position-x: -101px/$ppr;
+            display: inline-block;
+            width: 33px/$ppr;
+            height: 40px/$ppr;
+            vertical-align: sub;
+            margin-right: 10px/$ppr;
+        }
+    }
+}

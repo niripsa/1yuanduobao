@@ -1,0 +1,87 @@
+.co_blue{
+    color: #4280d3;
+}
+.shopcard{
+    overflow: hidden;
+    padding: 70px 20px;
+    border: 1px solid #dadada;
+    .cuschan{
+        float: left;
+        width: 50%;
+        text-align: center;
+        span{
+            font-size: 14px;
+            text-align: right;
+        }
+        .kycha{
+            
+        }
+        .co{
+            margin-left: 37px;
+            color: #e23435;
+        }
+        .topup-mom{
+            border: 1px solid #dadada;
+            background: #f1f1f1;
+            width: 180px;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+.money{
+    background: url(../images/money.png) no-repeat;
+    width: 41px;
+    height: 36px;
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.card-list{
+    overflow: hidden;
+    margin-top: 50px;
+    background: #f5f5f5;
+    padding: 10px 0px;
+    ul{
+        li{
+            float: left;
+            font-size: 14px;
+            width: (100 / 7) * 1%;
+            text-align: center;
+            a{
+                color: #7b7777;
+            }
+        }
+        .red_car{
+            a{
+                color: #e23435;
+            }
+        }
+        .green_car{
+            a{
+                color: #23cd97;
+            }
+        }
+    }
+}
+.c_contan{
+    background: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #dadada;
+}
+
+
+.shopcard .tc-uic{
+    margin-top: -40px;
+    position: relative;
+    top: 20px;
+    a.topup-mom{
+        margin-bottom: 20px;
+        
+    }
+}

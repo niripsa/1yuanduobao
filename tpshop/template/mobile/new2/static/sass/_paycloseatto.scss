@@ -1,0 +1,208 @@
+.two-bothshop{
+    border-bottom: 1px solid $grey4;
+    overflow: hidden;
+    background-color:white;
+    ul{
+        li{
+            width: 50%;
+            float: left;
+            text-align: center;
+            height: 80px/$ppr;
+            color: #666666;
+            line-height: 80px/$ppr;
+            cursor: pointer;
+            span{
+                font-size: 32px/$ppr;
+            }
+        }
+        .red{
+            color: #f23030;
+            border-bottom: 2px solid #f23030;
+        }
+    }
+}
+.paycloseto{
+    padding: 20px/$ppr 0;
+    .imgwnh{
+        img{
+            width: 168px/$ppr;
+            height: 56px/$ppr;
+            margin-top: 30px/$ppr;
+        }
+    }
+    .deleshow{
+        .qxatten{
+            clear: both;
+            position: relative;
+            .weight{
+                float: left;
+            }
+            .closeannten{
+                float: right;
+                position: absolute;
+                top: -8px/$ppr;
+                right: 0.21333rem;
+                text-align: center;
+                color: #686868;
+                font-size: 0.55467rem;
+                width: 140px/$ppr;
+                height: 40px/$ppr;
+                line-height: 40px/$ppr;
+                &:after{
+                    content: '';
+                    width: 200%;
+                    height: 200%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border: 1px solid #bfbfbf;
+                    border-radius: 0.08533rem;
+                    -webkit-transform: scale(0.5, 0.5);
+                    transform: scale(0.5, 0.5);
+                    -webkit-transform-origin: top left;
+                }
+            }
+        }
+    }
+}
+.dib{
+    display: block;
+    overflow: hidden;
+}
+.lxx{
+    background-image: url(../images/lxx.png);
+    position: absolute;
+    height: 18px/$ppr;
+    background-repeat:repeat-x;
+    background-size: 28px/$ppr;
+}
+.w1{
+    width: 28px/$ppr;
+}
+.w2{
+    width: 56px/$ppr;
+}
+.w3{
+    width: 84px/$ppr;
+}
+.w4{
+    width: 112px/$ppr;
+}
+.w5{
+    width: 139px/$ppr;
+}
+.mandplea{
+    .deleshow .deletes .similar-product-text{
+        height: 29px/$ppr;
+        -webkit-line-clamp: 1;
+    }
+    .imgwnh{
+        height: 100px/$ppr;
+    }
+    .qxatten{
+        margin-top: 30px/$ppr;
+    }
+    .deleshow .qxatten .closeannten{
+        top: -16px/$ppr;
+    }
+}
+.not-more{
+    text-align: center;
+    color: #96979B;
+    font-size: 20px/$ppr;
+    padding-top: 50px/$ppr;
+}
+.searchsh{
+    background: #f3f5f7;
+    padding: 20px/$ppr 0;
+    .seac_noord{
+        width: 635px/$ppr;
+        height: 63px/$ppr;
+        line-height: 63px/$ppr;
+        background: white;
+        margin: 0 auto;
+        img{
+            width: 30px/$ppr;
+            height: 30px/$ppr;
+            margin-left: 30px/$ppr;
+        }
+        input{
+            width: (635px - 90px)/$ppr;
+            height: 40px/$ppr;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            padding: 0 10px/$ppr;
+            font-size: 26px/$ppr;
+        }
+    }
+}
+.tuharecha{
+    .returntolist{
+        .list-top-re{
+            color: #222222;
+        }
+    }
+    .sc_list .shopimg img{
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+    }
+    .se_sclist .deleshow .deletes .daaloe{
+        font-size: 30px/$ppr;
+        font-family: "黑体";
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        white-space: nowrap;
+        float: none;
+    }
+    .se_sclist .deleshow{
+        width: (750px - 60px - 100px - 30px)/$ppr;
+    }
+    .qxatten{
+        margin-top: 36px/$ppr;
+    }
+    .paycloseto .deleshow .qxatten .closeannten{
+        top: 15px/$ppr;
+    }
+    .paycloseto{
+        padding: 30px/$ppr 0 50px/$ppr 0;
+    }
+}
+.severde{
+    background: white;
+    .myorder{
+        border-color: #d7d7d7 ;
+    }
+    .myorder .order .fl span{
+        margin-left: 0;
+        font-size: 30px/$ppr;
+        font-family: "黑体";
+    }
+    .myorder .order .fr span{
+        &.red{
+            color: #f23030;
+            font-size: 28px/$ppr;
+            font-family: "黑体";
+        }
+    }
+    .paycloseto{
+        padding: 30px/$ppr 0;
+        border-bottom: 1px solid #d7d7d7;
+    }
+}
+.xomjdche{
+    overflow: hidden;
+    padding: 20px/$ppr 0;
+    font-size: 30px/$ppr;
+    a{
+        padding: 8px/$ppr 10px/$ppr;
+        border: 1px solid #7a7a7a;
+        border-radius: 6px/$ppr;
+        float: right;
+        margin-left: 20px/$ppr;
+    }
+    .red{
+        border-color: #f23030;
+    }
+}

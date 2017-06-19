@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>店铺街</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/tpshop.css" />
+		<script src="__STATIC__/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__PUBLIC__/js/layer/layer-min.js"></script>
+		<script src="__PUBLIC__/js/global.js"></script>
+		<script src="__PUBLIC__/js/pc_common.js"></script>
+	</head>
+	<body>
+	<!--header-s-->
+	<include file="public/header" w='w1224'/>
+	<!--header-e-->
+		<div class="search-box p">
+			<div class="w1430">
+				<div class="search-path fl">
+					<a>全部结果</a>
+					<i class="litt-xyb"></i>
+					<foreach name="navigate_goods" key="k" item="v">
+						<a href="{:U('/Home/Goods/goodsList',array('id'=>$k))}">{$v}</a>
+						<i class="litt-xyb"></i>
+					</foreach>
+				</div>
+				<div class="search-clear fr">
+					<span><a href="{:U('Home/index/street')}">清空筛选条件</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="search-opt classify">
+			<div class="w1430">
+				<div class="opt-list">
+					<dl class="brand-section">
+						<dt>分类:</dt>
+						<dd class="ri-section">
+							<div class="lf-list">
+								<div class="brand-list">
+									<div class="clearfix p">
+										<a href="{:U('Home/Index/street')}">
+											<span>全部</span>
+										</a>
+										<volist name="store_class" id="sc">
+										<a href="{:U('Home/Index/street',array('sc_id'=>$sc['sc_id']))}">
+											<span>{$sc['sc_name']}</span>
+										</a>
+										</volist>
+									</div>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<dl class="brand-section">
+						<dt>省份:</dt>
+						<dd class="ri-section">
+							<div class="lf-list">
+								<div class="brand-list">
+									<div class="clearfix p">
+										<a href="{:U('Home/Index/street')}">
+											<span>全部</span>
+										</a>
+										<volist name="region" id="vo">
+											<a href="{:U('Home/Index/street',array('province'=>$key))}">
+												<span>{$region[$key]}</span>
+											</a>
+										</volist>
+									</div>
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<div class="shop-list-tour ma-to-20 p">
+			<div class="w1430">
+				<div class="stsho pre-sts intergra">
+					<div class="sx_topb presellall group-act">
+						<div class="f-sort fl">
+							<div class="actionname">
+								<span>排序方式</span>
+							</div>
+							<ul>
+								<li <if condition="$Think.get.order eq '' OR $Think.get.order eq '0'">class="red"</if>><a href="{:U('Home/Index/street',array_merge(I('get.'),array('order'=>0)))}">默认<i class="jta jta-w"></i></a></li>
+								<li <if condition="$Think.get.order eq 'store_recommend'">class="red"</if>><a href="{:U('Home/Index/street',array_merge(I('get.'),array('order'=>'store_recommend')))}">推荐<i class="jta"></i></a></li>
+								<li <if condition="$Think.get.order eq 'store_sales'">class="red"</if>><a href="{:U('Home/Index/street',array_merge(I('get.'),array('order'=>'store_sales')))}">销量<i class="jta"></i></a></li>
+								<li <if condition="$Think.get.order eq 'store_credit'">class="red"</if>><a href="{:U('Home/Index/street',array_merge(I('get.'),array('order'=>'store_credit')))}">评分<i class="jta"></i></a></li>
+							</ul>
+						</div>
+						<div class="f-total fr">
+							<php>$nowPage = $pages->nowPage;$totalPages = $pages->totalPages;</php>
+							<div class="all-fy">
+                                <a <if condition="$nowPage gt 1">href="{:U('Home/Index/street',array_merge(I('get.'),array('p'=>$nowPage-1)))}" </if>>&lt;</a>
+                                <p class="fy-y"><span class="z-cur">{$nowPage}</span>/<span>{$totalPages}</span></p>
+                                <a <if condition="($nowPage+1) lt $totalPages">href="{:U('Home/Index/street',array_merge(I('get.'),array('p'=>$nowPage+1)))}"</if>>&gt;</a>
+                            </div>
+						</div>
+					</div>
+					<!--<div class="he-rin p"></div>-->
+					<div class="storestreet p ma-to-20">
+						<volist name="store_list" id="store">
+							<if condition="($i-1)%3 eq 0">
+								<ul>
+							</if>
+								<li <if condition="$i%3 eq 0">class="mar0"</if>>
+									<div class="deoe">
+										<a href="{:U('Home/Store/index',['id'=>$store[store_id]])}"><img class="gejr lazy" data-original="{$store.store_banner}"/></a>
+										<a href="{:U('Home/Store/index',['id'=>$store[store_id]])}">
+											<div class="logoansome">
+												<div class="neleu">
+													<img class="lazy" data-original="{$store.store_logo}"/>
+												</div>
+												<div class="inetrjol">
+													<p class="names">{$store.store_name}</p>
+													<p class="main">{$store.seo_description}</p>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+							<if condition="$i%3 eq 0">
+								</ul>
+							</if>
+						</volist>
+					</div>
+					<div class="operating fixed" id="bottom">
+						<div class="fn_page clearfix">
+							{$page}
+						</div>
+					</div>
+					<div class="hot-shop ma-to-20">
+						<div class="layout-title">
+							<span class="fl">热卖商品</span>
+							<span class="update_h fr" onclick="favourite();">
+								<i class="litt-hyh"></i>
+								换一换
+							</span>
+						</div>					
+						<div class="sixshop-box">
+							<ul id="favourite_goods">
+							</ul>
+							<script>
+								/****猜你喜欢****/
+								var favorite_page = 0;
+								function favourite()
+								{
+									favorite_page++;
+									$.ajax({
+										type: "GET",
+										url: "/tpshop/index.php?m=Home&c=Index&a=ajax_favorite&tpl=ajax_street_goods&i=6&p="+favorite_page,//+tab,
+										success: function (data) {
+											if(data == ''){
+												favorite_page = 0;
+												favourite();
+											}else{
+												$('#favourite_goods').html(data);
+												lazy_ajax();
+											}
+
+										}
+									});
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--footer-s-->
+	<div class="footer p">
+		<!--<div class="mod_service_inner">-->
+			<!--<div class="w1224">-->
+				<!--<ul>-->
+					<!--<li>-->
+						<!--<div class="mod_service_unit">-->
+							<!--<h5 class="mod_service_duo">多</h5>-->
+							<!--<p>品类齐全，轻松购物</p>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="mod_service_unit">-->
+							<!--<h5 class="mod_service_kuai">快</h5>-->
+							<!--<p>多仓直发，极速配送</p>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="mod_service_unit">-->
+							<!--<h5 class="mod_service_hao">好</h5>-->
+							<!--<p>正品行货，精致服务</p>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--<li>-->
+						<!--<div class="mod_service_unit">-->
+							<!--<h5 class="mod_service_sheng">省</h5>-->
+							<!--<p>天天低价，畅选无忧</p>-->
+						<!--</div>-->
+					<!--</li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="w1224">-->
+			<include file="public/footer_index" />
+		<!--</div>-->
+		<include file="public/sidebar_cart" />
+	</div>
+	<!--footer-e-->
+		<script src="__STATIC__/js/lazyload.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__STATIC__/js/headerfooter.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.f-sort ul li').click(function(){
+					$(this).find('i').addClass('jta-w').parents('li').siblings().find('i').removeClass('jta-w');
+				})
+			})
+			$(document).ready(function () {
+				favourite();//猜你喜欢
+			});
+		</script>
+	</body>
+</html>

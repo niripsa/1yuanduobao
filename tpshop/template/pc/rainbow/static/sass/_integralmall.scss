@@ -1,0 +1,195 @@
+.jta{
+    background: url(../images/jta.png) no-repeat;
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    position: relative;
+    top: 3px;
+    margin-left: 5px;
+    background-position-x: -6px;
+}
+.jta-w{
+    background-position-x: 0;
+}
+.he-rin{
+    height: 2px;
+    width: 100%;
+    background: #e23435;
+    margin-top: -6px;
+}
+.intergra{
+    .sx_topb{
+        padding: 6px 0;
+    }
+}
+.jpateki{
+    margin-bottom: 30px;
+    ul{
+        overflow: hidden;
+        margin: 20px 0;
+        li{
+            float: left;
+            width: 398px;
+            border: 1px solid #dfdfdf;
+            @include box-sizing(border-box);
+            padding: 12px 15px;
+            margin-right: 15px;
+            &:hover{
+                border-color: #e23435;
+            }
+        }
+        .mar0{
+            margin-right: 0;
+        }
+    }
+}
+.sbox{
+    .contelim{
+        float: left;
+        margin-right: 20px;
+        img{
+            width: 165px;
+            height: 188px;
+        }
+    }
+    .contifo{
+        float: left;
+        font-size: 14px;
+        p{
+            margin: 18px 0;
+        }
+        .shop_name{
+            font-size: 14px;
+            width: 181px;
+        }
+    }
+}
+.lithe{
+    text-decoration: line-through;
+}
+.duchan{
+    span{
+        float: left;
+    }
+    a{
+        padding: 4px 12px;
+        border: 1px solid #e23435;
+        color: #e23435;
+        border-radius: 6px;
+        float: right;
+        font-size: 14px;
+        margin-top: -5px;
+        &:hover{
+            color: white;
+            background:#e23435;
+        }
+    }
+}
+.litt-titt{
+    font-weight: normal;
+    font-size: 18px;
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 5px;
+}
+.reacommque{
+    width: 105%;
+    ul{
+        overflow: hidden;
+        margin: 20px 0;
+        li{
+            float: left;
+            border: 1px solid #dfdfdf;
+            @include box-sizing(border-box);
+            padding: 18px 16px;
+            margin-right: 15px;
+            width: 232.55px;
+            margin-bottom: 18px;
+            &:hover{
+                border-color: #e23435;
+            }
+            .boxque{
+                .shop_name{
+                    font-size: 12px;
+                }
+                .coan-j{
+                    font-size: 12px;
+                }
+            }
+        }
+        .mar0{
+            margin-right: 0;
+        }
+    }
+}
+.boxque{
+    font-size: 14px;
+    >img{
+        width: 100%;
+        height: 100%;
+    }
+    .shop_name{
+        margin-left: 0;
+        width: 100%;
+    }
+    .coan-j{
+        margin-top: 10px;
+        .changot{
+            display: block;
+            border: 1px solid #e23435;
+            width: 24px;
+            padding: 2px 8px;
+            color: #e23435;
+            border-radius: 6px;
+            &:hover{
+                color: white;
+                background:#e23435;
+            }
+        }
+        .ckf{
+            line-height: 24px;
+        }
+    }
+}
+.reco-bouti{
+    margin-bottom: 30px;
+}
+.hot-change{
+    ul{
+        overflow: hidden;
+        margin: 20px 0;
+        li{
+            float: left;
+            border: 1px solid #dfdfdf;
+            @include box-sizing(border-box);
+            padding: 14px;
+            margin-right: -1px;
+            width: (100/7)* 1%;
+            &:hover{
+                border-color: #e23435;
+                position:relative;
+            }
+        }
+        .mar0{
+            margin-right: 0;
+        }
+    }
+}
+.lit-shcha{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    .duchan{
+        margin-top: 16px;
+        a{
+            border-color: #9d9d9d;
+            color: #9d9d9d;
+            font-size: 12px;
+            &:hover{
+                color: white;
+                background: #e23435;
+                border-color:#e23435;
+            }
+        }
+    }
+}

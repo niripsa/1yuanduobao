@@ -1,0 +1,144 @@
+.dindboxt{
+    background: white;
+    font-family: "黑体";
+    font-size: 30px/$ppr;
+    padding: 20px/$ppr 0;
+    p{
+        line-height: 50px/$ppr;
+        .gray{
+            color: #666666;
+        }
+    }
+}
+.comnes{
+    background: white;
+    font-family: "黑体";
+    font-size: 30px/$ppr;
+    padding: 30px/$ppr 0;
+    p{
+        line-height: 30px/$ppr;
+    }
+    a.red{
+        margin-top: 30px/$ppr;
+        width: 100%;
+        height: 60px/$ppr;
+        text-align: center;
+        line-height: 60px/$ppr;
+        border: 1px solid #e23435;
+        border-radius: 6px/$ppr;
+        display: block;
+    }
+}
+.listschdule{
+    background: white;
+    font-family: "黑体";
+    overflow: hidden;
+    .tittimlord{
+        position: relative;
+        border-bottom: 1px solid #e6e6e6;
+        &:last-child{
+            border-bottom:0
+        }
+        padding:20px/$ppr 0;
+        width: (750px - 97px)/$ppr;
+        float: right;
+        h2{
+            font-size: 28px/$ppr;
+            color: #727272;
+        }
+        p{
+            font-size: 26px/$ppr;
+            color: #999999;
+            overflow: hidden;
+            span{
+                float: left;
+                display: block;
+                &.store_dd{
+                    width: (750px - 104px - 97px - 30px)/$ppr;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        h2,p{
+            margin: 20px/$ppr 0;
+        }
+    }
+    .red-around{
+        &:before{
+            content: "";
+            display: block;
+            width: 26px/$ppr;
+            height: 26px/$ppr;
+            background: #e23435;
+            border-radius: 50%;
+            border: 4px solid #ed8182;
+            position: relative;
+            left: -60px/$ppr;
+            top: 50px/$ppr;
+            z-index: 9;
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 1px/$ppr;
+            background: #bfbfbf;
+            height: 100%;
+            position: absolute;
+            left: -43px/$ppr;
+            bottom: -85px/$ppr;
+        }
+    }
+    .gray-around{
+        &:before{
+            content: "";
+            display: block;
+            width: 15px/$ppr;
+            height: 15px/$ppr;
+            background: #bfbfbf;
+            border-radius: 50%;
+            position: relative;
+            left: -50px/$ppr;
+            top: 40px/$ppr;
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 1px/$ppr;
+            background: #bfbfbf;
+            height: 100%;
+            position: absolute;
+            left: -43px/$ppr;
+            top: -146px/$ppr;
+        }
+    }
+}
+.fl_addextra{
+    width: 510px/$ppr;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.fr_extra{
+    line-height: 108px/$ppr;
+}
+.sueye{
+    padding: 8px/$ppr 12px/$ppr;
+    font-size: 30px/$ppr;
+    border: 1px solid #c2c2c2;
+    border-radius: 4px/$ppr;
+    margin-left: 5px/$ppr;
+}
+.orderrefuce{
+    .tittimlord h2{
+        line-height: 36px/$ppr;
+        a{
+            color: #62a4f5;
+            vertical-align: bottom;
+            text-decoration: underline;
+        }
+    }
+    .gray-around:after{
+        top: -113px/$ppr;
+    }
+}

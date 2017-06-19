@@ -1,0 +1,176 @@
+.frozen-cha{
+    .cuschan{
+        width: 25%;
+        .topup-mom{
+            width: 146px;
+        }
+    }
+    .jhove{
+        margin-top: 10px;
+        em{
+            margin-left: 0;
+            color: #e23435;
+        }
+    }
+}
+.frozen{
+    @extend .money;
+    background: url(../images/frozen.png) no-repeat;
+}
+.time-sala{
+    margin-top: 30px;
+    overflow: hidden;
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #dadada;
+            border-bottom: 0;
+            font-weight: 600;
+        }
+        .red{
+            border-bottom: 1px solid white;
+            border-top-color: #e23435;
+            a{
+                color: #e23435;
+            }
+        }
+    }
+}
+.he{
+    height: 1px;
+    border-top: 1px solid #dadada;;
+    width: 100%;
+    margin-top: -1px;
+}
+.mal-l{
+    margin-left: -1px;
+}
+.accbala{
+    margin-top: 20px;
+    @extend .accbala-list;
+}
+.accbala-list{
+    ul{
+        li{
+            width: 20%;
+        }
+    }
+}
+.ncyekjl{
+    color: #666666;
+    text-align: center;
+    padding: 10px 0;
+}
+.tixbox{
+    ul.hend_jz{
+        line-height: 30px;
+    }
+    .star{
+        color: #e23435;
+        margin-right: 6px;
+        line-height: 16px;
+        position: relative;
+        top: 4px;
+    }
+    .keyj{
+        float: left;
+        margin-left: 20px;
+        em{
+            color: #e23435;
+        }
+    }
+    .paydegs{
+        span{
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 20px;
+            i{
+                background: url(../images/gri.png) no-repeat;
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+            .chek{
+                background-position-y: -20px;
+            }
+        }
+    }
+    .adviceql{
+        width: 600px;
+        color: #999999;
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .name_jz .wisd.name_zjxs{
+        width: 100px;
+    }
+    .haiew{
+        float: left;
+        color: #e23435;
+        font-size: 12px;
+        line-height: 22px;
+        margin-top: 4px;
+    }
+    .ha-re{
+        float: left;
+        background: #48afcd;
+        height: 22px;
+        line-height: 22px;
+        padding: 0 6px;
+        color: white;
+        font-size: 12px;
+        border: 1px solid #dadde0;
+        margin-left: 10px;
+        margin-top: 4px;
+        &:hover{
+            color: white;
+        }
+    }
+    .save_s{
+        margin-top: 30px;
+        input.save{
+            border: 1px solid #dadde0;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-right: 20px;
+        }
+        input.closoff{
+            background: #f5f5f5;
+            color: #666666;
+        }
+    }
+}
+.duleyuan{
+    width: 118px;
+    height: 30px;
+    overflow:hidden;
+    background: #e7e7e7;
+    float: left;
+    border: 1px solid #DADADA;
+    @include box-sizing(border-box);
+    font-size: 14px;
+    input{
+        outline: none;
+        width: 80px;
+        height: 30px;
+        border: 0;
+        position: relative;
+        top: -1px;
+        top: -6px\9;
+        padding: 0 10px;
+        text-align: center;
+        display: inline-block;
+        @include box-sizing(border-box);
+    }
+    span{
+        width: 29px;
+        display: inline-block;
+        text-align: center;
+        font-family: "黑体";
+    }
+}

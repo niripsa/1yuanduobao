@@ -1,0 +1,181 @@
+.refund{
+    width: 100%;
+    height: 200px/$ppr;
+    background: #e23435;
+    overflow: hidden;
+    line-height: 200px/$ppr;
+    .refund-fon{
+        color: white;
+        font-size: 34px/$ppr;
+        text-align: center;
+        width: 50%;
+    }
+    .refund-img{
+        width: 50%;
+        text-align: center;
+        img{
+            width: 139px/$ppr;
+            height: 122px/$ppr;
+        }
+    }
+    
+}
+.re-shopfu{
+    background: white;
+    overflow: hidden;
+    height: 90px/$ppr;
+    line-height: 90px/$ppr;
+    
+}
+.re-shopfu{
+    position: relative;
+    a{
+        display: block;
+    }
+    h1{
+        font-size: 30px/$ppr;
+        margin: 0;
+        font-weight: normal;
+        width: 580px/$ppr;
+        span.bg-refund{
+            background-image:url("../images/packeg.png");
+            width: 38px/$ppr;
+            height: 34px/$ppr;
+            display: inline-block;
+        }
+        .Mright{
+            display: inline-block;
+            float: none;
+        }
+        .refundname{
+            margin: 0 20px/$ppr;
+        }
+    }
+}
+
+.apiltan{
+    .shopprice .fon_or{
+        margin-top: 37px/$ppr;
+    }
+}
+.checkgroup{
+    text-align: right;
+    padding: 20px/$ppr 0;
+    a{
+        width: 150px/$ppr;
+        height: 58px/$ppr;
+        border: 1px solid #b3b4b8;
+        text-align: center;
+        line-height: 58px/$ppr;
+        border-radius: 6px/$ppr;
+        display: inline-block;
+        font-size: 26px/$ppr;
+    }
+    .check-gro{
+        margin-right: 20px/$ppr;
+    }
+    .check-win{
+        color: #E23435;
+        border-color: #e23435;
+    }
+}
+.truenpouy{
+    background: white;
+    height: 85px/$ppr;
+    line-height: 85px/$ppr;
+    text-align: right;
+    .tpo-a{
+        font-size: 26px/$ppr;
+        color: #666666;
+        vertical-align: middle;
+    }
+    .tpo-b{
+        font-size: 24px/$ppr;
+        color: #e23435;
+        vertical-align: middle;
+        position: relative;
+        top: 4px/$ppr;
+    }
+    .tpo-c{
+        font-size: 36px/$ppr;
+        color: #e23435;
+        vertical-align: middle;
+    }
+    .tpo-d{
+        font-size: 24px/$ppr;
+        color: #666666;
+        vertical-align: middle;
+    }
+}
+.laju{
+    overflow: hidden;
+    background: white;
+    height: 110px/$ppr;
+    line-height: 110px/$ppr;
+    border-top: 1px solid #f5f5f5;
+    .lalx,.bddhe{
+        float: left;
+        width: (750px/2 - 1px)/$ppr;
+        text-align: center;
+        font-size: 30px/$ppr;
+        i{
+            background: url(../images/laju.png) no-repeat;
+            display: inline-block;
+            vertical-align: middle;
+            background-size: 80px/$ppr;
+            margin-right: 14px/$ppr;
+        }
+    }
+    .lalx{
+        i{
+            width: 39px/$ppr;
+            height: 38px/$ppr;
+            vertical-align: sub;
+        }
+    }
+    .colp{
+        float: left;
+        width: 2px/$ppr;
+        background: #e7e8ef;
+        height: 28px/$ppr;
+        margin-top: 41px/$ppr;
+    }
+    .bddhe{
+        i{
+            width: 42px/$ppr;
+            height: 42px/$ppr;
+            background-position-x: -39px/$ppr;
+        }
+    }
+}
+.orderdetie{
+    background: white;
+    padding: 20px/$ppr 0;
+}
+.order-refund{
+    line-height: 50px/$ppr;
+    span,a{
+        font-size: 26px/$ppr;
+        color: #999999;
+    }
+    a{
+        padding: 5px/$ppr 10px/$ppr;
+        border: 1px solid #dadada;
+        margin-left: 20px/$ppr;
+    }
+}
+.guesyl{
+    height: 96px/$ppr;
+    line-height: 96px/$ppr;
+    font-size: 32px/$ppr;
+    color: #333333;
+    text-align: center;
+}
+.gyl{
+    background: url(../images/guesyl.png) no-repeat;
+    width: 32px/$ppr;
+    height: 32px/$ppr;
+    display: inline-block;
+    vertical-align: sub;
+    margin-right: 10px/$ppr;
+}

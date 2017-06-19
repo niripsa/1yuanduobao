@@ -1,0 +1,66 @@
+.operation_success_fail{
+    border: 5px solid #eaeaea;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 180px;
+    margin-bottom: 180px;
+}
+.success_fial_img{
+    img{
+        width: 209px;
+        height: 210px;
+    }
+}
+.success_describe{
+    padding: 42px 30px;
+    .sd1{
+        text-align: center;
+        i{
+            background: url(../images/tipsrw.png) no-repeat;
+            width: 36px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 36px;
+        }
+        .suc{
+            background-position: 0 -44px;
+        }
+        .wro{
+            background-position: 0 0;
+        }
+        span{
+            vertical-align: middle;
+            font-size: 24px;
+            color: #666666;
+        }
+    }
+    .sd2{
+        font-size: 18px;
+        margin-top: 20px;
+        a{
+            color: #3c8dbc;
+        }
+        span{
+            color: #666666;
+            margin-left: 10px;
+            em{
+                color: #3c8dbc;
+            }
+        }
+    }
+    .sd3{
+        margin-top: 20px;
+        a{
+            font-size: 18px;
+            color: #666666;
+            margin: 0 10px;
+            &:hover{
+                color: #3c8dbc;
+            }
+        }
+    }
+}
+.w710{
+    width: 710px;
+}

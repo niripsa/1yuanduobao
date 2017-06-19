@@ -1,0 +1,164 @@
+.personerinfro{
+    ul{
+        overflow: hidden;
+        li{
+            float: left;
+            font-size: 14px;
+            padding: 10px 0;
+            a{
+                display: block;
+                cursor:text; 
+                &:hover{
+                    color: #666;
+                }
+            }
+        }
+    }
+    .hend_jz{
+        line-height: 102px;
+        .infor_img{
+            a{
+                width: 100px;
+                height: 100px; 
+                border:1px solid #DADADA;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    .name_jz{
+        line-height: 38px;
+        .name_zjxs{
+            width: 220px;
+            height: 30px;
+            padding: 2px 6px;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+    .sex_jz{
+        input,label{
+            vertical-align: middle;
+        }
+        label{
+            margin-left: 8px;
+            margin-right: 50px;
+        }
+    }
+    .birth_jz{
+        line-height: 30px;
+        select{
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+        .red{
+            color: #e23435;
+            margin-left: 20px;
+        }
+    }
+    .hobb_jz{
+        line-height: 30px;
+        li{
+            a{
+                color: #e23435;
+                &:hover{
+                    color: #e23435;
+                }
+            }
+        }
+    }
+    .hobby_jz{
+        li{
+            .choice_hobby{
+                width: 150px;
+                height: 42px;
+                text-align: center;
+                line-height: 42px;
+                border:1px solid #DADADA;
+                display: inline-block;
+                margin: 10px 10px 10px 0;
+                cursor:pointer; 
+                &:hover,.red{
+                    border:1px solid #e23435;
+                    color: #e23435;
+                }
+            }
+            .red{
+                border:1px solid #e23435;
+                color: #e23435;
+            }
+        }
+    }
+    .pcews{
+        padding: 10px 0;
+        a{
+            display: inherit;
+        }
+        .change_p{
+            a{
+                margin-left: 20px;
+                color: #6ba532;
+            }
+        }
+        .change_e{
+            a{
+                margin-left: 20px;
+                color: #e23435;
+            }
+        }
+    }
+    .careful{
+        padding: 10px 0;
+        a{
+            display: inherit;
+        }
+        .co_blue{
+            margin-left: 6px;
+            a{
+                color: #0066cc;
+                cursor: pointer;
+            }
+        }
+    }
+    .save_s{
+        padding: 10px 0;
+        .save{
+            color: white;
+            background: #e23435;
+            border: 0;
+            padding: 6px 22px;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+}
+$info_wi_le:20%;
+$info_wi_ri:100% - $info_wi_le;
+.infor_wi_le{
+    width: $info_wi_le;
+    a{
+        float: right;
+        margin-right: 20px;
+    }
+}
+.infor_wi_ri{
+    width: $info_wi_ri;
+}
+.ph_c,.em_c{
+    background: url(../images/infro.png) no-repeat;
+    width: 13px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.em_c{
+    background-position-x: -15px;
+    width: 22px;
+    margin-left: 30px;
+}
+.fir_sen{
+    color: #999999;
+}

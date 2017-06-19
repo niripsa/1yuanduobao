@@ -1,0 +1,81 @@
+.jd_listaddless{
+    border-bottom: 1px solid $grey4;
+    padding: 30px/$ppr 0 10px/$ppr 0;
+    .maleri30{
+        overflow: hidden;
+    }
+    .name{
+        width: 140px/$ppr;
+        h1{
+            font-size: 34px/$ppr;
+            margin: 0;
+            font-weight: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        span{
+            font-size: 30px/$ppr;
+            background-color: #f23030;
+            color: white;
+            padding: 4px/$ppr $num10;
+            position: relative;
+            top: 24px/$ppr;
+        }
+    }
+    .numberaddress{
+        width: 460px/$ppr;
+        padding: 0 $num10;
+        .number{
+            font-size: 30px/$ppr;
+        }
+        .similars{
+            padding: $num20 0;
+            font-size: 30px/$ppr;
+            display: block;
+        }
+    }
+    .editdiv{
+        position: relative;
+        .eedit{
+            @include background-image(edit);
+            width: 38px/$ppr;
+            height: 40px/$ppr;
+            position: absolute;
+            top: 44px/$ppr;
+            margin-left: 40px/$ppr;
+            cursor: pointer;
+        }
+    }
+}
+.hek{
+    height: 250px/$ppr;
+}
+.createnew{
+    width: 360px/$ppr;
+    height: 86px/$ppr;
+    text-align: center;
+    position: absolute;
+    bottom: 120px/$ppr;
+    left: 50%;
+    right: 50%;
+    margin-left: -180px/$ppr;
+    overflow: hidden;
+    a{
+        width: 100%;
+        font-size: 28px/$ppr;
+        color: white;
+        background-color: #f23030;
+        border-radius: 10px/$ppr;
+        text-align: center;
+        line-height: 86px/$ppr;
+        display: block;
+    }
+}
+.pore_add{
+    position: relative;
+    min-height: 1300px/$ppr;
+    @media screen and (min-width: 1300px) {
+        min-height: 950px/$ppr; 
+    }
+}

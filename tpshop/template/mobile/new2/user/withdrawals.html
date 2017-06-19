@@ -1,0 +1,66 @@
+<include file="public/header" title="申请提现" body=""/>
+<include file="public/header_nav" title="申请提现" href="javascript:history.back(-1)"/>
+		<div class="loginsingup-input ma-to-20">
+			<form action="?" method="post" onsubmit="return checkSubmit()">
+				<div class="content30">
+					<div class="lsu">
+						<span>卡号：</span>
+						<input type="text" name="account_bank" id="account_bank" value=""  placeholder="银行卡号" onKeyUp="this.value=this.value.replace(/[^\d]/g,'')">
+					</div>
+					<div class="lsu">
+						<span>开户名：</span>
+						<input type="text" name="account_name" id="account_name" value=""  placeholder="持卡人姓名">
+					</div>
+					<div class="lsu">
+						<span>银行名称：</span>
+						<input type="text" name="bank_name" id="bank_name" value="" placeholder="如：工商银行">
+					</div>
+                    <div class="lsu">
+                        <span>提现金额：</span>
+                        <input type="text" name="money" id="money" value="" usermoney="{$user_money}" placeholder="可提现金额：{$user_money}元" onKeyUp="this.value=this.value.replace(/[^\d.]/g,'')">
+                    </div>
+                    <div class="lsu test">
+                        <span>验证码：</span>
+                        <input type="text" name="verify_code" id="verify_code" value="" placeholder="请输入验证码">
+                        <img  id="verify_code_img" src="{:U('User/verify',array('type'=>'withdrawals'))}" onClick="verify()" style=""/>
+                    </div>
+					<div class="lsu submit">
+						<input type="submit" name="" id="" value="提交申请">
+					</div>
+				</div>
+			</form>
+		</div>
+
+<script type="text/javascript" charset="utf-8">
+    // 验证码切换
+    function verify(){
+        $('#verify_code_img').attr('src','/tpshop/index.php?m=Mobile&c=User&a=verify&type=withdrawals&r='+Math.random());
+    }
+
+    /**
+     * 提交表单
+     * */
+    function checkSubmit(){
+        var bank_name = $.trim($('#bank_name').val());
+        var account_bank = $.trim($('#account_bank').val());
+        var account_name = $.trim($('#account_name').val());
+        var money = parseFloat($.trim($('#money').val()));
+        var usermoney = parseFloat({$user_money});  //用户余额
+        var verify_code = $.trim($('#verify_code').val());
+        //验证码
+        if(verify_code == '' ){
+            showErrorMsg('验证码不能空')
+            return false;
+        }
+        if(bank_name == '' || account_bank == '' || account_name=='' || money == ''){
+            showErrorMsg("所有信息为必填")
+            return false;
+        }
+        if(money > usermoney){
+            showErrorMsg("提现金额大于您的账户余额")
+            return false;
+        }
+    }
+</script>
+	</body>
+</html>

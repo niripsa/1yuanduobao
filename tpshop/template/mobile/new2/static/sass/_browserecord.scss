@@ -1,0 +1,73 @@
+.emptyedit{
+    position: absolute;
+    right: 30px/$ppr;
+    a{
+        font-size: 28px/$ppr;
+        color: #999999;
+        border-left: 2px/$ppr solid #999999;
+        padding-left:14px/$ppr;
+        margin-left:10px/$ppr;
+        &:first-child{
+            border-left: 0;
+            margin-left:0;
+            padding-left:0;
+        }
+    }
+}
+.lookalike a{
+    float: right;
+    display: block;
+    width: 102px/$ppr;
+    font-size: 26px/$ppr;
+    color: #666666;
+    border: 1px solid #666666;
+    padding: 9px/$ppr 0;
+    text-align: center;
+    border-radius: 4px/$ppr;
+}
+.mt12{
+    margin-top: 12px/$ppr;
+}
+.dejsshort{
+    .radio{
+        display: none;
+    }
+    .se_sclist{
+        border-bottom: none;
+        .deleshow{
+            .deletes{
+                margin-top: 12px/$ppr;
+            }
+            border-bottom: 1px solid #e3e5e9;
+            .prices .sc_pri{
+                margin-top: 10px/$ppr;
+            }
+        }
+    }
+}
+.hiradio{
+    .radio{
+        display: block;
+    }
+    .deleshow{
+        width: 430px/$ppr;
+        .similar-product-text{
+            width: 430px/$ppr !important;
+        }
+    }
+}
+.daterecord{
+    font-size: 28px/$ppr;
+    color: #666666;
+    padding: 30px/$ppr 0;
+    border-bottom: 1px solid #e3e5e9;
+}
+.delbrowser{
+    p{
+        font-size: 32px/$ppr;
+        line-height: 146px/$ppr;
+    }
+}
+.a_emptyall{
+    display: none;
+}

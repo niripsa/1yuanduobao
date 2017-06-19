@@ -1,0 +1,210 @@
+<include file="public/layout" />
+<script src="/tpshop/__ROOT__/public/static/js/layer/laydate/laydate.js"></script>
+<body style="background-color: rgb(255, 255, 255); overflow: auto; cursor: default; -moz-user-select: inherit;">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>会员汇款记录</h3>
+                <h5>网站系统会员汇款索引与管理</h5>
+            </div>
+        </div>
+    </div>
+    <!-- 操作说明 -->
+    <div id="explanation" class="explanation" style="color: rgb(44, 188, 163); background-color: rgb(237, 251, 248); width: 99%; height: 100%;">
+        <div id="checkZoom" class="title"><i class="fa fa-lightbulb-o"></i>
+            <h4 title="提示相关设置操作时应注意的要点">操作提示</h4>
+            <span title="收起提示" id="explanationZoom" style="display: block;"></span>
+        </div>
+        <ul>
+			<li>会员汇款记录历史明细</li>
+		</ul>
+    </div>
+    <div class="flexigrid">
+        <div class="mDiv">
+            <div class="ftitle">
+                <h3>会员汇款记录列表</h3>
+                <h5>(共{$pager->totalRows}条记录)</h5>
+            </div>
+            <div title="刷新数据" class="pReload"><i class="fa fa-refresh"></i></div>
+            <form class="navbar-form form-inline" id="search-form" method="get" action="{:U('/Admin/User/remittance')}" onsubmit="return check_form();">
+                <input type="hidden" name="create_time" id="create_time" value="{$create_time}">
+                <div class="sDiv">
+                    <div class="sDiv2" style="margin-right: 10px;">
+                        <input type="text" size="30" id="start_time" value="{$start_time}" placeholder="起始时间" class="qsbox">
+                        <input type="button" class="btn" value="起始时间">
+                    </div>
+                    <div class="sDiv2" style="margin-right: 10px;">
+                        <input type="text" size="30" id="end_time" value="{$end_time}" placeholder="截止时间" class="qsbox">
+                        <input type="button" class="btn" value="截止时间">
+                    </div>
+                    <div class="sDiv2" style="margin-right: 10px;">
+                        <input size="30" id="user_id" placeholder="用户id" value="{$Think.request.user_id}" name="user_id" class="qsbox" type="text">
+                    </div>
+                    <div class="sDiv2" style="margin-right: 10px;">
+                        <input size="30" placeholder="收款账号" value="{$Think.request.account_bank}" name="account_bank" class="qsbox" type="text">
+                    </div>
+                    <div class="sDiv2">
+                        <input size="30" placeholder="收款账户名" value="{$Think.request.account_name}" name="account_name" class="qsbox" type="text">
+                        <input class="btn" value="搜索" type="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="hDiv">
+            <div class="hDivBox">
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th class="sign" axis="col0">
+                            <div style="width: 24px;"><i class="ico-check"></i></div>
+                        </th>
+                        <th align="center" abbr="article_title" axis="col3" class="">
+                            <div style="text-align: center; width: 50px;" class="">记录ID</div>
+                        </th>
+                        <th align="center" abbr="ac_id" axis="col4" class="">
+                            <div style="text-align: center; width: 50px;" class="">用户id</div>
+                        </th>
+                        <!--<th align="center" abbr="article_show" axis="col5" class="">-->
+                            <!--<div style="text-align: center; width: 100px;" class="">用户昵称</div>-->
+                        <!--</th>-->
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 80px;" class="">银行名称</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 180px;" class="">银行账号</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 100px;" class="">银行账户</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 100px;" class="">申请金额</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 100px;" class="">状态</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 120px;" class="">操作时间</div>
+                        </th>
+                        <th align="center" abbr="article_time" axis="col6" class="">
+                            <div style="text-align: center; width: 80px;" class="">备注</div>
+                        </th>
+                        <th style="width:100%" axis="col7">
+                            <div></div>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--<div class="tDiv">-->
+            <!--<div class="tDiv2">-->
+                <!--<div class="fbutton"> <a href="{:U('Finance/ajax_remittance',array('act'=>'export'))}">-->
+                    <!--<div class="add" title="导出excel">-->
+                        <!--<span><i class="fa fa-plus"></i>导出excel</span>-->
+                    <!--</div>-->
+                <!--</a> </div>-->
+            <!--</div>-->
+            <!--<div style="clear:both"></div>-->
+        <!--</div>-->
+        <div class="bDiv" style="height: auto;" id="ajax_return">
+            <div id="flexigrid" cellpadding="0" cellspacing="0" border="0">
+                <table>
+                    <tbody>
+                    <volist name="list" id="v">
+                        <tr data-id="{$list['user_id']}">
+                            <td class="sign">
+                                <div style="width: 24px;"><i class="ico-check"></i></div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 50px;">
+                                    <a class="open" href="{:U('editWithdrawals',array('id'=>$v[withdrawals_id]))}" target="blank">
+                                        {$v.id}<i class="fa fa-external-link " title="新窗口打开"></i>
+                                    </a>
+                                </div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 50px;">
+                                    <a class="open" href="{:U('Admin/user/detail',array('id'=>$v[user_id]))}" target="blank">
+                                        {$v.user_id}<i class="fa fa-external-link " title="新窗口打开"></i>
+                                    </a>
+                                </div>
+                            </td>
+                            <!--<td align="left" class="">-->
+                                <!--<div style="text-align: center; width: 50px;">-->
+                                    <!--<a class="open" href="{:U('Admin/user/detail',array('id'=>$v[user_id]))}" target="blank">-->
+                                        <!--{$v.nickname}<i class="fa fa-external-link " title="新窗口打开"></i>-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</td>-->
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 80px;">{$v.bank_name}</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 180px;">
+                                    {$v.account_bank}
+                                </div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 100px;">{$v.account_name}</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 100px;">{$v.money}</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 100px;">已处理</div>
+                            </td>
+                            <td align="left" class="">
+                                <div style="text-align: center; width: 130px;">
+                                    {$v.create_time|date="Y-m-d H:i",###}
+                                </div>
+                            </td>
+                            <td align="center" class="">
+                                <div style="text-align: center; width: 80px;">{$v.remark}</div>
+                            </td>
+                            <td align="" class="" style="width: 100%;">
+                                <div>&nbsp;</div>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--分页位置-->
+        {$show} </div>
+</div>
+<script>
+    $(document).ready(function(){
+        // 点击刷新数据
+        $('.fa-refresh').click(function(){
+            location.href = location.href;
+        });
+        $('#flexigrid >table>tbody>tr').click(function(){
+            $(this).toggleClass('trSelected');
+        });
+
+        $('#start_time').layDate();
+        $('#end_time').layDate();
+    });
+
+    function check_form(){
+        var start_time = $.trim($('#start_time').val());
+        var end_time =  $.trim($('#end_time').val());
+        if(start_time == '' ^ end_time == ''){
+            layer.alert('请选择完整的时间间隔', {icon: 2});
+            return false;
+        }
+        if(start_time !== '' && end_time !== ''){
+            $('#create_time').val(start_time+" - "+end_time);
+        }
+        if(start_time == '' && end_time == ''){
+            $('#create_time').val('');
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

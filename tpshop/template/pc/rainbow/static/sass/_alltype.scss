@@ -1,0 +1,212 @@
+.tit_alltype{
+    text-align: center;
+    .twoty{
+        border-bottom: 2px solid #e23435;
+        height: 36px;
+        margin-top: 46px;
+    }
+    ul{
+        overflow: hidden;
+        display: inline-block;
+        li{
+            float: left;
+            width: 98px;
+            height: 34px;
+            line-height: 36px;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0 6px;
+            border: 1px solid #cccccc;
+            &:hover{
+                background: #e23435;
+                border: 1px solid #e23435;
+                a{
+                    color: white;
+                }
+            }
+            a{
+                color: #3c3c3c;
+                font-size: 18px;
+                display: block;
+            }
+        }
+        .clre{
+            background: #e23435;
+            border: 1px solid #e23435;
+            a{
+                color: white;
+            }
+        }
+    }
+}
+.alltype_mid{
+    padding: 40px 0;
+    ul{
+        overflow: hidden;
+        padding: 0 59px;
+        li{
+            float: left;
+            width: 195px;
+            height: 28px;
+            border: 1px solid #cccccc;
+            margin: 6px;
+            text-align: center;
+            line-height: 28px;
+            background: #f0f0f0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 0 6px;
+            @include background-image(linear-gradient(#fff,#eee));
+            &:hover{
+                background: #f9f9f9;
+                @include background-image(linear-gradient(#fff,#dedede));
+            }
+            a{
+                color: #3c3c3c;
+                font-size: 14px;
+                display: block;
+                font-family: "Microsoft YaHei";
+            }
+        }
+    }
+}
+.squile_top{
+    border-bottom: 1px solid #dadbde;
+    padding: 4px 10px;
+    @include box-sizing(border-box);
+    @include background-image(linear-gradient(#fff,#eee));
+    .squile_scle{
+        width: 10px;
+        height: 10px;
+        background: #e23435;
+        display: inline-block;
+        vertical-align: middle;
+        @include transform(rotate(45deg));
+    }
+    p{
+        font-size: 14px;
+        color: #3c3c3c;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+        margin-left: 10px;
+        width: 94%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.aloneeachtype{
+    width: 47.75%;
+    float: left;
+    margin-left: 55px;
+    @include box-sizing(border-box);
+    &:first-child{
+        margin-left: 0;
+    }
+}
+.rowall{
+    overflow: hidden;
+    border-bottom: 1px dotted #ddd;
+    margin: 0 10px;
+    padding: 10px 0;
+    &:last-child{
+        border-bottom: 0;
+    }
+    .lerow{
+        float: left;
+        width: 12%;
+        margin-right: 2%;
+        a{
+            color: #e23435;
+            font-size: 12px;
+            &:hover{
+                color: #6c6c6c;
+            }
+        }
+    }
+    .rirow{
+        float: left;
+        width: 86%;
+        a{
+            color: #6c6c6c;
+            margin-right: 15px;
+            white-space: nowrap;
+            display: inline-block;
+            &:hover{
+                color: #e23435;
+            }
+        }
+    }
+}
+.each_alltype{
+    padding:20px 0;
+}
+.boxtya {
+    border: 1px solid #dadbde;
+    margin-bottom: 15px;
+}
+.brand_list{
+    h3{
+        font-size: 14px;
+        color: #333;
+        border-bottom: 1px solid #E4E4E4;
+        margin-top: 20px;
+        display: block;
+        padding-bottom: 10px;
+        font-family: "Microsoft YaHei";
+    }
+    ul{
+        width: 1253px;
+        overflow: hidden;
+        li{
+            _display: inline;
+            float: left;
+            width: 147px;
+            height: 90px;
+            margin-top: 20px;
+            margin-right: 32px;
+            .item{
+                display: block;
+                position: relative;
+                width: 115px;
+                height: 80px;
+                padding: 4px 15px;
+                border: 1px solid #E3E3E3;
+                &:hover{
+                    _zoom: 1;
+                    .info {
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        text-align: center;
+                    }
+                }
+                .info{
+                    display: none;
+                    .name{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 147px;
+                        height: 90px;
+                        overflow: hidden;
+                        z-index: 1;
+                        color: #fff;
+                        font: bold 14px/90px SimSun;
+                        cursor: pointer;
+                    }
+                    .brand_bg {
+                        width: 147px;
+                        height: 90px;
+                        background-color: #333;
+                        opacity: .6;
+                        filter: Alpha(opacity=60);
+                    }
+                }
+            }
+        }
+    }
+}

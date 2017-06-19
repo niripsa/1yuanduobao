@@ -1,0 +1,139 @@
+.top-detailstore{
+    overflow: hidden;
+    padding-top: 20px/$ppr;
+    .de_img_le{
+        float: left;
+        img{
+            width: 177px/$ppr;
+            height: 177px/$ppr;
+        }
+    }
+    .de_font-midd{
+        float: left;
+        margin-top: 36px/$ppr;
+        width: 330px/$ppr;
+        margin-left: 20px/$ppr;
+        h3{
+            font-size: 36px/$ppr;
+            font-weight: normal;
+            margin: 10px/$ppr;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        p{
+            font-size: 28px/$ppr;
+            color: #999999;
+            margin: 10px/$ppr;
+            margin-top: 20px/$ppr;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .de-butt-ygz{
+        float: right;
+        .payclos{
+            margin-top: 64px/$ppr;
+            overflow: hidden;
+            padding: 10px/$ppr 20px/$ppr;
+            border: 1px solid $grey4;
+            background-color: #e7f1f2;
+            border-radius: 10px/$ppr;
+            cursor: pointer;
+            i{
+                float: left;
+                background-image: url(../images/heart.png);
+                background-repeat: no-repeat;
+                background-size: 40px/$ppr;
+                width: 20px/$ppr;
+                height: 20px/$ppr;
+                display: block;
+                margin: 0 auto;
+                margin-top: 6px/$ppr;
+                background-position-x: 0;
+            }
+            .red{
+                background-position-x: -20px/$ppr;
+            }
+            span{
+                float: left;
+                font-size: 28px/$ppr;
+            }
+        }
+    }
+}
+.leve-trhee{
+    overflow: hidden;
+    padding-top: 20px/$ppr;
+    padding-bottom: 40px/$ppr;
+    border-bottom: 1px solid $grey4;
+    ul{
+        li{
+            float: left;
+            width: 100/3*1%;
+            text-align: center;
+            span{
+                font-size: 28px/$ppr;
+                float: left;
+            }
+            .red{
+                color: #e23030;
+            }
+            .gr{
+                color: white;
+                background: #e23030;
+                border-radius: 50%;
+                width: 34px/$ppr;
+                height: 34px/$ppr;
+                display: block;
+                text-align: center;
+                line-height: 34px/$ppr;
+                font-size: 24px/$ppr;
+                margin-top: -4px/$ppr;
+                margin-left: 10px/$ppr;
+            }
+            .green{
+                color: #00a96b;
+            }
+            .ba-green{
+                background-color: #00a96b;
+            }
+            .pink{
+                color: #e716bd;
+            }
+            .ba-pink{
+                background-color: #e716bd;
+            }
+        }
+        .te-left{
+            float: left;
+        }
+        .te-midden{
+            padding-left: 7%;
+        }
+        .te-right{
+            span{
+                float: right;
+            }
+        }
+    }
+}
+.sinhert{
+    .content .floor ul li a h2{
+        color: inherit;
+    }
+}
+.sto_kf{
+    background-image: url(../images/detailstore.png);
+    background-size: 45px/$ppr;
+    width: 45px/$ppr;
+    height: 40px/$ppr;
+    background-position-y: 0;
+}
+.sto_ewm{
+    background-position-y: -42px/$ppr;
+}
+.sto_phone{
+    background-position-y: -86px/$ppr;
+}

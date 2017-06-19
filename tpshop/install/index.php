@@ -121,13 +121,13 @@ switch ($step) {
         }
         
         $folder = array(
-            'tpshop/install',
-            'tpshop/public/upload',
-            'tpshop/application/admin/conf',            
-            'tpshop/runtime',
-            'tpshop/runtime/cache',
-	    	'tpshop/runtime/temp',
-	    	'tpshop/runtime/log',        	
+            '../install',
+            '../public/upload',
+            '../application/admin/conf',            
+            '../runtime',
+            '../runtime/cache',
+	    	'../runtime/temp',
+	    	'../runtime/log',        	
         );
         include_once ("./templates/step2.php");
         exit();
@@ -224,7 +224,7 @@ switch ($step) {
             }
 
             //读取数据文件
-            $sqldata = file_get_contents(SITEDIR . 'install/' . $sqlFile);
+            $sqldata = file_get_contents(SITEDIR . '../install/' . $sqlFile);
             $sqlFormat = sql_split($sqldata, $dbPrefix);
             //创建写入sql数据库文件到库中 结束
 

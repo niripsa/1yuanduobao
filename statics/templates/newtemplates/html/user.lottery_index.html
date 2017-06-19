@@ -238,10 +238,10 @@
             codeplay('正在封单中');
             $('#btnaddBet').unbind('click');
             $('#btnaddBet').bind('click', function(){
-                $.alert(TIPS);
+                layer.alert(TIPS);
             });
             if(S){
-                $.alert('当期销售已截止，请进入下一期购买。');
+                layer.alert('当期销售已截止，请进入下一期购买。');
                 $("#alert_close_button").val("确定");
             }
             S=false;

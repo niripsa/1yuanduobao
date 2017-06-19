@@ -183,6 +183,28 @@ class lottery extends UserAction{
 		$this->view->show("user.lottery_kj_record");
 	}
 
+	//得到最新开奖数据
+	public function get_lastkj_data(){
+		//判断当前一期是否到开奖时间
+		$sStageNo = strval($_POST['stage_no']);
+		if (empty($sStageNo)) {
+			exit();
+		}
+
+		//查询当前期号是否开奖
+		$sql = "select * from `@#_lottery_stage` where `stage_no` = '$sStageNo' and `status` = 2 limit 1";
+		$mysql_model = System::load_sys_class("model");
+		$aKjData = $mysql_model->GetOne($sql);
+		if(empty($aKjData)){
+			exit();
+		}
+
+		$aRet = [];
+		$aRet['errno']  = 0;
+		$aRet['errmsg'] = '开奖成功！';
+		exit(json_encode($aRet));
+	}
+
 	private function _generateOrderSN(){
 		$member_id = $this->Userid;
 		return mt_rand(10,99)

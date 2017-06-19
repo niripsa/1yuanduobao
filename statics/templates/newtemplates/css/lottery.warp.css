@@ -207,7 +207,7 @@
 
 /*彩种号码容器*/
 .lottery_num { width:260px; height: 77px; padding-left: 20px; position: relative; }
-.lottery_history_issue { font-size: 12px; color: #959595; padding-top: 5px; margin-bottom: 5px; }
+.lottery_history_issue { font-size: 10px; color: #959595; padding-top: 5px; margin-bottom: 5px; }
 .lottery_num_box { overflow: hidden; height: 45px; padding-top: 3px; }
 .lottery_num_box ul { position: relative; margin: 0px auto; }
 .lottery_num_box ul li { position: relative; color: #8c5a8e; font-size: 24px; font-weight: bold; overflow: hidden; margin-right: 10px; float: left; display: inline; width: 40px; height: 39px; line-height: 39px; text-align: center; background: url(../images/nsc/warp/yuan.png) no-repeat; }

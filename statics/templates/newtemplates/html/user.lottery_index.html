@@ -310,7 +310,7 @@
                 $('#m2x').html(mx['1']);
             }
             if(S && h==0 && ((m==30 && s==0) || (m==0 && s==4))){
-                getcorrtime();
+                //getcorrtime();
             }
            
             if(h==0 && m==0 && s==0){
@@ -331,6 +331,8 @@
         $.ajax('/?/member/lottery/get_lastkj_data',{
             dataType:'json',
             cache:false,
+            type:"post",
+            data:{stage_no:$("#current_issue").html().trim()},
             error:function(){
                 setTimeout(loadKjData, 5000);
             },
@@ -340,13 +342,17 @@
                     setTimeout(loadKjData, 10000);//动画时间
                 }else{
                     try{
-                        
+                        window.location.reload();
                     }catch(err){
                         setTimeout(loadKjData, 5000);
                     }
                 }
             }
         });
+    }
+
+    function codeplay(str){
+
     }
 
     function setKJWaiting(kjDiffTime){

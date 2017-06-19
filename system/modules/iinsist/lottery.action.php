@@ -9,7 +9,7 @@ class lottery extends admin{
         $aLotteryLists = $mysql_model->GetList($sql);
         
         $this->view->data('lottery_lists', $aLotteryLists);
-        $this->view->show("user.lottery_kj_record");
+        $this->view->show("user.lottery_kj_record_admin");
     }
 
     public function buy_record(){

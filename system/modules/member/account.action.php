@@ -336,5 +336,30 @@ class account extends UserAction
         $fufen_to_money = intval($member["score"] / $conf["fufen_yuan"]);
         $this->view->show("user.credit")->data("total", $total)->data("num", $num)->data("page", $page)->data("account", $account)->data("conf", $conf)->data("fufen_to_money", $fufen_to_money)->data("member", $member);
     }
+
+        //查询订单是否被支付
+    public function ajax_check_ispay(){
+        $sOrderId = $_REQUEST['ocode'];
+        if(!preg_match("#^C\d+$#i", $sOrderId)){
+            exit("wrong order id!");
+        }
+
+        $userpaydb    = System::load_app_model("UserPay", "common");
+        $dingdaninfo = $userpaydb->get_recharge_order_by_code( $sOrderId, 0 );
+
+        $aRet = array();
+        if($dingdaninfo['ostatus'] == 2){
+            $aRet['errno'] = 0;
+            $aRet['errmsg'] = '支付成功!';
+        }elseif($dingdaninfo['ostatus'] == 5){
+            $aRet['errno'] = 1;
+            $aRet['errmsg'] = '支付异常!';
+        }else{
+            $aRet['errno'] = -1;
+            $aRet['errmsg'] = '支付失败!';
+        }
+
+        echo json_encode($aRet);
+    }
 }
 ?>

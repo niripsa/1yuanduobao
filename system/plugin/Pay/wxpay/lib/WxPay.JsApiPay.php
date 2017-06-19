@@ -38,19 +38,21 @@ class JsApiPay
 	 * 
 	 * @return 用户的openid
 	 */
-	public function GetOpenid()
+	public function GetOpenid($sAppId = "", $sAppSecret = "")
 	{
 		//通过code获得openid
-		if (!isset($_GET['code'])){
+		if (!isset($_REQUEST['code'])){
 			//触发微信返回code码
+			$_SERVER['QUERY_STRING'] = http_build_query($_REQUEST);
 			$baseUrl = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-			$url = $this->__CreateOauthUrlForCode($baseUrl);
+			$url = "http://www.1yuanshangcheng.com/callback.php?real_url=$baseUrl";
+			$url = $this->__CreateOauthUrlForCode($url, $sAppId);
 			Header("Location: $url");
 			exit();
 		} else {
 			//获取code码，以获取openid
-		    $code = $_GET['code'];
-			$openid = $this->getOpenidFromMp($code);
+		    $code = $_REQUEST['code'];
+			$openid = $this->GetOpenidFromMp($code, $sAppId, $sAppSecret);
 			return $openid;
 		}
 	}
@@ -90,9 +92,9 @@ class JsApiPay
 	 * 
 	 * @return openid
 	 */
-	public function GetOpenidFromMp($code)
+	public function GetOpenidFromMp($code, $sAppId = "", $sAppSecret = "")
 	{
-		$url = $this->__CreateOauthUrlForOpenid($code);
+		$url = $this->__CreateOauthUrlForOpenid($code, $sAppId, $sAppSecret);
 		//初始化curl
 		$ch = curl_init();
 		//设置超时
@@ -177,9 +179,14 @@ class JsApiPay
 	 * 
 	 * @return 返回构造好的url
 	 */
-	private function __CreateOauthUrlForCode($redirectUrl)
+	private function __CreateOauthUrlForCode($redirectUrl, $sAppId = "")
 	{
-		$urlObj["appid"] = WxPayConfig::APPID;
+		if(empty($sAppId)){
+			$urlObj["appid"] = WxPayConfig::APPID;
+		}else{
+			$urlObj["appid"] = $sAppId;
+		}
+		
 		$urlObj["redirect_uri"] = "$redirectUrl";
 		$urlObj["response_type"] = "code";
 		$urlObj["scope"] = "snsapi_base";
@@ -195,10 +202,16 @@ class JsApiPay
 	 * 
 	 * @return 请求的url
 	 */
-	private function __CreateOauthUrlForOpenid($code)
+	private function __CreateOauthUrlForOpenid($code, $sAppId, $sAppSecret)
 	{
-		$urlObj["appid"] = WxPayConfig::APPID;
-		$urlObj["secret"] = WxPayConfig::APPSECRET;
+		if (empty($sAppId) && empty($sAppSecret)) {
+			$urlObj["appid"]  = WxPayConfig::APPID;
+			$urlObj["secret"] = WxPayConfig::APPSECRET;
+		}else{
+			$urlObj["appid"]  = $sAppId;
+			$urlObj["secret"] = $sAppSecret;
+		}
+		
 		$urlObj["code"] = $code;
 		$urlObj["grant_type"] = "authorization_code";
 		$bizString = $this->ToUrlParams($urlObj);

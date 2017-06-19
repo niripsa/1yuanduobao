@@ -26,7 +26,8 @@ class lottery extends admin{
         }
 
         $sNow = date("Y-m-d H:i:s");
-        $sql = "update `@#_lottery_stage` set setting_number = $iNumber, setting_time = '$sNow'";
+        $id = intval($aLotteryInfo['id']);
+        $sql = "update `@#_lottery_stage` set setting_number = $iNumber, setting_time = '$sNow' where id = $id";
         $mysql_model->Query($sql);
 
         $aRet = [];

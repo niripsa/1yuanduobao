@@ -1,1 +1,0 @@
-<div class="footer"> &copy; 2014-2016 <a href="http://www.tp-shop.cn" target="_blank">www.tp-shop.cn</a> 深圳搜豹网络出品</div>

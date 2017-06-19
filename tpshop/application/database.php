@@ -15,7 +15,7 @@ return [
     // 服务器地址
     'hostname'       => 'localhost',
     // 数据库名
-    'database'       => 'duobao',
+    'database'       => 'tpshop',
     // 用户名
     'username'       => 'duobao',
     // 密码

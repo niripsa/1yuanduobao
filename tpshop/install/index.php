@@ -137,7 +137,7 @@ switch ($step) {
 		$_POST['dbport'] = $_POST['dbport'] ? $_POST['dbport'] : '3306';
         if ($_GET['testdbpwd']) {
             $dbHost = $_POST['dbHost'];
-            $conn = @mysqli_connect($dbHost, $_POST['dbUser'], $_POST['dbPwd'],NULL,$_POST['dbport']);			
+            $conn = @mysqli_connect($dbHost, $_POST['dbUser'], $_POST['dbPwd'],$_POST['dbName'],$_POST['dbport']);			
             if (mysqli_connect_errno($conn)){				
 				die(json_encode(0));                
             } else {

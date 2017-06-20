@@ -77,7 +77,7 @@ if (empty($aRes)) {
 	$iLotteryNo = intval($aRes['setting_number']) == -1?intval($aRes['lottery_number']) : intval($aRes['setting_number']);
 	$i = 0;
 	while (true) {
-		$sql = "select * from `yg_user_buy_lottery` where `stage_no` = '$sLastStageNo' and `status` = 1 limit $i,1";
+		$sql = "select * from `yg_user_buy_lottery` where `stage_no` = '$sLastStageNo' order by id limit $i,1";
 		$result = mysqli_query($con, $sql);
 		$aUserBuyInfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		if (empty($aUserBuyInfo)) {

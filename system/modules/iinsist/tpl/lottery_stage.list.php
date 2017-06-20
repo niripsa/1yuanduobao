@@ -29,7 +29,7 @@ tbody tr{ line-height:30px; height:30px;}
         </tr>
     </thead>
     <tbody>
-    <?php foreach ( (array)$recordlist as $v ) { ?>
+    <?php foreach ( (array)$lottery_lists as $v ) { ?>
         <tr>
             <td align="center"> 
                 <?php echo $v['stage_no']; ?> 

@@ -84,8 +84,8 @@ if (empty($aRes)) {
 		++$i;
 
 		//根据用户购买内容觉得是否中奖
-		if(!empty($aRes['buy_content_id'])){
-			$aBuyContent = str_split($aRes['buy_content_id']);
+		if(!empty($aUserBuyInfo['buy_content_id'])){
+			$aBuyContent = str_split($aUserBuyInfo['buy_content_id']);
 			$buy1 = intval($aBuyContent[0]);
 			$buy2 = intval($aBuyContent[1]);
 

@@ -50,6 +50,8 @@ if (empty($aRes)) {
 	$sUpdateSql = "update `yg_lottery_stage` set `lottery_number` = $iLotteryNo, `status` = 2 where id = $id";
 	
 	mysqli_query($con, $sUpdateSql);
+	//要把数组中的lottery_number也改为正确值
+	$aRes['lottery_number'] = intval($iLotteryNo);
 
 	//插入新的一期
 	$sDay = strval(explode("-", $aRes['stage_no'])[0]);
@@ -80,6 +82,10 @@ if (empty($aRes)) {
 		$aUserBuyInfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		if (empty($aUserBuyInfo)) {
 			break;
+		}
+
+		if($aUserBuyInfo['status'] != 1){
+			continue;
 		}
 
 		++$i;

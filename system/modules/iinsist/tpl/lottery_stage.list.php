@@ -84,12 +84,12 @@ tbody tr{ line-height:30px; height:30px;}
             data:{number: number},
             success:function(data){
                 $("#setting_number").val(data.number);
-                layer.alert("设置成功!");
+                alert("设置成功!");
                 window.location.reload(true);
             },
             error:function(data){
                 $("#setting_number").val(-1);
-                layer.alert("设置失败!");
+                alert("设置失败!");
             }
         });
    });

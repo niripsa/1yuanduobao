@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'       => 'tpshop',
     // 用户名
-    'username'       => 'duobao',
+    'username'       => 'root',
     // 密码
-    'password'       => 'lkjoe990kldskfj',
+    'password'       => '0j9kldskf9kljoe',
     // 端口
     'hostport'       => '3306',
     // 连接dsn

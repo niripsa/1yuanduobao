@@ -59,4 +59,9 @@ class tpshop extends SystemAction{
 			exit(json_encode($aRet));
 		}
 	}
+
+	public function integralMall(){
+		$url = "/tpshop/index.php?m=Home&c=Goods&a=integralMall";
+		header("Location:$url");
+	}
 }

@@ -13,13 +13,6 @@ tbody tr{ line-height:30px; height:30px;}
 <div class="header lr10">
     <?php echo headerment( $ment ); ?>
     <span class="lr10"> </span><span class="lr10"> </span>
-    <form action="" method="post" style="display:inline-block; ">
-    <select name="paixu">
-        <option value="time1" <?php echo $paixu == "time1" ? 'selected' : ''; ?> > 按购买时间倒序 </option>
-        <option value="time2" <?php echo $paixu == "time2" ? 'selected' : ''; ?>> 按购买时间正序 </option>
-    </select>    
-    <input type="submit" name="paixu_submit" class="button"value=" 排序 "  />
-    </form>
 </div>
 <div class="bk10"></div>
 <div class="table-list lr10">
@@ -27,31 +20,39 @@ tbody tr{ line-height:30px; height:30px;}
   <table width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th align="center">订单号</th>
-            <!-- <th align="center">中奖号码</th> -->
-            <th align="center">购买彩票</th>
-            <th align="center">购买用户</th>
-            <th align="center">购买总价</th>
-            <th align="center">购买日期</th>
-            <th align="center">订单状态</th>
-            <th align="center">奖励积分</th>
+            <th align="center">期号</th>
+            <th align="center">开奖号码</th>
+            <th align="center">后台设置中奖号码</th>
+            <th align="center">本期开始时间</th>
+            <th align="center">本期结束时间</th>
+            <th align="center">当前状态</th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ( (array)$recordlist as $v ) { ?>
         <tr>
-            <td align="center"> <?php echo $v['order_sn']; ?><?php echo $v["code_tmp"] ? " <font color='#ff0000'>[多]</font>" : ''; ?> 
+            <td align="center"> 
+                <?php echo $v['stage_no']; ?> 
             </td>
             <td align="center">
-                第<?php echo $v["stage_no"];?>期： 买<?php echo $v["buy_content"];?>
+                <?php echo $v['lottery_number']; ?> 
             </td>
             <td align="center"> 
-             <?php echo get_user_name( $v["user_id"] ); ?> 
+                <?php echo $v['setting_number']; ?> 
             </td>
-            <td align="center">￥<?php echo $v["buy_money"]; ?>元</td>
-            <td align="center"><?php echo $v["buy_time"]; ?></td>
-            <td align="center"><?php echo $v["status_txt"]; ?></td>
-            <td align="center"><?php echo $v["award_points"];?></td>
+            <td align="center">
+                <?php echo $v['begin_time'];?>
+            </td>
+            <td align="center">
+                <?php echo $v["end_time"]; ?>
+            </td>
+            <td align="center">
+                <?php if($v["status"] == 2){ ?>
+                    已开奖
+                <?}else{?>
+                    开奖中
+                <? };?>
+            </td>
         </tr>
     <?php } ?>
     </tbody>

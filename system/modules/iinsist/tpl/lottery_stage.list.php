@@ -64,4 +64,30 @@ tbody tr{ line-height:30px; height:30px;}
 <div id="pages"><ul>共 <?php echo $page; ?> </ul></div>
 </div>
 </body>
+<script type="text/javascript">
+   $("#submit").click(function(){
+        var number = parseInt($("#setting_number").val());
+        if(!number || number < 0 || number > 9){
+            layer.alert("请输入0-9之间的数字!");
+            layer.alert("请输入0-9之间的数字!");
+            return false;
+        }
+
+        $.ajax({
+            url:"/?/iinsist/lottery/modify_lottery_no",
+            type:"post",
+            dataType:"json",
+            data:{number: number},
+            success:function(data){
+                $("#setting_number").val(data.number);
+                layer.alert("设置成功!");
+                window.location.reload(true);
+            },
+            error:function(data){
+                $("#setting_number").val(-1);
+                layer.alert("设置失败!");
+            }
+        });
+   });
+</script>
 </html>

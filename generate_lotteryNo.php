@@ -116,6 +116,8 @@ if (empty($aRes)) {
 
 			$id = $aUserBuyInfo['id'];
 			$sql = "update `yg_user_buy_lottery` set `award_points` = $fUserPoints, `status` = 3 where id = $id AND `status` = 1 AND `stage_no` = '$sLastStageNo'";
+			
+			mysqli_query($con, $sql);
 
 			echo "sql:" . $sql . '|lottery_no:' . $iLotteryNo . PHP_EOL;
 

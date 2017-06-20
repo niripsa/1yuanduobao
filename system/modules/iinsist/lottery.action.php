@@ -60,7 +60,7 @@ class lottery extends admin{
         }
 
         $sql = "select * from `@#_user_buy_lottery` order by $order " . $page->setlimit(0);
-        $recordlist = $mysql_model->Query($sql);
+        $recordlist = $mysql_model->GetList($sql);
 
         foreach ($recordlist as $id => $aOneRecord) {
             if($recordlist[$id]['status'] == 1){

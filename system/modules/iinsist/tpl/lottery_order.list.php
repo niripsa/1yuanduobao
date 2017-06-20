@@ -28,7 +28,7 @@ tbody tr{ line-height:30px; height:30px;}
     <thead>
         <tr>
             <th align="center">订单号</th>
-            <th align="center">中奖号码</th>
+            <!-- <th align="center">中奖号码</th> -->
             <th align="center">购买彩票</th>
             <th align="center">购买用户</th>
             <th align="center">购买总价</th>

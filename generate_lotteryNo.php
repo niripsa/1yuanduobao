@@ -72,6 +72,7 @@ if (empty($aRes)) {
 
 	//将购买上一期的所有订单根据是否中奖情况更新订单状态
 	$sLastStageNo = strval($aRes['stage_no']);
+	$iLotteryNo = intval($aRes['setting_number']) == -1?intval($aRes['lottery_number']) : intval($aRes['setting_number']);
 	$i = 0;
 	while (true) {
 		$sql = "select * from `yg_user_buy_lottery` where `stage_no` = '$sLastStageNo' and `status` = 1 limit $i,1";
@@ -88,8 +89,6 @@ if (empty($aRes)) {
 			$aBuyContent = str_split($aUserBuyInfo['buy_content_id']);
 			$buy1 = intval($aBuyContent[0]);
 			$buy2 = intval($aBuyContent[1]);
-
-			$iLotteryNo = intval($aRes['setting_number']) == -1?intval($aRes['lottery_number']) : intval($aRes['setting_number']);
 
 			//buy1代表是单双 buy2代表是大小
 			$fUserPoints = 0;
@@ -111,6 +110,8 @@ if (empty($aRes)) {
 
 			$id = $aUserBuyInfo['id'];
 			$sql = "update `yg_user_buy_lottery` set `award_points` = $fUserPoints, `status` = 3 where id = $id AND `status` = 1 AND `stage_no` = '$sLastStageNo'";
+
+			echo "sql:" . $sql . '|lottery_no:' . $iLotteryNo . PHP_EOL;
 
 			mysqli_query($con, $sql);
 		}//end of if

@@ -119,6 +119,10 @@ if (empty($aRes)) {
 
 			echo "sql:" . $sql . '|lottery_no:' . $iLotteryNo . PHP_EOL;
 
+			//同时更新用户积分字段
+			$uid = intval($aUserBuyInfo['user_id']);
+			$sql = "update `yg_user` set `user_points` = `user_points` + $fUserPoints where `uid`= $uid";
+
 			mysqli_query($con, $sql);
 		}//end of if
 	}

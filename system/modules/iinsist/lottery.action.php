@@ -36,7 +36,18 @@ class lottery extends admin{
     }
 
     public function buy_record(){
+        $num   = 15;
+        $mysql_model = System::load_sys_class("model");
+        $total = $mysql_model->data_num("user_buy_lottery");
+        $page  = System::load_sys_class("page");
+        $page->config( $total, $num );
 
+        $sql = "select * from `@#_user_buy_lottery` " . $page->setlimit(0);
+        $recordlist = $mysql_model->Query($sql);
+
+        $this->view->data( "recordlist", $recordlist );
+        $this->view->data( "page", $page->show( "li", true ) );
+        $this->view->tpl( "lottery_order.list" );
     }
 }
 ?>

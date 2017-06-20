@@ -42,8 +42,35 @@ class lottery extends admin{
         $page  = System::load_sys_class("page");
         $page->config( $total, $num );
 
-        $sql = "select * from `@#_user_buy_lottery` " . $page->setlimit(0);
+        $order = "";
+        if ( isset( $_POST["paixu_submit"] ) ){
+            $paixu = $_POST["paixu"];
+            switch ( $paixu )
+            {
+                case 'time1':
+                    $order .= " `buy_time` DESC";
+                break;
+                case 'time2':
+                    $order .= " `buy_time` ASC";
+                break;
+            }
+        }else{
+            $order .= " `buy_time` DESC";
+            $paixu = "time1";
+        }
+
+        $sql = "select * from `@#_user_buy_lottery` order by $order " . $page->setlimit(0);
         $recordlist = $mysql_model->Query($sql);
+
+        foreach ($recordlist as $id => $aOneRecord) {
+            if($recordlist[$id]['status'] == 1){
+                $recordlist[$id]['status_txt'] = '未开奖';
+            }elseif($recordlist[$id]['status'] == 2) {
+                $recordlist[$id]['status_txt'] = '已撤单';
+            }elseif($recordlist[$id]['status'] == 3){
+                $recordlist[$id]['status_txt'] = '已开奖';
+            }
+        }
 
         $this->view->data( "recordlist", $recordlist );
         $this->view->data( "page", $page->show( "li", true ) );

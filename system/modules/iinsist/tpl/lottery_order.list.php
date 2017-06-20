@@ -17,8 +17,6 @@ tbody tr{ line-height:30px; height:30px;}
     <select name="paixu">
         <option value="time1" <?php echo $paixu == "time1" ? 'selected' : ''; ?> > 按购买时间倒序 </option>
         <option value="time2" <?php echo $paixu == "time2" ? 'selected' : ''; ?>> 按购买时间正序 </option>
-        <option value="money1" <?php echo $paixu == "money1" ? 'selected' : ''; ?>> 按购买总价倒序 </option>
-        <option value="money2" <?php echo $paixu == "money2" ? 'selected' : ''; ?>> 按购买总价正序 </option>
     </select>    
     <input type="submit" name="paixu_submit" class="button"value=" 排序 "  />
     </form>
@@ -30,28 +28,30 @@ tbody tr{ line-height:30px; height:30px;}
     <thead>
         <tr>
             <th align="center">订单号</th>
+            <th align="center">中奖号码</th>
             <th align="center">购买彩票</th>
             <th align="center">购买用户</th>
             <th align="center">购买总价</th>
             <th align="center">购买日期</th>
-            <th align="center">中奖</th>
             <th align="center">订单状态</th>
-            <th align="center">管理</th>
+            <th align="center">奖励积分</th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ( (array)$recordlist as $v ) { ?>
         <tr>
-            <td align="center"> <?php echo $v['ocode']; ?> <?php echo $v["code_tmp"] ? " <font color='#ff0000'>[多]</font>" : ''; ?> </td>
-            <td align="center">
-            <a target="_blank" href="<?php echo WEB_PATH . "/cgoods/" . $v["ogid"]; ?>"> 第(<?php echo $v["oqishu"]; ?>)期<?php echo _strcut( _unser( $v["og_title"], "g_title" ), 0, 25 ); ?> </a>
+            <td align="center"> <?php echo $v['order_sn']; ?><?php echo $v["code_tmp"] ? " <font color='#ff0000'>[多]</font>" : ''; ?> 
             </td>
-             <td align="center"> <?php echo get_user_name( $v["ouid"] ); ?> </td>
-            <td align="center">￥<?php echo $v["omoney"]; ?>元</td>
-            <td align="center"><?php echo date( "Y-m-d H:i:s", $v["otime"] ); ?></td>
-            <td align="center"><?php echo $v["ofstatus_txt"]; ?></td>
+            <td align="center">
+                第<?php echo $v["stage_no"];?>期： 买<?php echo $v["buy_content"];?>
+            </td>
+            <td align="center"> 
+             <?php echo get_user_name( $v["user_id"] ); ?> 
+            </td>
+            <td align="center">￥<?php echo $v["buy_money"]; ?>元</td>
+            <td align="center"><?php echo $v["buy_time"]; ?></td>
             <td align="center"><?php echo $v["status_txt"]; ?></td>
-            <td align="center"><a href="<?php echo G_MODULE_PATH . "/order/detail/" . $v["oid"]; ?>">详细</a></td>
+            <td align="center"><?php echo $v["award_points"];?></td>
         </tr>
     <?php } ?>
     </tbody>

@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="<?php echo G_GLOBAL_STYLE; ?>/global/css/global.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo G_GLOBAL_STYLE; ?>/global/css/style.css" type="text/css" />
 <script type="text/javascript" src="<?php echo G_GLOBAL_STYLE;?>/global/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo G_TEMPLATES_JS;?>/cloud-zoom.min.js"></script>
+<script type="text/javascript" src="<?php echo G_TEMPLATES_JS;?>/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php echo G_PLUGIN_PATH;?>/layer/layer.min.js"></script>
 <style>
 tbody tr{ line-height:30px; height:30px;} 
 </style>

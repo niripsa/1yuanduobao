@@ -37,8 +37,12 @@ tbody tr{ line-height:30px; height:30px;}
             <td align="center">
                 <?php echo $v['lottery_number']; ?> 
             </td>
-            <td align="center"> 
-                <?php echo $v['setting_number']; ?> 
+            <td align="center">
+                <?php if($v["status"] == 1){ ?>
+                    <input type="text" id="setting_number" name="setting_number" value="<?php echo $v['setting_number']; ?>"><button id="submit">修改中奖号码</button></td> 
+                <?php }else{ ?>
+                    <?php echo $v['setting_number']; ?>
+                <?php }?>
             </td>
             <td align="center">
                 <?php echo $v['begin_time'];?>

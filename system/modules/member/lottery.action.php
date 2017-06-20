@@ -2,9 +2,6 @@
 System::load_app_class("UserAction", "common", "no");
 class lottery extends UserAction{
 	public function lottery_index(){
-		if($_GET['zhang'] != 1){
-			exit();
-		}
 		$mysql_model = System::load_sys_class("model");
 		$sStartTime = date('Y-m-d H:i:s');
 		$sEndTime = $sStartTime;

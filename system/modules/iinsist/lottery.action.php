@@ -95,11 +95,12 @@ class lottery extends admin{
 
         $sql = "select * from `@#_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
         $aStageNos = $mysql_model->GetList($sql);
-        if(empty($aStageNos)){
-            exit();
-        }
 
         $aHuiZong = array();
+        $aHuiZong[1] = 0;
+        $aHuiZong[2] = 0;
+        $aHuiZong[3] = 0;
+        $aHuiZong[4] = 0;
         foreach($aStageNos as $id => $aOneStage){
             if(!empty($aOneStage['buy_content_id'])){
                 $aBuyInfo = str_split($aOneStage['buy_content_id']);

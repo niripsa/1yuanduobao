@@ -174,6 +174,20 @@ class lottery extends UserAction{
 		foreach ($aLotteryLists as &$aLotteryRecord) {
 			$aLotteryRecord['lottery_number'] = $aLotteryRecord['setting_number'] >=0 ? $aLotteryRecord['setting_number'] : $aLotteryRecord['lottery_number'];
 			unset($aLotteryRecord['setting_number']);
+
+			$aLotteryRecord['lottery_txt'] = '';
+			if($aLotteryRecord['lottery_number']%2==1){
+				$aLotteryRecord['lottery_txt'] .= '单';
+			}elseif($aLotteryRecord['lottery_number']%2==0){
+				$aLotteryRecord['lottery_txt'] .= '反';
+			}
+
+			if($aLotteryRecord['lottery_number']>=0 
+				&&$aLotteryRecord['lottery_number']<=4){
+				$aLotteryRecord['lottery_txt'] .= '小';
+			}elseif($aLotteryRecord['lottery_number']>=5&&$aLotteryRecord['lottery_number']<=9){
+				$aLotteryRecord['lottery_txt'] .= '大';
+			}
 		}
 
 		$this->view->data('lottery_lists', $aLotteryLists);

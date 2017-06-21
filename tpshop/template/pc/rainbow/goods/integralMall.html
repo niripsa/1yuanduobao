@@ -91,7 +91,7 @@
 										<div class="contifo">
 											<p class="shop_name"><a href="{:U('Home/Goods/goodsInfo',array('id'=>$goods['goods_id']))}">{$goods['goods_name']}</a></p>
 											<p>参考价：￥<span class="lithe">{$goods['shop_price']}</span></p>
-											<p>换购价：<span class="red">￥<em>{$goods['shop_price']-$goods['exchange_integral']/$point_rate}+{$goods['exchange_integral']}</em>积分</span></p>
+											<p>换购价：<span class="red">￥<em>{$goods['shop_price']}+{$goods['exchange_integral']}</em>积分</span></p>
 											<div class="duchan">
 												<span><em>{$goods['sales_sum']}</em>人换购</span>
 												<a href="{:U('Home/Goods/goodsInfo',array('id'=>$goods['goods_id']))}">立即换购</a>

@@ -61,8 +61,6 @@ return	array(
 					array('name' => '商品规格', 'act' =>'specList', 'op' => 'Goods'),
 					array('name' => '品牌列表', 'act'=>'brandList', 'op'=>'Goods'),
 					array('name' => '商品属性', 'act'=>'goodsAttributeList', 'op'=>'Goods'),
-					array('name' => '评论列表', 'act'=>'index', 'op'=>'Comment'),
-					array('name' => '商品咨询', 'act'=>'ask_list', 'op'=>'Comment'),
                                     
 			)),
 			array('name' => '订单','child'=>array(

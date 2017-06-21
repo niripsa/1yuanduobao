@@ -82,5 +82,47 @@ class lottery extends admin{
         $this->view->data( "page", $page->show( "li", true ) );
         $this->view->tpl( "lottery_order.list" );
     }
+
+    public function buy_huizong(){
+        $sql = "select * from `@#_lottery_stage` where `status` in (1) order by `end_time` desc limit 1";
+        $mysql_model = System::load_sys_class("model");
+        $aLotteryInfo = $mysql_model->GetOne($sql);
+        if(empty($aLotteryInfo)){
+            exit();
+        }
+
+        $stage_no = strval($aLotteryInfo['stage_no']);
+
+        $sql = "select * from `@#_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
+        $aStageNos = $mysql_model->GetList($sql);
+        if(empty($aStageNos)){
+            exit();
+        }
+
+        $aHuiZong = array();
+        foreach($aStageNos as $id => $aOneStage){
+            if(!empty($aOneStage['buy_content_id'])){
+                $aBuyInfo = str_split($aOneStage['buy_content_id']);
+                $buy1 = intval($aBuyInfo[0]);
+                $buy2 = intval($aBuyInfo[1]);
+                if($buy1 == 1){
+                    $aHuiZong[1]++;
+                }elseif($buy1 == 2){
+                    $aHuiZong[2]++;
+                }
+
+                if($buy2 == 1){
+                    $aHuiZong[3]++;
+                }elseif($buy2 == 2){
+                    $aHuiZong[4]++;
+                }
+            }
+        }
+
+        $this->view->data('stage_no', $stage_no);
+        $this->view->data('kj_time', $aLotteryInfo['end_time']);
+        $this->view->data('huizong_info', $aHuiZong);
+        $this->view->tpl( "lottery_huizong.list" );
+    }
 }
 ?>

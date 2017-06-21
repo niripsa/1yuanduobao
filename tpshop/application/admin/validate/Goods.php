@@ -12,7 +12,6 @@ class Goods extends Validate
         ['shop_price','regex:\d{1,10}(\.\d{1,2})?$','本店售价格式不对。'],
         ['market_price','regex:\d{1,10}(\.\d{1,2})?$','市场价格式不对。'],
         ['weight','regex:\d{1,10}(\.\d{1,2})?$','重量格式不对。'],
-        ['exchange_integral','checkExchangeIntegral','积分抵扣金额不能超过商品总额']
     ];
      
     
@@ -23,6 +22,8 @@ class Goods extends Validate
      */
     protected function checkExchangeIntegral($value, $rule)
     {
+        return true;
+        
         $exchange_integral = $value;//I('exchange_integral', 0);
         $shop_price = I('shop_price', 0);
         $point_rate_value = tpCache('shopping.point_rate');

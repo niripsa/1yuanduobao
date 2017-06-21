@@ -659,14 +659,6 @@ $(document).ready(function(){
     });
 	// 触发商品规格
 	$("#spec_type").trigger('change'); 
-	
-    $("input[name='exchange_integral']").blur(function(){
-        var shop_price = parseInt($("input[name='shop_price']").val());
-        var exchange_integral = parseInt($(this).val());
-        if (shop_price * 100 < exchange_integral) {
-        	
-        }
-    });
 });
 
 /** 以下是编辑时默认选中某个商品分类*/

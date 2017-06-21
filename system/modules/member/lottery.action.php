@@ -179,7 +179,7 @@ class lottery extends UserAction{
 			if($aLotteryRecord['lottery_number']%2==1){
 				$aLotteryRecord['lottery_txt'] .= '单';
 			}elseif($aLotteryRecord['lottery_number']%2==0){
-				$aLotteryRecord['lottery_txt'] .= '反';
+				$aLotteryRecord['lottery_txt'] .= '双';
 			}
 
 			if($aLotteryRecord['lottery_number']>=0 

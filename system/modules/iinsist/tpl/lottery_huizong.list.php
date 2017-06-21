@@ -39,22 +39,22 @@ tbody tr{ line-height:30px; height:30px;}
                 <?php echo $stage_no; ?> 
             </td>
             <td align="center">
-                <?php echo $v[1]; ?> 
+                <?php echo $huizong_info[1]; ?> 
             </td>
             <td align="center">
-                <?php echo $v[2];?>
+                <?php echo $huizong_info[2];?>
             </td>
             <td align="center">
-                <?php echo $v[3];?>
+                <?php echo $huizong_info[3];?>
             </td>
             <td align="center">
-                <?php echo $v[4]; ?>
+                <?php echo $huizong_info[4]; ?>
             </td>
             <td align="center">
                 <?php echo $kj_time;?>
             </td>
         </tr>
-    <?php } ?>
+    <?php break; } ?>
     </tbody>
 </table>
 <div id="pages"><ul>共 <?php echo $page; ?> </ul></div>

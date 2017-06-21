@@ -57,7 +57,7 @@ tbody tr{ line-height:30px; height:30px;}
     <?php break; } ?>
     </tbody>
 </table>
-<div id="pages"><ul>共 <?php echo $page; ?> </ul></div>
+
 </div>
 </body>
 <script type="text/javascript">

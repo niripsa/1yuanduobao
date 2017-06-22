@@ -207,6 +207,13 @@
                 data:{buy1:num1, buy2:num2},
                 dataType:"json",
                 success:function(data){
+                    if(data.errno){
+                        layer.close(index);
+                        layer.close(index_confirm);
+                        layer.alert("<strong>" + data.errmsg + "</strong>", {time:2000});
+                        return false;
+                    }
+
                     var html = combineHtml(data.data);
                     $("#order-history").prepend(html);
                     layer.close(index);

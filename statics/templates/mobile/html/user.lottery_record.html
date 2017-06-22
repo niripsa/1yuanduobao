@@ -1,54 +1,78 @@
+{wc:fun:css("goods")}
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("template")}
+{wc:fun:js("template.fun")}
+{wc:fun:js("jquery.cartlist")}
 {wc:fun:css("user.message")}
 {wc:fun:css("lottery.warp")}
 {wc:fun:css("lottery.skin")}
 {wc:fun:css("lottery")}
 {wc:fun:js("layer")}
 {wc:templates "index.header"}
-<script src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
+<!-- 栏目导航 开始-->
 <div class="clear"></div>
+<style type="text/css">
+    .timeBox{
+        margin-top:10px;
+    }
+
+    .dianBox{
+        position: relative;
+        top:2px;
+        left:2px;
+    }
+
+    .timeFormat{
+        display: inline;
+        line-height: 36px;
+    }
+</style>
 <!--商品 wrap 开始-->
-<div class="layout980 clearfix">
-    {wc:templates "user.left"}
+<div style="text-align: center;">
+        <!--剩余时间结束-->
+
+ <!--    <div class="lottery_num left">
+        <div class="lottery_num_box">
+            <ul id="num" style="width: 250px;">
+                <li style="top: 7px;"><span>正</span></li>
+                <li style="top: 7px;"><span>在</span></li>
+                <li style="top: 7px;"><span>开</span></li>
+                <li style="top: 7px;"><span>奖</span></li>
+                <li style="top: 7px;"><span>中</span></li>
+            </ul>
+        </div>
+    </div> -->
+        <!--开奖信息提示 end-->
+
+        <!--上期开奖信息结束-->
+    </div>
+    <!--个人中心中间 结束-->
     <div class="game">
-    <div class="game-main" style="margin-left:180px;margin-top:10px;">
-     <div class="warp lotteryHistory" style="margin-top: 10px;">
-        <div class="lotteryHistoryBody"></div>
-        <div class="line">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th>单号</th>
-                    <th>投注时间</th>
-                    <th>期号</th>
-                    <th>投注内容</th>
-                    <th>金额(元)</th>
-                    <th>奖励(积分)</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody id="order-history">
-               {wc:loop $buy_lists $v}
-                    <tr>
-                        <td>{wc:$v['order_sn']}</td>
-                        <td>{wc:$v['buy_time']}</td>
-                        <td>{wc:$v['stage_no']}</td>
-                        <td>{wc:$v['buy_content']}</td>
-                        <td>{wc:$v['buy_money']}元</td>
-                        <td>{wc:$v['award_points']}积分</td>
+        <div class="game-main">
+             <div class="warp lotteryHistory" style="margin-top: 20px;padding-left: 15px;">
+                <div class="lotteryHistoryBody"></div>
+                <div class="line">
+                {wc:loop $buy_lists $v}
+                    <div>单号:{wc:$v['order_sn']}</div>
+                    <div>投注时间:{wc:$v['buy_time']}</div>
+                    <div>期号:{wc:$v['stage_no']}</div>
+                    <div>投注内容:{wc:$v['buy_content']}</div>
+                    <div>金额(元):{wc:$v['buy_money']}</div>
+                    <div>奖励(积分):{wc:$v['award_points']}</div>
+                    <div>操作:
                         {wc:if $v['status'] == 1}
-                     　     <td><a>撤单</a></td>
+                            <a href="javascript:void(0)" orderid="{wc:$v['order_sn']}" onclick="cancelOrder($(this).attr('orderid'));">撤单</a>
                         {wc:elseif $v['status'] == 2}
-                            <td>已撤单</td>
+                            已撤单
                         {wc:else}
-                            <td>已开奖</td>
+                            已开奖
                         {wc:if:end}
-                    </tr>
-               {wc:loop:end}
-            </tbody>
-        </table>
-       </div>
-       </div>
-       </div>
+                    </div>
+                    <hr>
+                {wc:loop:end}
+                
+                </div>
+        </div>
     </div>
 </div>
 

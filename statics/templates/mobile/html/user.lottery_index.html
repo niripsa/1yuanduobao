@@ -1,48 +1,87 @@
+{wc:fun:css("goods")}
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("template")}
+{wc:fun:js("template.fun")}
+{wc:fun:js("jquery.cartlist")}
 {wc:fun:css("user.message")}
 {wc:fun:css("lottery.warp")}
 {wc:fun:css("lottery.skin")}
 {wc:fun:css("lottery")}
 {wc:fun:js("layer")}
 {wc:templates "index.header"}
-<script src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
+<!-- 栏目导航 开始-->
 <div class="clear"></div>
+<style type="text/css">
+    .timeBox{
+        margin-top:10px;
+    }
+
+    .dianBox{
+        position: relative;
+        top:2px;
+        left:2px;
+    }
+
+    .timeFormat{
+        display: inline;
+        line-height: 36px;
+    }
+</style>
 <!--商品 wrap 开始-->
-<div class="layout980 clearfix">
-    {wc:templates "user.left"}
-    <div class="lottery_con">
-        <div class="lottery_timer left">
-            <div class="lottery_issue left">
-                    <p>第 <span id="current_issue">{wc:$action_no}</span> 期</p>
-                    <p>投注剩余时间</p>
+<div style="text-align: center;">
+    <div class="tools left">
+        <div class="yu_e">
+            <div class="toggle-money show-money">
+                余额 <span id="refff" class="money">{wc:$user_money}</span>元
             </div>
-            <div class="timeBox">
-                <div id="s1x" class="timeFormat">0</div>
-                <div id="s2x" class="timeFormat">0</div>
-            </div>
-            <div class='dianBox' style="left:5px;top:10px;"></div>
-            <div class="timeBox" style="left:10px;">
-                <div id="f1x" class="timeFormat">1</div>
-                <div id="f2x" class="timeFormat">0</div>
-            </div>
-            <div class='dianBox' style="left:15px;top:10px;"></div>
-            <div class="timeBox" style="left:20px;">
-                <div id="m1x" class="timeFormat">0</div>
-                <div id="m2x" class="timeFormat">0</div>
+
+            <div class="toggle-money show-money">
+                积分 <span id="refff" class="money">{wc:$user_points}</span>
             </div>
         </div>
+        <div class="toolslist">
+            <ul class="ctqc">
+                <li><span class="recharge" style="position: relative; top:28px; left:-20px;"></span><a style="display:inline-block;position: relative;top:13px;left:-10px;" href="/?/member/account/userrecharge" target="_blank">充值</a></li>
+            </ul>
+            <ul class="twbb">
+                <li><a class="touzhu" style="margin-top: 15px;" href="/?/member/lottery/lottery_record">开奖记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-------------------------------------------->
+    <div class="lottery_timer left">
+        <div class="lottery_issue left">
+                <p>第 <span id="current_issue">{wc:$action_no}</span> 期</p>
+                <p>投注剩余时间</p>
+        </div>
+        <div class="timeBox">
+            <div id="s1x" class="timeFormat">0</div>
+            <div id="s2x" class="timeFormat">0</div>
+        </div>
+        <div class='dianBox' style="left:5px;top:10px;"></div>
+        <div class="timeBox" style="left:10px;">
+            <div id="f1x" class="timeFormat">1</div>
+            <div id="f2x" class="timeFormat">0</div>
+        </div>
+        <div class='dianBox' style="left:15px;top:10px;"></div>
+        <div class="timeBox" style="left:20px;">
+            <div id="m1x" class="timeFormat">0</div>
+            <div id="m2x" class="timeFormat">0</div>
+        </div>
+    </div>
         <!--剩余时间结束-->
 
-        <div class="lottery_num left">
-            <div class="lottery_num_box">
-                <ul id="num" style="width: 250px;">
-                    <li style="top: 7px;"><span>正</span></li>
-                    <li style="top: 7px;"><span>在</span></li>
-                    <li style="top: 7px;"><span>开</span></li>
-                    <li style="top: 7px;"><span>奖</span></li>
-                    <li style="top: 7px;"><span>中</span></li>
-                </ul>
-            </div>
+ <!--    <div class="lottery_num left">
+        <div class="lottery_num_box">
+            <ul id="num" style="width: 250px;">
+                <li style="top: 7px;"><span>正</span></li>
+                <li style="top: 7px;"><span>在</span></li>
+                <li style="top: 7px;"><span>开</span></li>
+                <li style="top: 7px;"><span>奖</span></li>
+                <li style="top: 7px;"><span>中</span></li>
+            </ul>
         </div>
+    </div> -->
         <!--开奖信息提示 end-->
 
         <div class="lottery_num left" style="left:-19px;width: 120px;">
@@ -54,39 +93,20 @@
             </div>
         </div>
         <!--上期开奖信息结束-->
-
-        <div class="tools left">
-            <div class="yu_e">
-                <div class="toggle-money show-money">
-                    余额 <span id="refff" class="money">{wc:$user_money}</span>元
-                </div>
-
-                <div class="toggle-money show-money">
-                    积分 <span id="refff" class="money">{wc:$user_points}</span>
-                </div>
-            </div>
-            <div class="toolslist">
-                <ul class="ctqc">
-                    <li><span class="recharge" style="position: relative; top:28px; left:-20px;"></span><a style="display:inline-block;position: relative;top:13px;left:-10px;" href="/?/member/account/userrecharge" target="_blank">充值</a></li>
-                </ul>
-                <ul class="twbb">
-                    <li><a class="touzhu" style="margin-top: 15px;" href="/?/member/lottery/lottery_record" target="_blank">开奖记录</a></li>
-                </ul>
-            </div>
-        </div>
     </div>
     <!--个人中心中间 结束-->
     <div class="game">
-        <div class="game-main" style="margin-left:180px;margin-top:60px;">
-            <div class="game-cont">
+        <div class="game-main" style="margin-top:100px;">
+            <div>
+                <div></div>
                 <div class="pp pp11" action="tzAllSelect" length="3" random="sscRandom">
-                    <div class="title">买单双</div>
+                    <div class="title" style="float:left;">买单双</div>
                     <input type="button" value="单" number=1 class="code d min" />
                     <input type="button" value="双" number=2 class="code s min" />
                 </div>
 
                 <div class="pp pp12" action="tzAllSelect" length="3" random="sscRandom">
-                    <div class="title">买大小</div>
+                    <div class="title" style="float: left;">买大小</div>
                     <input type="button" value="大" number=1 class="code d min" />
                     <input type="button" value="小" number=2 class="code s min" />
                 </div>
@@ -96,43 +116,29 @@
              <a href="javascript:void(0);" class="sendBtn" id="btnPostBet">立即投注</a>
              </div>
 
-             <div class="warp lotteryHistory" style="margin-top: 20px;">
+             <div class="warp lotteryHistory" style="margin-top: 20px;padding-left: 15px;">
                 <div class="lotteryHistoryBody"></div>
                 <div class="line">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <thead>
-                        <tr>
-                            <th>单号</th>
-                            <th>投注时间</th>
-                            <th>期号</th>
-                            <th>投注内容</th>
-                            <th>金额(元)</th>
-                            <th>奖励(积分)</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody id="order-history">
-                       {wc:loop $buy_lists $v}
-                            <tr>
-                                <td>{wc:$v['order_sn']}</td>
-                                <td>{wc:$v['buy_time']}</td>
-                                <td>{wc:$v['stage_no']}</td>
-                                <td>{wc:$v['buy_content']}</td>
-                                <td>{wc:$v['buy_money']}元</td>
-                                <td>{wc:$v['award_points']}积分</td>
-                                {wc:if $v['status'] == 1}
-                             　     <td><a href="javascript:void(0)" orderid="{wc:$v['order_sn']}" onclick="cancelOrder($(this).attr('orderid'));">撤单</a></td>
-                                {wc:elseif $v['status'] == 2}
-                                    <td>已撤单</td>
-                                {wc:else}
-                                    <td>已开奖</td>
-                                {wc:if:end}
-                            </tr>
-                       {wc:loop:end}
-                    </tbody>
-                </table>
+                {wc:loop $buy_lists $v}
+                    <div>单号:{wc:$v['order_sn']}</div>
+                    <div>投注时间:{wc:$v['buy_time']}</div>
+                    <div>期号:{wc:$v['stage_no']}</div>
+                    <div>投注内容:{wc:$v['buy_content']}</div>
+                    <div>金额(元):{wc:$v['buy_money']}</div>
+                    <div>奖励(积分):{wc:$v['award_points']}</div>
+                    <div>操作:
+                        {wc:if $v['status'] == 1}
+                            <a href="javascript:void(0)" orderid="{wc:$v['order_sn']}" onclick="cancelOrder($(this).attr('orderid'));">撤单</a>
+                        {wc:elseif $v['status'] == 2}
+                            已撤单
+                        {wc:else}
+                            已开奖
+                        {wc:if:end}
+                    </div>
+                    <hr>
+                {wc:loop:end}
                 <div class="getMore">
-                <a class="sqlist" href="/?/member/lottery/buy_record" title="查看更多投注记录" target="_blank">查看更多</a></div>
+                <a class="sqlist" href="/?/member/lottery/buy_record" title="查看更多投注记录">查看更多</a></div>
                 </div>
         </div>
     </div>

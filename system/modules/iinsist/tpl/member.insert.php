@@ -40,6 +40,10 @@
             <td width="120" align="right">账户金额：</td>
             <td><input type="text" name="money" value="<?php echo $member["money"]; ?>" class="input-text">元</td>
         </tr>
+        <tr>
+            <td width="120" align="right">用户积分：</td>
+            <td><input type="text" name="user_points" value="<?php echo $member["user_points"]; ?>" class="input-text">分</td>
+        </tr>        
         <!-- <tr>
             <td width="120" align="right">经验值：</td>
             <td><input type="text" name="jingyan" value="<?php echo $member["jingyan"]; ?>" class="input-text"></td>

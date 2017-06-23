@@ -32,43 +32,47 @@ if (empty($aRes)) {
 	$stage_no = strval($aRes['stage_no']);
 	$sql = "select * from `yg_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
 	$result = mysqli_query($con, $sql);
-	$aAllUserBuyInfo = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-	/* [1]--单大 [2]--单小 [3]--双大 [4]--双小 */	
-	$aHuiZong = array();
-    $aHuiZong[1] = 0;
-    $aHuiZong[2] = 0;
-    $aHuiZong[3] = 0;
-    $aHuiZong[4] = 0;
-	foreach ($aAllUserBuyInfo as $aUserBuyInfo) {
-	    if(!empty($aUserBuyInfo['buy_content_id'])){
-	        $buy = intval($aUserBuyInfo['buy_content_id']);
-	        if ($buy == 11) {
-	            $aHuiZong[1]++;
-	        }elseif ($buy == 12) {
-	            $aHuiZong[2]++;
-	        }elseif ($buy == 21) {
-	            $aHuiZong[3]++;
-	        }elseif ($buy == 22) {
-	            $aHuiZong[4]++;
-	        }elseif ($buy == 10) {
-	            $aHuiZong[1]++;
-	            $aHuiZong[2]++;
-	        }elseif ($buy == 20) {
-	            $aHuiZong[3]++;
-	            $aHuiZong[4]++;
-	        }elseif ($buy == 1) {
-	            $aHuiZong[1]++;
-	            $aHuiZong[3]++;
-	        }elseif ($buy == 2) {
-	            $aHuiZong[2]++;
-	            $aHuiZong[4]++;
-	        }
-	    }
+	$aAllUserBuyInfo = array();
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+	    $aAllUserBuyInfo[] = $row;
 	}
-	asort($aHuiZong, SORT_NUMERIC);
-	$iRange = array_keys($aHuiZong)[0];
-	/* $iRange为1-4的整数，同$aHuiZong */
+	if (!empty($aAllUserBuyInfo)) {
+		/* [1]--单大 [2]--单小 [3]--双大 [4]--双小 */	
+		$aHuiZong = array();
+	    $aHuiZong[1] = 0;
+	    $aHuiZong[2] = 0;
+	    $aHuiZong[3] = 0;
+	    $aHuiZong[4] = 0;
+		foreach ($aAllUserBuyInfo as $aUserBuyInfo) {
+		    if(!empty($aUserBuyInfo['buy_content_id'])){
+		        $buy = intval($aUserBuyInfo['buy_content_id']);
+		        if ($buy == 11) {
+		            $aHuiZong[1]++;
+		        }elseif ($buy == 12) {
+		            $aHuiZong[2]++;
+		        }elseif ($buy == 21) {
+		            $aHuiZong[3]++;
+		        }elseif ($buy == 22) {
+		            $aHuiZong[4]++;
+		        }elseif ($buy == 10) {
+		            $aHuiZong[1]++;
+		            $aHuiZong[2]++;
+		        }elseif ($buy == 20) {
+		            $aHuiZong[3]++;
+		            $aHuiZong[4]++;
+		        }elseif ($buy == 1) {
+		            $aHuiZong[1]++;
+		            $aHuiZong[3]++;
+		        }elseif ($buy == 2) {
+		            $aHuiZong[2]++;
+		            $aHuiZong[4]++;
+		        }
+		    }
+		}
+		asort($aHuiZong, SORT_NUMERIC);
+		$iRange = array_keys($aHuiZong)[0];
+		/* $iRange为1-4的整数，同$aHuiZong */		
+	}
 
 	if(!empty($aRes['end_time'])){
 		while (time() < strtotime($aRes['end_time'])) {
@@ -77,7 +81,7 @@ if (empty($aRes)) {
 	}
 
 
-	$iRange = $iRange ? : 0;
+	$iRange = @$iRange ? : 0;
 	//运行到这里说明到时间开奖了
 	$iLotteryNo = generateLotteryNo( $iRange );
 	$sql = "select * from `yg_lottery_stage` where `status`= 2 order by `begin_time` desc limit 1";

@@ -25,10 +25,10 @@ tbody tr{ line-height:30px; height:30px;}
     <thead>
         <tr>
             <th align="center">期号</th>
-            <th align="center">本期购买单的数量</th>
-            <th align="center">本期购买双的数量</th>
-            <th align="center">本期购买大的数量</th>
-            <th align="center">本期购买小的数量</th>
+            <th align="center">本期购买单大的数量</th>
+            <th align="center">本期购买单小的数量</th>
+            <th align="center">本期购买双大的数量</th>
+            <th align="center">本期购买双小的数量</th>
             <th align="center">开奖时间</th>
         </tr>
     </thead>

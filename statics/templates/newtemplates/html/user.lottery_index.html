@@ -69,6 +69,9 @@
                 <ul class="ctqc">
                     <li><span class="recharge" style="position: relative; top:28px; left:-20px;"></span><a style="display:inline-block;position: relative;top:13px;left:-10px;" href="/?/member/account/userrecharge" target="_blank">充值</a></li>
                 </ul>
+                <ul style="float:left;">
+                    <li><a href="#" style="margin-top:13px;">积分兑换</a></li>
+                </ul>
                 <ul class="twbb">
                     <li><a class="touzhu" style="margin-top: 15px;" href="/?/member/lottery/lottery_record" target="_blank">开奖记录</a></li>
                 </ul>
@@ -88,8 +91,9 @@
         <li> 7</li>
         <li> 8</li>
         <li> 9</li>
+        <li class="integration-rule">积分规则</li>
     </ul>
-    <div class="integration-rule">积分规则</div>
+    
 
   
 
@@ -110,8 +114,16 @@
                     <input type="button" value="大" number=1 class="code d min" />
                     <input type="button" value="小" number=2 class="code s min" />
                 </div>
+                <!--倍数开始Martin liu-->
+                <div  class="pp">
+                        <div class="title">倍数：</div>
+                        <a href="javascript:;" class="num_del num_ban" id="shopsub">-</a>
+                        <input style="border: 1px solid rgb(207, 207, 207);" type="text" value="1"  class="num_dig" id="num_dig">
+                        <a href="javascript:;" class="num_add" id="shopadd">+</a>
+                </div>
+                <!--倍数结束Martin liu-->
             </div>
-
+            
              <div class="sendChoose" style="margin-top: 30px;padding-left: 80px;">
              <a href="javascript:void(0);" class="sendBtn" id="btnPostBet">立即投注</a>
              </div>
@@ -186,6 +198,31 @@
             }
         });
     }
+    //  倍数增减
+    $('.num_del').click(function(){
+      var num = parseFloat($('.num_dig').val());
+       
+       $('.num_dig').val(num-1?num-1:1);
+        //    if(num>1){
+        //        $('.num_dig').val(num);
+
+        //    }else{
+        //        $('.num_dig').val('1');
+        //    }
+    })
+    $('.num_add').click(function(){
+       var num = parseFloat($('.num_dig').val());
+       
+       $('.num_dig').val(num+1);
+
+    })
+
+    $('#num_dig').keyup(function(){
+        if($('.num_dig').val()<=0){
+            $('.num_dig').val('1');
+        }
+    })
+
 
     $(".code").click(function(){
         $(this).siblings().filter('.checked').removeClass("checked");

@@ -11,7 +11,7 @@ $sPort = 3306;
 $sUserName = "duobao";
 $sUserPass = "lkjoe990kldskfj";
 $sDatabase = "duobao";
-$iTime = 10; //10分钟开一轮
+$iTime = 5; //5分钟开一轮
 
 $con = mysqli_connect($sIp, $sUserName, $sUserPass, $sDatabase, $sPort);
 

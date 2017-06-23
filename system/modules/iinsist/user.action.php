@@ -196,7 +196,6 @@ class user extends admin
                 echo json_encode( $message );
                 exit();
             }
-
             if ( ! $message["error"] ) 
             {
                 $this->AdminLoginStatus( $info );
@@ -205,7 +204,6 @@ class user extends admin
                 $this->db->Query("UPDATE `@#_admin` SET `logintime`='$time' WHERE (`mid`='{$info["mid"]}')");
                 $this->db->Query("UPDATE `@#_admin` SET `loginip`='$ip' WHERE (`mid`='{$info["mid"]}')");
             }
-
             $senddatas = array();
             $senddatas["ip"]  = _get_ip_dizhi();
             $senddatas["url"] = G_WEB_PATH;

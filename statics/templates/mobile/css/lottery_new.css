@@ -31,3 +31,7 @@
 .checked{
     background: url(../images/nsc/lottery/yuan.png) left -76px no-repeat;
 }
+
+.pp .title{
+    padding-top: 12px;
+}

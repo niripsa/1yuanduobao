@@ -18,7 +18,7 @@
 
     .dianBox{
         position: relative;
-        top:2px;
+        top:20px;
         left:2px;
     }
 
@@ -43,6 +43,9 @@
             <ul class="ctqc">
                 <li><span class="recharge" style="position: relative; top:28px; left:-20px;"></span><a style="display:inline-block;position: relative;top:13px;left:-10px;" href="/?/member/account/userrecharge" target="_blank">充值</a></li>
             </ul>
+            <ul style="float:left;">
+                    <li><a href="#" style="margin-top:13px;">积分兑换</a></li>
+                </ul>
             <ul class="twbb">
                 <li><a class="touzhu" style="margin-top: 15px;" href="/?/member/lottery/lottery_record">开奖记录</a></li>
             </ul>
@@ -58,18 +61,33 @@
             <div id="s1x" class="timeFormat">0</div>
             <div id="s2x" class="timeFormat">0</div>
         </div>
-        <div class='dianBox' style="left:5px;top:10px;"></div>
+        <div class='dianBox'></div>
         <div class="timeBox" style="left:10px;">
             <div id="f1x" class="timeFormat">1</div>
             <div id="f2x" class="timeFormat">0</div>
         </div>
-        <div class='dianBox' style="left:15px;top:10px;"></div>
+        <div class='dianBox'></div>
         <div class="timeBox" style="left:20px;">
             <div id="m1x" class="timeFormat">0</div>
             <div id="m2x" class="timeFormat">0</div>
         </div>
     </div>
         <!--剩余时间结束-->
+        <!--添加0-9数字 和积分规则 开始-->
+    <ul class="add-number">
+        <li> 0</li>
+        <li> 1</li>
+        <li> 2</li>
+        <li> 3</li>
+        <li> 4</li>
+        <li> 5</li>
+        <li> 6</li>
+        <li> 7</li>
+        <li> 8</li>
+        <li> 9</li>
+        <li class="integration-rule">积分规则</li>
+    </ul>
+    <!--添加0-9数字 和积分规则 结束-->
 
  <!--    <div class="lottery_num left">
         <div class="lottery_num_box">
@@ -98,7 +116,6 @@
     <div class="game">
         <div class="game-main" style="margin-top:100px;">
             <div>
-                <div></div>
                 <div class="pp pp11" action="tzAllSelect" length="3" random="sscRandom">
                     <div class="title" style="float:left;">买单双</div>
                     <input type="button" value="单" number=1 class="code d min" />
@@ -110,6 +127,15 @@
                     <input type="button" value="大" number=1 class="code d min" />
                     <input type="button" value="小" number=2 class="code s min" />
                 </div>
+
+                <!--倍数开始Martin liu-->
+                <div  class="pp">
+                        <div class="title">倍数</div>
+                        <a href="javascript:;" class="num_del num_ban" id="shopsub">-</a>
+                        <input style="border: 1px solid rgb(207, 207, 207);" type="text" value="1"  class="num_dig" id="num_dig">
+                        <a href="javascript:;" class="num_add" id="shopadd">+</a>
+                </div>
+                <!--倍数结束Martin liu-->
             </div>
 
              <div class="sendChoose" style="margin-top: 30px;padding-left: 80px;">
@@ -172,6 +198,23 @@
             }
         });
     }
+
+    //  倍数增减 Martin liu
+    $('.num_del').click(function(){
+       var num = parseFloat($('.num_dig').val());
+       $('.num_dig').val(num-1?num-1:1);
+    })
+    
+    $('.num_add').click(function(){
+       var num = parseFloat($('.num_dig').val());
+       $('.num_dig').val(num+1);
+    })
+
+    $('#num_dig').keyup(function(){
+        if(parseFloat($('.num_dig').val())<=0){
+            $('.num_dig').val('1');
+        }
+    })
 
     $(".code").click(function(){
         $(this).siblings().filter('.checked').removeClass("checked");

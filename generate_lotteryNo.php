@@ -28,6 +28,48 @@ if (empty($aRes)) {
 
 	mysqli_query($con, $sInsertSql);
 }else{
+	//分别计算单大、单小、双大、双小购买的人数，选其中最少的作为开奖抽取范围
+	$stage_no = strval($aRes['stage_no']);
+	$sql = "select * from `yg_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
+	$result = mysqli_query($con, $sql);
+	$aAllUserBuyInfo = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	/* [1]--单大 [2]--单小 [3]--双大 [4]--双小 */	
+	$aHuiZong = array();
+    $aHuiZong[1] = 0;
+    $aHuiZong[2] = 0;
+    $aHuiZong[3] = 0;
+    $aHuiZong[4] = 0;
+	foreach ($aAllUserBuyInfo as $aUserBuyInfo) {
+	    if(!empty($aUserBuyInfo['buy_content_id'])){
+	        $buy = intval($aUserBuyInfo['buy_content_id']);
+	        if ($buy == 11) {
+	            $aHuiZong[1]++;
+	        }elseif ($buy == 12) {
+	            $aHuiZong[2]++;
+	        }elseif ($buy == 21) {
+	            $aHuiZong[3]++;
+	        }elseif ($buy == 22) {
+	            $aHuiZong[4]++;
+	        }elseif ($buy == 10) {
+	            $aHuiZong[1]++;
+	            $aHuiZong[2]++;
+	        }elseif ($buy == 20) {
+	            $aHuiZong[3]++;
+	            $aHuiZong[4]++;
+	        }elseif ($buy == 1) {
+	            $aHuiZong[1]++;
+	            $aHuiZong[3]++;
+	        }elseif ($buy == 2) {
+	            $aHuiZong[2]++;
+	            $aHuiZong[4]++;
+	        }
+	    }
+	}
+	asort($aHuiZong, SORT_NUMERIC);
+	$iRange = array_keys($aHuiZong)[0];
+	/* $iRange为1-4的整数，同$aHuiZong */
+
 	if(!empty($aRes['end_time'])){
 		while (time() < strtotime($aRes['end_time'])) {
 			sleep(1);
@@ -35,14 +77,15 @@ if (empty($aRes)) {
 	}
 
 
+	$iRange = $iRange ? : 0;
 	//运行到这里说明到时间开奖了
-	$iLotteryNo = generateLotteryNo();
+	$iLotteryNo = generateLotteryNo( $iRange );
 	$sql = "select * from `yg_lottery_stage` where `status`= 2 order by `begin_time` desc limit 1";
 	$result = mysqli_query($con, $sql);
 	$aLastRes = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if($iLotteryNo == intval($aLastRes['lottery_number'])){
 		//如果与上一期一样 则再生成一次
-		$iLotteryNo = generateLotteryNo();
+		$iLotteryNo = generateLotteryNo( $iRange );
 	}
 
 	//更新中奖号码
@@ -132,8 +175,37 @@ if (empty($aRes)) {
 }
 
 
-//生成0-9其中一个随机号码作为开奖号码
-function generateLotteryNo(){
+//生成指定范围内的号码作为开奖号码
+function generateLotteryNo( $iRange=0 ){
+	/* 
+		$iRange=0 -- 无限制(0-9)
+		1 --- 单大 --- 5,7,9
+		2 --- 单小 --- 1,3
+		3 --- 双大 --- 6,8
+		4 --- 双小 ---,0,2,4
+	*/
+	//将指定范围内的数字按照类似圆桌排列,使用生成的随机数字作为索引,得到指定范围内的某个数字
+	switch ( $iRange ) {
+		case 1:
+			$aRange = [5,7,9];
+			break;
+		case 2:
+			$aRange = [1,3];
+			break;
+		case 3:
+			$aRange = [6,8];
+			break;						
+		case 4:
+			$aRange = [0,2,4];
+			break;
+		case 0:
+			$aRange = [0,1,2,3,4,5,6,7,8,9];
+			break;					
+		default:
+			$aRange = [0,1,2,3,4,5,6,7,8,9];
+			break;
+	}
+
 	mt_srand(time() - mt_rand(10000, 100000));
 	$iPow1 = mt_rand(1, 50);
 	mt_srand(time() - mt_rand(10000, 100000));
@@ -155,7 +227,8 @@ function generateLotteryNo(){
 	$sSum2 = str_replace(array('.', 'e+'), '', strval(strtolower($fSum2)));
 	$sSum = $sSum1 . $sSum2;
 
-	return substr($sSum, mt_rand(0,strlen($sSum) -1),1);
+	$iIndex = substr($sSum, mt_rand(0,strlen($sSum) -1),1);
+	return $aRange[$iIndex % count($aRange)];
 }
 
 mysqli_close($con);

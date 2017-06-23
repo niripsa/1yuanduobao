@@ -101,20 +101,30 @@ class lottery extends admin{
         $aHuiZong[2] = 0;
         $aHuiZong[3] = 0;
         $aHuiZong[4] = 0;
+        /* $aHuiZong[1]--单大 [2]--单小 [3]--双大 [4]--双小 */
         foreach($aStageNos as $id => $aOneStage){
             if(!empty($aOneStage['buy_content_id'])){
-                $aBuyInfo = str_split($aOneStage['buy_content_id']);
-                $buy1 = intval($aBuyInfo[0]);
-                $buy2 = intval($aBuyInfo[1]);
-                if($buy1 == 1){
+                //$aBuyInfo = str_split($aOneStage['buy_content_id']);
+                $buy = intval($aOneStage['buy_content_id']);
+                if ($buy == 11) {
                     $aHuiZong[1]++;
-                }elseif($buy1 == 2){
+                }elseif ($buy == 12) {
                     $aHuiZong[2]++;
-                }
-
-                if($buy2 == 1){
+                }elseif ($buy == 21) {
                     $aHuiZong[3]++;
-                }elseif($buy2 == 2){
+                }elseif ($buy == 22) {
+                    $aHuiZong[4]++;
+                }elseif ($buy == 10) {
+                    $aHuiZong[1]++;
+                    $aHuiZong[2]++;
+                }elseif ($buy == 20) {
+                    $aHuiZong[3]++;
+                    $aHuiZong[4]++;
+                }elseif ($buy == 1) {
+                    $aHuiZong[1]++;
+                    $aHuiZong[3]++;
+                }elseif ($buy == 2) {
+                    $aHuiZong[2]++;
                     $aHuiZong[4]++;
                 }
             }

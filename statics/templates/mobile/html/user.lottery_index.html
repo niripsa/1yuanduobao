@@ -254,7 +254,7 @@
             $.ajax({
                 url:"/?/member/lottery/buy_lottery",
                 type:"post",
-                data:{buy1:num1, buy2:num2},
+                data:{buy1:num1, buy2:num2, multiple:multiple},
                 dataType:"json",
                 success:function(data){
                     if(data.errno){

@@ -323,3 +323,8 @@
 /* 推送二期优化*/
 .push_issue span { width:115px; display:block; white-space: nowrap; overflow:hidden; text-overflow:ellipsis; text-align:center; margin:0 auto;}
 .lotteryHistory table .push_issue span.active{position:absolute;width:202px; white-space: normal; text-align:center;top:2px;background:#a96b94;padding:5px 15px;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;z-index:88; color:#FFFFFF;}
+
+/*添加0-9数字 和积分规则*/
+.add-number{ display: inline-block;}
+.add-number li{	float: left;color: red;}
+.integration-rule{ display: inline-block;color: red;}

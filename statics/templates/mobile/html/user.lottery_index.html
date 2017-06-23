@@ -204,7 +204,7 @@
        var num = parseFloat($('.num_dig').val());
        $('.num_dig').val(num-1?num-1:1);
     })
-    
+
     $('.num_add').click(function(){
        var num = parseFloat($('.num_dig').val());
        $('.num_dig').val(num+1);
@@ -224,18 +224,23 @@
     $("#btnPostBet").click(function(){
         var buy1 = $(".pp11 > .code").filter('.checked').val();
         var buy2 = $(".pp12 > .code").filter('.checked').val();
+        //倍数
+        var multiple = parseFloat($('#num_dig').val());
+        
         if(!buy1 && !buy2){
             layer.alert("请选择购买大小或者单双!", {time:3000});
             return;
         }
 
         var message;
+        multiple_msg = multiple+"倍";
+        
         if(!buy1){
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy2 + "(花费2夺宝币)</span>吗？";
+            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy2 + ","+ multiple_msg + "(花费"+2*multiple+"夺宝币)</span>吗？";
         }else if(!buy2){
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + "(花费2夺宝币)</span>吗？"
+            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+ multiple_msg + "(花费"+2*multiple+"夺宝币)</span>吗？"
         }else{
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + "(花费4夺宝币)</span>吗？"
+            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + ","+ multiple_msg +"(花费"+4*multiple+"夺宝币)</span>吗？"
         }
         
         var index_confirm = layer.confirm(message, {
@@ -244,6 +249,8 @@
             var index = layer.load();
             var num1 = $(".pp11 > .code").filter('.checked').attr("number");
             var num2 = $(".pp12 > .code").filter('.checked').attr("number");
+            //倍数
+            var multiple = parseFloat($('#num_dig').val());
             $.ajax({
                 url:"/?/member/lottery/buy_lottery",
                 type:"post",

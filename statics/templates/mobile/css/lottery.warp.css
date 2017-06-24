@@ -206,7 +206,7 @@
 
 
 /*彩种号码容器*/
-.lottery_num { width:260px; height: 77px; padding-left: 20px; position: relative; }
+.lottery_num { width:260px; /*height: 77px;*/ padding-left: 20px; position: relative; }
 .lottery_history_issue { font-size: 10px; color: #959595; padding-top: 5px; margin-bottom: 5px; }
 .lottery_num_box { overflow: hidden; height: 45px; padding-top: 3px; }
 .lottery_num_box ul { position: relative; margin: 0px auto; }

@@ -44,7 +44,7 @@
                 <li><span class="recharge" style="position: relative; top:28px; left:-20px;"></span><a style="display:inline-block;position: relative;top:13px;left:-10px;" href="/?/member/account/userrecharge" target="_blank">充值</a></li>
             </ul>
             <ul style="float:left;">
-                    <li><a href="#" style="margin-top:13px;">积分兑换</a></li>
+                    <li><a href="#" id="exchange" style="margin-top:13px;">积分兑换</a></li>
                 </ul>
             <ul class="twbb">
                 <li><a class="touzhu" style="margin-top: 15px;" href="/?/member/lottery/lottery_record">开奖记录</a></li>
@@ -214,6 +214,22 @@
         if(parseFloat($('.num_dig').val())<=0){
             $('.num_dig').val('1');
         }
+    })
+
+    $('.integration-rule').click(function(){
+        layer.open({
+        title: '积分规则'
+        ,content: '1.1 本购物服务协议由您与1元商城平台共同缔结，本协议对您与1元商城平台均具有合同效力。<br >'+
+'1.2 本网站只接受中华人民共和国法律规定的具有完全民事行为能力的自然人成为网站用户。如您不符合资格，请勿注册，否则本网站保留随时中止或终止您用户资格的权利。如因您向本网站提供虚假的信息或承诺而导致本网站蒙受任何损失，您将承担全部责任并赔偿相关损失。'
+        }); 
+    })
+
+    $('#exchange').click(function(){
+        layer.open({
+        title: '积分兑换'
+        ,content: '1.1 本购物服务协议由您与1元商城平台共同缔结，本协议对您与1元商城平台均具有合同效力。<br >'+
+'1.2 本网站只接受中华人民共和国法律规定的具有完全民事行为能力的自然人成为网站用户。如您不符合资格，请勿注册，否则本网站保留随时中止或终止您用户资格的权利。如因您向本网站提供虚假的信息或承诺而导致本网站蒙受任何损失，您将承担全部责任并赔偿相关损失。'
+        }); 
     })
 
     $(".code").click(function(){

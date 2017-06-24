@@ -4,15 +4,15 @@
 .lottery_timeBox {width: 205px; height:60px; overflow: hidden; padding-top: 17px; }
 
 .timeBox{
-    position: relative; width: 40px; height: 36px; display: inline; border: 4px solid #ddd; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #5c5c5c; top:12px;padding-left:2px;
+    position: relative; width: 30px; height: 27px; display: inline; border: 4px solid #ddd; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #5c5c5c; top:12px;padding-left:2px;
 }
 
 .timeFormat{
     display: inline-block;
-    font-size: 26px; 
+    font-size: 20px; 
     color: #fff; 
     text-align:center;
-    line-height: 36px;
+    line-height: 27px;
 }
 .dianBox { 
     position: relative;

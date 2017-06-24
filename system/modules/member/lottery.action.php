@@ -35,9 +35,10 @@ class lottery extends UserAction{
 	}
 
 	public function buy_lottery(){
-		//buy1代表是单双 buy2代表是大小
+		//buy1代表是单双 buy2代表是大小 multiple代表注数
 		$buy1 = intval($_POST['buy1']);
 		$buy2 = intval($_POST['buy2']);
+		$multiple = intval($_POST['multiple']);
 
 		$aRet = [];
 
@@ -59,9 +60,9 @@ class lottery extends UserAction{
 
 		$iNeedMoney = 0;
 		if($buy1 && $buy2){
-			$iNeedMoney = 4;
+			$iNeedMoney = 4*$multiple;
 		}elseif($buy1 || $buy2){
-			$iNeedMoney = 2;
+			$iNeedMoney = 2*$multiple;
 		}else{
 			exit;
 		}

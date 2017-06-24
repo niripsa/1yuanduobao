@@ -110,6 +110,15 @@
                 </ul>
             </div>
         </div>
+        <div class="lottery_num left" style="width: 160px;">
+            <p class="lottery_history_issue">中奖结果</p>
+            <div class="lottery_num_box">
+                <ul style="width: 165px;margin-left: 40px;">
+                <li><span style="top: 0px;" class="code-d"></span></li>
+                <li><span style="top: 0px;" class="code-s"></span></li>
+                </ul>
+            </div>
+        </div>
         <!--上期开奖信息结束-->
     </div>
     <!--个人中心中间 结束-->
@@ -173,6 +182,19 @@
 <!--商品 wrap 结束-->
 <div class="clear"></div>
 <script type="text/javascript">
+   if (parseFloat({wc:$last_lottery_no})%2==0) {
+       $('.code-d').text("双");
+   }else{
+       $('.code-d').text("单");
+   }
+    
+    if (parseFloat({wc:$last_lottery_no})<5) {
+       $('.code-s').text("小");
+   }else{
+       $('.code-s').text("大");
+   }
+    
+
     //在购买大小单双上添加点击事件 
     function cancelOrder(orderid){
         if(!/\d+/.test(orderid)){

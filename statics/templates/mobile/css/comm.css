@@ -210,3 +210,7 @@ color: #999;
 
 .helpInfo h3 i.iOpen{border-width:2px 0 0 2px;top:9px;}
 .helpInfo h3 i.iCollapse{border-width:0 2px 2px 0;}
+
+
+
+.revConL img,.maxImg img{width:100%;}

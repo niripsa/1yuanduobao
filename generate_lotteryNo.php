@@ -142,23 +142,31 @@ if (empty($aRes)) {
 			$aBuyContent = str_split($aUserBuyInfo['buy_content_id']);
 			$buy1 = intval($aBuyContent[0]);
 			$buy2 = intval($aBuyContent[1]);
+			$buy_money = intval($aUserBuyInfo['buy_money']);
+			/* 如果同时买单双和买大小,每注4夺宝币;如果仅买一项,每注2夺宝币 */
+			/* 可以根据金额和购买方式确定注数 */
+			if ($buy1 && $buy2) {
+				$multiple = intval($buy_money/4);
+			}elseif ($buy1 || $buy2) {
+				$multiple = intval($buy_money/2);
+			}
 
 			//buy1代表是单双 buy2代表是大小
 			$fUserPoints = 0;
 
 			//如果开奖号码为单数 并且购买的是单数 则中奖
 			if($iLotteryNo%2 == 1 && $buy1 == 1){
-				$fUserPoints += 3.8;
+				$fUserPoints += 3.8*$multiple;
 			}elseif($iLotteryNo%2 == 0 && $buy1 == 2){
 				//如果开奖号码为双数 并且购买的是双数 则中奖
-				$fUserPoints += 3.8;
+				$fUserPoints += 3.8*$multiple;
 			}
 
 			//大小同上
 			if($iLotteryNo>=5&&$iLotteryNo<=9&&$buy2 == 1){
-				$fUserPoints += 3.8;
+				$fUserPoints += 3.8*$multiple;
 			}elseif($iLotteryNo>=0&&$iLotteryNo<=4&&$buy2 == 2){
-				$fUserPoints += 3.8;
+				$fUserPoints += 3.8*$multiple;
 			}
 
 			$id = $aUserBuyInfo['id'];

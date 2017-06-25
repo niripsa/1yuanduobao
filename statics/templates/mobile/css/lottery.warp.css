@@ -327,7 +327,7 @@
 
 /*添加0-9数字 和积分规则*/
 .add-number{ display: inline-block; padding-top: 15px;padding-bottom: 15px;}
-.add-number li{	float: left; width: 20px; text-align:center; font-size: 20px;color: #db3652;}
+.add-number li{	float: left; text-align:center; font-size: 20px;color: #db3652;}
 .add-number .integration-rule{width: 100px;font-size: 16px; line-height: 30px;}
 .game .pp .num_add, .game .pp .num_dig,.game .pp .num_del { width: 22px; height: 24px; overflow: hidden;    display: inline-block;    font-family: 宋体;    border: 1px solid #CFCFCF;    text-align: center;    font-size: 18px;    color: #999;    line-height: 24px;    vertical-align: middle;    background: #F4F4F4;}
 .game .pp .num_dig{float:inherit;width:60px;}

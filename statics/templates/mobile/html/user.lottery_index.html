@@ -21,7 +21,10 @@
         top:20px;
         left:2px;
     }
-
+    
+    #myTargetElement{
+        letter-spacing: 20px;
+    }
     /*.timeFormat{
         display: inline;
         line-height: 36px;
@@ -76,15 +79,7 @@
         <!--添加0-9数字 和积分规则 开始-->
     <ul class="add-number">
         <li> 0</li>
-        <li> 1</li>
-        <li> 2</li>
-        <li> 3</li>
-        <li> 4</li>
-        <li> 5</li>
-        <li> 6</li>
-        <li> 7</li>
-        <li> 8</li>
-        <li> 9</li>
+        <li id="myTargetElement"> 123456789</li>
         <li class="integration-rule">积分规则</li>
     </ul>
     <!--添加0-9数字 和积分规则 结束-->
@@ -185,6 +180,22 @@
 
 <!--商品 wrap 结束-->
 <div class="clear"></div>
+<script>
+    var easingFn = function (t, b, c, d) {
+    var ts = (t /= d) * t;
+    var tc = ts * t;
+    return b + c * (tc + -3 * ts + 3 * t);
+    }
+    var options = {
+      useEasing : true, 
+      easingFn: easingFn, 
+      useGrouping : false, 
+      separator : '', 
+      decimal : '', 
+    };
+    var animation = new CountUp("myTargetElement", 0, 123456789, 0, 10, options);
+    animation.start();
+</script>
 <script type="text/javascript">
    if (parseFloat({wc:$last_lottery_no})%2==0) {
        $('.code-d').text("双");

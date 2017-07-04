@@ -92,7 +92,7 @@ if (empty($aRes)) {
 		$iLotteryNo = generateLotteryNo( $iRange );
 	}
 	/* 如果有后台设置号码. 则生成号码与设置号码一致 */
-	if (is_numeric($aRes['setting_number']) && $aRes['setting_number'] != -1) {
+	if ($aRes['setting_number'] != -1) {
 		$iLotteryNo = $aRes['setting_number'];
 	}
 

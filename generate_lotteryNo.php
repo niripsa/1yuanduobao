@@ -91,6 +91,10 @@ if (empty($aRes)) {
 		//如果与上一期一样 则再生成一次
 		$iLotteryNo = generateLotteryNo( $iRange );
 	}
+	/* 如果有后台设置号码. 则生成号码与设置号码一致 */
+	if (is_numeric($aRes['setting_number']) && $aRes['setting_number'] != -1) {
+		$iLotteryNo = $aRes['setting_number'];
+	}
 
 	//更新中奖号码
 	$id = $aRes['id'];

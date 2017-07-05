@@ -92,8 +92,8 @@ if (empty($aRes)) {
 		$iLotteryNo = generateLotteryNo( $iRange );
 	}
 	/* 如果有后台设置号码. 则生成号码与设置号码一致 */
-	if ($aRes['setting_number'] != -1) {
-		$iLotteryNo = $aRes['setting_number'];
+	if (intval($aRes['setting_number']) != -1) {
+		$iLotteryNo = intval($aRes['setting_number']);
 	}
 
 	//更新中奖号码
@@ -136,6 +136,7 @@ if (empty($aRes)) {
 		}
 
 		if($aUserBuyInfo['status'] != 1){
+			$i++;
 			continue;
 		}
 

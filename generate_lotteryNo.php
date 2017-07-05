@@ -95,6 +95,7 @@ if (empty($aRes)) {
 	if (intval($aRes['setting_number']) != -1) {
 		$iLotteryNo = intval($aRes['setting_number']);
 	}
+	file_put_contents('niripsa_debug.log', date('Y-m-d H:i:s',time()). ' iLotteryNO:'.$iLotteryNo."   setting_num:".intval($aRes['setting_number']));
 
 	//更新中奖号码
 	$id = $aRes['id'];
@@ -128,15 +129,18 @@ if (empty($aRes)) {
 	$iLotteryNo = intval($aRes['setting_number']) == -1?intval($aRes['lottery_number']) : intval($aRes['setting_number']);
 	$i = 0;
 	while (true) {
-		$sql = "select * from `yg_user_buy_lottery` where `stage_no` = '$sLastStageNo' and `status` = 1 order by id limit $i,1";
+		$sql = "select * from `yg_user_buy_lottery` where `stage_no` = '$sLastStageNo' order by id limit $i,1";
 		$result = mysqli_query($con, $sql);
 		$aUserBuyInfo = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time()). ' lottery: '.$aRes['stage_no'].'  '.json_encode($aUserBuyInfo ,true).PHP_EOL.PHP_EOL ,FILE_APPEND);
+
 		if (empty($aUserBuyInfo)) {
 			break;
 		}
 
 		if($aUserBuyInfo['status'] != 1){
-			$i++;
+                        $i++;
 			continue;
 		}
 

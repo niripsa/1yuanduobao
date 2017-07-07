@@ -95,7 +95,6 @@ if (empty($aRes)) {
 	if (intval($aRes['setting_number']) != -1) {
 		$iLotteryNo = intval($aRes['setting_number']);
 	}
-	file_put_contents('niripsa_debug.log', date('Y-m-d H:i:s',time()). ' iLotteryNO:'.$iLotteryNo."   setting_num:".intval($aRes['setting_number']));
 
 	//更新中奖号码
 	$id = $aRes['id'];
@@ -140,7 +139,7 @@ file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time())
 		}
 
 		if($aUserBuyInfo['status'] != 1){
-                        $i++;
+            $i++;
 			continue;
 		}
 

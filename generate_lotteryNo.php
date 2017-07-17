@@ -28,6 +28,13 @@ if (empty($aRes)) {
 
 	mysqli_query($con, $sInsertSql);
 }else{
+
+	if(!empty($aRes['end_time'])){
+		while (time() < strtotime($aRes['end_time'])) {
+			sleep(1);
+		}
+	}
+
 	//分别计算单大、单小、双大、双小购买的人数，选其中最少的作为开奖抽取范围
 	$stage_no = strval($aRes['stage_no']);
 	$sql = "select * from `yg_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
@@ -72,12 +79,6 @@ if (empty($aRes)) {
 		asort($aHuiZong, SORT_NUMERIC);
 		$iRange = array_keys($aHuiZong)[0];
 		/* $iRange为1-4的整数，同$aHuiZong */		
-	}
-
-	if(!empty($aRes['end_time'])){
-		while (time() < strtotime($aRes['end_time'])) {
-			sleep(1);
-		}
 	}
 
 	//再次获取, 防止因程序sleep引起的误差(如后台设置号码)
@@ -149,19 +150,25 @@ file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time())
 
 		++$i;
 
-		//根据用户购买内容觉得是否中奖
+		//根据用户购买内容决定是否中奖
 		if(!empty($aUserBuyInfo['buy_content_id'])){
 			$aBuyContent = str_split($aUserBuyInfo['buy_content_id']);
 			$buy1 = intval($aBuyContent[0]);
 			$buy2 = intval($aBuyContent[1]);
+			$buy_number = intval($aUserBuyInfo['buy_number']);
 			$buy_money = intval($aUserBuyInfo['buy_money']);
 			/* 如果同时买单双和买大小,每注4夺宝币;如果仅买一项,每注2夺宝币 */
 			/* 可以根据金额和购买方式确定注数 */
+			$unit_price = 0;
 			if ($buy1 && $buy2) {
-				$multiple = intval($buy_money/4);
+				$unit_price += 4;
 			}elseif ($buy1 || $buy2) {
-				$multiple = intval($buy_money/2);
+				$unit_price += 2;
 			}
+			if ($buy_number != -1) {
+				$unit_price += 2;
+			}
+			$multiple = intval($buy_money/$unit_price);
 
 			//buy1代表是单双 buy2代表是大小
 			$fUserPoints = 0;
@@ -179,6 +186,11 @@ file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time())
 				$fUserPoints += 3.8*$multiple;
 			}elseif($iLotteryNo>=0&&$iLotteryNo<=4&&$buy2 == 2){
 				$fUserPoints += 3.8*$multiple;
+			}
+
+			//如果开奖号码与购买的号码相同 则中奖
+			if ($buy_number != -1 && $iLotteryNo == $buy_number) {
+				$fUserPoints += 16*$multiple;
 			}
 
 			$id = $aUserBuyInfo['id'];

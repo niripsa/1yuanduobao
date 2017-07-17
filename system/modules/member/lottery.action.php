@@ -35,36 +35,19 @@ class lottery extends UserAction{
 	}
 
 	public function buy_lottery(){
-		//buy1代表是单双 buy2代表是大小 multiple代表注数
-		$buy1 = intval($_POST['buy1']);
-		$buy2 = intval($_POST['buy2']);
-		$multiple = intval($_POST['multiple']);
+		//buy1代表是单双 buy2代表是大小 multiple代表注数 buy_number代表购买的数字 use_points代表是否使用积分
+		$buy1 = (intval($_POST['buy1']) >= 1 ? : 0);
+		$buy2 = (intval($_POST['buy2']) >= 1 ? : 0);
+		$multiple = (intval($_POST['multiple']) > 0 ? : 1);
+		$buy_number = ($_POST['buy_number'] >= 0 ? intval($_POST['buy_number']) : -1);
+		$use_points = (intval($_POST['use_points']) == 1 ? 1 : 0);
 
-		$aRet = [];
+		list($iNeedMoney, $buy_content) = _calculate_lottery_info($buy1, $buy2, $buy_number, $multiple);
 
-		if($buy1 == 1){
-			$buy1_name = '单';
-		}elseif($buy1 == 2){
-			$buy1_name = '双';
-		}else{
-			$buy1 = 0;
-		}
-
-		if($buy2 == 1){
-			$buy2_name = '大';
-		}elseif($buy2 == 2){
-			$buy2_name = '小';
-		}else{
-			$buy2 = 0;
-		}
-
-		$iNeedMoney = 0;
-		if($buy1 && $buy2){
-			$iNeedMoney = 4*$multiple;
-		}elseif($buy1 || $buy2){
-			$iNeedMoney = 2*$multiple;
-		}else{
-			exit;
+		if ($iNeedMoney == -1) {
+			$aRet['errno'] = 3;
+			$aRet['errmsg'] = $buy_content;
+			exit(json_encode($aRet));
 		}
 
 		$mysql_model = System::load_sys_class("model");
@@ -74,6 +57,8 @@ class lottery extends UserAction{
 		$sEndTime = date('Y-m-d H:i:s', time()+5);
 		$sql = "select `stage_no` from `@#_lottery_stage` where `begin_time` <= '${sStartTime}' AND `end_time` >= '{$sEndTime}' AND `status` = 1 order by stage_no desc limit 1";
 		$aLotteryInfo = $mysql_model->GetOne($sql);
+
+		$aRet = [];
 		if(empty($aLotteryInfo['stage_no'])){
 			$aRet['errno']  = 1;
 			$aRet['errmsg'] = '还没有产生彩票数据';
@@ -81,15 +66,20 @@ class lottery extends UserAction{
 		}
 
 		if(!empty($this->Userid)){
-			$sql = "update `@#_user` set `money` = `money` - ${iNeedMoney} where `uid` = $this->Userid AND `money` >= ${iNeedMoney}";
-			$mysql_model->Query($sql);
+			if ($use_points == 0) {
+				$sql = "update `@#_user` set `money` = `money` - ${iNeedMoney} where `uid` = $this->Userid AND `money` >= ${iNeedMoney}";
+				$mysql_model->Query($sql);				
+			}elseif ($use_points == 1) {
+				$sql = "update `@#_user` set `user_points` = `user_points` - ${iNeedMoney} where `uid` = $this->Userid AND `user_points` >= ${iNeedMoney}";
+				$mysql_model->Query($sql);	
+			}
 		}
 
 		$iAffectedRows = intval($mysql_model->affected_rows());
 
 		if(empty($iAffectedRows)){
 			$aRet['errno']  = 2;
-			$aRet['errmsg'] = '余额不足请充值';
+			$aRet['errmsg'] = ($use_points == 1 ? "积分不足请充值" : "余额不足请充值");
 			exit(json_encode($aRet));
 		}
 
@@ -100,7 +90,8 @@ class lottery extends UserAction{
 		$aData['user_id']  = $this->Userid;
 		$aData['stage_no'] = strval($aLotteryInfo['stage_no']);
 		$aData['buy_content_id'] = $buy1 . $buy2;
-		$aData['buy_content']    = $buy1_name . $buy2_name;
+		$aData['buy_content']    = $buy_content;
+		$aData['buy_number']	 = $buy_number;
 		$aData['buy_money']  = intval($iNeedMoney);
 		$aData['status']     = 1;
 
@@ -113,6 +104,10 @@ class lottery extends UserAction{
 
 	//取消订单
 	public function cancel_order(){
+		$aRet['errno'] = 1;
+		$aRet['errmsg'] = '撤单功能已取消';
+		exit(json_encode($aRet));
+
 		$sOrderSN = $_POST['order_sn'];
 		$aRet = array();
 		if(!preg_match("#\d+#", $sOrderSN)){
@@ -155,11 +150,12 @@ class lottery extends UserAction{
 		$mysql_model = System::load_sys_class("model");
 		$aBuyLists = $mysql_model->GetList($sql);
 
-		foreach ($aBuyLists as &$aBuyRecord) {
+		//撤单功能已取消
+		/*foreach ($aBuyLists as &$aBuyRecord) {
 			if($aBuyRecord['status'] == 1){
 				$aBuyRecord['cancel_url'] = "/?/member/lottery/cancel_order&order_id=".$aBuyRecord['order_sn'];
 			}
-		}
+		}*/
 		
 		$this->view->data('buy_lists', $aBuyLists);
 		$this->view->show("user.lottery_record");
@@ -223,5 +219,51 @@ class lottery extends UserAction{
 		      . sprintf('%010d',time() - 946656000)
 		      . sprintf('%03d', (float) microtime() * 1000)
 		      . sprintf('%03d', (int) $member_id % 1000);
+	}
+
+	//根据传入的信息计算购买的总金额与购买彩票的内容
+	private function _calculate_lottery_info($buy1, $buy2, $buy_number, $multiple){
+
+		$iNeedMoney = 0;
+		$buy_content = '';
+		//彩票数字与单双大小可以同时购买
+
+		//购买数字，并判断传入是否合法
+		if (array_search($buy_number, [-1,0,1,2,3,4,5,6,7,8,9]) !== false) {
+			if ($buy_number != -1) {
+				$iNeedMoney += (2 * $multiple);
+				$buy_content .= ($buy_number . ' ');				
+			}
+		}else{
+			$iNeedMoney = -1;
+			$buy_content = "传入数字不合法!";
+			return array($iNeedMoney, $buy_content);
+		}
+
+		//购买单双大小
+		//判断传入是否合法
+		if ($buy1 < 0 || $buy1 > 2 || $buy2 < 0 || $buy2 > 2) {
+			$iNeedMoney = -1;
+			$buy_content = "传入数字不合法!";
+			return array($iNeedMoney, $buy_content);
+		}
+
+		//$buy1 = 1 单,   $buy1 = 2 双
+		if ($buy1 != 0 ) {
+			$iNeedMoney += (2 * $multiple);
+			$buy_content .= ($buy1 == 1 ? "单" : "双");
+		}
+		//$buy2 = 1 大,   $buy2 = 2 小
+		if ($buy2 != 0) {
+			$iNeedMoney += (2 * $multiple);
+			$buy_content .= ($buy1 == 1 ? "大" : "小");
+		}
+
+		if ($iNeedMoney == 0) {
+			$iNeedMoney = -1;
+			$buy_content = "请选择购买的内容";
+		}
+
+		return array($iNeedMoney, $buy_content);
 	}
 }

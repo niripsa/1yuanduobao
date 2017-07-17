@@ -3,3 +3,4 @@ statics/uploads
 system/caches/
 *.log
 *.logs
+system/config/database.inc.php

@@ -81,7 +81,12 @@ if (empty($aRes)) {
 	}
 
 	//再次获取, 防止因程序sleep引起的误差(如后台设置号码)
-	$sql = "select * from `yg_lottery_stage` where `stage_no`= $stage_no";
+	if (!empty($stage_no)) {
+		$sql = "select * from `yg_lottery_stage` where `stage_no`= {$stage_no} limit 1";
+	}else{
+		$stage_no = strval($aRes['stage_no']);
+		$sql = "select * from `yg_lottery_stage` where `stage_no`= {$stage_no} limit 1";
+	}	
 	$result = mysqli_query($con, $sql);
 	$aRes = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

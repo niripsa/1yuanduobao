@@ -93,6 +93,7 @@ class lottery extends UserAction{
 		$aData['buy_content']    = $buy_content;
 		$aData['buy_number']	 = $buy_number;
 		$aData['buy_money']  = intval($iNeedMoney);
+		$aData['use_points'] = $use_points;
 		$aData['status']     = 1;
 
 		$mysql_model->Insert('user_buy_lottery', $aData);

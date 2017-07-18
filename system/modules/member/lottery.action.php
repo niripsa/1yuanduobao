@@ -192,6 +192,24 @@ class lottery extends UserAction{
 		$this->view->show("user.lottery_kj_record");
 	}
 
+	//获取中奖名单
+	public function get_lucky_list(){
+		$sql = "select * from `@#_user_buy_lottery` where `status` = 3 and `award_points` != '0.00' order by `buy_time` desc limit 50";
+		$mysql_model = System::load_sys_class("model");
+		$aLuckyList = $mysql_model->GetList($sql);
+
+		if (!empty($aLuckyList)) {
+			echo json_encode($aLuckyList);
+		}else{
+			$aRet = [];
+			$aRet['errno'] = 1;
+			$aRet['errmsg'] = "暂时无法获取到数据，请稍候";
+			echo json_encode($aRet);
+		}
+		
+		exit();
+	}
+
 	//得到最新开奖数据
 	public function get_lastkj_data(){
 		//判断当前一期是否到开奖时间

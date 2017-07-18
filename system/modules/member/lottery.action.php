@@ -198,13 +198,20 @@ class lottery extends UserAction{
 		$mysql_model = System::load_sys_class("model");
 		$aLuckyList = $mysql_model->GetList($sql);
 
+		foreach ($aLuckyList as &$value) {
+			$uid = $value['user_id'];
+			$sql = "select username from `@#_user` where `uid` = {$uid} limit 1";
+			$sUsername = $mysql_model->GetOne($sql);
+			$value['username'] = $sUsername['username'];
+		}
+
 		if (!empty($aLuckyList)) {
-			echo json_encode($aLuckyList);
+			echo json_encode($aLuckyList, JSON_UNESCAPED_UNICODE);
 		}else{
 			$aRet = [];
 			$aRet['errno'] = 1;
 			$aRet['errmsg'] = "暂时无法获取到数据，请稍候";
-			echo json_encode($aRet);
+			echo json_encode($aRet, JSON_UNESCAPED_UNICODE);
 		}
 		
 		exit();

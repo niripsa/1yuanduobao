@@ -56,6 +56,59 @@ tbody tr{ line-height:30px; height:30px;}
         </tr>
     <?php break; } ?>
     </tbody>
+  </table>
+  <br><br>
+  <table width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th align="center">本期购买0的数量</th>
+            <th align="center">本期购买1的数量</th>
+            <th align="center">本期购买2的数量</th>
+            <th align="center">本期购买3的数量</th>
+            <th align="center">本期购买4的数量</th>
+            <th align="center">本期购买5的数量</th>
+            <th align="center">本期购买6的数量</th>
+            <th align="center">本期购买7的数量</th>
+            <th align="center">本期购买8的数量</th>
+            <th align="center">本期购买9的数量</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ( (array)$number_info as $va ) { ?>
+        <tr>
+            <td align="center"> 
+                <?php echo $number_info[0]; ?> 
+            </td>
+            <td align="center">
+                <?php echo $number_info[1]; ?> 
+            </td>
+            <td align="center">
+                <?php echo $number_info[2];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[3];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[4]; ?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[5];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[6];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[7];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[8];?>
+            </td>
+            <td align="center">
+                <?php echo $number_info[9];?>
+            </td>            
+        </tr>
+    <?php break; } ?>
+    </tbody>
 </table>
 
 </div>

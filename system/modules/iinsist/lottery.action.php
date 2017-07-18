@@ -96,13 +96,14 @@ class lottery extends admin{
         $sql = "select * from `@#_user_buy_lottery` where stage_no = '$stage_no' and `status` = 1";
         $aStageNos = $mysql_model->GetList($sql);
 
-        $aHuiZong = array();
-        $aHuiZong[1] = 0;
-        $aHuiZong[2] = 0;
-        $aHuiZong[3] = 0;
-        $aHuiZong[4] = 0;
+        $aNumberInfo = array_fill(0, 10, 0);
+        $aHuiZong = array_fill(1, 4, 0);
         /* $aHuiZong[1]--单大 [2]--单小 [3]--双大 [4]--双小 */
         foreach($aStageNos as $id => $aOneStage){
+            if (!empty($aOneStage['buy_number'])) {
+                $aNumberInfo[$aOneStage['buy_number']]++;
+            }
+
             if(!empty($aOneStage['buy_content_id'])){
                 //$aBuyInfo = str_split($aOneStage['buy_content_id']);
                 $buy = intval($aOneStage['buy_content_id']);
@@ -133,6 +134,7 @@ class lottery extends admin{
         $this->view->data('stage_no', $stage_no);
         $this->view->data('kj_time', $aLotteryInfo['end_time']);
         $this->view->data('huizong_info', $aHuiZong);
+        $this->view->data('number_info', $aNumberInfo);
         $this->view->tpl( "lottery_huizong.list" );
     }
 }

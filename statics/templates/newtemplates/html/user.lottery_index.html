@@ -326,6 +326,7 @@
                 if(use_points=='1'){//积分支付
                    buy_lottery(1,index);
                 }else{
+                    layer.close(index);
                     var index_confirm = layer.confirm(message, {
                         btn:['确认', '取消'],
                     }, function(index, layer1){

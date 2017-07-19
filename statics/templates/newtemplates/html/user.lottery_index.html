@@ -3,6 +3,7 @@
 {wc:fun:css("lottery.skin")}
 {wc:fun:css("lottery")}
 {wc:fun:js("layer")}
+{wc:fun:js("template")}
 {wc:templates "index.header"}
 <script src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
 <div class="clear"></div>
@@ -164,6 +165,43 @@
         </div>
     </div>
 </div>
+
+<div class="lucky-list">
+
+</div>
+<script type="text/html" id="lucky-list">
+		<%for(var i=0;i<result.length;i++){%>
+            <div>
+                <div class="w-record-avatar">
+                <img width="40" height="40" src="<%=result[i].img%>">
+                </div>
+                <div class="w-record-detail">
+                    <p class="w-record-intro">
+                        <a class="w-record-user f-txtabb" href="#" userid="<%=result[i].user_id%>" target="_blank"> <%=result[i].username%> </a>  <span class="w-record-date">于<%=result[i].buy_time%></span></p>
+                   <p class="w-record-title f-txtabb">
+                   <strong>
+                       <%=result[i].stage_no%>
+                    </strong>
+                    <%if(result[i].buy_content == '1'){%>
+                    使用积分
+                    <%}else{%>
+                    花费夺宝币<%=result[i].buy_money%>
+                    <%}%>
+                    购买
+                    <strong><%=result[i].buy_content%>
+                        <%if(result[i].buy_number != '-1'){%>
+                        ，<%=result[i].buy_number%>
+                        <%}%>
+                    </strong>
+                    中奖
+                    </p>
+                    <p>奖励积分:<%=result[i].award_points%></p>
+                </div>
+            </div>
+		<%}%>
+</script>
+
+
 
 <!--商品 wrap 结束-->
 <div class="clear"></div>
@@ -450,7 +488,9 @@
                 setTimeout(getLuckyList, 5000);
             },
             success:function(data, textStatus, xhr){
-               console.log(data);
+
+               var html = template('lucky-list',data);
+               $('.lucky-list').html(html);
             }
         });
 

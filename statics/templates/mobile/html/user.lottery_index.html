@@ -301,6 +301,9 @@
             return;
         }
 
+        //是否使用积分代替夺宝币 0：否 1：是
+        var use_points;
+
         var message;
         multiple_msg = multiple+"倍";
 
@@ -318,12 +321,14 @@
             // var index = layer.load();
             var num1 = $(".pp11 > .code").filter('.checked').attr("number");
             var num2 = $(".pp12 > .code").filter('.checked').attr("number");
+            // 数字
+            var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
             //倍数
             var multiple = parseFloat($('#num_dig').val());
             $.ajax({
                 url:"/?/member/lottery/buy_lottery",
                 type:"post",
-                data:{buy1:num1, buy2:num2, multiple:multiple},
+                data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number,use_points:use_points},
                 dataType:"json",
                 success:function(data){
                     if(data.errno){

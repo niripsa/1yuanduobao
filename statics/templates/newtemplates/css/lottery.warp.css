@@ -355,3 +355,4 @@
 .lucky-list div{float:left;}
 .lucky-list>div{padding:10px 0 10px 10px;}
 .lucky-list .w-record-avatar{padding-right:10px;}
+.lucky-list-head{height: 30px;  line-height: 30px;  font-size: 20px;color: white;margin-top:20px;background: #a96b94;}

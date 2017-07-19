@@ -315,56 +315,77 @@
           ,anim: 1 //0-6的动画形式，-1不开启
           ,content: '<div class="layui-form-item">'+
 '          <div class="layui-input-block">'+
-'            <input type="radio" name="coin" value="积分" title="积分" id="checkin"><label for="checkin">积分</label>'+
-'            <input type="radio" name="coin" value="夺宝币" title="夺宝币" id="checkcoin"><label for="checkcoin">夺宝币</label>'+
+'            <input type="radio" name="coin" value="1" title="积分" id="checkin" checked ><label for="checkin">积分</label>'+
+'            <input type="radio" name="coin" value="0" title="夺宝币" id="checkcoin"><label for="checkcoin">夺宝币</label>'+
 '          </div>'+
 '        </div>'
-          ,cancel: function(){
+          ,btn: ['继续']
+          ,yes: function(index, layero){
+                use_points = $('.layui-input-block input:checked').val();
+
+                if(use_points=='1'){//积分支付
+                   buy_lottery(1,index);
+                }else{
+                    var index_confirm = layer.confirm(message, {
+                        btn:['确认', '取消'],
+                    }, function(index, layer1){
+                        // var index = layer.load();
+                          buy_lottery(0,index,index_confirm)
+                    }, function(index, layer2){
+                        /*void do nothing*/
+                    });
+                }
+
+
+
+
+
+
+
+
+          },cancel: function(){
               return;
            }
         });
 
 
-        var index_confirm = layer.confirm(message, {
-            btn:['确认', '取消'],
-        }, function(index, layer1){
-            // var index = layer.load();
-            var num1 = $(".pp11 > .code").filter('.checked').attr("number");
-            var num2 = $(".pp12 > .code").filter('.checked').attr("number");
-            // 数字
-            var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
-            //倍数
-            var multiple = parseFloat($('#num_dig').val());
-            $.ajax({
-                url:"/?/member/lottery/buy_lottery",
-                type:"post",
-                data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number},
-                dataType:"json",
-                success:function(data){
-                    if(data.errno){
-                        layer.close(index);
-                        layer.close(index_confirm);
-                        layer.alert("<strong>" + data.errmsg + "</strong>", {time:2000});
-                        return false;
-                    }
-
-                    var html = combineHtml(data.data);
-                    $("#order-history").prepend(html);
-                    layer.close(index);
-                    layer.close(index_confirm);
-                    window.location.reload(true);
-
-                },
-                error:function(){
-                    layer.close(index);
-                    layer.close(index_confirm);
-                    layer.alert("<strong>购买彩票失败，请重试!</strong>", {time:2000});
-                }
-            });
-        }, function(index, layer2){
-            /*void do nothing*/
-        });
     });
+
+    function buy_lottery(use_points,index,index_confirm){
+        var num1 = $(".pp11 > .code").filter('.checked').attr("number");
+        var num2 = $(".pp12 > .code").filter('.checked').attr("number");
+        // 数字
+        var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
+        //倍数
+        var multiple = parseFloat($('#num_dig').val());
+        $.ajax({
+            url:"/?/member/lottery/buy_lottery",
+            type:"post",
+            data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number,use_points:use_points},
+            dataType:"json",
+            success:function(data){
+                if(data.errno){
+                    layer.close(index);
+                    layer.close(index_confirm);
+                    layer.alert("<strong>" + data.errmsg + "</strong>", {time:2000});
+                    return false;
+                }
+
+                var html = combineHtml(data.data);
+                $("#order-history").prepend(html);
+                layer.close(index);
+                layer.close(index_confirm);
+                window.location.reload(true);
+
+            },
+            error:function(){
+                layer.close(index);
+                layer.close(index_confirm);
+                layer.alert("<strong>购买彩票失败，请重试!</strong>", {time:2000});
+            }
+        });
+
+    }
 
     function combineHtml(data){
         var html = "<tr>";

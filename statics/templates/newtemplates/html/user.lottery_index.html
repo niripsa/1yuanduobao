@@ -439,6 +439,23 @@
         });
     }
 
+    function getLuckyList(){
+
+        $.ajax('/?/member/lottery/get_lucky_list',{
+            dataType:'json',
+            cache:false,
+            type:"get",
+            data:{},
+            error:function(){
+                setTimeout(getLuckyList, 5000);
+            },
+            success:function(data, textStatus, xhr){
+               console.log(data);
+            }
+        });
+
+    }
+    getLuckyList();
     function codeplay(str){
 
     }

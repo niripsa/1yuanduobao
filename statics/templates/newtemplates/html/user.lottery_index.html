@@ -240,6 +240,8 @@
 
         //倍数
         var multiple = parseFloat($('#num_dig').val());
+        //是否使用积分代替夺宝币 0：否 1：是
+        var use_points;
 
         if(!buy1 && !buy2){
             layer.alert("请选择购买大小或者单双!", {time:3000});

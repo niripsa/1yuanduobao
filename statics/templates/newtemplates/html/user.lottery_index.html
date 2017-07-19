@@ -170,7 +170,7 @@
 
 </div>
 <script type="text/html" id="lucky-list">
-		<%for(var i=0;i<data.length;i++){%>
+		<%for(var i=0;i<result.length;i++){%>
             <div>
                 <div class="w-record-avatar">
                 <img width="40" height="40" src="<%=result[i].img%>">
@@ -488,8 +488,9 @@
                 setTimeout(getLuckyList, 5000);
             },
             success:function(data, textStatus, xhr){
-
-               var html = template('lucky-list',data);
+               var database = {};
+                   database.result = data;
+               var html = template('lucky-list',database);
                $('.lucky-list').html(html);
             }
         });

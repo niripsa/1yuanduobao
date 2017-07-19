@@ -358,16 +358,17 @@
 .lucky-list-head{height: 30px;margin-top:40px;padding-left: 10px;line-height: 30px;  font-size: 16px;color: white;background: #a96b94;}
 
 
-.layui-form-item .layui-form-label{
-	float: left;
-	display: block;
-	padding: 9px 0;
-	font-size: 14px;
-}
+
 .layui-form-item .layui-input-block{
-	padding: 9px 15px;
+	padding: 20px 15px;
 }
 .layui-form-item .layui-input-block input{
 	cursor: pointer;
 	padding-right:3px;
+
+}
+.layui-form-item .layui-input-block label{
+	font-size: 16px;
+	margin-left: 5px;
+	margin-right: 30px;
 }

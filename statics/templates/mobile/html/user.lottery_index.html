@@ -1,12 +1,15 @@
 {wc:fun:css("goods")}
 {wc:fun:js("jquery.cmsapi")}
-{wc:fun:js("template")}
-{wc:fun:js("template.fun")}
+<!-- {wc:fun:js("template")} -->
+<!-- {wc:fun:js("template.fun")} -->
 {wc:fun:js("jquery.cartlist")}
 {wc:fun:css("user.message")}
 {wc:fun:css("lottery.warp")}
 {wc:fun:css("lottery.skin")}
 {wc:fun:css("lottery_new")}
+{wc:fun:css("swiper.min")}
+{wc:fun:js("swiper.min")}
+{wc:fun:js("templateweb")}
 {wc:fun:js("layer")}
 <!-- {wc:fun:js("countUp")} -->
 {wc:templates "index.header_lottery"}
@@ -164,6 +167,51 @@
              <a href="javascript:void(0);" class="sendBtn" id="btnPostBet">立即投注</a>
              </div>
 
+
+             <div class="lucky-list-head">
+             中奖者最新揭晓
+             </div>
+             <div class="swiper-container lucky-list">
+                 <div class="swiper-wrapper">
+
+                 </div>
+
+             </div>
+             <script type="text/html" id="lucky-list">
+             		<%for(var i=0;i<result.length;i++){%>
+                         <div class="swiper-slide">
+                             <div class="w-record-avatar">
+                             <img width="40" height="40" img="<%=result[i].img%>" src="http://ceshi.ylmzshop.com/statics/uploads/photo/member.jpg">
+                             </div>
+                             <div class="w-record-detail">
+                                 <p class="w-record-intro">
+                                     获奖者:<a class="w-record-user f-txtabb" href="http://www.1yuanshangcheng.com/?/uname/<%=result[i].user_id%>" target="_blank"> <%=result[i].username%> </a>  <span class="w-record-date">于<%=result[i].buy_time%></span></p>
+                                <p class="w-record-title f-txtabb">
+                                <strong>
+                                    <%=result[i].stage_no%>
+                                 </strong>
+                                 <%if(result[i].buy_content == '1'){%>
+                                 使用积分
+                                 <%}else{%>
+                                 花费夺宝币<%=result[i].buy_money%>
+                                 <%}%>
+                                 购买
+                                 <strong><%=result[i].buy_content%>
+                                     <%if(result[i].buy_number != '-1'){%>
+                                     ，<%=result[i].buy_number%>
+                                     <%}%>
+                                 </strong>
+                                 中奖
+                                 </p>
+                                 <p>奖励积分:<%=result[i].award_points%></p>
+                             </div>
+                         </div>
+             		<%}%>
+             </script>
+
+
+
+
              <div class="warp lotteryHistory" style="margin-top: 20px;padding-left: 15px;">
                 <div class="lotteryHistoryBody"></div>
                 <div class="line">
@@ -315,45 +363,81 @@
             message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + ","+ multiple_msg +"(花费"+4*multiple+"夺宝币)</span>吗？"
         }
 
-        var index_confirm = layer.confirm(message, {
-            btn:['确认', '取消'],
-        }, function(index, layer1){
-            // var index = layer.load();
-            var num1 = $(".pp11 > .code").filter('.checked').attr("number");
-            var num2 = $(".pp12 > .code").filter('.checked').attr("number");
-            // 数字
-            var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
-            //倍数
-            var multiple = parseFloat($('#num_dig').val());
-            $.ajax({
-                url:"/?/member/lottery/buy_lottery",
-                type:"post",
-                data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number,use_points:use_points},
-                dataType:"json",
-                success:function(data){
-                    if(data.errno){
-                        layer.close(index);
-                        layer.close(index_confirm);
-                        layer.alert("<strong>" + data.errmsg + "</strong>", {time:2000});
-                        return false;
-                    }
 
-                    var html = combineHtml(data.data);
-                    $("#order-history").prepend(html);
+        layer.open({
+          type: 1 //Page层类型
+          ,title: '你要选择哪种方式进行支付？'
+          ,shade: 0.6 //遮罩透明度
+          ,anim: 1 //0-6的动画形式，-1不开启
+          ,content: '<div class="layui-form-item">'+
+'          <div class="layui-input-block">'+
+'            <input type="radio" name="coin" value="1" title="积分" id="checkin" checked ><label for="checkin">积分</label>'+
+'            <input type="radio" name="coin" value="0" title="夺宝币" id="checkcoin"><label for="checkcoin">夺宝币</label>'+
+'          </div>'+
+'        </div>'
+          ,btn: ['继续']
+          ,yes: function(index, layero){
+                use_points = $('.layui-input-block input:checked').val();
+
+                if(use_points=='1'){//积分支付
+                   buy_lottery(1,index);
+                }else{
                     layer.close(index);
-                    layer.close(index_confirm);
-                    window.location.reload(true);
-                },
-                error:function(){
-                    layer.close(index);
-                    layer.close(index_confirm);
-                    layer.alert("<strong>购买彩票失败，请重试!</strong>", {time:2000});
+                    var index_confirm = layer.confirm(message, {
+                        btn:['确认', '取消'],
+                    }, function(index, layer1){
+                        // var index = layer.load();
+                          buy_lottery(0,index,index_confirm)
+                    }, function(index, layer2){
+                        /*void do nothing*/
+                    });
                 }
-            });
-        }, function(index, layer2){
-            /*void do nothing*/
+
+
+          },cancel: function(){
+              return;
+           }
         });
+
+
     });
+
+    function buy_lottery(use_points,index,index_confirm){
+        var num1 = $(".pp11 > .code").filter('.checked').attr("number");
+        var num2 = $(".pp12 > .code").filter('.checked').attr("number");
+        // 数字
+        var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
+        //倍数
+        var multiple = parseFloat($('#num_dig').val());
+        $.ajax({
+            url:"/?/member/lottery/buy_lottery",
+            type:"post",
+            data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number,use_points:use_points},
+            dataType:"json",
+            success:function(data){
+                if(data.errno){
+                    layer.close(index);
+                    layer.close(index_confirm);
+                    layer.alert("<strong>" + data.errmsg + "</strong>", {time:2000});
+                    return false;
+                }
+
+                var html = combineHtml(data.data);
+                $("#order-history").prepend(html);
+                layer.close(index);
+                layer.close(index_confirm);
+                window.location.reload(true);
+
+            },
+            error:function(){
+                layer.close(index);
+                layer.close(index_confirm);
+                layer.alert("<strong>购买彩票失败，请重试!</strong>", {time:2000});
+            }
+        });
+
+    }
+
 
     function combineHtml(data){
         var html = "<tr>";
@@ -494,7 +578,35 @@
             }
         });
     }
+    function getLuckyList(){
 
+        $.ajax('/?/member/lottery/get_lucky_list',{
+            dataType:'json',
+            cache:false,
+            type:"get",
+            data:{},
+            error:function(){
+                setTimeout(getLuckyList, 5000);
+            },
+            success:function(data, textStatus, xhr){
+               var database = {};
+                   database.result = data;
+               var html = template('lucky-list',database);
+               $('.lucky-list .swiper-wrapper').html(html);
+
+
+               var mySwiper = new Swiper ('.swiper-container', {
+                    loop: true,
+                    autoplay: 3000,
+                    direction:'vertical',
+                    slidesPerView: 3,
+                    slidesPerColumn : 2
+                })
+            }
+        });
+
+    }
+    getLuckyList();
     function codeplay(str){
 
     }

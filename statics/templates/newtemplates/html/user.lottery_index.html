@@ -164,17 +164,19 @@
                 <div class="getMore">
                 <a class="sqlist" href="/?/member/lottery/buy_record" title="查看更多投注记录" target="_blank">查看更多</a></div>
                 </div>
+                <div class="swiper-container lucky-list">
+                    <div class="swiper-wrapper">
+
+                    </div>
+
+                </div>
+
         </div>
     </div>
 </div>
 
 
-<div class="swiper-container lucky-list">
-    <div class="swiper-wrapper">
 
-    </div>
-
-</div>
 <script type="text/html" id="lucky-list">
 		<%for(var i=0;i<result.length;i++){%>
             <div class="swiper-slide">
@@ -501,13 +503,13 @@
 
 
                var mySwiper = new Swiper ('.swiper-container', {
-                   slidesPerView : 3,
+                    slidesPerView : 3,
                     centeredSlides : true,
                     slidesPerGroup:1,
                     slidesPerColumn : 3,
                     slidesPerColumnFill : 'row',
                     loop: true,
-                    speed:300,
+                    autoplay: 3000,
                     direction:'horizontal'
                 })
             }

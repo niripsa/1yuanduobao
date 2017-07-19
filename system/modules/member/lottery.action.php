@@ -68,10 +68,10 @@ class lottery extends UserAction{
 		if(!empty($this->Userid)){
 			if ($use_points == 0) {
 				$sql = "update `@#_user` set `money` = `money` - ${iNeedMoney} where `uid` = $this->Userid AND `money` >= ${iNeedMoney}";
-				$mysql_model->Query($sql);				
+				$mysql_model->Query($sql);
 			}elseif ($use_points == 1) {
 				$sql = "update `@#_user` set `user_points` = `user_points` - ${iNeedMoney} where `uid` = $this->Userid AND `user_points` >= ${iNeedMoney}";
-				$mysql_model->Query($sql);	
+				$mysql_model->Query($sql);
 			}
 		}
 
@@ -125,7 +125,7 @@ class lottery extends UserAction{
 
 		$sNow = date('Y-m-d H:i:s');
 		$sql = "update `@#_user_buy_lottery` set `status`=2,`cancel_time` = '$sNow' where order_sn = '$sOrderSN' AND `user_id` = $this->Userid AND `status` = 1";
-		
+
 		$mysql_model->Query($sql);
 		$iAffectedRows = intval($mysql_model->affected_rows());
 		if(empty($aBuyInfo) || empty($iAffectedRows)){
@@ -137,7 +137,7 @@ class lottery extends UserAction{
 		//将用户的余额补回来
 		$fBuyMoney = $aBuyInfo['buy_money'];
 		$sql = "update `@#_user` set money = money + ${fBuyMoney} where `uid` = $this->Userid";
-		
+
 		$mysql_model->Query($sql);
 
 		$aRet['errno'] = 0;
@@ -157,7 +157,7 @@ class lottery extends UserAction{
 				$aBuyRecord['cancel_url'] = "/?/member/lottery/cancel_order&order_id=".$aBuyRecord['order_sn'];
 			}
 		}*/
-		
+
 		$this->view->data('buy_lists', $aBuyLists);
 		$this->view->show("user.lottery_record");
 	}
@@ -180,7 +180,7 @@ class lottery extends UserAction{
 				$aLotteryRecord['lottery_txt'] .= '双';
 			}
 
-			if($aLotteryRecord['lottery_number']>=0 
+			if($aLotteryRecord['lottery_number']>=0
 				&&$aLotteryRecord['lottery_number']<=4){
 				$aLotteryRecord['lottery_txt'] .= '小';
 			}elseif($aLotteryRecord['lottery_number']>=5&&$aLotteryRecord['lottery_number']<=9){
@@ -214,7 +214,7 @@ class lottery extends UserAction{
 			$aRet['errmsg'] = "暂时无法获取到数据，请稍候";
 			echo json_encode($aRet, JSON_UNESCAPED_UNICODE);
 		}
-		
+
 		exit();
 	}
 
@@ -259,7 +259,7 @@ class lottery extends UserAction{
 		if (array_search($buy_number, [-1,0,1,2,3,4,5,6,7,8,9]) !== false) {
 			if ($buy_number != -1) {
 				$iNeedMoney += (2 * $multiple);
-				$buy_content .= ($buy_number . ' ');				
+				$buy_content .= ($buy_number . ' ');
 			}
 		}else{
 			$iNeedMoney = -1;
@@ -292,5 +292,6 @@ class lottery extends UserAction{
 		}
 
 		return array($iNeedMoney, $buy_content);
+		
 	}
 }

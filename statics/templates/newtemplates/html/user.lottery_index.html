@@ -237,6 +237,7 @@
     $("#btnPostBet").click(function(){
         var buy1 = $(".pp11 > .code").filter('.checked').val();
         var buy2 = $(".pp12 > .code").filter('.checked').val();
+
         //倍数
         var multiple = parseFloat($('#num_dig').val());
 
@@ -262,12 +263,14 @@
             // var index = layer.load();
             var num1 = $(".pp11 > .code").filter('.checked').attr("number");
             var num2 = $(".pp12 > .code").filter('.checked').attr("number");
+            // 数字
+            var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
             //倍数
             var multiple = parseFloat($('#num_dig').val());
             $.ajax({
                 url:"/?/member/lottery/buy_lottery",
                 type:"post",
-                data:{buy1:num1, buy2:num2, multiple:multiple},
+                data:{buy1:num1, buy2:num2, multiple:multiple,buy_number:buy_number},
                 dataType:"json",
                 success:function(data){
                     if(data.errno){

@@ -353,6 +353,10 @@
 .add-number li.code.checked {background: url(../images/nsc/lottery/yuan.png) left -76px no-repeat;}
 .lucky-list div{
 	float:left;
-	padding:20px 0 0 20px;
-	
+}
+.lucky-list>div{
+	padding:10px 0 10px 10px;
+}
+.lucky-list .w-record-avatar{
+	padding-right:10px;
 }

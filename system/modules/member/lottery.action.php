@@ -200,9 +200,10 @@ class lottery extends UserAction{
 
 		foreach ($aLuckyList as &$value) {
 			$uid = $value['user_id'];
-			$sql = "select username from `@#_user` where `uid` = {$uid} limit 1";
+			$sql = "select username,img from `@#_user` where `uid` = {$uid} limit 1";
 			$sUsername = $mysql_model->GetOne($sql);
 			$value['username'] = $sUsername['username'];
+			$value['img'] = $sUsername['img'];
 		}
 
 		if (!empty($aLuckyList)) {

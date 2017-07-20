@@ -295,7 +295,7 @@
         //是否使用积分代替夺宝币 0：否 1：是
         var use_points;
 
-        if(!buy1 && !buy2 && (buy_number!=-1)){
+        if(!buy1 && !buy2 && (buy_number==-1)){
             layer.alert("请选择购买数字、大小或者单双!", {time:3000});
             return;
         }

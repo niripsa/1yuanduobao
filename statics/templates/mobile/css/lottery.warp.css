@@ -355,8 +355,9 @@
 .lucky-list>div{padding:10px 0 10px 10px;}
 .lucky-list .w-record-avatar{padding-right:10px;}
 .lucky-list-head{height: 30px;margin-top:40px;padding-left: 10px;line-height: 30px;  font-size: 16px;color: white;background: #a96b94;}
-
-
+.lucky-list .swiper-slide{
+	margin-bottom: 15px;
+}
 
 .layui-form-item .layui-input-block{
 	padding: 20px 15px;

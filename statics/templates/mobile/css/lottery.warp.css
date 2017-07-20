@@ -365,6 +365,9 @@
 .lucky-list strong{
 	color:#d83333;
 }
+.lucky-list .w-record-date{
+	float:right;
+}
 
 .layui-form-item .layui-input-block{
 	padding: 20px 15px;
@@ -372,6 +375,8 @@
 .layui-form-item .layui-input-block input{
 	cursor: pointer;
 	padding-right:3px;
+	display: inline-block;
+	border: initial;
 
 }
 .layui-form-item .layui-input-block label{

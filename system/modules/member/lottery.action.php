@@ -42,7 +42,7 @@ class lottery extends UserAction{
 		$buy_number = ($_POST['buy_number'] >= 0 ? intval($_POST['buy_number']) : -1);
 		$use_points = (intval($_POST['use_points']) == 1 ? 1 : 0);
 
-		list($iNeedMoney, $buy_content) = _calculate_lottery_info($buy1, $buy2, $buy_number, $multiple);
+		list($iNeedMoney, $buy_content) = $this->_calculate_lottery_info($buy1, $buy2, $buy_number, $multiple);
 
 		if ($iNeedMoney == -1) {
 			$aRet['errno'] = 3;

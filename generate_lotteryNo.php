@@ -193,6 +193,14 @@ file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time())
 				$fUserPoints += 16*$multiple;
 			}
 
+			//将积分变动存入yg_user_points积分明细表
+			$time = time();
+			$sql = "insert into `yg_user_points` set `uid`={$id}, `type`=1, `reason`=3, `content`='{$sLastStageNo}', `points`={$fUserPoints}, `time`={$time}";
+
+			mysqli_query($con, $sql);
+			unset($time);
+
+
 			$id = $aUserBuyInfo['id'];
 			$sql = "update `yg_user_buy_lottery` set `award_points` = $fUserPoints, `status` = 3 where id = $id AND `status` = 1 AND `stage_no` = '$sLastStageNo'";
 			

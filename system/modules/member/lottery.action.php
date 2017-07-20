@@ -83,6 +83,18 @@ class lottery extends UserAction{
 			exit(json_encode($aRet));
 		}
 
+		//如果是使用积分,则存入yg_user_points积分明细表
+		if ($use_points == 1) {
+			$aData = [];
+			$aData['uid'] 	  = $this->Userid;
+			$aData['type'] 	  = -1;
+			$aData['reason']  = 2;
+			$aData['content'] = strval($aLotteryInfo['stage_no']);
+			$aData['points']  = intval($iNeedMoney);
+			$aData['time'] 	  = time();
+			$mysql_model->Insert('user_points', $aData);
+		}
+
 		//走到此处说明购买成功了
 		$aData = array();
 		$aData['order_sn'] = $this->_generateOrderSN();

@@ -103,6 +103,10 @@ class member_model extends model
         return $this->Insert("user_account", $data);
     }
 
+    public function user_points_add($data = array()){
+        return $this->Insert("user_points", $data);
+    }
+
     public function get_group($where = "", $field = "*", $order = "", $num = "")
     {
         if (empty($field)) {

@@ -271,6 +271,7 @@ class member extends admin
                     $content_num = "-1";
                 }
 
+                $acc_arr = array();
                 $acc_arr["uid"]     = $uid;
                 $acc_arr["type"]    = $content_num;
                 $acc_arr["pay"]     = "账户";
@@ -280,6 +281,28 @@ class member extends admin
                 $text = ($content_num == "1" ? "管理员增加了:" . $content_money : "管理员减少了:" . $content_money);
                 $this->order->user_add_chongzhi($uid, $content_money, $text);
                 $rx = $this->model->user_account_add($acc_arr);
+            }
+
+            if ( $data['points'] != $member['points']) {
+                if ( $member['points'] < $data['points']) {
+                    $content_points = $data["points"] - $member["points"];
+                    $content_num = "1";
+                } else {
+                    $content_points = $member["points"] - $data["points"];
+                    $content_num = "-1";
+                }
+
+                $text = ($content_num == "1" ? "管理员增加了:" . $content_points : "管理员减少了:" . $content_points);
+
+                $points_arr = [];
+                $points_arr['uid']     = $uid;
+                $points_arr['type']    = $content_num;
+                $points_arr['reason']  = 1;
+                $points_arr['content'] = $text;
+                $points_arr['points']  = $content_points;
+                $points_arr['time']    = time();
+
+                $this->model->user_points_add($points_arr);
             }
 
             $res = $this->model->user_save("`uid`='" . $uid . "'", $data);

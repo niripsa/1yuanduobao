@@ -455,7 +455,7 @@
     function gameKanJiangDataC(diffTime, actionNo){
         var thisNo=$('#current_issue').html();
         TIPS='本期['+thisNo+']已截至投注';
-        console.log(diffTime);
+        // console.log(diffTime);
         if(diffTime<=0){
             codeplay('正在封单中');
             $('#btnaddBet').unbind('click');
@@ -598,7 +598,7 @@
                var mySwiper = new Swiper ('.swiper-container', {
                     loop: true,
                     autoplay: 3000,
-                    direction:'vertical',
+                    // direction:'vertical',
                     // slidesPerView: 3,
                     // slidesPerColumn : 2
                 })

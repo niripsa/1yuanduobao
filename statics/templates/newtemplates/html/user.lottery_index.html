@@ -295,7 +295,7 @@
         //是否使用积分代替夺宝币 0：否 1：是
         var use_points;
 
-        if(!buy1 || !buy2 || !buy_number){
+        if(!buy1 && !buy2 && !buy_number){
             layer.alert("请选择购买数字、大小或者单双!", {time:3000});
             return;
         }
@@ -319,19 +319,19 @@
                 var use_points_msg = use_points?"积分":"夺宝币";
                 var message;
                 multiple_msg = multiple+"倍";
-                if(!buy_number&&!buy1&&!buy2){
+                if(buy_number&&buy1&&buy2){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" +buy_number+"," +buy1 +"," +buy2 + ","+ multiple_msg + "(花费"+6*multiple+use_points_msg+")</span>吗？";
-                }else if(!buy_number&&!buy1){
+                }else if(buy_number&&buy1){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" +buy_number+"," + buy1 + ","+ multiple_msg + "(花费"+4*multiple+use_points_msg+")</span>吗？";
-                }else if(!buy_number&&!buy2){
+                }else if(buy_number&&buy2){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" + buy_number+"," +buy2 + ","+ multiple_msg + "(花费"+4*multiple+use_points_msg+")</span>吗？";
-                }else if(!buy2&&!buy1){
+                }else if(buy2&&buy1){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + ","+ multiple_msg +"(花费"+4*multiple+use_points_msg+")</span>吗？"
-                }else if(!buy1){
+                }else if(buy1){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？"
-                }else if(!buy2){
+                }else if(buy2){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" + buy2 + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？";
-                }else if(!buy_number){
+                }else if(buy_number){
                     message = "您确认购买<span style='color:red;font-weight:800;'>" + buy_number + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？";
                 }
 

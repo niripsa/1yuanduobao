@@ -359,6 +359,13 @@
 	margin-bottom: 15px;
 }
 
+.lucky-list a{
+	color:#39f;
+}
+.lucky-list strong{
+	color:#d83333;
+}
+
 .layui-form-item .layui-input-block{
 	padding: 20px 15px;
 }

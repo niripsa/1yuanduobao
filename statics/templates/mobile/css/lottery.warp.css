@@ -375,7 +375,7 @@
 .layui-form-item .layui-input-block input{
 	cursor: pointer;
 	padding-right:3px;
-	-webkit-appearance:normal;
+	-webkit-appearance: radio;
 
 }
 .layui-form-item .layui-input-block label{

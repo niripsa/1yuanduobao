@@ -287,27 +287,20 @@
     $("#btnPostBet").click(function(){
         var buy1 = $(".pp11 > .code").filter('.checked').val();
         var buy2 = $(".pp12 > .code").filter('.checked').val();
+        // 数字
+        var buy_number = $('.add-number .checked').text()?$('.add-number .checked').text():-1;
 
         //倍数
         var multiple = parseFloat($('#num_dig').val());
         //是否使用积分代替夺宝币 0：否 1：是
         var use_points;
 
-        if(!buy1 && !buy2){
-            layer.alert("请选择购买大小或者单双!", {time:3000});
+        if(!buy1 || !buy2 || !buy_number){
+            layer.alert("请选择购买数字、大小或者单双!", {time:3000});
             return;
         }
 
-        var message;
-        multiple_msg = multiple+"倍";
 
-        if(!buy1){
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy2 + ","+ multiple_msg + "(花费"+2*multiple+"夺宝币)</span>吗？";
-        }else if(!buy2){
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+ multiple_msg + "(花费"+2*multiple+"夺宝币)</span>吗？"
-        }else{
-            message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + ","+ multiple_msg +"(花费"+4*multiple+"夺宝币)</span>吗？"
-        }
 
         layer.open({
           type: 1 //Page层类型
@@ -323,9 +316,36 @@
           ,btn: ['继续']
           ,yes: function(index, layero){
                 use_points = $('.layui-input-block input:checked').val();
+                var use_points_msg = use_points?"积分":"夺宝币";
+                var message;
+                multiple_msg = multiple+"倍";
+                if(!buy_number&&!buy1&&!buy2){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" +buy_number+"," +buy1 +"," +buy2 + ","+ multiple_msg + "(花费"+6*multiple+use_points_msg+")</span>吗？";
+                }else if(!buy_number&&!buy1){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" +buy_number+"," + buy1 + ","+ multiple_msg + "(花费"+4*multiple+use_points_msg+")</span>吗？";
+                }else if(!buy_number&&!buy2){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" + buy_number+"," +buy2 + ","+ multiple_msg + "(花费"+4*multiple+use_points_msg+")</span>吗？";
+                }else if(!buy2&&!buy1){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+buy2 + ","+ multiple_msg +"(花费"+4*multiple+use_points_msg+")</span>吗？"
+                }else if(!buy1){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" + buy1 + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？"
+                }else if(!buy2){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" + buy2 + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？";
+                }else if(!buy_number){
+                    message = "您确认购买<span style='color:red;font-weight:800;'>" + buy_number + ","+ multiple_msg + "(花费"+2*multiple+use_points_msg+")</span>吗？";
+                }
 
                 if(use_points=='1'){//积分支付
-                   buy_lottery(1,index);
+                    layer.close(index);
+
+                   var index_confirm = layer.confirm(message, {
+                       btn:['确认', '取消'],
+                   }, function(index, layer1){
+                       // var index = layer.load();
+                         buy_lottery(1,index,index_confirm)
+                   }, function(index, layer2){
+                       /*void do nothing*/
+                   });
                 }else{
                     layer.close(index);
                     var index_confirm = layer.confirm(message, {

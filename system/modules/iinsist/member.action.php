@@ -283,16 +283,16 @@ class member extends admin
                 $rx = $this->model->user_account_add($acc_arr);
             }
 
-            if ( $data['points'] != $member['points']) {
-                if ( $member['points'] < $data['points']) {
-                    $content_points = $data["points"] - $member["points"];
+            if ( $data['user_points'] != $member['user_points']) {
+                if ( $member['user_points'] < $data['user_points']) {
+                    $content_points = $data["user_points"] - $member["user_points"];
                     $content_num = "1";
                 } else {
-                    $content_points = $member["points"] - $data["points"];
+                    $content_points = $member["user_points"] - $data["user_points"];
                     $content_num = "-1";
                 }
 
-                $text = ($content_num == "1" ? "管理员增加了:" . $content_points : "管理员减少了:" . $content_points);
+                $text = ($content_num == "1" ? "管理员增加了:" . $content_points . "积分" : "管理员减少了:" . $content_points . "积分");
 
                 $points_arr = [];
                 $points_arr['uid']     = $uid;
@@ -302,7 +302,7 @@ class member extends admin
                 $points_arr['points']  = $content_points;
                 $points_arr['time']    = time();
 
-                $this->model->user_points_add($points_arr);
+                $rx_points = $this->model->user_points_add($points_arr);
             }
 
             $res = $this->model->user_save("`uid`='" . $uid . "'", $data);

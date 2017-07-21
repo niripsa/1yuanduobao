@@ -174,6 +174,37 @@ class lottery extends UserAction{
 		$this->view->show("user.lottery_record");
 	}
 
+	//查看所有积分记录
+	public function points_record(){
+		$sql = "select * from `@#_user_points` where `uid` = {$this->Userid} order by `time` desc limit 100";		
+		$mysql_model = System::load_sys_class("model");
+		$aPointsLists = $mysql_model->GetList($sql);
+
+		foreach ($aPointsLists as &$aPointsRecord) {
+			$aPointsRecord['time'] = date("Y-m-d H:i:s", $aPointsRecord['time']);
+
+			$aPointsRecord['points'] = ($aPointsRecord['type'] == 1 ? "+" : "-") . $aPointsRecord['points'];
+
+			switch ($aPointsRecord['reason']) {
+				case 1:
+					$aPointsRecord['reason'] = "管理员改动";
+					break;
+				case 2:
+					$aPointsRecord['reason'] = "购买彩票";
+					break;
+				case 3:
+					$aPointsRecord['reason'] = "彩票积分返利";
+					break;					
+				case 4:
+					$aPointsRecord['reason'] = "积分商城";
+					break;
+			}
+		}
+
+		$this->view->data('points_lists', $aPointsLists);
+		$this->view->show("user.points_record");		
+	}
+
 	//开奖记录
 	public function lottery_record(){
 		//status=2 代表已开奖

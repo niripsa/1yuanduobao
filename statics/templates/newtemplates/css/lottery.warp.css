@@ -265,7 +265,7 @@
 
 /*充值、提款、投注记录*/
 .tools { width: 210px; background: #965e85; height: 90px; }
-.yu_e { margin: 10px 0 0 10px; padding-bottom: 10px; font-size: 13px; color: #fff; border-bottom: 1px solid #9d8197; position: relative; height: 19px; line-height: 19px; }
+.yu_e { margin: 5px 0 0 10px; padding-bottom: 5px; font-size: 13px; color: #fff; border-bottom: 1px solid #9d8197; position: relative; height: 19px; line-height: 19px; }
 .yu_e .ic-unlook{background-position:-103px -117px;}
 .yu_e .ic-unlook.hide{background-position:-23px -116px;}
 .yu_e .ic-refresh{background-position:-48px -119px;display:none;}
@@ -280,7 +280,7 @@
 .toolslist li a { display: block; color: #fff; text-align:center;overflow:hidden; }
 .toolslist li a:hover { color: #ffdc7c; }
 .toolslist .ctqc{ float:left; width:75px; font-size: 14px; }
-.toolslist .ctqc .recharge { background: url(../images/nsc/warp/info.png) no-repeat; width:44px; height:22px; color:#ffdc7c; padding-top:22px; margin:5px 0 0 20px;  }
+.toolslist .ctqc .recharge { background: url(../images/nsc/warp/info.png) no-repeat; width:44px; height:22px; color:#ffdc7c; margin:5px 0 0 20px;  }
 .toolslist .ctqc .drawings { background: url(../images/nsc/warp/info.png) no-repeat 0 -45px; width:44px; height:22px; padding-top:22px; margin:5px; }
 .toolslist .ctqc .drawings:hover { background: url(../images/nsc/warp/info.png) no-repeat 0 -90px;}
 .toolslist .twbb{ float:right; width:75px; font-size: 12px; }
@@ -371,4 +371,10 @@
 	font-size: 16px;
 	margin-left: 5px;
 	margin-right: 30px;
+}
+.pointsrecord{
+	padding: 0 8px 0 17px;
+}
+.pointsrecord a{
+	color:#fff;
 }

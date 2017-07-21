@@ -384,7 +384,7 @@
 	margin-right: 30px;
 }
 
-.toolslist li{
+.toolslist ul{
 	float: left;
 	width: 25%;
 }

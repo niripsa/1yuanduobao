@@ -10,7 +10,7 @@ $sIp = "127.0.0.1";
 $sPort = 3306;
 $sUserName = "duobao";
 $sUserPass = "lkjoe990kldskfj";
-$sDatabase = "duobao_dev";
+$sDatabase = "duobao";
 $iTime = 5; //5分钟开一轮
 
 $con = mysqli_connect($sIp, $sUserName, $sUserPass, $sDatabase, $sPort);

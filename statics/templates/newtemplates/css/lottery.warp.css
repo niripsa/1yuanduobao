@@ -280,7 +280,7 @@
 .toolslist li a { display: block; color: #fff; text-align:center;overflow:hidden; }
 .toolslist li a:hover { color: #ffdc7c; }
 .toolslist .ctqc{ float:left; width:75px; font-size: 14px; }
-.toolslist .ctqc .recharge { background: url(../images/nsc/warp/info.png) no-repeat; width:44px; height:22px; color:#ffdc7c; padding-top:22px; margin:5px 0 0 20px;  }
+.toolslist .ctqc .recharge { background: url(../images/nsc/warp/info.png) no-repeat; width:44px; height:22px; color:#ffdc7c; margin:5px 0 0 20px;  }
 .toolslist .ctqc .drawings { background: url(../images/nsc/warp/info.png) no-repeat 0 -45px; width:44px; height:22px; padding-top:22px; margin:5px; }
 .toolslist .ctqc .drawings:hover { background: url(../images/nsc/warp/info.png) no-repeat 0 -90px;}
 .toolslist .twbb{ float:right; width:75px; font-size: 12px; }
@@ -371,4 +371,10 @@
 	font-size: 16px;
 	margin-left: 5px;
 	margin-right: 30px;
+}
+.pointsrecord{
+	padding:0 20px;
+}
+.pointsrecord a{
+	color:#fff;
 }

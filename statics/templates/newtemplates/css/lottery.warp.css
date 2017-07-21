@@ -265,7 +265,7 @@
 
 /*充值、提款、投注记录*/
 .tools { width: 210px; background: #965e85; height: 90px; }
-.yu_e { margin: 10px 0 0 10px; padding-bottom: 10px; font-size: 13px; color: #fff; border-bottom: 1px solid #9d8197; position: relative; height: 19px; line-height: 19px; }
+.yu_e { margin: 5px 0 0 10px; padding-bottom: 5px; font-size: 13px; color: #fff; border-bottom: 1px solid #9d8197; position: relative; height: 19px; line-height: 19px; }
 .yu_e .ic-unlook{background-position:-103px -117px;}
 .yu_e .ic-unlook.hide{background-position:-23px -116px;}
 .yu_e .ic-refresh{background-position:-48px -119px;display:none;}

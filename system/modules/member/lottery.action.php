@@ -36,9 +36,9 @@ class lottery extends UserAction{
 
 	public function buy_lottery(){
 		//buy1代表是单双 buy2代表是大小 multiple代表注数 buy_number代表购买的数字 use_points代表是否使用积分
-		$buy1 = (intval($_POST['buy1']) >= 1 ? : 0);
-		$buy2 = (intval($_POST['buy2']) >= 1 ? : 0);
-		$multiple = (intval($_POST['multiple']) > 0 ? : 1);
+		$buy1 = (intval($_POST['buy1']) >= 1 ? intval($_POST['buy1']): 0);
+		$buy2 = (intval($_POST['buy2']) >= 1 ? intval($_POST['buy2']): 0);
+		$multiple = (intval($_POST['multiple']) > 0 ? intval($_POST['multiple']): 1);
 		$buy_number = ($_POST['buy_number'] >= 0 ? intval($_POST['buy_number']) : -1);
 		$use_points = (intval($_POST['use_points']) == 1 ? 1 : 0);
 
@@ -104,7 +104,7 @@ class lottery extends UserAction{
 		$aData['buy_content_id'] = $buy1 . $buy2;
 		$aData['buy_content']    = $buy_content;
 		$aData['buy_number']	 = $buy_number;
-		$aData['buy_money']  = intval($iNeedMoney);
+		$aData['buy_money']  = $iNeedMoney;
 		$aData['use_points'] = $use_points;
 		$aData['status']     = 1;
 

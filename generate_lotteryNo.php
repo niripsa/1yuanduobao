@@ -194,15 +194,16 @@ file_put_contents('/mnt/wwwroot/duobao/www/debug.txt',date('Y-m-d H:i:s',time())
 			}
 
 			//如果中奖,将积分变动存入yg_user_points积分明细表
-			$id = $aUserBuyInfo['id'];
+			$user_id = $aUserBuyInfo['user_id'];
 			if ($fUserPoints != 0) {
 				$time = time();
-				$sql = "insert into `yg_user_points` set `uid`={$id}, `type`=1, `reason`=3, `content`='{$sLastStageNo}', `points`={$fUserPoints}, `time`={$time}";
+				$sql = "insert into `yg_user_points` set `uid`={$user_id}, `type`=1, `reason`=3, `content`='{$sLastStageNo}', `points`={$fUserPoints}, `time`={$time}";
 
 				mysqli_query($con, $sql);
 				unset($time);				
 			}
 
+			$id = $aUserBuyInfo['id'];
 			$sql = "update `yg_user_buy_lottery` set `award_points` = $fUserPoints, `status` = 3 where id = $id AND `status` = 1 AND `stage_no` = '$sLastStageNo'";
 			
 			mysqli_query($con, $sql);

@@ -336,7 +336,7 @@ div.integration-rule{font-size: 16px;line-height: 40px;margin-right: 30px;cursor
 
 .add-number li.code{
 	border: none medium;
-	margin-right: 6px;
+	margin-right: 1rem;
 	margin-bottom: 10px;
 	display: inline-block;
 	background: url(../images/nsc/lottery/yuan.png) left top no-repeat;
@@ -344,7 +344,7 @@ div.integration-rule{font-size: 16px;line-height: 40px;margin-right: 30px;cursor
 	height: 38px;
 	line-height: 38px;
 	color: #4f4f4f;
-	font-size: 19px;
+	font-size: 20px;
 	text-align: center;
 	cursor: pointer;
 }

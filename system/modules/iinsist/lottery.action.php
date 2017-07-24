@@ -69,6 +69,12 @@ class lottery extends admin{
         $recordlist = $mysql_model->GetList($sql);
 
         foreach ($recordlist as $id => $aOneRecord) {
+            if ($aOneRecord['use_points'] == 0) {
+                $recordlist[$id]['buy_type'] = "夺宝币";
+            }elseif ($aOneRecord['use_points'] == 1) {
+                $recordlist[$id]['buy_type'] = "积分";
+            }
+
             if($recordlist[$id]['status'] == 1){
                 $recordlist[$id]['status_txt'] = '未开奖';
             }elseif($recordlist[$id]['status'] == 2) {

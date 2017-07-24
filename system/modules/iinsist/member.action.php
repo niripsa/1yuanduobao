@@ -875,4 +875,137 @@ class member extends admin
         $this->view->data("pay_list", $pay_list);
         $this->view->tpl("member.pay_list")->data("members", $members);
     }
+
+    public function points_list()
+    {
+        if (isset($_POST["sososubmit"])) {
+            $data = _post();
+            if (!empty($data["posttime1"]) && !empty($data["posttime2"])) {
+                $data["posttime1"] = strtotime($data["posttime1"]);
+                $data["posttime2"] = strtotime($data["posttime2"]);
+
+                if ($data["posttime2"] < $data["posttime1"]) {
+                    _message("前一个时间不能大于后一个时间");
+                }
+
+                $times = " `time`>='" . $data["posttime1"] . "' AND `time`<='" . $data["posttime2"] . "'";
+            }
+
+            if ($data["yonghu"] == "用户id") {
+                if (!empty($data["yonghuzhi"])) {
+                    $uid = " `uid`='" . $data["yonghuzhi"] . "'";
+                }
+            }
+
+            if ($data["yonghu"] == "用户名称") {
+                if (!empty($data["yonghuzhi"])) {
+                    $user_uid = $this->model->get_user_one("`username`='" . $data["yonghuzhi"] . "'");
+
+                    if ($user_uid) {
+                        $uid = " `uid`='{$user_uid["uid"]}'";
+                    }
+                    else {
+                        _message($data["yonghuzhi"] . "用户不存在！");
+                    }
+                }
+            }
+
+            if ($data["yonghu"] == "用户邮箱") {
+                if (!empty($data["yonghuzhi"])) {
+                    $user_uid = $this->model->get_user_one("`email`='" . $data["yonghuzhi"] . "'");
+
+                    if ($user_uid) {
+                        $uid = " `uid`='{$user_uid["uid"]}'";
+                    }
+                    else {
+                        _message($data["yonghuzhi"] . "用户不存在！");
+                    }
+                }
+            }
+
+            if ($data["yonghu"] == "用户手机") {
+                if (!empty($data["yonghuzhi"])) {
+                    $user_uid = $this->model->get_user_one("`mobile`='" . $data["yonghuzhi"] . "'");
+
+                    if ($user_uid) {
+                        $uid = " `uid`='{$user_uid["uid"]}'";
+                    }
+                    else {
+                        _message($data["yonghuzhi"] . "用户不存在！");
+                    }
+                }
+            }
+
+            $wheres = $times . $uid;
+        }
+
+        $num = 20;
+        $page = System::load_sys_class("page");
+
+        if (empty($wheres)) {
+            $selectwords = " 1 order by  `time` DESC";
+            $total = $this->order->points_num($selectwords);
+            $page->config($total, $num);
+            $pay_list = $this->order->points_list($selectwords . $page->setlimit());
+            $pay_list = empty($pay_list)?array():$pay_list;
+            foreach ($pay_list as $v ) {
+                $summoeny += $v["points"];
+            }
+        }
+        else {
+            $selectwords = $wheres . " order by  `time` DESC";
+            $total = $this->order->points_num($selectwords);
+            $page->config($total, $num);
+            $pay_list = $this->order->points_list($selectwords, "", "", $page->setlimit(1));
+            foreach ($pay_list as $v ) {
+                $summoeny += $v["points"];
+            }
+        }
+
+        $members = array();
+
+        foreach ($pay_list as &$v ) {
+            $v['time'] = date("Y-m-d H:i:s", $v['time']);
+
+            $v['points'] = ($v['type'] == 1 ? "+" : "-") . $v['points'];
+
+            switch ($v['reason']) {
+                case 1:
+                    $v['reason'] = "管理员改动";
+                    break;
+                case 2:
+                    $v['reason'] = "购买彩票";
+                    break;
+                case 3:
+                    $v['reason'] = "彩票积分返利";
+                    break;                  
+                case 4:
+                    $v['reason'] = "积分商城";
+                    break;
+            }
+        }        
+
+        for ($i = 0; $i < count($pay_list); $i++) {
+            $uid = $pay_list[$i]["uid"];
+            $member = $this->model->get_user_one("`uid`='" . $uid . "'");
+            $members[$i] = $member["username"];
+
+            if (empty($member["username"])) {
+                if (!empty($member["email"])) {
+                    $members[$i] = $member["email"];
+                }
+
+                if (!empty($member["mobile"])) {
+                    $members[$i] = $member["mobile"];
+                }
+            }
+        }
+
+        $this->view->data("summoeny", $summoeny);
+        $this->view->data("total", $total);
+        $this->view->data("page", $page->show("two"));
+        $this->view->data("ment", $this->ments);
+        $this->view->data("pay_list", $pay_list);
+        $this->view->tpl("member.points_list")->data("members", $members);
+    }    
 }

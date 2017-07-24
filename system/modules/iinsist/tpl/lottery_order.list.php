@@ -32,6 +32,7 @@ tbody tr{ line-height:30px; height:30px;}
             <th align="center">购买彩票</th>
             <th align="center">购买用户</th>
             <th align="center">购买总价</th>
+            <th align="center">购买方式</th>
             <th align="center">购买日期</th>
             <th align="center">订单状态</th>
             <th align="center">奖励积分</th>
@@ -49,6 +50,7 @@ tbody tr{ line-height:30px; height:30px;}
              <?php echo get_user_name( $v["user_id"] ); ?> 
             </td>
             <td align="center">￥<?php echo $v["buy_money"]; ?>元</td>
+            <td align="center"><?php echo $v["buy_type"]; ?></td>
             <td align="center"><?php echo $v["buy_time"]; ?></td>
             <td align="center"><?php echo $v["status_txt"]; ?></td>
             <td align="center"><?php echo $v["award_points"];?></td>

@@ -612,6 +612,12 @@ class order_model extends model
         return $data;
     }
 
+    public function points_list( $where, $field = "", $order = "", $num = 0 ){
+            $table = "user_points";
+            $data  = $this->data_list($table, $where, $field, $order, $num);
+            return $data;
+    }
+
     public function update_order( $where, $data )
     {
         return $this->Update( "cloud_select", $data, $where );
@@ -640,6 +646,12 @@ class order_model extends model
             $data  = $this->data_num( $table, $where );
         }
 
+        return $data;
+    }
+
+    public function points_num( $where ){
+        $table = "user_points";
+        $data  = $this->data_num( $table, $where );
         return $data;
     }
 

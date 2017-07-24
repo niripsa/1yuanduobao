@@ -369,23 +369,23 @@
 {
     background:pink;
 }
-.add-number li:nth-of-type(6)
+.add-number-radius li:nth-of-type(6)
 {
     background:green;
 }
-.add-number li:nth-of-type(7)
+.add-number-radius li:nth-of-type(7)
 {
     background:brown;
 }
-.add-number li:nth-of-type(8)
+.add-number-radius li:nth-of-type(8)
 {
     background:black;
 }
-.add-number li:nth-of-type(9)
+.add-number-radius li:nth-of-type(9)
 {
     background: orange;
 }
-.add-number li:nth-of-type(10)
+.add-number-radius li:nth-of-type(10)
 {
     background: blue;
 }
@@ -397,7 +397,7 @@
     line-height: 22px;
     border-radius: 100%;
     background:white;
-	font-size:20px;
+	font-size:16px;
 	
 }
 .add-number li.code.checked span{color: red;}

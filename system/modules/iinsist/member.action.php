@@ -948,18 +948,12 @@ class member extends admin
             $page->config($total, $num);
             $pay_list = $this->order->points_list($selectwords . $page->setlimit());
             $pay_list = empty($pay_list)?array():$pay_list;
-            foreach ($pay_list as $v ) {
-                $summoeny += $v["points"];
-            }
         }
         else {
             $selectwords = $wheres . " order by  `time` DESC";
             $total = $this->order->points_num($selectwords);
             $page->config($total, $num);
             $pay_list = $this->order->points_list($selectwords, "", "", $page->setlimit(1));
-            foreach ($pay_list as $v ) {
-                $summoeny += $v["points"];
-            }
         }
 
         $members = array();
@@ -1001,7 +995,6 @@ class member extends admin
             }
         }
 
-        $this->view->data("summoeny", $summoeny);
         $this->view->data("total", $total);
         $this->view->data("page", $page->show("two"));
         $this->view->data("ment", $this->ments);

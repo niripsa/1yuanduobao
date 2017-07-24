@@ -12,9 +12,8 @@ echo "/calendar/calendar-blue.css\" type=\"text/css\"> \r\n<script type=\"text/j
 echo G_PLUGIN_PATH;
 echo "/calendar/calendar.js\"></script>\r\n<style>\r\ntbody tr{ line-height:30px; height:30px;} \r\n</style>\r\n</head>\r\n<body>\r\n<div class=\"header lr10\">\r\n\t";
 echo headerment($ment);
-echo "</div>\r\n<div class=\"bk10\"></div>\r\n\r\n\r\n<div class=\"header-data lr10\">\r\n<div style=\"margin-bottom:5px;\">搜索的总消费金额：<span style=\"color:red;font-weight:bold;\">";
-echo $summoeny;
-echo "元</span></div>\r\n<form action=\"\" method=\"post\">\r\n 时间搜索: <input name=\"posttime1\" type=\"text\" id=\"posttime1\" class=\"input-text posttime\"  readonly=\"readonly\" value=\"";
+echo "</div>\r\n<div class=\"bk10\"></div>\r\n\r\n\r\n<div class=\"header-data lr10\">\r\n<div style=\"margin-bottom:5px;\"><span style=\"color:red;font-weight:bold;\">";
+echo "</span></div>\r\n<form action=\"\" method=\"post\">\r\n 时间搜索: <input name=\"posttime1\" type=\"text\" id=\"posttime1\" class=\"input-text posttime\"  readonly=\"readonly\" value=\"";
 echo !empty($posttime1) ? date("Y-m-d H:i:s", $posttime1) : "";
 echo "\"/> -  \r\n \t\t  <input name=\"posttime2\" type=\"text\" id=\"posttime2\" class=\"input-text posttime\"  readonly=\"readonly\" value=\"";
 echo !empty($posttime2) ? date("Y-m-d H:i:s", $posttime2) : "";

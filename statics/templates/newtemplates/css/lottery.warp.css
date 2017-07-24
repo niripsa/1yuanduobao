@@ -369,23 +369,23 @@
 {
     background:pink;
 }
-.add-number-radius li:nth-of-type(6)
+.add-number li:nth-of-type(6)
 {
     background:green;
 }
-.add-number-radius li:nth-of-type(7)
+.add-number li:nth-of-type(7)
 {
     background:brown;
 }
-.add-number-radius li:nth-of-type(8)
+.add-number li:nth-of-type(8)
 {
     background:black;
 }
-.add-number-radius li:nth-of-type(9)
+.add-number li:nth-of-type(9)
 {
     background: orange;
 }
-.add-number-radius li:nth-of-type(10)
+.add-number li:nth-of-type(10)
 {
     background: blue;
 }

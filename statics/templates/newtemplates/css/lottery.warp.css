@@ -398,9 +398,9 @@
     border-radius: 100%;
     background:white;
 	font-size:20px;
-	font-weight: 400;
+	
 }
-.add-number li.code.checked span{color: red;font-weight: 600;}
+.add-number li.code.checked span{color: red;}
 
 .lucky-list div{float:left;}
 .lucky-list>div{padding:10px 0 10px 10px;}

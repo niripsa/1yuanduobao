@@ -94,7 +94,12 @@ class lottery extends UserAction{
 			$aData['points']  = intval($iNeedMoney);
 			$aData['time'] 	  = time();
 			$mysql_model->Insert('user_points', $aData);
+
+			//积分购买彩票时，上级分发佣金
+			distribute_money($this->Userid, $iNeedMoney, "user_points");
 		}
+
+
 
 		//走到此处说明购买成功了
 		$aData = array();

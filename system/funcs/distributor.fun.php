@@ -104,7 +104,9 @@ function distributor_parent( $uid )
  */
 function distribute_money( $uid, $money, $type )
 {
-    dump( $type . '--异步支付调用佣金分发--'.date( 'Y-m-d H:i:s' ) );
+    if ($type != "user_points") {
+        dump( $type . '--异步支付调用佣金分发--'.date( 'Y-m-d H:i:s' ) );
+    }
     $distributor_model = System::load_app_model( 'distributor', 'common' );
     $money_log = System::load_app_model( 'dis_money_log', 'common' );
     /* 获取所有佣金配置 */

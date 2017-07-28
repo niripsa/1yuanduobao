@@ -75,6 +75,21 @@ if (empty($aRes)) {
 		            $aHuiZong[4]++;
 		        }
 		    }
+
+		    if ($aUserBuyInfo['buy_number'] != -1) {
+		    	$buyn = intval($aUserBuyInfo['buy_number']);
+		    	/*单小13 双小024 单大579 双大68*/
+	    		if (array_search($buyn, [1, 3]) !== false) {
+	    			$aHuiZong[2]++;
+	    		}elseif (array_search($buyn, [0, 2, 4]) !== false) {
+	    			$aHuiZong[4]++;
+	    		}elseif (array_search($buyn, [5, 7, 9]) !== false) {
+	    			$aHuiZong[1]++;
+	    		}elseif (array_search($buyn, [6, 8]) !== false) {
+	    			$aHuiZong[3]++;
+	    		}
+		    }
+
 		}
 		asort($aHuiZong, SORT_NUMERIC);
 		$iRange = array_keys($aHuiZong)[0];

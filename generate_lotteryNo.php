@@ -52,27 +52,21 @@ if (empty($aRes)) {
 	    $aHuiZong[4] = 0;
 		foreach ($aAllUserBuyInfo as $aUserBuyInfo) {
 		    if(!empty($aUserBuyInfo['buy_content_id'])){
-		        $buy = intval($aUserBuyInfo['buy_content_id']);
-		        if ($buy == 11) {
-		            $aHuiZong[1]++;
-		        }elseif ($buy == 12) {
-		            $aHuiZong[2]++;
-		        }elseif ($buy == 21) {
-		            $aHuiZong[3]++;
-		        }elseif ($buy == 22) {
-		            $aHuiZong[4]++;
-		        }elseif ($buy == 10) {
-		            $aHuiZong[1]++;
-		            $aHuiZong[2]++;
-		        }elseif ($buy == 20) {
-		            $aHuiZong[3]++;
-		            $aHuiZong[4]++;
-		        }elseif ($buy == 1) {
-		            $aHuiZong[1]++;
-		            $aHuiZong[3]++;
-		        }elseif ($buy == 2) {
-		            $aHuiZong[2]++;
-		            $aHuiZong[4]++;
+		        $buy_content = str_split($aUserBuyInfo['buy_content_id'];
+		        $buy1 = intval($buy_content[0]);
+		        $buy2 = intval($buy_content[1]);
+		        if ($buy1 == 1) {
+		        	$aHuiZong[1]++;
+		        	$aHuiZong[2]++;
+		        }elseif ($buy1 == 2) {
+		        	$aHuiZong[3]++;
+		        	$aHuiZong[4]++;
+		        }elseif ($buy2 == 1) {
+		        	$aHuiZong[1]++;
+		        	$aHuiZong[3]++;
+		        }elseif ($buy2 == 2) {
+		        	$aHuiZong[2]++;
+		        	$aHuiZong[4]++;
 		        }
 		    }
 

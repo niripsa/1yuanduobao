@@ -52,7 +52,7 @@ if (empty($aRes)) {
 	    $aHuiZong[4] = 0;
 		foreach ($aAllUserBuyInfo as $aUserBuyInfo) {
 		    if(!empty($aUserBuyInfo['buy_content_id'])){
-		        $buy_content = str_split($aUserBuyInfo['buy_content_id'];
+		        $buy_content = str_split($aUserBuyInfo['buy_content_id']);
 		        $buy1 = intval($buy_content[0]);
 		        $buy2 = intval($buy_content[1]);
 		        if ($buy1 == 1) {

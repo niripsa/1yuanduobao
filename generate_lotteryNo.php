@@ -61,7 +61,8 @@ if (empty($aRes)) {
 		        }elseif ($buy1 == 2) {
 		        	$aHuiZong[3]++;
 		        	$aHuiZong[4]++;
-		        }elseif ($buy2 == 1) {
+		        }
+		        if ($buy2 == 1) {
 		        	$aHuiZong[1]++;
 		        	$aHuiZong[3]++;
 		        }elseif ($buy2 == 2) {
